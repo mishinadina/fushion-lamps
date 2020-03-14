@@ -24,20 +24,20 @@ describe('Shop All page Verification', function () {
 
     //-----------------------------------------TCs-----------------------------------------//
 
-    // it('Click All Products', async function () {
-    //     await ShopAll.chooseRandomCategory();
-    //     await ShopAll.clickAllProducts();
-    // });
+    it('Click All Products', async function () {
+        await ShopAll.chooseRandomCategory();
+        await ShopAll.clickAllProducts();
+    });
 
-    // it('Add All Products to Cart', async function () {
-    //     await ShopAll.chooseRandomCategory();
-    //     await ShopAll.addAllProducts();
-    // });
+    it('Add All Products to Cart', async function () {
+        await ShopAll.chooseRandomCategory();
+        await ShopAll.addAllProducts();
+    });
 
-    // it('Verify Product in Cart', async function () {
-    //     await ShopAll.chooseRandomCategory();
-    //     await ShopAll.verifyProductsCart();
-    // });
+    it('Verify Product in Cart', async function () {
+        await ShopAll.chooseRandomCategory();
+        await ShopAll.verifyProductsCart();
+    });
 
     it('Verify Product in Mini Cart', async function () {
         await ShopAll.chooseRandomCategory();
