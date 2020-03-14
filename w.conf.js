@@ -9,17 +9,10 @@ var fs = require('fs');
 var basePath = __dirname;
 var path = require('path');
 
-
-
-
-var specArray = ['Testcase/Progression/HomePage_Validation.js', 'Testcase/Progression/Team_Validation.js','Testcase/Progression/Sales_Validation.js','Testcase/Progression/Property_Validation.js', 'Testcase/Progression/Coverage_Validation.js', 'Testcase/Progression/Technology_Validation.js', 'Testcase/Progression/News_Validation.js'];
+var specArray = ['Testcase/Progression/HomePage_Validation.js', 'Testcase/Progression/ShopAll_Validation.js', 'Testcase/Progression/Product_Validation.js'];
 //var specArray = ['Testcase/Progression/HomePage_Validation.js']
-//var specArray = ['Testcase/Progression/Coverage_Validation.js'];
-//var specArray = ['Testcase/Progression/Technology_Validation.js'];
-//var specArray = ['Testcase/Progression/News_Validation.js'];
-//var specArray = ['Testcase/Progression/Sales_Validation.js'];
-//var specArray = ['Testcase/Progression/Property_Validation.js'];
-//var specArray = ['Testcase/Progression/Team_Validation.js'];
+//var specArray = ['Testcase/Progression/ShopAll_Validation.js']
+//var specArray = ['Testcase/Progression/Product_Validation.js']
 
 exports.config = {
 
@@ -33,10 +26,10 @@ exports.config = {
 
 	specs: specArray,
 
-	allScriptsTimeout: 300000,
+	allScriptsTimeout: 100000,
 	getPageTimeout: 70000,
 	jasmineNodeOpts: {
-		defaultTimeoutInterval: 900000,
+		defaultTimeoutInterval: 600000,
 		showColors: true // Use colors in the command line report.
 	},
 
