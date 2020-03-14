@@ -1,0 +1,1 @@
+by.xpath('//*[@id="wooProducts"]/div/div/div[' + n + ']/h6')
