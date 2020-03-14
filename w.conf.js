@@ -1,6 +1,5 @@
 var browserstack = require('browserstack-local');
 var HtmlReporter = require('protractor-beautiful-reporter');
-var c = require('./Resources/Utility/modifyHtml.js');
 
 //var myReporter = require('./Reports/myReporter');
 var rimraf = require("rimraf");
