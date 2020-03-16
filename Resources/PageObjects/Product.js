@@ -42,6 +42,9 @@ var Product_Form = function () {
     var ArrowNext = by.xpath('//*[@class="owl-next"]')
     var ArrowPrev = by.xpath('//*[@class="owl-prev"]')
 
+    var ViewCartAlert = by.xpath("//*[@class ='alert alert-success']")
+    var ViewCartAlertLink = by.xpath("//*[@class ='alert alert-success']//*[text()='View cart']")
+
 
     //-----------------------------------------First Navigation Tabs Verifications----------------------------//
 
@@ -85,13 +88,10 @@ var Product_Form = function () {
         await element.all(Product).count().then(async function (count) {
             await HomePage.clickSignUpClose();
             await element.all(Product).then(async function (AllProducts) {
-                var RandomNumber = await Math.floor(Math.random() * count);
-                if (RandomNumber == count) {
-                    RandomNumber = await RandomNumber - 1
-                }
+                var RandomNumber = await Math.floor(Math.random() * count) + 1;
                 console.log("Random Product Number: " + RandomNumber);
-                var Product = await AllProducts[RandomNumber - 1].getWebElement();
-                var n = RandomNumber + 1
+                var Product = await AllProducts[RandomNumber].getWebElement();
+                var n = await RandomNumber + 1
                 var ElementText = by.xpath('//*[@id="wooProducts"]/div/div/div[' + n + ']/h6')
                 await element(ElementText).getText().then(async function (Text1) {
                     console.log("Random Product: " + Text1);
@@ -232,7 +232,7 @@ var Product_Form = function () {
     }
 
     this.checkNameRequired = async function () {
-       // await GUILib.clickObject(Reviews, "Reviews Tab is clicked")
+        // await GUILib.clickObject(Reviews, "Reviews Tab is clicked")
         await CF.checkRequired(Name, 'aria-required');
 
     }
@@ -240,6 +240,54 @@ var Product_Form = function () {
     this.checkEmailRequired = async function () {
         await GUILib.clickObject(Reviews, "Reviews Tab is clicked")
         await CF.checkRequired(Email, 'aria-required');
+    }
+
+
+    this.checkGreenAlertText = async function () {
+        await GUILib.waitforElement(Page)
+        await element(by.xpath('//*[@id="wooSummary"]//h1')).getText().then(async function (text1) {
+            await console.log("Product Name of Opened Page " + text1)
+            await element(OutStock).isPresent().then(async function (resultOutStock) {
+                if (resultOutStock == true) {
+                    await console.log("Product is out of stock");
+                    await element(AddToCartBtn).isPresent().then(async function (resultAddToCartBtn) {
+                        expect(resultAddToCartBtn).not.toBe(true)
+                    })
+
+                } else {
+                    await GUILib.clickObject(AddToCartBtn)
+                    await browser.sleep(500);
+                    await element(ViewCartAlert).getText().then(async function (text2) {
+                        text2 = await text2.toUpperCase();
+                        expect(text2).toContain(text1)
+                    })
+                }
+            })
+        })
+    }
+
+    this.checkGreenAlertCart = async function () {
+        await GUILib.waitforElement(Page)
+        await element(by.xpath('//*[@id="wooSummary"]//h1')).getText().then(async function (text1) {
+            await console.log("Product Name of Opened Page " + text1)
+            await element(OutStock).isPresent().then(async function (resultOutStock) {
+                if (resultOutStock == true) {
+                    await console.log("Product is out of stock");
+                    await element(AddToCartBtn).isPresent().then(async function (resultAddToCartBtn) {
+                        expect(resultAddToCartBtn).not.toBe(true)
+                    })
+
+                } else {
+                    await GUILib.clickObject(AddToCartBtn)
+                    await browser.sleep(500);
+                    await GUILib.clickObject(ViewCartAlertLink)
+                    await GUILib.waitforElement(ContinueShopping)
+                    await browser.getCurrentUrl().then(async function (link) {
+                        expect(link).toContain("cart")
+                    })
+                }
+            })
+        })
     }
 
     this.clickArrowNextCarousel = async function () {

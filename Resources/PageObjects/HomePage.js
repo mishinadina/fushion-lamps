@@ -65,7 +65,7 @@ var HomePage_Form = function () {
 
   var ArrowCarouselText = by.xpath("//*[@class='owl-stage-outer']//div.card[@class='owl-item active']//descendant::div//descendant::img")
 
-  var ArrowCarouselTextClonedPrev = by.xpath("//*[@class='owl-stage-outer']//div.card[@class='owl-item cloned active']//descendant::div//descendant::img")
+  var ArrowCarouselTextClonedPrev = by.xpath("//*[@class='owl-stage-outer']//div.card[@class='owl-item cloned']//descendant::div//descendant::img")
   var ArrowCarouselTextPrev = by.xpath("//*[@class='owl-stage-outer']//div.card[@class='owl-item active']//descendant::div//descendant::img")
 
   var ArrowCarouselShop = by.xpath("//*[@class='owl-stage-outer']//div.card[@class='owl-item active']//a[text()='Shop']")
@@ -77,7 +77,8 @@ var HomePage_Form = function () {
   var ShopBtn1 = by.xpath("//*[@id='homeTiles']/div/div/div[1]//a[text()='Shop']")
   var ShopImage1 = by.xpath("//*[@id='homeTiles']/div/div/div[1]//tr/td")
 
-  var ReadMoreImageShopBtn2 = by.xpath("//*[@id='homeTiles']/div/div/div[2]//a[text()='Shop']")
+
+  var ShopBtn2 = by.xpath("//*[@id='homeTiles']/div/div/div[2]//a[text()='Shop']")
   var ShopImage2 = by.xpath("//*[@id='homeTiles']/div/div/div[2]//tr/td")
 
   var ReadMoreBtn = by.xpath("//*[@class='col col-6 my-3']//*[text()='Read More']")
@@ -456,59 +457,72 @@ var HomePage_Form = function () {
     await GUILib.waitforElement(Logo);
     await element.all(by.xpath('//*[@class="owl-item"]')).count().then(async function (count) {
       await console.log(count)
-      for (var n = 1; n < count; n++) {
-        await element(SignUpClose).isPresent().then(async function (result) {
-          if (result == true) {
-            await GUILib.clickObject(SignUpClose);
+      await element(ArrowCarouselText).getAttribute('alt').then(async function (AltText1) {
+        await console.log(AltText1)
+        if (AltText1 !== "Healthy Skin is Always In Season") {
+          await element(ArrowCarouselPrev).click();
+          await element(ArrowCarouselText).getAttribute('alt').then(async function (AltText1) {
+            await console.log(AltText1)
+            if (AltText1 !== "Healthy Skin is Always In Season") {
+              await element(ArrowCarouselPrev).click();
+              await element(ArrowCarouselText).getAttribute('alt').then(async function (AltText1) {
+                await console.log(AltText1)
+                if (AltText1 !== "Healthy Skin is Always In Season") {
+                  await element(ArrowCarouselPrev).click();
+                }
+              })
+            }
+          })
+        }
+      }) 
+          for (var n = 1; n < count; n++) {
+            if (n == 2) {
+              await console.log(n)
+              await element(ArrowCarouselTextClonedPrev).getAttribute('alt').then(async function (AltText1) {
+                await console.log(AltText1)
+                await browser.wait(EC.elementToBeClickable(element(ArrowCarouselClonedPrev)), 5000);
+                await element(ArrowCarouselClonedPrev).click().then(async function () {
+                  await console.log("Arrow Prev is clicked in Carousel")
+                  await browser.sleep(2000);
+                  await element(ArrowCarouselTextPrev).getAttribute('alt').then(async function (AltText2) {
+                    await console.log(AltText2)
+                    expect(AltText1).not.toBe(AltText2);
+                  })
+                })
+              })
+            }
+            if ((n == 1) || (n == 6)) {
+              await console.log(n)
+              await element(ArrowCarouselText).getAttribute('alt').then(async function (AltText1) {
+                await console.log(AltText1)
+                await browser.wait(EC.elementToBeClickable(element(ArrowCarouselPrev)), 5000);
+                await element(ArrowCarouselPrev).click().then(async function () {
+                  await console.log("Arrow Prev is clicked in Carousel")
+                  await browser.sleep(2000);
+                  await element(ArrowCarouselTextClonedPrev).getAttribute('alt').then(async function (AltText2) {
+                    await console.log(AltText2)
+                    expect(AltText1).not.toBe(AltText2);
+                  })
+                })
+              })
+            }
+            if (n > 2 && n !== 6) {
+              await console.log(n)
+              await element(ArrowCarouselText).getAttribute('alt').then(async function (AltText1) {
+                await console.log(AltText1)
+                await browser.wait(EC.elementToBeClickable(element(ArrowCarouselPrev)), 5000);
+                await element(ArrowCarouselPrev).click().then(async function () {
+                  await console.log("Arrow Prev is clicked in Carousel")
+                  await browser.sleep(2000);
+                  await element(ArrowCarouselTextPrev).getAttribute('alt').then(async function (AltText2) {
+                    await console.log(AltText2)
+                    expect(AltText1).not.toBe(AltText2);
+                  })
+                })
+              })
+            }
           }
-        })
-        if (n == 2) {
-          await console.log(n)
-          await element(ArrowCarouselTextClonedPrev).getAttribute('alt').then(async function (AltText1) {
-            await console.log(AltText1)
-            await browser.wait(EC.elementToBeClickable(element(ArrowCarouselClonedPrev)), 5000);
-            await element(ArrowCarouselClonedPrev).click().then(async function () {
-              await console.log("Arrow Prev is clicked in Carousel")
-              await browser.sleep(2000);
-              await element(ArrowCarouselTextPrev).getAttribute('alt').then(async function (AltText2) {
-                await console.log(AltText2)
-                expect(AltText1).not.toBe(AltText2);
-              })
-            })
-          })
-        }
-        if ((n == 1) || (n == 6)) {
-          await console.log(n)
-          await element(ArrowCarouselText).getAttribute('alt').then(async function (AltText1) {
-            await console.log(AltText1)
-            await browser.wait(EC.elementToBeClickable(element(ArrowCarouselPrev)), 5000);
-            await element(ArrowCarouselPrev).click().then(async function () {
-              await console.log("Arrow Prev is clicked in Carousel")
-              await browser.sleep(2000);
-              await element(ArrowCarouselTextClonedPrev).getAttribute('alt').then(async function (AltText2) {
-                await console.log(AltText2)
-                expect(AltText1).not.toBe(AltText2);
-              })
-            })
-          })
-        }
-        if (n > 2 && n !== 6) {
-          await console.log(n)
-          await element(ArrowCarouselText).getAttribute('alt').then(async function (AltText1) {
-            await console.log(AltText1)
-            await browser.wait(EC.elementToBeClickable(element(ArrowCarouselPrev)), 5000);
-            await element(ArrowCarouselPrev).click().then(async function () {
-              await console.log("Arrow Prev is clicked in Carousel")
-              await browser.sleep(2000);
-              await element(ArrowCarouselTextPrev).getAttribute('alt').then(async function (AltText2) {
-                await console.log(AltText2)
-                expect(AltText1).not.toBe(AltText2);
-              })
-            })
-          })
-        }
-      }
-    })
+      })
   }
 
   // this.clickArrowPrevCarousel = async function () {

@@ -18,8 +18,6 @@ describe('Shop All page Verification', function () {
         await browser.sleep(1000);
         await HomePage.clickSignUpClose();
         await HomePage.clickCookiesPopUp();
-        await HomePage.clickShopAll();
-
     });
 
     //-----------------------------------------TCs-----------------------------------------//

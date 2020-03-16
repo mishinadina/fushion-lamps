@@ -68,20 +68,30 @@ describe('Product page Verification', function () {
         await Product.checkEmailRequired();
     });
 
-    // it('Check Results after clicking Arrow Next in Carousel of Recommended Products', async function () {
-    //     await Product.clickRandomProduct();
-    //     await Product.clickArrowNextCarousel();
-    // });
+    it('Check Text in Green Notice after adding Item to the Cart', async function () {
+        await Product.clickRandomProduct();
+        await Product.checkGreenAlertText();
+    });
 
-    // it('Check Results after clicking Arrow Previous in Carousel of Recommended Products', async function () {
-    //     await Product.clickRandomProduct();
-    //     await Product.clickArrowPrevCarousel();
-    // });
+    it('Check Results after clicking on "View Cart" Button in Green Notice after adding Item to the Cart', async function () {
+        await Product.clickRandomProduct();
+        await Product.checkGreenAlertCart();
+    });
 
-    // it('Click on All Items in Carousel of Recommended Products', async function () {
-    //     await Product.clickRandomProduct();
-    //     await Product.clickRandomItemCarousel();
-    // });
+    it('Check Results after clicking Arrow Next in Carousel of Recommended Products', async function () {
+        await Product.clickRandomProduct();
+        await Product.clickArrowNextCarousel();
+    });
+
+    it('Check Results after clicking Arrow Previous in Carousel of Recommended Products', async function () {
+        await Product.clickRandomProduct();
+        await Product.clickArrowPrevCarousel();
+    });
+
+    it('Click on All Items in Carousel of Recommended Products', async function () {
+        await Product.clickRandomProduct();
+        await Product.clickRandomItemCarousel();
+    });
 
     
 

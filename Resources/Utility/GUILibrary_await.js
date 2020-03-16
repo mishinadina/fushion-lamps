@@ -265,18 +265,34 @@ var GUILibrary = function () {
 		if (byObject1 != null && byObject2 == null && byObject3 == null) {
 			var text1 = await element(byObject1).getText();
 			var link1 = text1.toLowerCase();
+			var LastLetter = await link1.substr(-1);
+			if (LastLetter == " ") {
+				await console.log(link1);
+				link1 = await link1.slice(0, -1);
+				await console.log(link1);
+			}
 			var link = (startLink + link1 + '/').replace(/ /g, "-").replace(/-&/g, "-");
 			return link;
 		}
 		if (byObject1 != null && byObject2 !== null && byObject3 == null) {
 			var text1 = await element(byObject1).getText();
-			var link1 = text1.toLowerCase();
+			var link1 = await text1.toLowerCase();
+			var LastLetter = await link1.substr(-1);
+			if (LastLetter == " ") {
+				await console.log(link1);
+				link1 = await link1.slice(0, -1);
+				await console.log(link1);
+			}
 			var text2 = await element(byObject2).getAttribute("textContent")
-			var link2 = text2.toLowerCase();
+			var link2 = await text2.toLowerCase();
+			var LastLetter = await link2.substr(-1);
+			if (LastLetter == " ") {
+				link2 = await link2.slice(0, -1);
+			}
 			if (link1 !== "discover") {
-				var link = (startLink + link1 + '/' + link2 + '/').replace(/ /g, "-").replace(/-&-/g, "-");
+				var link = await (startLink + link1 + '/' + link2 + '/').replace(/ /g, "-").replace(/-&-/g, "-");
 			} else {
-				var link = (startLink + link2 + '/').replace(/ /g, "-").replace(/-&-/g, "-");
+				var link = await (startLink + link2 + '/').replace(/ /g, "-").replace(/-&-/g, "-");
 			}
 			return link;
 		}

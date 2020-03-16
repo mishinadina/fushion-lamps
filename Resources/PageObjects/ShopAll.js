@@ -80,35 +80,37 @@ var ShopAll_Form = function () {
     }
 
     this.clickAllProducts = async function () {
-        await GUILib.waitforElement(Page);
-        var Product = await CF.setProduct()
-        await HomePage.clickSignUpClose();
-        await element.all(Product).count().then(async function (count) {
-            await console.log(count);
-            for (var n = 1; n < count; n++) {
-                await element.all(Product).then(async function (AllProducts) {
-                    var Product = await AllProducts[n].getWebElement();
-                    await element.all(ElementText).then(async function (AllElementText) {
-                        var ElementText = await AllElementText[n].getWebElement();
-                        await ElementText.getText().then(async function (Text1) {
-                            console.log(Text1);
-                            await browser.wait(EC.elementToBeClickable(AllProducts[n]), 5000);
-                            await Product.click().then(async function () {
-                                await HomePage.clickSignUpClose();
-                                await console.log("Element is clicked");
-                                await GUILib.waitforElement(ProductPage);
-                                var ProductPageText = by.xpath('//*[@id="wooSummary"]//h1')
-                                await element(ProductPageText).getText().then(async function (Text2) {
-                                    await console.log(Text2);
-                                    expect(Text1).toContain(Text2);
-                                    await browser.navigate().back();
-                                    await GUILib.waitforElement(Page);
+        await browser.getCurrentUrl().then(async function (link) {
+            await GUILib.waitforElement(Page);
+            var Product = await CF.setProduct()
+            await HomePage.clickSignUpClose();
+            await element.all(Product).count().then(async function (count) {
+                await console.log(count);
+                for (var n = 1; n < count; n++) {
+                    await element.all(Product).then(async function (AllProducts) {
+                        var Product = await AllProducts[n].getWebElement();
+                        await element.all(ElementText).then(async function (AllElementText) {
+                            var ElementText = await AllElementText[n].getWebElement();
+                            await ElementText.getText().then(async function (Text1) {
+                                console.log(Text1);
+                                await browser.wait(EC.elementToBeClickable(AllProducts[n]), 5000);
+                                await Product.click().then(async function () {
+                                    await HomePage.clickSignUpClose();
+                                    await console.log("Element is clicked");
+                                    await GUILib.waitforElement(ProductPage);
+                                    var ProductPageText = by.xpath('//*[@id="wooSummary"]//h1')
+                                    await element(ProductPageText).getText().then(async function (Text2) {
+                                        await console.log(Text2);
+                                        expect(Text1).toContain(Text2);
+                                        await browser.get(link);
+                                        await GUILib.waitforElement(Page);
+                                    })
                                 })
                             })
                         })
                     })
-                })
-            }
+                }
+            })
         })
     }
 
@@ -160,7 +162,7 @@ var ShopAll_Form = function () {
             await HomePage.clickSignUpClose();
             var Product = await CF.setProduct()
             await element.all(Product).count().then(async function (count) {
-                for (var a = 0; a <= 5; a++) {
+                for (var a = 0; a <= 2; a++) {
                     await element.all(Product).then(async function (AllProducts) {
                         var RandomNumber = await Math.floor(Math.random() * count);
                         await console.log("Random Number: " + RandomNumber);
@@ -240,7 +242,7 @@ var ShopAll_Form = function () {
             await HomePage.clickSignUpClose();
             var Product = await CF.setProduct()
             await element.all(Product).count().then(async function (count) {
-                for (var a = 0; a <= 5; a++) {
+                for (var a = 0; a <= 2; a++) {
                     await element.all(Product).then(async function (AllProducts) {
                         var RandomNumber = await Math.floor(Math.random() * count);
                         await console.log("Random Number: " + RandomNumber);
@@ -281,14 +283,18 @@ var ShopAll_Form = function () {
             })
         })
         await GUILib.clickObject(Cart, "Cart Icon is clicked");
-        await GUILib.waitforElement(ViewCart);
+        await GUILib.waitforElement(ViewCart)
         await element.all(ProductDetailsMiniCart).count().then(async function (count) {
             await element.all(ProductDetailsMiniCart).then(async function (AllProductDetailsMiniCart) {
                 await console.log("Number of Unique Products in Mini Cart: " + count)
                 for (var n = 0; n < count; n++) {
                     var Product = await AllProductDetailsMiniCart[n].getWebElement();
                     await Product.getText().then(async function (Text2) {
+                        if (browser.browserName !== 'Safari') {
                         Text2 = await Text2.toUpperCase().replace("-", " ")
+                        } else {
+                            Text2 = await Text2.replace("-", " ")
+                        }
                         await console.log("Product Name " + Text2)
                         await items2.push(Text2);
                     })
@@ -300,7 +306,60 @@ var ShopAll_Form = function () {
 
     }
 
-    
+    // this.verifyProductsMiniCart = async function () {
+    //     await GUILib.waitforElement(ShopAllPage);
+    //     await HomePage.clickSignUpClose();
+    //     await element.all(Product).count().then(async function (count) {
+    //         for (var a = 0; a < 5; a++) {
+    //             await HomePage.clickSignUpClose();
+    //             await element.all(Product).then(async function (AllProducts) {
+    //                 var RandomNumber = await Math.round(Math.random() * count);
+    //                 console.log("Random Number: " + RandomNumber);
+    //                 var Product = await AllProducts[RandomNumber].getWebElement();
+    //                 var n = RandomNumber + 1
+    //                 var ElementText = by.xpath('//*[@id="wooProducts"]/div/div/div[' + n + ']/h6')
+    //                 await element(ElementText).getText().then(async function (Text1) {
+    //                     console.log("Random Product: " + Text1);
+    //                     await browser.wait(EC.elementToBeClickable(element(by.xpath('//*[@id="wooProducts"]/div/div/div[' + n + ']/a'))), 5000);
+    //                     await Product.click().then(async function () {
+    //                         await console.log(Text1 + " is clicked");
+    //                         await HomePage.clickSignUpClose();
+    //                         await GUILib.waitforElement(ProductPage);
+    //                         await element(OutStock).isPresent().then(async function (resultOutStock) {
+    //                             if (resultOutStock == true) {
+    //                                 await console.log("Product is out of stock");
+    //                                 await element(AddToCartBtn).isPresent().then(async function (resultAddToCartBtn) {
+    //                                     expect(resultAddToCartBtn).not.toBe(true)
+    //                                 })
+    //                             } else {
+    //                                 await console.log("Product is in stock");
+    //                                 await browser.wait(EC.elementToBeClickable(element(AddToCartBtn)), 5000);
+    //                                 await GUILib.clickObject(AddToCartBtn, "Product was added to Cart");
+    //                                 await HomePage.clickSignUpClose();
+    //                                 await browser.wait(EC.textToBePresentInElement(element(CartCount), z), 15000);
+    //                                 await z++;
+    //                                 await GUILib.clickObject(Cart, "Cart Icon is clicked");
+    //                                 await HomePage.clickSignUpClose();
+    //                                 var ProductDetailsMiniCart = by.xpath("//*[@id='wooMiniCart']/ul/li[" + y + "]/ul/li[3]/p/a")
+    //                                 await y++;
+    //                                 await element(ProductDetailsMiniCart).getAttribute("textContent").then(async function (Text2) {
+    //                                     Text2 = await Text2.toUpperCase();
+    //                                     await console.log("Product in Mini Cart " + Text2);
+    //                                     await console.log("Comparing: " + Text1 + " and " + Text2);
+    //                                     expect(Text1).toContain(Text2)
+    //                                 })
+    //                             }
+    //                             await browser.get("https://fotedev.wpengine.com/shop/");
+    //                             await GUILib.waitforElement(ShopAllPage);
+    //                         })
+    //                     })
+    //                 })
+    //             })
+    //         }
+    //     })
+    // }
+
+
 
 }
 module.exports = new ShopAll_Form;
