@@ -132,6 +132,7 @@ var Product_Form = function () {
     }
 
     this.addLessQuantity = async function () {
+        await HomePage.clickSignUpClose();
         await GUILib.clickObject(Description, "Description Tab is clicked")
         await HomePage.clickSignUpClose();
         await element(OutStock).isPresent().then(async function (resultOutStock) {
@@ -158,6 +159,7 @@ var Product_Form = function () {
     }
 
     this.fillQuantityMiniCart = async function () {
+        await HomePage.clickSignUpClose();
         await GUILib.clickObject(Description, "Description Tab is clicked")
         await HomePage.clickSignUpClose();
         await element(OutStock).isPresent().then(async function (resultOutStock) {
@@ -185,6 +187,7 @@ var Product_Form = function () {
     }
 
     this.fillQuantityCart = async function () {
+        await HomePage.clickSignUpClose();
         await GUILib.clickObject(Description, "Description Tab is clicked")
         await HomePage.clickSignUpClose();
         await element(OutStock).isPresent().then(async function (resultOutStock) {
