@@ -142,6 +142,7 @@ var ShopAll_Form = function () {
                             await GUILib.waitforElement(ProductPage);
                             await element(OutStock).isPresent().then(async function (resultOutStock) {
                                 if (resultOutStock == true) {
+                                    await console.log("Product is out of stock");
                                     await element(AddToCartBtn).isPresent().then(async function (resultAddToCartBtn) {
                                         expect(resultAddToCartBtn).not.toBe(true)
                                     })
@@ -201,11 +202,11 @@ var ShopAll_Form = function () {
                                         items1.push(Text1);
                                         console.log(items1);
                                     }
-                                    await browser.wait(EC.elementToBeClickable(element(AddToCartBtn)), 5000);
+                                    await browser.wait(EC.elementToBeClickable(element(AddToCartBtn)), 9000);
                                     await HomePage.clickSignUpClose();
                                     await GUILib.clickObject(AddToCartBtn, "Product was added to Cart");
                                     await HomePage.clickSignUpClose();
-                                    await browser.wait(EC.textToBePresentInElement(element(CartCount), z), 5000);
+                                    await browser.wait(EC.textToBePresentInElement(element(CartCount), z), 7000);
                                     await z++;
                                 })
                             }

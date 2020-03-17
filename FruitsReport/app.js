@@ -271,11 +271,11 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
 
     var results = [
     {
-        "description": "Delete Items using MiniCart Window|Mini Cart Window Verification",
+        "description": "Add Less Items by Clicking Minus Sign|Product page Verification",
         "passed": true,
         "pending": false,
         "os": "mac os x",
-        "instanceId": 58201,
+        "instanceId": 59487,
         "browser": {
             "name": "chrome",
             "version": "80.0.3987.132"
@@ -286,66 +286,54 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
             {
                 "level": "WARNING",
                 "message": "https://fotedev.wpengine.com/ - A cookie associated with a cross-site resource at https://instagram.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584473140560,
+                "timestamp": 1584480744330,
                 "type": ""
             },
             {
                 "level": "WARNING",
                 "message": "https://fotedev.wpengine.com/ - A cookie associated with a cross-site resource at http://www.facebook.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584473142184,
+                "timestamp": 1584480745897,
                 "type": ""
             },
             {
                 "level": "WARNING",
                 "message": "https://fotedev.wpengine.com/shop/ - A cookie associated with a cross-site resource at http://www.facebook.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584473143608,
+                "timestamp": 1584480747349,
                 "type": ""
             },
             {
                 "level": "WARNING",
                 "message": "https://fotedev.wpengine.com/shop/ - A cookie associated with a cross-site resource at https://instagram.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584473143815,
+                "timestamp": 1584480747536,
                 "type": ""
             },
             {
                 "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/product/after-sun-aloe-vera-lotion-with-manuka-honey-and-essential-oils-travel-size/ - A cookie associated with a cross-site resource at http://www.facebook.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584473145179,
+                "message": "https://fotedev.wpengine.com/product/sunscreen-with-blood-orange-and-essential-oils-spf-30-travel-spray/ - A cookie associated with a cross-site resource at http://www.facebook.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
+                "timestamp": 1584480748798,
                 "type": ""
             },
             {
                 "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/product/after-sun-aloe-vera-lotion-with-manuka-honey-and-essential-oils-travel-size/ - A cookie associated with a cross-site resource at https://instagram.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584473145346,
+                "message": "https://fotedev.wpengine.com/product/sunscreen-with-blood-orange-and-essential-oils-spf-30-travel-spray/ - A cookie associated with a cross-site resource at https://instagram.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
+                "timestamp": 1584480748928,
                 "type": ""
             },
             {
                 "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/product/after-sun-aloe-vera-lotion-with-manuka-honey-and-essential-oils-travel-size/ - A cookie associated with a cross-site resource at https://instagram.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584473147176,
+                "message": "https://fotedev.wpengine.com/product/sunscreen-with-blood-orange-and-essential-oils-spf-30-travel-spray/ - A cookie associated with a cross-site resource at https://instagram.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
+                "timestamp": 1584480750811,
                 "type": ""
             },
             {
                 "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/product/after-sun-aloe-vera-lotion-with-manuka-honey-and-essential-oils-travel-size/ - A cookie associated with a cross-site resource at http://www.facebook.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584473147200,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/product/after-sun-aloe-vera-lotion-with-manuka-honey-and-essential-oils-travel-size/?removed_item=1 - A cookie associated with a cross-site resource at https://instagram.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584473150106,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/product/after-sun-aloe-vera-lotion-with-manuka-honey-and-essential-oils-travel-size/?removed_item=1 - A cookie associated with a cross-site resource at http://www.facebook.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584473150119,
+                "message": "https://fotedev.wpengine.com/product/sunscreen-with-blood-orange-and-essential-oils-spf-30-travel-spray/ - A cookie associated with a cross-site resource at http://www.facebook.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
+                "timestamp": 1584480750826,
                 "type": ""
             }
         ],
-        "timestamp": 1584473139724,
-        "duration": 10524
+        "timestamp": 1584480743462,
+        "duration": 7537
     }
 ];
 

@@ -37,12 +37,6 @@ describe('Shop All page Verification', function () {
         await ShopAll.verifyProductsCart();
     });
 
-    it('Verify Product in Mini Cart', async function () {
-        await ShopAll.chooseRandomCategory();
-        await ShopAll.verifyProductsMiniCart();
-    });
-
-
 
     afterEach(function () {
         browser.sleep(500);

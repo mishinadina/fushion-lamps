@@ -38,11 +38,6 @@ describe('Product page Verification', function () {
         await Product.addLessQuantity();
     });
 
-    it('Fill Quantity and Check Number in Minicart', async function () {
-        await Product.clickRandomProduct();
-        await Product.fillQuantityMiniCart();
-    });
-
     it('Fill Quantity and Check Number in Cart', async function () {
         await Product.clickRandomProduct();
         await Product.fillQuantityCart();

@@ -111,7 +111,7 @@ var HomePage_Form = function () {
   this.clickCookiesPopUp = async function () {
     await element(CookiesPopUp).isPresent().then(async function (result) {
       if (result == true) {
-        await GUILib.clickObject(CookiesPopUp);
+        await GUILib.clickObject(CookiesPopUp, "Cookies Pop Up is closed");
         await browser.wait(EC.invisibilityOf(element(CookiesPopUp)), 5000);
       }
     })
@@ -468,17 +468,18 @@ var HomePage_Form = function () {
     await element.all(by.xpath('//*[@class="owl-item"]')).count().then(async function (count) {
       await console.log(count)
       await element(ArrowCarouselText).getAttribute('alt').then(async function (AltText1) {
-        await console.log(AltText1)
+       
         if (AltText1 !== "Healthy Skin is Always In Season") {
-          await element(ArrowCarouselPrev).click();
+          await console.log("Staring point 1 for Carousel: " + AltText1)
+          await GUILib.clickObject(ArrowCarouselPrev, "Arrow Prev is cliked to get to Staring Point")
           await element(ArrowCarouselText).getAttribute('alt').then(async function (AltText1) {
-            await console.log(AltText1)
+            await console.log("Staring point 2 for Carousel: " + AltText1)
             if (AltText1 !== "Healthy Skin is Always In Season") {
-              await element(ArrowCarouselPrev).click();
+              await GUILib.clickObject(ArrowCarouselPrev, "Arrow Prev is cliked to get to Staring Point")
               await element(ArrowCarouselText).getAttribute('alt').then(async function (AltText1) {
-                await console.log(AltText1)
+                await console.log("Staring point 3 for Carousel: " + AltText1)
                 if (AltText1 !== "Healthy Skin is Always In Season") {
-                  await element(ArrowCarouselPrev).click();
+                  await GUILib.clickObject(ArrowCarouselPrev, "Arrow Prev is cliked to get to Staring Point")
                 }
               })
             }

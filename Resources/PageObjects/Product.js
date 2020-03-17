@@ -90,7 +90,7 @@ var Product_Form = function () {
             await HomePage.clickSignUpClose();
             await element.all(Product).then(async function (AllProducts) {
                 await element.all(ProductText).then(async function (AllProductsText) {
-                var RandomNumber = await Math.floor(Math.random() * count) + 1;
+                var RandomNumber = await Math.floor(Math.random() * count);
                 console.log("Random Product Number: " + RandomNumber);
                 var Product = await AllProducts[RandomNumber].getWebElement();
                 var ProductText = await AllProductsText[RandomNumber].getWebElement();
@@ -115,7 +115,7 @@ var Product_Form = function () {
                     expect(resultAddToCartBtn).not.toBe(true)
                 })
             } else {
-                var RandomNumber = await Math.floor(Math.random() * 9) + 2
+                var RandomNumber = await Math.floor(Math.random() * 8)
                 for (var x = 1; x < RandomNumber; x++) {
                     await HomePage.clickSignUpClose();
                     await GUILib.clickObject(Plus, "Plus button was clicked random times");
@@ -141,12 +141,14 @@ var Product_Form = function () {
         await HomePage.clickSignUpClose();
         await element(OutStock).isPresent().then(async function (resultOutStock) {
             if (resultOutStock == true) {
+                await console.log("Product is out of stock");
                 await element(AddToCartBtn).isPresent().then(async function (resultAddToCartBtn) {
                     expect(resultAddToCartBtn).not.toBe(true)
                 })
             } else {
-                var RandomNumber = await Math.floor(Math.random() * 9)
+                var RandomNumber = await Math.floor(Math.random() * 7) + 2 
                 for (var x = 1; x < RandomNumber; x++) {
+                    await console.log("Random Number for clicking Plus button " + RandomNumber)
                     await HomePage.clickSignUpClose();
                     await GUILib.clickObject(Plus, "Plus button was clicked");
                 }
@@ -172,6 +174,7 @@ var Product_Form = function () {
         await HomePage.clickSignUpClose();
         await element(OutStock).isPresent().then(async function (resultOutStock) {
             if (resultOutStock == true) {
+                await console.log("Product is out of stock");
                 await element(AddToCartBtn).isPresent().then(async function (resultAddToCartBtn) {
                     expect(resultAddToCartBtn).not.toBe(true)
                 })

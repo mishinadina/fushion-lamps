@@ -91,6 +91,7 @@ var MiniCart_Form = function () {
         await HomePage.clickSignUpClose();
         await element(OutStock).isPresent().then(async function (resultOutStock) {
             if (resultOutStock == true) {
+                await console.log("Product is out of stock");
                 await element(AddToCartBtn).isPresent().then(async function (resultAddToCartBtn) {
                     expect(resultAddToCartBtn).not.toBe(true)
                 })
