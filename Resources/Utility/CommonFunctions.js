@@ -123,8 +123,9 @@ var CommonFunctions = function () {
     }
 
     this.clickLink = async function (Link, ExtURL) {
-        await GUILib.scrollToElement(Link);
-        await browser.wait(EC.visibilityOf(element(Link)), 30000);
+        
+        await console.log(Link)
+        await browser.wait(EC.elementToBeClickable(element(Link)), 30000);
         await GUILib.clickObject(Link, 'Link is clicked').then(async function () {
             await browser.sleep(2000);
             let windowHandles = browser.getAllWindowHandles();

@@ -15,11 +15,11 @@ var HomePage_Form = function () {
 
   //----------------------------------------------------------------------------------------//
   var Logo = by.xpath("//*[contains(@class,'logo')]")
-  var Facebook = by.xpath("//*[contains(@href,'https://www.facebook.com')]")
+  var Facebook = by.xpath("//*[@id='headerBarRight']/ul/li")
   var FacebookLink = "https://www.facebook.com/FOTEUSA"
-  var Instagram = by.xpath("//*[contains(@href,'https://www.instagram.com')]")
+  var Instagram = by.xpath("//*[@id='headerBarRight']/ul/li[2]")
   var InstagramLink = "www.instagram.com/fote_usa"
-  var Twitter = by.xpath("//*[contains(@href,'https://twitter.com')]")
+  var Twitter = by.xpath("//*[@id='headerBarRight']/ul/li[3]/a/svg")
   var TwitterLink = "twitter.com/foteusa"
 
   var Google = by.xpath("//*[contains(@href,'https://www.google.com')]")
@@ -95,7 +95,7 @@ var HomePage_Form = function () {
   //-----------------------------------------Verifications----------------------------//
 
   this.clickSignUpClose = async function () {
-    await element(SignUpClose).isDisplayed().then(async function (result) {
+    await element(SignUpClose).isPresent().then(async function (result) {
       if (result) {
         await GUILib.clickObject(SignUpClose);
         await browser.wait(EC.invisibilityOf(element(SignUpClose)), 5000);
@@ -116,16 +116,19 @@ var HomePage_Form = function () {
 
   this.clickFacebook = async function () {
     await GUILib.waitforElement(Facebook);
+    await browser.sleep(1000)
     await CF.clickLink(Facebook, FacebookLink)
   }
 
   this.clickInstagram = async function () {
     await GUILib.waitforElement(Instagram);
+    await browser.sleep(1000)
     await CF.clickLink(Instagram, InstagramLink)
   }
 
   this.clickTwitter = async function () {
     await GUILib.waitforElement(Twitter);
+    await browser.sleep(1000)
     await CF.clickLink(Twitter, TwitterLink)
   }
 

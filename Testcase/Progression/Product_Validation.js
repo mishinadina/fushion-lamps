@@ -73,7 +73,7 @@ describe('Product page Verification', function () {
         await Product.checkGreenAlertText();
     });
 
-    it('Check Results after clicking on "View Cart" Button in Green Notice after adding Item to the Cart', async function () {
+    it('Click on "View Cart" Button in Green Notice after adding Item to the Cart', async function () {
         await Product.clickRandomProduct();
         await Product.checkGreenAlertCart();
     });
