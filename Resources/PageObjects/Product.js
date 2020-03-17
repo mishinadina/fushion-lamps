@@ -13,6 +13,7 @@ var Product_Form = function () {
     var OutStock = by.xpath("//*[text()='Out of stock']")
 
     var Page = by.xpath('//*[@class="fixed-top"]');
+    var ProductText = by.xpath('//*[@id="wooProducts"]//div/h6')
 
     var Description = by.xpath('//*[@href = "#tab-description"]');
     var Ingredients = by.xpath('//*[@href = "#tab-ingredients"]');
@@ -83,29 +84,29 @@ var Product_Form = function () {
 
     this.clickRandomProduct = async function () {
         await GUILib.waitforElement(Page);
-        var Product = await CF.setProduct()
+        var Product = await CF.setProduct();
         await HomePage.clickSignUpClose();
         await element.all(Product).count().then(async function (count) {
             await HomePage.clickSignUpClose();
             await element.all(Product).then(async function (AllProducts) {
+                await element.all(ProductText).then(async function (AllProductsText) {
                 var RandomNumber = await Math.floor(Math.random() * count) + 1;
                 console.log("Random Product Number: " + RandomNumber);
                 var Product = await AllProducts[RandomNumber].getWebElement();
-                var n = await RandomNumber + 1
-                var ElementText = by.xpath('//*[@id="wooProducts"]/div/div/div[' + n + ']/h6')
-                await element(ElementText).getText().then(async function (Text1) {
+                var ProductText = await AllProductsText[RandomNumber].getWebElement();
+                await ProductText.getText().then(async function (Text1) {
                     console.log("Random Product: " + Text1);
+                    await HomePage.clickSignUpClose();
                     await Product.click().then(async function () {
-                        // await GUILib.clickObject(Ingredients, "Ingredients Tab is clicked")
-                        // await GUILib.clickObject(Benefits, "Benefits Tab is clicked")
-                        // await GUILib.clickObject(Reviews, "Reviews Tab is clicked")
                     })
                 })
             })
         })
+    })
     }
 
     this.addMoreQuantity = async function () {
+        await HomePage.clickSignUpClose();
         await GUILib.clickObject(Description, "Description Tab is clicked")
         await HomePage.clickSignUpClose();
         await element(OutStock).isPresent().then(async function (resultOutStock) {
@@ -116,11 +117,14 @@ var Product_Form = function () {
             } else {
                 var RandomNumber = await Math.floor(Math.random() * 9) + 2
                 for (var x = 1; x < RandomNumber; x++) {
+                    await HomePage.clickSignUpClose();
                     await GUILib.clickObject(Plus, "Plus button was clicked random times");
                 }
+                await HomePage.clickSignUpClose();
                 await GUILib.clickObject(AddToCartBtn, "Add To Cart button is clicked")
                 await element(QuantityNumber).getAttribute('value').then(async function (Quantity) {
                     await console.log(Quantity);
+                    await HomePage.clickSignUpClose();
                     await GUILib.clickObject(Plus, "Plus button was clicked");
                     await element(QuantityNumber).getAttribute('value').then(async function (Quantity1) {
                         await console.log(Quantity1);
@@ -143,11 +147,14 @@ var Product_Form = function () {
             } else {
                 var RandomNumber = await Math.floor(Math.random() * 9)
                 for (var x = 1; x < RandomNumber; x++) {
+                    await HomePage.clickSignUpClose();
                     await GUILib.clickObject(Plus, "Plus button was clicked");
                 }
+                await HomePage.clickSignUpClose();
                 await GUILib.clickObject(AddToCartBtn, "Add To Cart button is clicked")
                 await element(QuantityNumber).getAttribute('value').then(async function (Quantity) {
                     await console.log(Quantity);
+                    await HomePage.clickSignUpClose();
                     await GUILib.clickObject(Minus, "Minus button was clicked");
                     await element(QuantityNumber).getAttribute('value').then(async function (Quantity1) {
                         await console.log(Quantity1);
@@ -158,33 +165,6 @@ var Product_Form = function () {
         })
     }
 
-    this.fillQuantityMiniCart = async function () {
-        await HomePage.clickSignUpClose();
-        await GUILib.clickObject(Description, "Description Tab is clicked")
-        await HomePage.clickSignUpClose();
-        await element(OutStock).isPresent().then(async function (resultOutStock) {
-            if (resultOutStock == true) {
-                await element(AddToCartBtn).isPresent().then(async function (resultAddToCartBtn) {
-                    expect(resultAddToCartBtn).not.toBe(true)
-                })
-            } else {
-                await element(QuantityNumber).getAttribute('max').then(async function (MaxQuantityNumber) {
-                    await console.log("Max Quantity Number " + MaxQuantityNumber);
-                    await element(QuantityNumber).clear();
-                    var RandomNumber = await Math.floor(Math.random() * MaxQuantityNumber);
-                    RandomNumber = await RandomNumber.toString();
-                    await console.log("Random Quantity Number: " + RandomNumber);
-                    await GUILib.typeValue(QuantityNumber, RandomNumber)
-                    await GUILib.clickObject(AddToCartBtn, "Add To Cart button is clicked")
-                    await HomePage.clickSignUpClose();
-                    await browser.wait(EC.textToBePresentInElement(element(CartCount), RandomNumber), 50000);
-                    await GUILib.getText(CartCount).then(async function (ActualCartCount) {
-                        expect(ActualCartCount).toEqual(RandomNumber)
-                    })
-                })
-            }
-        })
-    }
 
     this.fillQuantityCart = async function () {
         await HomePage.clickSignUpClose();
@@ -199,10 +179,17 @@ var Product_Form = function () {
                 await element(QuantityNumber).getAttribute('max').then(async function (MaxQuantityNumber) {
                     await console.log("Max Quantity Number: " + MaxQuantityNumber);
                     await element(QuantityNumber).clear();
+                    if (MaxQuantityNumber < 1000) {
+                        var RandomNumber = await Math.floor(Math.random() * MaxQuantityNumber);
+                    } else {
+                        MaxQuantityNumber = await 1000;
+                        var RandomNumber = await Math.floor(Math.random() * MaxQuantityNumber);
+                    }
                     var RandomNumber = await Math.floor(Math.random() * MaxQuantityNumber);
                     RandomNumber = await RandomNumber.toString();
                     await console.log("Random Quantity Number: " + RandomNumber);
                     await GUILib.typeValue(QuantityNumber, RandomNumber)
+                    await HomePage.clickSignUpClose();
                     await GUILib.clickObject(AddToCartBtn, "Add To Cart button is clicked")
                     await HomePage.clickSignUpClose();
                     await browser.wait(EC.textToBePresentInElement(element(CartCount), RandomNumber), 50000);
@@ -217,11 +204,13 @@ var Product_Form = function () {
     }
 
     this.clickReviewsRating = async function () {
+        await HomePage.clickSignUpClose();
         await GUILib.clickObject(Reviews, "Reviews Tab is clicked")
         await HomePage.clickSignUpClose();
         await GUILib.waitforElement(Rating)
         for (var n = 1; n <= 5; n++) {
             await console.log("Star # " + n + " is clicked");
+            await HomePage.clickSignUpClose();
             await GUILib.clickObject(by.xpath('//*[@class = "star-' + n + '"]'))
         }
     }
@@ -238,6 +227,7 @@ var Product_Form = function () {
     }
 
     this.checkEmailRequired = async function () {
+        await HomePage.clickSignUpClose();
         await GUILib.clickObject(Reviews, "Reviews Tab is clicked")
         await CF.checkRequired(Email, 'aria-required');
     }
@@ -255,6 +245,7 @@ var Product_Form = function () {
                     })
 
                 } else {
+                    await HomePage.clickSignUpClose();
                     await GUILib.clickObject(AddToCartBtn)
                     await browser.sleep(500);
                     await element(ViewCartAlert).getText().then(async function (text2) {
@@ -278,8 +269,10 @@ var Product_Form = function () {
                     })
 
                 } else {
+                    await HomePage.clickSignUpClose();
                     await GUILib.clickObject(AddToCartBtn)
                     await browser.sleep(500);
+                    await HomePage.clickSignUpClose();
                     await GUILib.clickObject(ViewCartAlertLink)
                     await GUILib.waitforElement(ContinueShopping)
                     await browser.getCurrentUrl().then(async function (link) {
@@ -293,6 +286,7 @@ var Product_Form = function () {
     this.clickArrowNextCarousel = async function () {
         var Arr = [];
         var Arr1 = [];
+        await HomePage.clickSignUpClose();
         await GUILib.clickObject(Reviews, "Reviews Tab is clicked")
         await GUILib.scrollToElement(RecommendedProductsCarousel)
         var RandomNumber = await Math.floor(Math.random() * 10) + 1
@@ -308,6 +302,7 @@ var Product_Form = function () {
                     })
                 }
                 for (var x = 1; x <= RandomNumber; x++) {
+                    await HomePage.clickSignUpClose();
                     await GUILib.clickObject(ArrowNext, "Arrow Next is clicked")
                 }
                 await browser.sleep(500);
@@ -331,11 +326,13 @@ var Product_Form = function () {
     this.clickArrowPrevCarousel = async function () {
         var Arr = [];
         var Arr1 = [];
+        await HomePage.clickSignUpClose();
         await GUILib.clickObject(Reviews, "Reviews Tab is clicked")
         await GUILib.scrollToElement(RecommendedProductsCarousel)
         var RandomNumber = await Math.floor(Math.random() * 10) + 2
         await console.log("Random Number for Clicking Arrow Next " + RandomNumber)
         for (var x = 1; x <= RandomNumber; x++) {
+            await HomePage.clickSignUpClose();
             await GUILib.clickObject(ArrowNext, "Arrow Next is clicked")
         }
         await element.all(by.xpath('//*[@id="wooProducts"]//div.col[@class ="owl-item active"]//h6')).count().then(async function (count) {
@@ -351,6 +348,7 @@ var Product_Form = function () {
                 var RandomNumber1 = await Math.floor(Math.random() * RandomNumber) - 1
                 await console.log("Random Number for Clicking Arrow Previous " + RandomNumber1)
                 for (var x = 1; x <= RandomNumber1; x++) {
+                    await HomePage.clickSignUpClose();
                     await GUILib.clickObject(ArrowPrev, "Arrow Previous is clicked")
                 }
                 await browser.sleep(500);
@@ -376,6 +374,7 @@ var Product_Form = function () {
         await GUILib.scrollToElement(RecommendedProductsCarousel)
         var RandomNumber = await Math.floor(Math.random() * 9) + 1
         for (var x = 1; x <= RandomNumber; x++) {
+            await HomePage.clickSignUpClose();
             await GUILib.clickObject(ArrowNext, "Arrow Next is clicked")
         }
         await browser.sleep(1000);
@@ -391,6 +390,7 @@ var Product_Form = function () {
                     await AllText[RandomNumber].getWebElement().getAttribute("textContent").then(async function (text) {
                         text = await text.toUpperCase()
                         await console.log("Product Name in Carousel " + text)
+                        await HomePage.clickSignUpClose();
                         await Product.click();
                         await GUILib.waitforElement(Description);
                         await element(by.xpath('//*[@id="wooSummary"]//h1')).getText().then(async function (text1) {

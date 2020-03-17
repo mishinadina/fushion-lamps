@@ -15,11 +15,14 @@ var HomePage_Form = function () {
 
   //----------------------------------------------------------------------------------------//
   var Logo = by.xpath("//*[contains(@class,'logo')]")
-  var Facebook = by.xpath("//*[@id='headerBarRight']/ul/li")
+  var Facebook = by.xpath("//*[contains(@href, 'www.facebook.com')]")
+  var FacebookFooter = by.xpath("//*[@class='social']//*[contains(@href, 'www.facebook.com')]")
   var FacebookLink = "https://www.facebook.com/FOTEUSA"
-  var Instagram = by.xpath("//*[@id='headerBarRight']/ul/li[2]")
+  var Instagram = by.xpath("//*[contains(@href, 'www.instagram.com/fote_usa')]")
+  var InstagramFooter = by.xpath("//*[@class='social']//*[contains(@href, 'www.instagram.com/fote_usa')]")
   var InstagramLink = "www.instagram.com/fote_usa"
-  var Twitter = by.xpath("//*[@id='headerBarRight']/ul/li[3]/a/svg")
+  var Twitter = by.xpath("//*[@class='social']//*[contains(@href, 'twitter.com/foteusa')]")
+  var TwitterFooter = by.xpath("//*[contains(@href, 'twitter.com/foteusa')]")
   var TwitterLink = "twitter.com/foteusa"
 
   var Google = by.xpath("//*[contains(@href,'https://www.google.com')]")
@@ -121,15 +124,19 @@ var HomePage_Form = function () {
   }
 
   this.clickInstagram = async function () {
+    if (browser.browserName !== 'Safari') {
     await GUILib.waitforElement(Instagram);
     await browser.sleep(1000)
     await CF.clickLink(Instagram, InstagramLink)
+    }
   }
 
   this.clickTwitter = async function () {
+    if (browser.browserName !== 'Safari') {
     await GUILib.waitforElement(Twitter);
     await browser.sleep(1000)
     await CF.clickLink(Twitter, TwitterLink)
+    }
   }
 
   this.clickShopAll = async function () {

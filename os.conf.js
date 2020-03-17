@@ -24,7 +24,7 @@ exports.config = {
 	allScriptsTimeout: 100000,
 	getPageTimeout: 70000,
 	jasmineNodeOpts: {
-		defaultTimeoutInterval: 600000,
+		defaultTimeoutInterval: 12000000,
 		showColors: true // Use colors in the command line report.
 	},
 
@@ -107,18 +107,18 @@ exports.config = {
 			},
 		}
 
-		,{
-			build: 'Fruits_Final',
-			name: 'Safari_OS_final',
-			browserName: 'Safari',
-			'browserstack.safari.enablePopups' : 'true',
-			'browserstack.console': 'errors',
-			'browserstack.networkLogs': 'true',
-			'browserstack.debug': 'true',
-			'browser_version': '12.1',
-			'browserstack.local': 'false',
-			'browserstack.selenium_version': '3.141.0',
-		},
+		// ,{
+		// 	build: 'Fruits_Final',
+		// 	name: 'Safari_OS_final',
+		// 	browserName: 'Safari',
+		// 	'browserstack.safari.enablePopups' : 'true',
+		// 	'browserstack.console': 'errors',
+		// 	'browserstack.networkLogs': 'true',
+		// 	'browserstack.debug': 'true',
+		// 	'browser_version': '12.1',
+		// 	'browserstack.local': 'false',
+		// 	'browserstack.selenium_version': '3.141.0',
+		// },
 ],
 
 

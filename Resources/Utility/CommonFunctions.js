@@ -1,8 +1,9 @@
 var GUILibrary = require('./GUILibrary_await.js');
-//var CF = new CommonFunctions();
+var HomePage = require('../../Resources/PageObjects/HomePage.js');
 
 var CommonFunctions = function () {
 
+   
     var GUILib = new GUILibrary();
     var EC = protractor.ExpectedConditions;
     var fs = require('fs');
@@ -23,9 +24,14 @@ var CommonFunctions = function () {
     var HealthLink = "https://fotedev.wpengine.com/product-category/health/" 
     var HouseholdLink = "https://fotedev.wpengine.com/product-category/household/"
 
+    var Page = by.xpath('//*[@class="fixed-top"]');
+
     var Product1= by.xpath('//*[@class= "col col-3 my-3"]');
     var Product2 = by.xpath('//*[@class= "col-centered  my-3"]');
     var Product3 = by.xpath('//*[@class= "owl-item active"]');
+
+    var ProductText1= by.xpath('//*[@id="wooProducts"]//div/h6');
+    var ProductText2 = by.xpath('//*[@class= "col-centered  my-3"]');
 
     this.checkLink = async function (WebAddress, byObject1, byObject2, byObject3) {
         if (byObject1 != null && byObject2 == null && byObject3 == null) {
@@ -276,8 +282,11 @@ var CommonFunctions = function () {
                 return Product3;
             }
         }
-
     }
+
+
+
+
 
 
 };

@@ -197,30 +197,6 @@ describe('Clicking on Home Page buttons', function () {
 
 
 
-	
-
-
-
-
-
-	
-
-
-
-
-
-	
-
-
-
-
-
-
-
-	
-
-	
-
 
 	afterEach(function () {
 		browser.sleep(500);
