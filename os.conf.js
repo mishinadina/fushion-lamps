@@ -265,7 +265,6 @@ exports.config = {
 
 	afterLaunch: async function () {
 
-
 	}
 
 };

@@ -12,7 +12,6 @@ var HomePage_Form = function () {
   var n = 1
 
 
-
   //----------------------------------------------------------------------------------------//
   var Logo = by.xpath("//*[contains(@class,'logo')]")
   var Facebook = by.xpath("//*[contains(@href, 'www.facebook.com')]")
@@ -614,6 +613,7 @@ var HomePage_Form = function () {
 
 
 }
+
 
 
 module.exports = new HomePage_Form;

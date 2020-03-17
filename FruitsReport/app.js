@@ -271,69 +271,116 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
 
     var results = [
     {
-        "description": "Add Less Items by Clicking Minus Sign|Product page Verification",
+        "description": "Click Facebook|Clicking on Home Page buttons",
         "passed": true,
         "pending": false,
-        "os": "mac os x",
-        "instanceId": 59487,
+        "os": "Mac OS X",
+        "instanceId": 59699,
         "browser": {
             "name": "chrome",
-            "version": "80.0.3987.132"
+            "version": "78.0.3904.70"
         },
         "message": "Passed.",
         "trace": "",
-        "browserLogs": [
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/ - A cookie associated with a cross-site resource at https://instagram.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584480744330,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/ - A cookie associated with a cross-site resource at http://www.facebook.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584480745897,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/shop/ - A cookie associated with a cross-site resource at http://www.facebook.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584480747349,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/shop/ - A cookie associated with a cross-site resource at https://instagram.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584480747536,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/product/sunscreen-with-blood-orange-and-essential-oils-spf-30-travel-spray/ - A cookie associated with a cross-site resource at http://www.facebook.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584480748798,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/product/sunscreen-with-blood-orange-and-essential-oils-spf-30-travel-spray/ - A cookie associated with a cross-site resource at https://instagram.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584480748928,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/product/sunscreen-with-blood-orange-and-essential-oils-spf-30-travel-spray/ - A cookie associated with a cross-site resource at https://instagram.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584480750811,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/product/sunscreen-with-blood-orange-and-essential-oils-spf-30-travel-spray/ - A cookie associated with a cross-site resource at http://www.facebook.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584480750826,
-                "type": ""
-            }
-        ],
-        "timestamp": 1584480743462,
-        "duration": 7537
+        "browserLogs": [],
+        "timestamp": 1584481401277,
+        "duration": 17296
+    },
+    {
+        "description": "Click Instagram|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "Mac OS X",
+        "instanceId": 59699,
+        "browser": {
+            "name": "chrome",
+            "version": "78.0.3904.70"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584481418684,
+        "duration": 36209
+    },
+    {
+        "description": "Click Twitter|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "Mac OS X",
+        "instanceId": 59699,
+        "browser": {
+            "name": "chrome",
+            "version": "78.0.3904.70"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584481454963,
+        "duration": 13685
+    },
+    {
+        "description": "Click Shop All|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "Mac OS X",
+        "instanceId": 59699,
+        "browser": {
+            "name": "chrome",
+            "version": "78.0.3904.70"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584481468720,
+        "duration": 6744
+    },
+    {
+        "description": "Click Skin DD Body|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "Mac OS X",
+        "instanceId": 59699,
+        "browser": {
+            "name": "chrome",
+            "version": "78.0.3904.70"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584481475536,
+        "duration": 7143
+    },
+    {
+        "description": "Click Skin Footer Body|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "Mac OS X",
+        "instanceId": 59699,
+        "browser": {
+            "name": "chrome",
+            "version": "78.0.3904.70"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584481482777,
+        "duration": 8589
+    },
+    {
+        "description": "Click Skin DD Face|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "Mac OS X",
+        "instanceId": 59699,
+        "browser": {
+            "name": "chrome",
+            "version": "78.0.3904.70"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584481491433,
+        "duration": 7154
     }
 ];
 
