@@ -38,6 +38,21 @@ describe('View Cart Page Verification', function () {
         await ViewCart.deleteProductsCartCheckIcon();
     });
 
+    it('Check Name of deleting Item in Green Alert', async function () {
+        await ViewCart.chooseRandomCategory();
+        await ViewCart.checkGreenAlertNameProduct();
+    });
+
+    it('Click Undo Button from Green Alert', async function () {
+        await ViewCart.chooseRandomCategory();
+        await ViewCart.clickUndoGreenAlert();
+    });
+
+    xit('Check Number of Items in Cart Icon after clicking Undo Button from Green Alert', async function () {
+        await ViewCart.chooseRandomCategory();
+        await ViewCart.clickUndoCheckIcon();
+    });
+
     afterEach(function () {
         browser.sleep(500);
     });
