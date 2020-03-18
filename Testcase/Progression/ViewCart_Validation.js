@@ -1,17 +1,15 @@
 var GUILibrary = require('../../Resources/Utility/GUILibrary_await.js');
 var HomePage = require('../../Resources/PageObjects/HomePage.js');
-var ViewCart = require('../../Resources/PageObjects/MiniCart.js');
+var ViewCart = require('../../Resources/PageObjects/ViewCart.js');
 var CommonFunctions = require('../../Resources/Utility/CommonFunctions.js');
 
 var EC = protractor.ExpectedConditions;
 
-describe('View Cart Window Verification', function () {
+describe('View Cart Page Verification', function () {
 
     var GUILib = new GUILibrary();
     var CF = new CommonFunctions();
     
-
-
 
     beforeAll(function () {
     });
@@ -25,23 +23,10 @@ describe('View Cart Window Verification', function () {
 
     //-----------------------------------------TCs-----------------------------------------//
 
-    it('Type Item Quantity and check this number in MiniCart', async function () {
-        await MiniCart.chooseRandomCategory();
-        await MiniCart.clickRandomProduct();
-        await MiniCart.fillQuantityMiniCart()
+    it('Verify Product in Cart', async function () {
+        await ViewCart.chooseRandomCategory();
+        await ViewCart.verifyProductsCart();
     });
-
-    it('Add Items to Cart and check Names in MiniCart', async function () {
-        await MiniCart.chooseRandomCategory();
-        await MiniCart.verifyProductsMiniCart()
-    });
-
-    it('Delete Items using MiniCart Window', async function () {
-        await MiniCart.chooseRandomCategory();
-        await MiniCart.clickRandomProduct()
-        await MiniCart.deleteFromMiniCart();
-    });
-
 
     afterEach(function () {
         browser.sleep(500);

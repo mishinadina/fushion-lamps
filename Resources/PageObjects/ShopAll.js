@@ -9,7 +9,7 @@ var ShopAll_Form = function () {
     var EC = protractor.ExpectedConditions;
     var CF = new CommonFunctions();
 
-    var z = 1;
+    var a = 1;
     var y = 1;
     var n;
 
@@ -151,11 +151,11 @@ var ShopAll_Form = function () {
                                     await browser.wait(EC.elementToBeClickable(element(AddToCartBtn)), 5000);
                                     await GUILib.clickObject(AddToCartBtn);
                                     await HomePage.clickSignUpClose();
-                                    await browser.wait(EC.textToBePresentInElement(element(CartCount), z), 5000);
+                                    await browser.wait(EC.textToBePresentInElement(element(CartCount), a), 5000);
                                     await GUILib.getText(CartCount).then(async function (CartCount) {
                                         await console.log(CartCount);
                                     })
-                                    await z++;
+                                    await a++;
                                 }
                                 await browser.get(link);
                                 await GUILib.waitforElement(Page);
@@ -167,92 +167,7 @@ var ShopAll_Form = function () {
         })
     }
 
-    this.verifyProductsCart = async function () {
-        var items1 = [];
-        var items2 = [];
-        await browser.getCurrentUrl().then(async function (link) {
-            await GUILib.waitforElement(Page);
-            await HomePage.clickSignUpClose();
-            var Product = await CF.setProduct()
-            await element.all(Product).count().then(async function (count) {
-                for (var a = 0; a <= 5; a++) {
-                    await element.all(Product).then(async function (AllProducts) {
-                        var RandomNumber = await Math.floor(Math.random() * count);
-                        await console.log("Random Number: " + RandomNumber);
-                        await HomePage.clickSignUpClose();
-                        await browser.wait(EC.elementToBeClickable(AllProducts[RandomNumber]), 15000);
-                        var Product = await AllProducts[RandomNumber].getWebElement();
-                        await HomePage.clickSignUpClose();
-                        await Product.click();
-                        await HomePage.clickSignUpClose();
-                        await GUILib.waitforElement(ProductPage);
-                        await element(OutStock).isPresent().then(async function (resultOutStock) {
-                            if (resultOutStock == true) {
-                                await console.log("Product is out of stock");
-                                await element(AddToCartBtn).isPresent().then(async function (resultAddToCartBtn) {
-                                    expect(resultAddToCartBtn).not.toBe(true)
-                                })
-
-                            } else {
-                                await console.log("Product is in stock");
-                                await element(ProductText).getText().then(async function (Text1) {
-                                    Text1 = await Text1.replace("–", " ")
-                                    console.log("Random Product: " + Text1);
-                                    if (items1.indexOf(Text1) === -1) {
-                                        items1.push(Text1);
-                                        console.log(items1);
-                                    }
-                                  
-                                    await browser.wait(EC.elementToBeClickable(element(AddToCartBtn)), 9000);
-                                    await HomePage.clickSignUpClose();
-                                    await GUILib.clickObject(AddToCartBtn, "Product was added to Cart");
-                                    await HomePage.clickSignUpClose();
-                                    
-                                    await console.log("Expected Number of Items in Cart after Adding: " + z)
-                                    await browser.wait(EC.textToBePresentInElement(element(CartCount), z), 17000);
-                                    await z++;
-                                    })                      
-                            }
-                            await browser.get(link);
-                            await GUILib.waitforElement(Page);
-                        })
-                    })
-                }
-            })
-        })
-        await HomePage.clickSignUpClose();
-        await GUILib.clickObject(Cart, "Cart Icon is clicked");
-        await HomePage.clickSignUpClose();
-        await GUILib.waitforElement(ViewCart);
-        await GUILib.clickObject(ViewCart, "View Cart Button is clicked");
-        await browser.sleep(500);
-        await HomePage.clickSignUpClose();
-        await element(ContinueShopping).isDisplayed().then(async function (result) {
-            if (result !== true) {
-                await GUILib.clickObject(Cart, "Cart Icon is clicked");
-                await HomePage.clickSignUpClose();
-                await GUILib.waitforElement(ViewCart);
-                await GUILib.clickObject(ViewCart, "View Cart Button is clicked");
-                await browser.sleep(500);
-            }
-        })
-        await element.all(ProductDetails).count().then(async function (count) {
-            await element.all(ProductDetails).then(async function (AllProductDetails) {
-                await console.log("Number of Unique Products in Cart: " + count)
-                for (var n = 0; n < count; n++) {
-                    var Product = await AllProductDetails[n].getWebElement();
-                    await Product.getText().then(async function (Text2) {
-                        Text2 = await Text2.replace("-", " ")
-                        await console.log("Product Name " + Text2)
-                        await items2.push(Text2);
-                    })
-                }
-            })
-        })
-        await console.log("Comapring: " + items1 + " and " + items2)
-        await expect(items1).toEqual(items2)
-
-    }
+    
 
     
 

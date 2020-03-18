@@ -9,7 +9,7 @@ var MiniCart_Form = function () {
     var GUILib = new GUILibrary();
     var CF = new CommonFunctions();
     var Page = by.xpath('//*[@class="fixed-top"]');
-    var z = 1;
+    var d = 1;
 
     var Description = by.xpath('//*[@href = "#tab-description"]');
     var OutStock = by.xpath("//*[text()='Out of stock']")
@@ -218,7 +218,7 @@ var MiniCart_Form = function () {
                     await HomePage.clickSignUpClose();
                     await GUILib.clickObject(AddToCartBtn, "Product was added to Cart");
                     await HomePage.clickSignUpClose();
-                    await browser.wait(EC.textToBePresentInElement(element(CartCount), z), 5000);
+                    await browser.wait(EC.textToBePresentInElement(element(CartCount), d), 5000);
                 })
 
                 await GUILib.clickObject(Cart, "Cart Icon is clicked");

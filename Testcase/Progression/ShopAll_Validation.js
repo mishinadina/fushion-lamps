@@ -32,10 +32,7 @@ describe('Shop All page Verification', function () {
         await ShopAll.addAllProducts();
     });
 
-    it('Verify Product in Cart', async function () {
-        await ShopAll.chooseRandomCategory();
-        await ShopAll.verifyProductsCart();
-    });
+   
 
 
     afterEach(function () {
