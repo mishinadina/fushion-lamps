@@ -175,7 +175,7 @@ var ShopAll_Form = function () {
             await HomePage.clickSignUpClose();
             var Product = await CF.setProduct()
             await element.all(Product).count().then(async function (count) {
-                for (var a = 0; a <= 2; a++) {
+                for (var a = 0; a <= 5; a++) {
                     await element.all(Product).then(async function (AllProducts) {
                         var RandomNumber = await Math.floor(Math.random() * count);
                         await console.log("Random Number: " + RandomNumber);
@@ -202,13 +202,16 @@ var ShopAll_Form = function () {
                                         items1.push(Text1);
                                         console.log(items1);
                                     }
+                                  
                                     await browser.wait(EC.elementToBeClickable(element(AddToCartBtn)), 9000);
                                     await HomePage.clickSignUpClose();
                                     await GUILib.clickObject(AddToCartBtn, "Product was added to Cart");
                                     await HomePage.clickSignUpClose();
-                                    await browser.wait(EC.textToBePresentInElement(element(CartCount), z), 7000);
+                                    
+                                    await console.log("Expected Number of Items in Cart after Adding: " + z)
+                                    await browser.wait(EC.textToBePresentInElement(element(CartCount), z), 17000);
                                     await z++;
-                                })
+                                    })                      
                             }
                             await browser.get(link);
                             await GUILib.waitforElement(Page);
