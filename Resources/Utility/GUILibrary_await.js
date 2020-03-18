@@ -57,21 +57,21 @@ var GUILibrary = function () {
 	};
 
 	this.clickObject = async function (byObject, desc, index) {
-		// try {
-		// 	await browser.wait(EC.elementToBeClickable(element(byObject)), 15000);
-		// 		await element(byObject).click().then(function () {
-		// 			if (desc != null) {
-		// 				console.log("Clicked on element- " + desc);
-		// 			}
-		// 			else {
-		// 				console.log("Clicked on element- " + byObject);
-		// 			}
-		// 		})
+		try {
+			await browser.wait(EC.elementToBeClickable(element(byObject)), 15000);
+				await element(byObject).click().then(function () {
+					if (desc != null) {
+						console.log("Clicked on element- " + desc);
+					}
+					else {
+						console.log("Clicked on element- " + byObject);
+					}
+				})
 			
-		// } catch {
-		// 	await console.log("Could not click on " + byObject);
+		} catch (e) {
+			await console.log("Could not click on " + byObject);
 
-		// }
+		}
 	}
 
 
