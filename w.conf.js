@@ -142,7 +142,7 @@ beforeLaunch: async function () {
 		// 	global.globalTestArray = testdata;
 
 
-		//browser.manage().deleteAllCookies();
+		browser.manage().deleteAllCookies();
 
 		jasmine.getEnv().addReporter(new HtmlReporter({
 			baseDirectory: './FruitsReport',

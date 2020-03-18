@@ -58,32 +58,21 @@ var GUILibrary = function () {
 
 	this.clickObject = async function (byObject, desc, index) {
 		try {
-		await browser.wait(EC.elementToBeClickable(element(byObject)), 15000);
-		if (index != null) {
-			await element.all(byObject).get(index).click().then(function () {
-				if (desc != null) {
-					console.log("Clicked on element- " + desc);
-				}
-				else {
-					console.log("clicked on element- " + byObject + ' at index ' + index);
-				}
-			})
+			await browser.wait(EC.elementToBeClickable(element(byObject)), 15000);
+				await element(byObject).click().then(function () {
+					if (desc != null) {
+						console.log("Clicked on element- " + desc);
+					}
+					else {
+						console.log("Clicked on element- " + byObject);
+					}
+				})
+			
+		} catch {
+			await console.log("Could not click on " + byObject);
+
 		}
-		else {
-			await element(byObject).click().then(function () {
-				if (desc != null) {
-					console.log("Clicked on element- " + desc);
-				}
-				else {
-					console.log("Clicked on element- " + byObject);
-				}
-			})
-		}
-	} catch {
-		await console.log("Could not click on " + byObject);
-		
 	}
-}
 
 
 	this.typeValue = async function (byObject, textToWrite) {
@@ -324,7 +313,7 @@ var GUILibrary = function () {
 			table: []
 		};
 
-		obj.table.push({ Product: Product, ElementText: ElementText});
+		obj.table.push({ Product: Product, ElementText: ElementText });
 		var json = JSON.stringify(obj);
 
 		fs.writeFileSync('myjsonfile.json', json, 'utf8');

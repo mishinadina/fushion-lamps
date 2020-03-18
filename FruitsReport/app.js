@@ -271,11 +271,11 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
 
     var results = [
     {
-        "description": "Click Facebook|Clicking on Home Page buttons",
+        "description": "Check Product Menu|Product page Verification",
         "passed": true,
         "pending": false,
         "os": "Mac OS X",
-        "instanceId": 59699,
+        "instanceId": 60261,
         "browser": {
             "name": "chrome",
             "version": "78.0.3904.70"
@@ -283,15 +283,15 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
         "message": "Passed.",
         "trace": "",
         "browserLogs": [],
-        "timestamp": 1584481401277,
-        "duration": 17296
+        "timestamp": 1584482529329,
+        "duration": 10129
     },
     {
-        "description": "Click Instagram|Clicking on Home Page buttons",
+        "description": "Add More Items by Clicking Plus Sign|Product page Verification",
         "passed": true,
         "pending": false,
         "os": "Mac OS X",
-        "instanceId": 59699,
+        "instanceId": 60261,
         "browser": {
             "name": "chrome",
             "version": "78.0.3904.70"
@@ -299,15 +299,15 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
         "message": "Passed.",
         "trace": "",
         "browserLogs": [],
-        "timestamp": 1584481418684,
-        "duration": 36209
+        "timestamp": 1584482539570,
+        "duration": 23884
     },
     {
-        "description": "Click Twitter|Clicking on Home Page buttons",
+        "description": "Add Less Items by Clicking Minus Sign|Product page Verification",
         "passed": true,
         "pending": false,
         "os": "Mac OS X",
-        "instanceId": 59699,
+        "instanceId": 60261,
         "browser": {
             "name": "chrome",
             "version": "78.0.3904.70"
@@ -315,15 +315,15 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
         "message": "Passed.",
         "trace": "",
         "browserLogs": [],
-        "timestamp": 1584481454963,
-        "duration": 13685
+        "timestamp": 1584482563526,
+        "duration": 15238
     },
     {
-        "description": "Click Shop All|Clicking on Home Page buttons",
+        "description": "Fill Quantity and Check Number in Cart|Product page Verification",
         "passed": true,
         "pending": false,
         "os": "Mac OS X",
-        "instanceId": 59699,
+        "instanceId": 60261,
         "browser": {
             "name": "chrome",
             "version": "78.0.3904.70"
@@ -331,15 +331,15 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
         "message": "Passed.",
         "trace": "",
         "browserLogs": [],
-        "timestamp": 1584481468720,
-        "duration": 6744
+        "timestamp": 1584482578833,
+        "duration": 18125
     },
     {
-        "description": "Click Skin DD Body|Clicking on Home Page buttons",
+        "description": "Click Reviews Rating Stars|Product page Verification",
         "passed": true,
         "pending": false,
         "os": "Mac OS X",
-        "instanceId": 59699,
+        "instanceId": 60261,
         "browser": {
             "name": "chrome",
             "version": "78.0.3904.70"
@@ -347,15 +347,15 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
         "message": "Passed.",
         "trace": "",
         "browserLogs": [],
-        "timestamp": 1584481475536,
-        "duration": 7143
+        "timestamp": 1584482597032,
+        "duration": 14000
     },
     {
-        "description": "Click Skin Footer Body|Clicking on Home Page buttons",
+        "description": "Check if Your Review is Required Field|Product page Verification",
         "passed": true,
         "pending": false,
         "os": "Mac OS X",
-        "instanceId": 59699,
+        "instanceId": 60261,
         "browser": {
             "name": "chrome",
             "version": "78.0.3904.70"
@@ -363,15 +363,15 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
         "message": "Passed.",
         "trace": "",
         "browserLogs": [],
-        "timestamp": 1584481482777,
-        "duration": 8589
+        "timestamp": 1584482611106,
+        "duration": 9787
     },
     {
-        "description": "Click Skin DD Face|Clicking on Home Page buttons",
+        "description": "Check if Name is Required Field|Product page Verification",
         "passed": true,
         "pending": false,
         "os": "Mac OS X",
-        "instanceId": 59699,
+        "instanceId": 60261,
         "browser": {
             "name": "chrome",
             "version": "78.0.3904.70"
@@ -379,8 +379,330 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
         "message": "Passed.",
         "trace": "",
         "browserLogs": [],
-        "timestamp": 1584481491433,
-        "duration": 7154
+        "timestamp": 1584482620976,
+        "duration": 9152
+    },
+    {
+        "description": "Check if Your Review is Required Field|Product page Verification",
+        "passed": true,
+        "pending": false,
+        "os": "Mac OS X",
+        "instanceId": 60261,
+        "browser": {
+            "name": "chrome",
+            "version": "78.0.3904.70"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584482630203,
+        "duration": 10329
+    },
+    {
+        "description": "Check Text in Green Notice after adding Item to the Cart|Product page Verification",
+        "passed": true,
+        "pending": false,
+        "os": "Mac OS X",
+        "instanceId": 60261,
+        "browser": {
+            "name": "chrome",
+            "version": "78.0.3904.70"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584482640610,
+        "duration": 13123
+    },
+    {
+        "description": "Click on \"View Cart\" Button in Green Notice after adding Item to the Cart|Product page Verification",
+        "passed": true,
+        "pending": false,
+        "os": "Mac OS X",
+        "instanceId": 60261,
+        "browser": {
+            "name": "chrome",
+            "version": "78.0.3904.70"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584482653812,
+        "duration": 8985
+    },
+    {
+        "description": "Check Results after clicking Arrow Next in Carousel of Recommended Products|Product page Verification",
+        "passed": true,
+        "pending": false,
+        "os": "Mac OS X",
+        "instanceId": 60261,
+        "browser": {
+            "name": "chrome",
+            "version": "78.0.3904.70"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584482662893,
+        "duration": 26366
+    },
+    {
+        "description": "Check Results after clicking Arrow Previous in Carousel of Recommended Products|Product page Verification",
+        "passed": true,
+        "pending": false,
+        "os": "Mac OS X",
+        "instanceId": 60261,
+        "browser": {
+            "name": "chrome",
+            "version": "78.0.3904.70"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584482689326,
+        "duration": 32629
+    },
+    {
+        "description": "Click on All Items in Carousel of Recommended Products|Product page Verification",
+        "passed": true,
+        "pending": false,
+        "os": "Mac OS X",
+        "instanceId": 60261,
+        "browser": {
+            "name": "chrome",
+            "version": "78.0.3904.70"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584482722052,
+        "duration": 18254
+    },
+    {
+        "description": "Check Product Menu|Product page Verification",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "sessionId": "62233cc63288f83bf515166747763d26a9ebca2c",
+        "instanceId": 60273,
+        "browser": {
+            "name": "firefox",
+            "version": "70.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584482749782,
+        "duration": 12783
+    },
+    {
+        "description": "Add More Items by Clicking Plus Sign|Product page Verification",
+        "passed": false,
+        "pending": false,
+        "os": "mac",
+        "sessionId": "62233cc63288f83bf515166747763d26a9ebca2c",
+        "instanceId": 60273,
+        "browser": {
+            "name": "firefox",
+            "version": "70.0"
+        },
+        "message": [
+            "Error: ETIMEDOUT connect ETIMEDOUT 207.254.8.2:80"
+        ],
+        "trace": [
+            "Error: ETIMEDOUT connect ETIMEDOUT 207.254.8.2:80\n    at ClientRequest.<anonymous> (/Users/dinamcherepanova/fruits-master/node_modules/selenium-webdriver/http/index.js:258:15)\n    at ClientRequest.emit (events.js:198:13)\n    at Socket.socketErrorListener (_http_client.js:392:9)\n    at Socket.emit (events.js:198:13)\n    at emitErrorNT (internal/streams/destroy.js:91:8)\n    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)\n    at process._tickCallback (internal/process/next_tick.js:63:19)"
+        ],
+        "browserLogs": [],
+        "screenShotFile": "images/00d20049-00f7-0072-0075-00e2002c00aa.png",
+        "timestamp": 1584482762583,
+        "duration": 25168
+    },
+    {
+        "description": "Add Less Items by Clicking Minus Sign|Product page Verification",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "sessionId": "62233cc63288f83bf515166747763d26a9ebca2c",
+        "instanceId": 60273,
+        "browser": {
+            "name": "firefox",
+            "version": "70.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584482788167,
+        "duration": 14735
+    },
+    {
+        "description": "Fill Quantity and Check Number in Cart|Product page Verification",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "sessionId": "62233cc63288f83bf515166747763d26a9ebca2c",
+        "instanceId": 60273,
+        "browser": {
+            "name": "firefox",
+            "version": "70.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584482802905,
+        "duration": 24847
+    },
+    {
+        "description": "Click Reviews Rating Stars|Product page Verification",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "sessionId": "62233cc63288f83bf515166747763d26a9ebca2c",
+        "instanceId": 60273,
+        "browser": {
+            "name": "firefox",
+            "version": "70.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584482827759,
+        "duration": 20342
+    },
+    {
+        "description": "Check if Your Review is Required Field|Product page Verification",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "sessionId": "62233cc63288f83bf515166747763d26a9ebca2c",
+        "instanceId": 60273,
+        "browser": {
+            "name": "firefox",
+            "version": "70.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584482848106,
+        "duration": 8764
+    },
+    {
+        "description": "Check if Name is Required Field|Product page Verification",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "sessionId": "62233cc63288f83bf515166747763d26a9ebca2c",
+        "instanceId": 60273,
+        "browser": {
+            "name": "firefox",
+            "version": "70.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584482856876,
+        "duration": 11713
+    },
+    {
+        "description": "Check if Your Review is Required Field|Product page Verification",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "sessionId": "62233cc63288f83bf515166747763d26a9ebca2c",
+        "instanceId": 60273,
+        "browser": {
+            "name": "firefox",
+            "version": "70.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584482868595,
+        "duration": 10113
+    },
+    {
+        "description": "Check Text in Green Notice after adding Item to the Cart|Product page Verification",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "sessionId": "62233cc63288f83bf515166747763d26a9ebca2c",
+        "instanceId": 60273,
+        "browser": {
+            "name": "firefox",
+            "version": "70.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584482878712,
+        "duration": 15941
+    },
+    {
+        "description": "Click on \"View Cart\" Button in Green Notice after adding Item to the Cart|Product page Verification",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "sessionId": "62233cc63288f83bf515166747763d26a9ebca2c",
+        "instanceId": 60273,
+        "browser": {
+            "name": "firefox",
+            "version": "70.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584482894657,
+        "duration": 15553
+    },
+    {
+        "description": "Check Results after clicking Arrow Next in Carousel of Recommended Products|Product page Verification",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "sessionId": "62233cc63288f83bf515166747763d26a9ebca2c",
+        "instanceId": 60273,
+        "browser": {
+            "name": "firefox",
+            "version": "70.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584482910215,
+        "duration": 24399
+    },
+    {
+        "description": "Check Results after clicking Arrow Previous in Carousel of Recommended Products|Product page Verification",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "sessionId": "62233cc63288f83bf515166747763d26a9ebca2c",
+        "instanceId": 60273,
+        "browser": {
+            "name": "firefox",
+            "version": "70.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584482934618,
+        "duration": 39316
+    },
+    {
+        "description": "Click on All Items in Carousel of Recommended Products|Product page Verification",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "sessionId": "62233cc63288f83bf515166747763d26a9ebca2c",
+        "instanceId": 60273,
+        "browser": {
+            "name": "firefox",
+            "version": "70.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1584482973940,
+        "duration": 26223
     }
 ];
 
