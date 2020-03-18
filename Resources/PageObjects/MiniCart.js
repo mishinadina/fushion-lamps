@@ -123,6 +123,7 @@ var MiniCart_Form = function () {
     this.verifyProductsMiniCart = async function () {
         var items1 = [];
         var items2 = [];
+        var z = 1;
         await browser.getCurrentUrl().then(async function (link) {
             await GUILib.waitforElement(Page);
             await HomePage.clickSignUpClose();
@@ -171,28 +172,30 @@ var MiniCart_Form = function () {
             })
         })
         await HomePage.clickSignUpClose();
-        await GUILib.clickObject(Cart, "Cart Icon is clicked");
-        await GUILib.waitforElement(ViewCart)
-        await element.all(ProductDetailsMiniCart).count().then(async function (count) {
-            await element.all(ProductDetailsMiniCart).then(async function (AllProductDetailsMiniCart) {
-                await console.log("Number of Unique Products in Mini Cart: " + count)
-                for (var n = 0; n < count; n++) {
-                    var Product = await AllProductDetailsMiniCart[n].getWebElement();
-                    await Product.getText().then(async function (Text2) {
-                        if (browser.browserName !== 'Safari') {
-                            Text2 = await Text2.toUpperCase().replace("-", " ")
-                        } else {
-                            Text2 = await Text2.replace("-", " ")
-                        }
-                        await console.log("Product Name " + Text2)
-                        await items2.push(Text2);
-                    })
-                }
+        if (items1.length > 0) {
+            await GUILib.clickObject(Cart, "Cart Icon is clicked");
+            await GUILib.waitforElement(ViewCart)
+            await element.all(ProductDetailsMiniCart).count().then(async function (count) {
+                await element.all(ProductDetailsMiniCart).then(async function (AllProductDetailsMiniCart) {
+                    await console.log("Number of Unique Products in Mini Cart: " + count)
+                    for (var n = 0; n < count; n++) {
+                        var Product = await AllProductDetailsMiniCart[n].getWebElement();
+                        await Product.getText().then(async function (Text2) {
+                            if (browser.browserName !== 'Safari') {
+                                Text2 = await Text2.toUpperCase().replace("-", " ")
+                            } else {
+                                Text2 = await Text2.replace("-", " ")
+                            }
+                            await console.log("Product Name " + Text2)
+                            await items2.push(Text2);
+                        })
+                    }
+                })
             })
-        })
-        await console.log("Comapring: " + items1 + " and " + items2)
-        await expect(items1).toEqual(items2)
 
+            await console.log("Comapring: " + items1 + " and " + items2)
+            await expect(items1).toEqual(items2)
+        }
     }
 
     this.deleteFromMiniCart = async function () {
@@ -220,14 +223,15 @@ var MiniCart_Form = function () {
                     await HomePage.clickSignUpClose();
                     await browser.wait(EC.textToBePresentInElement(element(CartCount), d), 5000);
                 })
-
-                await GUILib.clickObject(Cart, "Cart Icon is clicked");
-                await GUILib.waitforElement(ViewCart);
-                await GUILib.clickObject(DeleteFromMiniCart, "Item was deleted using MiniCart Window")
-                await GUILib.clickObject(Cart, "Cart Icon is clicked");
-                await element(NoProductsInCart).isPresent().then(async function (result) {
-                    expect(result).toBe(true)
-                })
+                if (items1.length > 0) {
+                    await GUILib.clickObject(Cart, "Cart Icon is clicked");
+                    await GUILib.waitforElement(ViewCart);
+                    await GUILib.clickObject(DeleteFromMiniCart, "Item was deleted using MiniCart Window")
+                    await GUILib.clickObject(Cart, "Cart Icon is clicked");
+                    await element(NoProductsInCart).isPresent().then(async function (result) {
+                        expect(result).toBe(true)
+                    })
+                }
             }
         })
     }

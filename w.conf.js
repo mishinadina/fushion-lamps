@@ -28,7 +28,7 @@ exports.config = {
 	allScriptsTimeout: 100000,
 	getPageTimeout: 70000,
 	jasmineNodeOpts: {
-		defaultTimeoutInterval: 600000,
+		defaultTimeoutInterval: 12000000,
 		showColors: true // Use colors in the command line report.
 	},
 

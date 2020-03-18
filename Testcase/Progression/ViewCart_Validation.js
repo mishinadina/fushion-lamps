@@ -23,9 +23,19 @@ describe('View Cart Page Verification', function () {
 
     //-----------------------------------------TCs-----------------------------------------//
 
-    it('Verify Product in Cart', async function () {
+    it('Add Products in Cart', async function () {
         await ViewCart.chooseRandomCategory();
         await ViewCart.verifyProductsCart();
+    });
+
+    it('Delete Products from Cart', async function () {
+        await ViewCart.chooseRandomCategory();
+        await ViewCart.deleteProductsCart();
+    });
+
+    it('Check Number of Item in Cart Icon after deleting Product from Cart', async function () {
+        await ViewCart.chooseRandomCategory();
+        await ViewCart.deleteProductsCartCheckIcon();
     });
 
     afterEach(function () {
