@@ -100,6 +100,13 @@ var CommonFunctions = function () {
         })
     }
 
+    this.checkRequiredClass = async function (byObject1, attribute) {
+        await GUILib.getAttribute(byObject1, attribute).then(async function (result) {
+            await console.log(result);
+            await expect(result).toContain('required');
+        })
+    }
+
     this.clickDownloadFile = async function (filename, DownloadLink, ScrollPoint) {
         if (fs.existsSync(filename)) {
             fs.unlink(filename, (err) => {

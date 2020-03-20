@@ -24,12 +24,19 @@ var ViewCart_Form = function () {
     var Cart = by.xpath('//*[@id="miniCartTrigger"]/span/i[1]')
     var ViewCart = by.xpath("//*[@id='wooMiniCart']//*[text()='View cart']")
     var ProductDetails = by.xpath("//*[@id='wooCart']//h6/a")
+    var ProductNumber = by.xpath("//input[@type='number']")
     var DeleteFromCart = by.xpath("//*[@class='col product-details']//*[@class='ion ion-ios-close-empty']")
-    var Alert = by.xpath('//*[@role= "alert"]');
-    var UndoBtn = by.xpath("//*[text()='Undo?']")
 
+    var Alert = by.xpath('//*[@role= "alert"]');
+    var ViewCartAlertLink = by.xpath("//*[@class ='alert alert-success']//*[text()='View cart']")
+    var UndoBtn = by.xpath("//*[text()='Undo?']")
+    var CartUpdatedAlert = by.xpath("//*[text()=' Cart updated.']")
+    var PlusSign = by.xpath("//*[text()='+']")
+    var MinusSign = by.xpath("//*[text()='-']")
+    var UpdateCart = by.xpath('//*[@value= "Update cart"]');
 
     var ContinueShopping = by.xpath("//*[text()='Continue Shopping']")
+    var ShippingCheckoutBtn = by.xpath("//*[text()='Shipping & Checkout']")
 
     //-----------------------------------------First Navigation Tabs Verifications----------------------------//
 
@@ -89,6 +96,152 @@ var ViewCart_Form = function () {
         })
     }
 
+    this.clickContinueShoppingBtn = async function () {
+        var items1 = [];
+        await browser.getCurrentUrl().then(async function (link) {
+            await GUILib.waitforElement(Page);
+            await HomePage.clickSignUpClose();
+            var Product = await CF.setProduct()
+            await element.all(Product).count().then(async function (count) {
+                for (var a = 0; a <= 3; a++) {
+                    await element.all(Product).then(async function (AllProducts) {
+                        var RandomNumber = await Math.floor(Math.random() * count);
+                        await console.log("Random Number: " + RandomNumber);
+                        await HomePage.clickSignUpClose();
+                        await browser.wait(EC.elementToBeClickable(AllProducts[RandomNumber]), 15000);
+                        var Product = await AllProducts[RandomNumber].getWebElement();
+                        await HomePage.clickSignUpClose();
+                        await Product.click();
+                        await HomePage.clickSignUpClose();
+                        await GUILib.waitforElement(ProductPage);
+                        await element(OutStock).isPresent().then(async function (resultOutStock) {
+                            if (resultOutStock == true) {
+                                await console.log("Product is out of stock");
+                                await element(AddToCartBtn).isPresent().then(async function (resultAddToCartBtn) {
+                                    expect(resultAddToCartBtn).not.toBe(true)
+                                })
+
+                            } else {
+                                await console.log("Product is in stock");
+                                await element(ProductText).getText().then(async function (Text1) {
+                                    Text1 = await Text1.replace("–", " ")
+                                    console.log("Random Product: " + Text1);
+                                    if (items1.indexOf(Text1) === -1) {
+                                        items1.push(Text1);
+                                        console.log(items1);
+                                    }
+
+                                    await browser.wait(EC.elementToBeClickable(element(AddToCartBtn)), 9000);
+                                    await HomePage.clickSignUpClose();
+                                    await GUILib.clickObject(AddToCartBtn, "Product was added to Cart");
+                                    await HomePage.clickSignUpClose();
+                                    await GUILib.waitforElement(ViewCartAlertLink);
+                                })
+                            }
+                            await browser.get(link);
+                            await GUILib.waitforElement(Page);
+                        })
+                    })
+                }
+            })
+        })
+        if (items1.length > 0) {
+            await HomePage.clickSignUpClose();
+            await GUILib.clickObject(Cart, "Cart Icon is clicked");
+            await HomePage.clickSignUpClose();
+            await GUILib.waitforElement(ViewCart);
+            await GUILib.clickObject(ViewCart, "View Cart Button is clicked");
+            await browser.sleep(500);
+            await HomePage.clickSignUpClose();
+            await element(ContinueShopping).isDisplayed().then(async function (result) {
+                if (result !== true) {
+                    await GUILib.clickObject(Cart, "Cart Icon is clicked");
+                    await HomePage.clickSignUpClose();
+                    await GUILib.waitforElement(ViewCart);
+                    await GUILib.clickObject(ViewCart, "View Cart Button is clicked");
+                    await browser.sleep(500);
+                }
+            })
+            await GUILib.clickObject(ContinueShopping, "Continue Shopping Btn is clicked")
+            await browser.getCurrentUrl().then(async function (url) {
+                expect(url).toContain("fotedev.wpengine.com/shop/")
+            })
+        }
+    }
+
+    this.clickShippingCheckoutBtn = async function () {
+        var items1 = [];
+        await browser.getCurrentUrl().then(async function (link) {
+            await GUILib.waitforElement(Page);
+            await HomePage.clickSignUpClose();
+            var Product = await CF.setProduct()
+            await element.all(Product).count().then(async function (count) {
+                for (var a = 0; a <= 3; a++) {
+                    await element.all(Product).then(async function (AllProducts) {
+                        var RandomNumber = await Math.floor(Math.random() * count);
+                        await console.log("Random Number: " + RandomNumber);
+                        await HomePage.clickSignUpClose();
+                        await browser.wait(EC.elementToBeClickable(AllProducts[RandomNumber]), 15000);
+                        var Product = await AllProducts[RandomNumber].getWebElement();
+                        await HomePage.clickSignUpClose();
+                        await Product.click();
+                        await HomePage.clickSignUpClose();
+                        await GUILib.waitforElement(ProductPage);
+                        await element(OutStock).isPresent().then(async function (resultOutStock) {
+                            if (resultOutStock == true) {
+                                await console.log("Product is out of stock");
+                                await element(AddToCartBtn).isPresent().then(async function (resultAddToCartBtn) {
+                                    expect(resultAddToCartBtn).not.toBe(true)
+                                })
+
+                            } else {
+                                await console.log("Product is in stock");
+                                await element(ProductText).getText().then(async function (Text1) {
+                                    Text1 = await Text1.replace("–", " ")
+                                    console.log("Random Product: " + Text1);
+                                    if (items1.indexOf(Text1) === -1) {
+                                        items1.push(Text1);
+                                        console.log(items1);
+                                    }
+
+                                    await browser.wait(EC.elementToBeClickable(element(AddToCartBtn)), 9000);
+                                    await HomePage.clickSignUpClose();
+                                    await GUILib.clickObject(AddToCartBtn, "Product was added to Cart");
+                                    await HomePage.clickSignUpClose();
+                                    await GUILib.waitforElement(ViewCartAlertLink);
+                                })
+                            }
+                            await browser.get(link);
+                            await GUILib.waitforElement(Page);
+                        })
+                    })
+                }
+            })
+        })
+        if (items1.length > 0) {
+            await HomePage.clickSignUpClose();
+            await GUILib.clickObject(Cart, "Cart Icon is clicked");
+            await HomePage.clickSignUpClose();
+            await GUILib.waitforElement(ViewCart);
+            await GUILib.clickObject(ViewCart, "View Cart Button is clicked");
+            await browser.sleep(500);
+            await HomePage.clickSignUpClose();
+            await element(ContinueShopping).isDisplayed().then(async function (result) {
+                if (result !== true) {
+                    await GUILib.clickObject(Cart, "Cart Icon is clicked");
+                    await HomePage.clickSignUpClose();
+                    await GUILib.waitforElement(ViewCart);
+                    await GUILib.clickObject(ViewCart, "View Cart Button is clicked");
+                    await browser.sleep(500);
+                }
+            })
+            await GUILib.clickObject(ShippingCheckoutBtn, "Shipping & Checkout Btn Btn is clicked")
+            await browser.getCurrentUrl().then(async function (url) {
+                expect(url).toContain("fotedev.wpengine.com/checkout/")
+            })
+        }
+    }
+
     this.verifyProductsCart = async function () {
         var z = 1;
         var items1 = [];
@@ -132,7 +285,7 @@ var ViewCart_Form = function () {
                                     await HomePage.clickSignUpClose();
 
                                     await console.log("Expected Number of Items in Cart after Adding: " + z)
-                                    await browser.wait(EC.textToBePresentInElement(element(CartCount), z), 17000);
+                                    await GUILib.waitforElement(ViewCartAlertLink);
                                     await z++;
                                 })
                             }
@@ -221,7 +374,7 @@ var ViewCart_Form = function () {
                                     await HomePage.clickSignUpClose();
 
                                     await console.log("Expected Number of Items in Cart after Adding: " + z)
-                                    await browser.wait(EC.textToBePresentInElement(element(CartCount), z), 17000);
+                                    await GUILib.waitforElement(ViewCartAlertLink);
                                     await z++;
                                 })
                             }
@@ -315,7 +468,7 @@ var ViewCart_Form = function () {
                                     await HomePage.clickSignUpClose();
 
                                     await console.log("Expected Number of Items in Cart after Adding: " + z)
-                                    await browser.wait(EC.textToBePresentInElement(element(CartCount), z), 17000);
+                                    await GUILib.waitforElement(ViewCartAlertLink);
                                     await z++;
                                 })
                             }
@@ -399,7 +552,7 @@ var ViewCart_Form = function () {
                                     await HomePage.clickSignUpClose();
 
                                     await console.log("Expected Number of Items in Cart after Adding: " + z)
-                                    await browser.wait(EC.textToBePresentInElement(element(CartCount), z), 17000);
+                                    await GUILib.waitforElement(ViewCartAlertLink);
                                     await z++;
                                 })
                             }
@@ -498,7 +651,8 @@ var ViewCart_Form = function () {
                                     await HomePage.clickSignUpClose();
 
                                     await console.log("Expected Number of Items in Cart after Adding: " + z)
-                                    await browser.wait(EC.textToBePresentInElement(element(CartCount), z), 17000);
+
+                                    await GUILib.waitforElement(ViewCartAlertLink);
                                     await z++;
                                 })
                             }
@@ -589,7 +743,7 @@ var ViewCart_Form = function () {
                                     await HomePage.clickSignUpClose();
 
                                     await console.log("Expected Number of Items in Cart after Adding: " + z)
-                                    await browser.wait(EC.textToBePresentInElement(element(CartCount), z), 17000);
+                                    await GUILib.waitforElement(ViewCartAlertLink);
                                     await z++;
                                 })
                             }
@@ -632,9 +786,287 @@ var ViewCart_Form = function () {
                         await expect(CartCount1).not.toBe(CartCount1)
                     })
                 })
-        })
+            })
+        }
     }
-}
+
+    this.clickUpdateCartBtn = async function () {
+        var items1 = [];
+        var items2 = [];
+        var z = 1;
+        await browser.getCurrentUrl().then(async function (link) {
+            await GUILib.waitforElement(Page);
+            await HomePage.clickSignUpClose();
+            var Product = await CF.setProduct()
+            await element.all(Product).count().then(async function (count) {
+                for (var a = 0; a <= 3; a++) {
+                    await element.all(Product).then(async function (AllProducts) {
+                        var RandomNumber = await Math.floor(Math.random() * count);
+                        await console.log("Random Number: " + RandomNumber);
+                        await HomePage.clickSignUpClose();
+                        await browser.wait(EC.elementToBeClickable(AllProducts[RandomNumber]), 15000);
+                        var Product = await AllProducts[RandomNumber].getWebElement();
+                        await HomePage.clickSignUpClose();
+                        await Product.click();
+                        await HomePage.clickSignUpClose();
+                        await GUILib.waitforElement(ProductPage);
+                        await element(OutStock).isPresent().then(async function (resultOutStock) {
+                            if (resultOutStock == true) {
+                                await console.log("Product is out of stock");
+                                await element(AddToCartBtn).isPresent().then(async function (resultAddToCartBtn) {
+                                    expect(resultAddToCartBtn).not.toBe(true)
+                                })
+                            } else {
+                                await console.log("Product is in stock");
+                                await element(ProductText).getText().then(async function (Text1) {
+                                    Text1 = await Text1.replace("–", " ")
+                                    console.log("Random Product: " + Text1);
+                                    if (items1.indexOf(Text1) === -1) {
+                                        items1.push(Text1);
+                                        console.log(items1);
+                                    }
+                                    await browser.wait(EC.elementToBeClickable(element(AddToCartBtn)), 9000);
+                                    await HomePage.clickSignUpClose();
+                                    await GUILib.clickObject(AddToCartBtn, "Product was added to Cart");
+                                    await HomePage.clickSignUpClose();
+
+                                    await console.log("Expected Number of Items in Cart after Adding: " + z)
+                                    await GUILib.waitforElement(ViewCartAlertLink);
+                                    await z++;
+                                })
+                            }
+                            await browser.get(link);
+                            await GUILib.waitforElement(Page);
+                        })
+                    })
+                }
+            })
+        })
+        if (items1.length >= 1) {
+            await HomePage.clickSignUpClose();
+            await GUILib.clickObject(Cart, "Cart Icon is clicked");
+            await HomePage.clickSignUpClose();
+            await GUILib.waitforElement(ViewCart);
+            await GUILib.clickObject(ViewCart, "View Cart Button is clicked");
+            await browser.sleep(500);
+            await HomePage.clickSignUpClose();
+            await element(ContinueShopping).isDisplayed().then(async function (result) {
+                if (result !== true) {
+                    await GUILib.clickObject(Cart, "Cart Icon is clicked");
+                    await HomePage.clickSignUpClose();
+                    await GUILib.waitforElement(ViewCart);
+                    await GUILib.clickObject(ViewCart, "View Cart Button is clicked");
+                    await browser.sleep(500);
+                }
+            })
+            await element.all(ProductNumber).count().then(async function (count) {
+                await element.all(ProductNumber).then(async function (AllProductNumber) {
+                    await console.log("Number of Unique Products in Cart: " + count)
+                    var RandomNumber1 = await Math.floor(Math.random() * count);
+                    var ProductNumber = await AllProductNumber[RandomNumber1].getWebElement();
+                    await ProductNumber.getAttribute('value').then(async function (value) {
+                        value = await parseInt(value);
+                        await console.log("Product Quantity of randomly choosen Item in Cart: " + value)
+                        var RandomNumber2 = await Math.floor(Math.random() * 2) + 1;
+                        await GUILib.getText(CartCount).then(async function (CartCount1) {
+                            await console.log("Quantity of Item in Cart #1: " + CartCount1)
+                            CartCount1 = await parseInt(CartCount1);
+                            if (RandomNumber2 == 1) {
+                                await element.all(PlusSign).then(async function (AllPlusSign) {
+                                    var PlusSignElement = await AllPlusSign[RandomNumber1].getWebElement();
+                                    var RandomNumber3 = await Math.floor(Math.random() * 10) + 1;
+                                    for (var q = 1; q <= RandomNumber3; q++) {
+                                        await PlusSignElement.click()
+                                    }
+                                    await console.log("Plus Sign was clicked " + RandomNumber3 + " times")
+                                    await ProductNumber.getAttribute('value').then(async function (value1) {
+                                        await console.log("Product Quantity after adding: " + value1)
+                                        value1 = await parseInt(value1);
+                                        await GUILib.scrollToElement(UpdateCart)
+                                        await browser.wait(EC.elementToBeClickable(element(UpdateCart)), 5500);
+                                        await GUILib.clickObject(UpdateCart, "Update Cart Button is clicked")
+                                        await GUILib.waitforElement(CartUpdatedAlert);
+                                        await GUILib.getText(CartCount).then(async function (CartCount2) {
+                                            await console.log("Quantity of Item in Cart #2: " + CartCount2)
+                                            CartCount2 = await parseInt(CartCount2);
+                                            await console.log("Comparing quantity of Item in Cart Icon before and after adding: " + CartCount2 + " and " + CartCount1)
+                                            expect(CartCount2).toBe(CartCount1 + RandomNumber3)
+                                        })
+                                    })
+                                })
+                            } else {
+                                if (RandomNumber2 == 2) {
+                                    await element.all(PlusSign).then(async function (AllPlusSign) {
+                                        var PlusSignElement = await AllPlusSign[RandomNumber1].getWebElement();
+                                        var RandomNumber3 = await Math.floor(Math.random() * 10) + 1;
+                                        for (var q = 1; q <= RandomNumber3; q++) {
+                                            await PlusSignElement.click()
+                                        }
+                                        await console.log("Plus Sign was clicked " + RandomNumber3 + " times to be able to click on Minus Sign")
+                                        await GUILib.scrollToElement(UpdateCart)
+                                        await browser.wait(EC.elementToBeClickable(element(UpdateCart)), 5500);
+                                        await GUILib.clickObject(UpdateCart, "Update Cart Button is clicked")
+                                        await GUILib.waitforElement(CartUpdatedAlert);
+                                        //await ProductNumber.getAttribute('value').then(async function (value) {
+                                            await element.all(MinusSign).then(async function (AllMinusSign) {
+                                                var MinusSignElement = await AllMinusSign[RandomNumber1].getWebElement();
+                                                var RandomNumber4 = await Math.floor(Math.random() * RandomNumber3) + 1;
+                                                for (var q = 1; q <= RandomNumber4; q++) {
+                                                    await MinusSignElement.click()
+                                                }
+                                                await console.log("Minus Sign was clicked " + RandomNumber4 + " times")
+                                                    await GUILib.scrollToElement(UpdateCart)
+                                                    await browser.wait(EC.elementToBeClickable(element(UpdateCart)), 5500);
+                                                    await GUILib.clickObject(UpdateCart, "Update Cart Button is clicked")
+                                                    await GUILib.waitforElement(CartUpdatedAlert);
+                                                    await GUILib.getText(CartCount).then(async function (CartCount2) {
+                                                        CartCount2 = await parseInt(CartCount2);
+                                                        await console.log("Comparing quantity of Item in Cart Icon before and after deleting: " + CartCount2 + " and " + CartCount1)
+                                                        expect(CartCount2).toBe(CartCount1 + RandomNumber3 - RandomNumber4)
+                                                    })
+                                                })
+                                            })
+                                        // })
+                                    // })
+                                }
+                            }
+                        })
+                    })
+                })
+            })
+        }
+
+    }
+
+    this.clickPlusMinus = async function () {
+        var items1 = [];
+        var items2 = [];
+        var z = 1;
+        await browser.getCurrentUrl().then(async function (link) {
+            await GUILib.waitforElement(Page);
+            await HomePage.clickSignUpClose();
+            var Product = await CF.setProduct()
+            await element.all(Product).count().then(async function (count) {
+                for (var a = 0; a <= 3; a++) {
+                    await element.all(Product).then(async function (AllProducts) {
+                        var RandomNumber = await Math.floor(Math.random() * count);
+                        await console.log("Random Number: " + RandomNumber);
+                        await HomePage.clickSignUpClose();
+                        await browser.wait(EC.elementToBeClickable(AllProducts[RandomNumber]), 15000);
+                        var Product = await AllProducts[RandomNumber].getWebElement();
+                        await HomePage.clickSignUpClose();
+                        await Product.click();
+                        await HomePage.clickSignUpClose();
+                        await GUILib.waitforElement(ProductPage);
+                        await element(OutStock).isPresent().then(async function (resultOutStock) {
+                            if (resultOutStock == true) {
+                                await console.log("Product is out of stock");
+                                await element(AddToCartBtn).isPresent().then(async function (resultAddToCartBtn) {
+                                    expect(resultAddToCartBtn).not.toBe(true)
+                                })
+                            } else {
+                                await console.log("Product is in stock");
+                                await element(ProductText).getText().then(async function (Text1) {
+                                    Text1 = await Text1.replace("–", " ")
+                                    console.log("Random Product: " + Text1);
+                                    if (items1.indexOf(Text1) === -1) {
+                                        items1.push(Text1);
+                                        console.log(items1);
+                                    }
+                                    await browser.wait(EC.elementToBeClickable(element(AddToCartBtn)), 9000);
+                                    await HomePage.clickSignUpClose();
+                                    await GUILib.clickObject(AddToCartBtn, "Product was added to Cart");
+                                    await HomePage.clickSignUpClose();
+
+                                    await console.log("Expected Number of Items in Cart after Adding: " + z)
+                                    await GUILib.waitforElement(ViewCartAlertLink);
+                                    await z++;
+                                })
+                            }
+                            await browser.get(link);
+                            await GUILib.waitforElement(Page);
+                        })
+                    })
+                }
+            })
+        })
+        if (items1.length > 1) {
+            await HomePage.clickSignUpClose();
+            await GUILib.clickObject(Cart, "Cart Icon is clicked");
+            await HomePage.clickSignUpClose();
+            await GUILib.waitforElement(ViewCart);
+            await GUILib.clickObject(ViewCart, "View Cart Button is clicked");
+            await browser.sleep(500);
+            await HomePage.clickSignUpClose();
+            await element(ContinueShopping).isDisplayed().then(async function (result) {
+                if (result !== true) {
+                    await GUILib.clickObject(Cart, "Cart Icon is clicked");
+                    await HomePage.clickSignUpClose();
+                    await GUILib.waitforElement(ViewCart);
+                    await GUILib.clickObject(ViewCart, "View Cart Button is clicked");
+                    await browser.sleep(500);
+                }
+            })
+            await element.all(ProductNumber).count().then(async function (count) {
+                await element.all(ProductNumber).then(async function (AllProductNumber) {
+                    await console.log("Number of Unique Products in Cart: " + count)
+                    var RandomNumber1 = await Math.floor(Math.random() * count);
+                    var ProductNumber = await AllProductNumber[RandomNumber1].getWebElement();
+                    await ProductNumber.getAttribute('value').then(async function (value) {
+                        value = await parseInt(value);
+                        await console.log("Product Quantity of randomly choosen Item in Cart: " + value)
+                        var RandomNumber2 = await Math.floor(Math.random() * 2) + 1;
+                        if (RandomNumber2 == 1) {
+                            await element.all(PlusSign).then(async function (AllPlusSign) {
+                                var PlusSignElement = await AllPlusSign[RandomNumber1].getWebElement();
+                                var RandomNumber3 = await Math.floor(Math.random() * 10) + 1;
+                                for (var q = 1; q <= RandomNumber3; q++) {
+                                    await PlusSignElement.click()
+                                }
+                                await console.log("Plus Sign was clicked " + RandomNumber3 + " times")
+                                await ProductNumber.getAttribute('value').then(async function (value1) {
+                                    await console.log("Product Quantity after adding: " + value1)
+                                    value1 = await parseInt(value1);
+                                    await console.log("Comparing quantity of Item before and after adding: " + value + " and " + value1)
+                                    expect(value1).toBe(value + RandomNumber3)
+                                })
+
+                            })
+                        } else {
+                            if (RandomNumber2 == 2) {
+                                await element.all(PlusSign).then(async function (AllPlusSign) {
+                                    var PlusSignElement = await AllPlusSign[RandomNumber1].getWebElement();
+                                    var RandomNumber3 = await Math.floor(Math.random() * 10) + 1;
+                                    for (var q = 1; q <= RandomNumber3; q++) {
+                                        await PlusSignElement.click()
+                                    }
+                                    await console.log("Plus Sign was clicked " + RandomNumber3 + " times to be able to click on Minus Sign")
+                                    await ProductNumber.getAttribute('value').then(async function (value) {
+                                        await element.all(MinusSign).then(async function (AllMinusSign) {
+                                            var MinusSignElement = await AllMinusSign[RandomNumber1].getWebElement();
+                                            var RandomNumber4 = await Math.floor(Math.random() * RandomNumber3) + 1;
+                                            for (var q = 1; q <= RandomNumber4; q++) {
+                                                await MinusSignElement.click()
+                                            }
+                                            await console.log("Minus Sign was clicked " + RandomNumber4 + " times")
+                                            await ProductNumber.getAttribute('value').then(async function (value1) {
+                                                await console.log("Product Quantity after deleting: " + value1)
+                                                value1 = await parseInt(value1);
+                                                await console.log("Comparing quantity of Item before and after deleting: " + value + " and " + value1)
+                                                expect(value1).toBe(value - RandomNumber4)
+                                            })
+                                        })
+                                    })
+                                })
+                            }
+                        }
+                    })
+                })
+            })
+        }
+
+    }
+
 
 
 

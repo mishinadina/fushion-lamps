@@ -8,12 +8,13 @@ var downloadsPath = path.resolve(__dirname, './Downloads');
 
 
 
-//var specArray = ['Testcase/Progression/HomePage_Validation.js', 'Testcase/Progression/ShopAll_Validation.js', 'Testcase/Progression/Product_Validation.js', 'Testcase/Progression/MiniCart_Validation.js'];
+//var specArray = ['Testcase/Progression/HomePage_Validation.js', 'Testcase/Progression/ShopAll_Validation.js', 'Testcase/Progression/Product_Validation.js', 'Testcase/Progression/MiniCart_Validation.js', 'Testcase/Progression/Checkout_Validation.js', 'Testcase/Progression/Checkout_Validation.js'];
 //var specArray = ['Testcase/Progression/HomePage_Validation.js']
 //var specArray = ['Testcase/Progression/ShopAll_Validation.js']
 //var specArray = ['Testcase/Progression/Product_Validation.js']
 //var specArray = ['Testcase/Progression/MiniCart_Validation.js']
-var specArray = ['Testcase/Progression/ViewCart_Validation.js']
+var specArray = ['Testcase/Progression/Checkout_Validation.js']
+//var specArray = ['Testcase/Progression/ViewCart_Validation.js']
 
 exports.config = {
 	//chromeDriver: './chromedriver.exe',
