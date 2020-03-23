@@ -84,6 +84,12 @@ describe('View Cart Page Verification', function () {
         await ViewCart.clickShippingCheckoutBtn();
     });
 
+ 
+
+
+
+  
+
 
     afterEach(function () {
         browser.sleep(500);

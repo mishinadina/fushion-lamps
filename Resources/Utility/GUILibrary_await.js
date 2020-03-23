@@ -78,6 +78,7 @@ var GUILibrary = function () {
 	this.typeValue = async function (byObject, textToWrite) {
 		await element(byObject).click().then(async function () {
 			element(byObject).sendKeys(textToWrite);
+			await console.log(textToWrite + " was typed in " + byObject)
 		})
 
 	};
