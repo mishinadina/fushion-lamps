@@ -22,7 +22,31 @@ describe('Clicking on Home Page buttons', function () {
 	//-----------------------------------------First Navigation Tabs TCs--------------------------//
 
 	it('Test', async function () {
-		
+		await console.log("Test mesage")
+	});
+
+	it('Test', async function () {
+		await console.log("Test mesage")
+	});
+
+	it('Test', async function () {
+		await console.log("Test mesage")
+	});
+
+	it('Test', async function () {
+		await console.log("Test mesage")
+	});
+
+	it('Test', async function () {
+		await console.log("Test mesage")
+	});
+
+	it('Test', async function () {
+		await console.log("Test mesage")
+	});
+
+	it('Test', async function () {
+		await console.log("Test mesage")
 	});
 
 
