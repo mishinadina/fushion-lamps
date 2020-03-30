@@ -27,8 +27,23 @@ var GUILibrary = function () {
 		await browser.manage().deleteAllCookies();
 		await browser.driver.manage().window().maximize();
 		await browser.executeScript("document.body.style.zoom='100%';");
-		await browser.driver.get(URL).then(function (btnG) {
-			//console.log("Logged In");
+		await browser.driver.get(URL).then(async function (btnG) {
+			await browser.wait(EC.visibilityOf(element(by.id("AccessibleNav"))), 30000).then(async function () {
+				console.log('Login Page was loaded')
+			})
+		})
+	}
+
+	this.logIn = async function (login ,password) {
+		await element(by.xpath('//*[@id ="CustomerEmail"]')).click().then(async function () {
+			await element(by.xpath('//*[@id ="CustomerEmail"]')).sendKeys(login);
+			await element(by.xpath('//*[@id ="CustomerPassword"]')).click().then(async function () {
+				await element(by.xpath('//*[@id ="CustomerPassword"]')).sendKeys(password);
+				await element(by.xpath('//*[@value = "Sign In"]')).click();
+				await browser.wait(EC.visibilityOf(element(by.id("shopify-section-header"))), 30000).then(async function () {
+					console.log('Homepage was loaded')
+				})
+			})
 		})
 	}
 
@@ -59,15 +74,15 @@ var GUILibrary = function () {
 	this.clickObject = async function (byObject, desc, index) {
 		try {
 			await browser.wait(EC.elementToBeClickable(element(byObject)), 15000);
-				await element(byObject).click().then(function () {
-					if (desc != null) {
-						console.log("Clicked on element- " + desc);
-					}
-					else {
-						console.log("Clicked on element- " + byObject);
-					}
-				})
-			
+			await element(byObject).click().then(function () {
+				if (desc != null) {
+					console.log("Clicked on element- " + desc);
+				}
+				else {
+					console.log("Clicked on element- " + byObject);
+				}
+			})
+
 		} catch (e) {
 			await console.log("Could not click on " + byObject);
 

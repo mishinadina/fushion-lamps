@@ -271,117 +271,58 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
 
     var results = [
     {
-        "description": "Check Credit Card Pay Form|Checkout Page Verification",
+        "description": "Test|Clicking on Home Page buttons",
         "passed": true,
         "pending": false,
-        "os": "mac os x",
-        "instanceId": 12832,
+        "os": "Mac OS X",
+        "instanceId": 13081,
         "browser": {
             "name": "chrome",
-            "version": "80.0.3987.149"
+            "version": "78.0.3904.70"
         },
-        "message": "Passed.",
-        "trace": "",
+        "message": "Passed",
         "browserLogs": [
             {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/ - A cookie associated with a cross-site resource at https://instagram.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584989526216,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/ - A cookie associated with a cross-site resource at http://www.facebook.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584989528470,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/shop/ - A cookie associated with a cross-site resource at http://www.facebook.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584989529904,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/shop/ - A cookie associated with a cross-site resource at https://instagram.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584989530185,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/product/after-sun-aloe-vera-gel-with-blood-orange-and-essential-oils-travel-size/ - A cookie associated with a cross-site resource at http://www.facebook.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584989531399,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/product/after-sun-aloe-vera-gel-with-blood-orange-and-essential-oils-travel-size/ - A cookie associated with a cross-site resource at https://instagram.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584989531579,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/product/after-sun-aloe-vera-gel-with-blood-orange-and-essential-oils-travel-size/ - A cookie associated with a cross-site resource at https://instagram.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584989533632,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/product/after-sun-aloe-vera-gel-with-blood-orange-and-essential-oils-travel-size/ - A cookie associated with a cross-site resource at http://www.facebook.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584989533648,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/cart/ - A cookie associated with a cross-site resource at http://www.facebook.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584989535455,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/cart/ - A cookie associated with a cross-site resource at https://instagram.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584989535845,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/checkout/ - A cookie associated with a cross-site resource at http://www.facebook.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584989538621,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/checkout/ - A cookie associated with a cross-site resource at https://instagram.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584989538768,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/checkout/order-pay/4804/?key=wc_order_5e790569f2fcb - A cookie associated with a cross-site resource at https://instagram.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584989548125,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/checkout/order-pay/4804/?key=wc_order_5e790569f2fcb - A cookie associated with a cross-site resource at http://www.facebook.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584989548150,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/checkout/order-pay/4804/?key=wc_order_5e790569f2fcb - A cookie associated with a cross-site resource at http://wpengine.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584989548433,
-                "type": ""
-            },
-            {
-                "level": "WARNING",
-                "message": "https://fotedev.wpengine.com/checkout/order-pay/4804/?key=wc_order_5e790569f2fcb - A cookie associated with a cross-site resource at http://fotedev.wpengine.com/ was set without the `SameSite` attribute. A future release of Chrome will only deliver cookies with cross-site requests if they are set with `SameSite=None` and `Secure`. You can review cookies in developer tools under Application>Storage>Cookies and see more details at https://www.chromestatus.com/feature/5088147346030592 and https://www.chromestatus.com/feature/5633521622188032.",
-                "timestamp": 1584989548433,
+                "level": "SEVERE",
+                "message": "https://city-electric-supply-marketing.myshopify.com/favicon.ico - Failed to load resource: the server responded with a status of 404 ()",
+                "timestamp": 1585603150455,
                 "type": ""
             }
         ],
-        "timestamp": 1584989524944,
-        "duration": 26252
+        "timestamp": 1585603149143,
+        "duration": 7753
+    },
+    {
+        "description": "Test|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "sessionId": "d82c308aa39d03f61e4f54b23a7231e1da913f2f",
+        "instanceId": 13093,
+        "browser": {
+            "name": "firefox",
+            "version": "69.0"
+        },
+        "message": "Passed",
+        "browserLogs": [],
+        "timestamp": 1585603167092,
+        "duration": 10007
+    },
+    {
+        "description": "Test|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "macOS",
+        "sessionId": "69bc33f51371200b597e1b95b26e6fd7cb34e3b7",
+        "instanceId": 13110,
+        "browser": {
+            "name": "Safari",
+            "version": "12.1.2"
+        },
+        "message": "Passed",
+        "browserLogs": [],
+        "timestamp": 1585603188830,
+        "duration": 10681
     }
 ];
 

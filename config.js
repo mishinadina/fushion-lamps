@@ -9,12 +9,13 @@ var downloadsPath = path.resolve(__dirname, './Downloads');
 
 
 //var specArray = ['Testcase/Progression/HomePage_Validation.js', 'Testcase/Progression/ShopAll_Validation.js', 'Testcase/Progression/Product_Validation.js', 'Testcase/Progression/MiniCart_Validation.js', 'Testcase/Progression/Checkout_Validation.js', 'Testcase/Progression/Checkout_Validation.js'];
-//var specArray = ['Testcase/Progression/HomePage_Validation.js']
+var specArray = ['Testcase/Progression/HomePage_Validation.js']
 //var specArray = ['Testcase/Progression/ShopAll_Validation.js']
 //var specArray = ['Testcase/Progression/Product_Validation.js']
 //var specArray = ['Testcase/Progression/MiniCart_Validation.js']
-var specArray = ['Testcase/Progression/Checkout_Validation.js']
+//var specArray = ['Testcase/Progression/Checkout_Validation.js']
 //var specArray = ['Testcase/Progression/ViewCart_Validation.js']
+//var specArray = ['Testcase/Progression/Blog_Validation.js']
 
 exports.config = {
 	//chromeDriver: './chromedriver.exe',
@@ -36,14 +37,16 @@ exports.config = {
 	},
 
 	params: {
-		URL: 'https://fotedev.wpengine.com/',
+		URL: 'https://city-electric-supply-marketing.myshopify.com/',
+		Username: 'charlie.mclarty@tamcogroup.com',
+		Password: 'ces1983'
 	},
 
 
 	//restartBrowserBetweenTests: true,
 	capabilities: {
 		//browserName: 'chrome',
-		browserName: 'chrome',
+		browserName: 'firefox',
 		chromeOptions: {
 			//'args': ['incognito']
 			args: ['--no-sandbox', '--test-type=browser'],
@@ -73,7 +76,7 @@ exports.config = {
 
 	beforeLaunch: async function () {
 
-		await rimraf('./FruitsReport', async function () {
+		await rimraf('./CESReport', async function () {
 			console.log("clearing html report directory")
 
 		})
@@ -105,7 +108,7 @@ exports.config = {
 		browser.manage().deleteAllCookies();
 
 		jasmine.getEnv().addReporter(new HtmlReporter({
-			baseDirectory: './FruitsReport',
+			baseDirectory: './CESReport',
 			takeScreenShotsOnlyForFailedSpecs: true,
 			screenshotsSubfolder: 'images',
 			jsonsSubfolder: 'jsons',
@@ -140,7 +143,7 @@ exports.config = {
 
 		await fs.writeFileSync('./email.txt', '');
 
-		var response = await fs.readFileSync('FruitsReport/combined.json', 'utf8')
+		var response = await fs.readFileSync('CESReport/combined.json', 'utf8')
 		var data = await ((response.split("\\\"").join("\"")).trim()).slice(1, -1);
 		data = await ((data.split("\\\\\"").join("\\\"")).trim());
 		//await console.log("good looking response : " + data);
@@ -204,7 +207,7 @@ exports.config = {
 		await fs.appendFileSync('./email.txt', '</table>' + '\n')
 
 		if (fail > 10) {
-			await rimraf('./FruitsReport/images', async function () {
+			await rimraf('./CESReport/images', async function () {
 				await fs.appendFileSync('./email.txt', '<p>SCREENSHOTS WERE DETACHED NOT TO EXCEED EMAIL LIMITS</p>');
 			})
 		}

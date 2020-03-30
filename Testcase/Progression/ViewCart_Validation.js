@@ -23,48 +23,48 @@ describe('View Cart Page Verification', function () {
 
     //-----------------------------------------TCs-----------------------------------------//
 
-    it('Add Products in Cart', async function () {
-        await console.log('Test case: Add Products in Cart')
-        await ViewCart.chooseRandomCategory();
-        await ViewCart.verifyProductsCart();
-    });
+    // it('Add Products in Cart', async function () {
+    //     await console.log('Test case: Add Products in Cart')
+    //     await ViewCart.chooseRandomCategory();
+    //     await ViewCart.verifyProductsCart();
+    // });
 
-    it('Delete Products from Cart', async function () {
-        await console.log('Test case: Delete Products from Cart')
-        await ViewCart.chooseRandomCategory();
-        await ViewCart.deleteProductsCart();
-    });
+    // it('Delete Products from Cart', async function () {
+    //     await console.log('Test case: Delete Products from Cart')
+    //     await ViewCart.chooseRandomCategory();
+    //     await ViewCart.deleteProductsCart();
+    // });
 
-    it('Check Number of Item in Cart Icon after deleting Product from Cart', async function () {
-        await console.log('Test case: Check Number of Item in Cart Icon after deleting Product from Cart')
-        await ViewCart.chooseRandomCategory();
-        await ViewCart.chooseRandomCategory();
-        await ViewCart.deleteProductsCartCheckIcon();
-    });
+    // it('Check Number of Item in Cart Icon after deleting Product from Cart', async function () {
+    //     await console.log('Test case: Check Number of Item in Cart Icon after deleting Product from Cart')
+    //     await ViewCart.chooseRandomCategory();
+    //     await ViewCart.chooseRandomCategory();
+    //     await ViewCart.deleteProductsCartCheckIcon();
+    // });
 
-    it('Check Name of deleting Item in Green Alert', async function () {
-        await console.log('Test case: Check Name of deleting Item in Green Alert')
-        await ViewCart.chooseRandomCategory();
-        await ViewCart.checkGreenAlertNameProduct();
-    });
+    // it('Check Name of deleting Item in Green Alert', async function () {
+    //     await console.log('Test case: Check Name of deleting Item in Green Alert')
+    //     await ViewCart.chooseRandomCategory();
+    //     await ViewCart.checkGreenAlertNameProduct();
+    // });
 
-    it('Click Undo Button from Green Alert', async function () {
-        await console.log('Test case: Click Undo Button from Green Alert')
-        await ViewCart.chooseRandomCategory();
-        await ViewCart.clickUndoGreenAlert();
-    });
+    // it('Click Undo Button from Green Alert', async function () {
+    //     await console.log('Test case: Click Undo Button from Green Alert')
+    //     await ViewCart.chooseRandomCategory();
+    //     await ViewCart.clickUndoGreenAlert();
+    // });
 
-    xit('Check Number of Items in Cart Icon after clicking Undo Button from Green Alert', async function () {
-        await console.log('Test case: Check Number of Items in Cart Icon after clicking Undo Button from Green Alert')
-        await ViewCart.chooseRandomCategory();
-        await ViewCart.clickUndoCheckIcon();
-    });
+    // xit('Check Number of Items in Cart Icon after clicking Undo Button from Green Alert', async function () {
+    //     await console.log('Test case: Check Number of Items in Cart Icon after clicking Undo Button from Green Alert')
+    //     await ViewCart.chooseRandomCategory();
+    //     await ViewCart.clickUndoCheckIcon();
+    // });
 
-    it('Clicking on Plus and Minus buttons', async function () {
-        await console.log('Test case: Clicking on Plus and Minus buttons')
-        await ViewCart.chooseRandomCategory();
-        await ViewCart.clickPlusMinus();
-    });
+    // it('Clicking on Plus and Minus buttons', async function () {
+    //     await console.log('Test case: Clicking on Plus and Minus buttons')
+    //     await ViewCart.chooseRandomCategory();
+    //     await ViewCart.clickPlusMinus();
+    // });
 
     it('Check Number of Items in Cart Icon after clicking Update Cart Button', async function () {
         await console.log('Test case: Check Number of Items in Cart Icon after clicking Update Cart Button')
@@ -72,17 +72,17 @@ describe('View Cart Page Verification', function () {
         await ViewCart.clickUpdateCartBtn();
     });
 
-    it('Click on Continue Shopping Button', async function () {
-        await console.log('Test case: Click on Continue Shopping Button')
-        await ViewCart.chooseRandomCategory();
-        await ViewCart.clickContinueShoppingBtn();
-    });
+    // it('Click on Continue Shopping Button', async function () {
+    //     await console.log('Test case: Click on Continue Shopping Button')
+    //     await ViewCart.chooseRandomCategory();
+    //     await ViewCart.clickContinueShoppingBtn();
+    // });
 
-    it('Click on Continue Shipping & Checkout Button', async function () {
-        await console.log('Test case: Click on Continue Shipping & Checkout Button')
-        await ViewCart.chooseRandomCategory();
-        await ViewCart.clickShippingCheckoutBtn();
-    });
+    // it('Click on Continue Shipping & Checkout Button', async function () {
+    //     await console.log('Test case: Click on Continue Shipping & Checkout Button')
+    //     await ViewCart.chooseRandomCategory();
+    //     await ViewCart.clickShippingCheckoutBtn();
+    // });
 
  
 
