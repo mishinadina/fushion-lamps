@@ -25,6 +25,34 @@ describe('Clicking on Home Page buttons', function () {
 		await Home_Page.logOut();
 	});
 
+	it('Test', async function () {
+		await Home_Page.logOut();
+	});
+
+	it('Test', async function () {
+		await Home_Page.logOut();
+	});
+
+	it('Test', async function () {
+		await Home_Page.logOut();
+	});
+
+	it('Test', async function () {
+		await Home_Page.logOut();
+	});
+
+	it('Test', async function () {
+		await Home_Page.logOut();
+	});
+
+	it('Test', async function () {
+		await Home_Page.logOut();
+	});
+
+	it('Test', async function () {
+		await Home_Page.logOut();
+	});
+
 	
 
 
