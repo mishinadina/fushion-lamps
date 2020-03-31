@@ -275,7 +275,7 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
         "passed": true,
         "pending": false,
         "os": "Mac OS X",
-        "instanceId": 13081,
+        "instanceId": 26362,
         "browser": {
             "name": "chrome",
             "version": "78.0.3904.70"
@@ -285,44 +285,44 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
             {
                 "level": "SEVERE",
                 "message": "https://city-electric-supply-marketing.myshopify.com/favicon.ico - Failed to load resource: the server responded with a status of 404 ()",
-                "timestamp": 1585603150455,
+                "timestamp": 1585627582798,
                 "type": ""
             }
         ],
-        "timestamp": 1585603149143,
-        "duration": 7753
+        "timestamp": 1585627580611,
+        "duration": 10369
     },
     {
         "description": "Test|Clicking on Home Page buttons",
         "passed": true,
         "pending": false,
         "os": "mac",
-        "sessionId": "d82c308aa39d03f61e4f54b23a7231e1da913f2f",
-        "instanceId": 13093,
+        "sessionId": "81f6a60f9e1619190833bef9a41753bebcd214f6",
+        "instanceId": 26376,
         "browser": {
             "name": "firefox",
             "version": "69.0"
         },
         "message": "Passed",
         "browserLogs": [],
-        "timestamp": 1585603167092,
-        "duration": 10007
+        "timestamp": 1585627602418,
+        "duration": 13905
     },
     {
         "description": "Test|Clicking on Home Page buttons",
         "passed": true,
         "pending": false,
         "os": "macOS",
-        "sessionId": "69bc33f51371200b597e1b95b26e6fd7cb34e3b7",
-        "instanceId": 13110,
+        "sessionId": "214154852f277427cc62108275c96f4f44ec3e68",
+        "instanceId": 26401,
         "browser": {
             "name": "Safari",
             "version": "12.1.2"
         },
         "message": "Passed",
         "browserLogs": [],
-        "timestamp": 1585603188830,
-        "duration": 10681
+        "timestamp": 1585627633758,
+        "duration": 12498
     }
 ];
 

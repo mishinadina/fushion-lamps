@@ -20,7 +20,7 @@ var specArray = ['Testcase/Progression/HomePage_Validation.js']
 exports.config = {
 	//chromeDriver: './chromedriver.exe',
 	directConnect: true,
-	//seleniumAddress: 'http://localhost:4444/wd/hub',
+	seleniumAddress: 'http://localhost:4444/wd/hub',
 
 
 	specs: specArray,
@@ -45,8 +45,8 @@ exports.config = {
 
 	//restartBrowserBetweenTests: true,
 	capabilities: {
-		//browserName: 'chrome',
-		browserName: 'firefox',
+		browserName: 'chrome',
+		//browserName: 'safari',
 		chromeOptions: {
 			//'args': ['incognito']
 			args: ['--no-sandbox', '--test-type=browser'],
