@@ -34,7 +34,7 @@ var GUILibrary = function () {
 		})
 	}
 
-	this.logIn = async function (login ,password) {
+	this.logIn = async function (login, password) {
 		await element(by.xpath('//*[@id ="CustomerEmail"]')).click().then(async function () {
 			await element(by.xpath('//*[@id ="CustomerEmail"]')).sendKeys(login);
 			await element(by.xpath('//*[@id ="CustomerPassword"]')).click().then(async function () {
@@ -87,6 +87,32 @@ var GUILibrary = function () {
 			await console.log("Could not click on " + byObject);
 
 		}
+	}
+
+
+	this.clickTab = async function (Ob1, Ob2, Link) {
+		var byObject1 = Ob1
+		var byObject2 = Ob2
+		var ExpectedLink = Link
+
+		if (Ob1 != null) {
+			await browser.findElement(byObject1).then(async function (result) {
+				await browser.actions({ bridge: true }).move({ duration: 500, origin: result, x: 0, y: 0 }).perform();
+			})
+		}
+		try {
+			await browser.wait(EC.elementToBeClickable(element(byObject2)), 15000);
+			await element(byObject2).click().then(async function () {
+				console.log("Clicked on element- " + byObject2);
+			})
+
+		} catch (e) {
+			await console.log("Could not click on " + byObject2);
+
+		}
+		await browser.getCurrentUrl().then(async function (url) {
+			await expect(url).toContain(ExpectedLink)
+		})
 	}
 
 

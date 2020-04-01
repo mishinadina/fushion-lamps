@@ -271,58 +271,307 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
 
     var results = [
     {
-        "description": "Test|Clicking on Home Page buttons",
-        "passed": true,
-        "pending": false,
-        "os": "Mac OS X",
-        "instanceId": 26362,
-        "browser": {
-            "name": "chrome",
-            "version": "78.0.3904.70"
-        },
-        "message": "Passed",
-        "browserLogs": [
-            {
-                "level": "SEVERE",
-                "message": "https://city-electric-supply-marketing.myshopify.com/favicon.ico - Failed to load resource: the server responded with a status of 404 ()",
-                "timestamp": 1585627582798,
-                "type": ""
-            }
-        ],
-        "timestamp": 1585627580611,
-        "duration": 10369
-    },
-    {
-        "description": "Test|Clicking on Home Page buttons",
+        "description": "Click Event - Counter Tab|Clicking on Home Page buttons",
         "passed": true,
         "pending": false,
         "os": "mac",
-        "sessionId": "81f6a60f9e1619190833bef9a41753bebcd214f6",
-        "instanceId": 26376,
+        "instanceId": 841,
         "browser": {
             "name": "firefox",
-            "version": "69.0"
+            "version": "74.0"
         },
-        "message": "Passed",
+        "message": "Passed.",
+        "trace": "",
         "browserLogs": [],
-        "timestamp": 1585627602418,
-        "duration": 13905
+        "timestamp": 1585690380821,
+        "duration": 9330
     },
     {
-        "description": "Test|Clicking on Home Page buttons",
+        "description": "Click Branch - Company Signage|Clicking on Home Page buttons",
         "passed": true,
         "pending": false,
-        "os": "macOS",
-        "sessionId": "214154852f277427cc62108275c96f4f44ec3e68",
-        "instanceId": 26401,
+        "os": "mac",
+        "instanceId": 841,
         "browser": {
-            "name": "Safari",
-            "version": "12.1.2"
+            "name": "firefox",
+            "version": "74.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1585690390174,
+        "duration": 9513
+    },
+    {
+        "description": "Click Branch - Vehicle Signage|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 841,
+        "browser": {
+            "name": "firefox",
+            "version": "74.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1585690399691,
+        "duration": 8302
+    },
+    {
+        "description": "Click Employee - Business Cards|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 841,
+        "browser": {
+            "name": "firefox",
+            "version": "74.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1585690407996,
+        "duration": 9934
+    },
+    {
+        "description": "Click Employee - Uniforms|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 841,
+        "browser": {
+            "name": "firefox",
+            "version": "74.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1585690417932,
+        "duration": 9505
+    },
+    {
+        "description": "Click Store Tab|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 841,
+        "browser": {
+            "name": "firefox",
+            "version": "74.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1585690427440,
+        "duration": 6408
+    },
+    {
+        "description": "Click Contact Us Tab|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 841,
+        "browser": {
+            "name": "firefox",
+            "version": "74.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1585690433851,
+        "duration": 7414
+    },
+    {
+        "description": "Click Log Out Tab|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 841,
+        "browser": {
+            "name": "firefox",
+            "version": "74.0"
         },
         "message": "Passed",
         "browserLogs": [],
-        "timestamp": 1585627633758,
-        "duration": 12498
+        "timestamp": 1585690441267,
+        "duration": 4697
+    },
+    {
+        "description": "Click Search Icon|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 841,
+        "browser": {
+            "name": "firefox",
+            "version": "74.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1585690445966,
+        "duration": 4298
+    },
+    {
+        "description": "Click Account Icon|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 841,
+        "browser": {
+            "name": "firefox",
+            "version": "74.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1585690450267,
+        "duration": 7918
+    },
+    {
+        "description": "Click Cart Icon|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 841,
+        "browser": {
+            "name": "firefox",
+            "version": "74.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1585690458188,
+        "duration": 7041
+    },
+    {
+        "description": "Click Branch Box|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 841,
+        "browser": {
+            "name": "firefox",
+            "version": "74.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1585690465232,
+        "duration": 6816
+    },
+    {
+        "description": "Click Business Cards Box|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 841,
+        "browser": {
+            "name": "firefox",
+            "version": "74.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1585690472052,
+        "duration": 7159
+    },
+    {
+        "description": "Click Contact Us Box|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 841,
+        "browser": {
+            "name": "firefox",
+            "version": "74.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1585690479213,
+        "duration": 6160
+    },
+    {
+        "description": "Click Apparel Box|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 841,
+        "browser": {
+            "name": "firefox",
+            "version": "74.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1585690485403,
+        "duration": 7047
+    },
+    {
+        "description": "Click Uniforms Box|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 841,
+        "browser": {
+            "name": "firefox",
+            "version": "74.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1585690492452,
+        "duration": 8059
+    },
+    {
+        "description": "Click Vehicle Signage Box|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 841,
+        "browser": {
+            "name": "firefox",
+            "version": "74.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1585690500514,
+        "duration": 7420
+    },
+    {
+        "description": "Click Counter Box|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 841,
+        "browser": {
+            "name": "firefox",
+            "version": "74.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1585690507937,
+        "duration": 7224
+    },
+    {
+        "description": "Click Company Signage Box|Clicking on Home Page buttons",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 841,
+        "browser": {
+            "name": "firefox",
+            "version": "74.0"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1585690515165,
+        "duration": 6837
     }
 ];
 

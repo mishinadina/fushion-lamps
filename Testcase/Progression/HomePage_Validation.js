@@ -21,41 +21,81 @@ describe('Clicking on Home Page buttons', function () {
 
 	//-----------------------------------------First Navigation Tabs TCs--------------------------//
 
-	it('Test', async function () {
-		await Home_Page.logOut();
+	it('Click Event - Counter Tab', async function () {
+		await Home_Page.clickEventCounterTab();
 	});
 
-	it('Test', async function () {
-		await Home_Page.logOut();
+	it('Click Branch - Company Signage', async function () {
+		await Home_Page.clickBranchCompanySignage();
 	});
 
-	it('Test', async function () {
-		await Home_Page.logOut();
+	it('Click Branch - Vehicle Signage', async function () {
+		await Home_Page.clickBranchVehicleSignage();
 	});
 
-	it('Test', async function () {
-		await Home_Page.logOut();
+	it('Click Employee - Business Cards', async function () {
+		await Home_Page.clickEmployeeBusinessCards();
 	});
 
-	it('Test', async function () {
-		await Home_Page.logOut();
+	it('Click Employee - Uniforms', async function () {
+		await Home_Page.clickEmployeeUniforms();
 	});
 
-	it('Test', async function () {
-		await Home_Page.logOut();
+	it('Click Store Tab', async function () {
+		await Home_Page.clickStoreTab();
 	});
 
-	it('Test', async function () {
-		await Home_Page.logOut();
+	it('Click Contact Us Tab', async function () {
+		await Home_Page.clickContactUsTab();
 	});
 
-	it('Test', async function () {
-		await Home_Page.logOut();
+	it('Click Log Out Tab', async function () {
+		await Home_Page.clickLogOutTab();
 	});
 
-	
+	it('Click Search Icon', async function () {
+		await Home_Page.clickSearchIcon();
+	});
 
+	it('Click Account Icon', async function () {
+		await Home_Page.clickAccountIcon();
+	});
 
+	it('Click Cart Icon', async function () {
+		await Home_Page.clickCartIcon();
+	});
+
+	it('Click Branch Box', async function () {
+		await Home_Page.clickBranchBox();
+	});
+
+	it('Click Business Cards Box', async function () {
+		await Home_Page.clickBusinessCardsBox();
+	});
+
+	it('Click Contact Us Box', async function () {
+		await Home_Page.clickContactUsBox();
+	});
+
+	it('Click Apparel Box', async function () {
+		await Home_Page.clickApparelBox();
+	});
+
+	it('Click Uniforms Box', async function () {
+		await Home_Page.clickUniformsBox();
+	});
+
+	it('Click Vehicle Signage Box', async function () {
+		await Home_Page.clickVehicleSignageBox();
+	});
+
+	it('Click Counter Box', async function () {
+		await Home_Page.clickCounterBox();
+	});
+
+	it('Click Company Signage Box', async function () {
+		await Home_Page.clickCompanySignageBox();
+	});
 
 
 	afterEach(function () {

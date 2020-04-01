@@ -45,7 +45,7 @@ exports.config = {
 
 	//restartBrowserBetweenTests: true,
 	capabilities: {
-		browserName: 'chrome',
+		browserName: 'firefox',
 		//browserName: 'safari',
 		chromeOptions: {
 			//'args': ['incognito']
