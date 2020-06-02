@@ -34,8 +34,11 @@ var HomePage_Form = function () {
   var Store = by.xpath("//ul[@id ='SiteNav']//*[text() = 'Store']")
   var StoreLink = "https://city-electric-supply-marketing.myshopify.com/collections/all"
 
-  var ContactUs = by.xpath("//ul[@id ='SiteNav']//*[text() = 'Contact Us']")
+  var ContactUs = by.xpath("//*[@class='site-nav--has-dropdown']/button/*[text() = 'Contact Us']")
+  var ContactUsDD = by.xpath("//*[@id='SiteNavLabel-contact-us']//*[text() = 'Contact Us']")
+  var RoadMapDD = by.xpath("//*[@id='SiteNavLabel-contact-us']//*[text() = 'Roadmap']")
   var ContactUsLink = "https://city-electric-supply-marketing.myshopify.com/pages/contact-us"
+  var RoadMapLink ="https://city-electric-supply-marketing.myshopify.com/pages/roadmap" 
 
   var Search = by.xpath("//*[@class ='btn--link site-header__icon site-header__search-toggle js-drawer-open-top']//*[@class = 'icon icon-search']")
   var SearchBar = by.xpath("//*[@class ='search__input search-bar__input']")
@@ -93,7 +96,12 @@ var HomePage_Form = function () {
   }
 
   this.clickContactUsTab = async function () {
-    await GUILib.clickTab(null, ContactUs, ContactUsLink)
+    await GUILib.clickTab(ContactUs, ContactUsDD, ContactUsLink)
+  }
+
+  this.clickRoadMap= async function () {
+    await GUILib.moveToElement(Logo);
+    await GUILib.clickTab(ContactUs, RoadMapDD, RoadMapLink)
   }
 
   this.clickSearchIcon = async function () {

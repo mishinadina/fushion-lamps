@@ -16,8 +16,8 @@ exports.config = {
 
 	params: {
 		URL: 'https://city-electric-supply-marketing.myshopify.com/',
-		Username: 'charlie.mclarty@tamcogroup.com',
-		Password: 'ces1983'
+		Username: 'dcherepanova@eightythreecreative.com',
+		Password: 'Mazhul123!'
 	},
 
 	// plugins: [{

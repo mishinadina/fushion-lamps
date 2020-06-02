@@ -49,6 +49,10 @@ describe('Clicking on Home Page buttons', function () {
 		await Home_Page.clickContactUsTab();
 	});
 
+	it('Click Road Map Tab', async function () {
+		await Home_Page.clickRoadMap();
+	});
+
 	it('Click Log Out Tab', async function () {
 		await Home_Page.clickLogOutTab();
 	});
