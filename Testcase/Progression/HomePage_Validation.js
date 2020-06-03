@@ -101,6 +101,128 @@ describe('Clicking on Home Page buttons', function () {
 		await Home_Page.clickCompanySignageBox();
 	});
 
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	it('In Progress', async function () {
+		
+	});
+
+	
+
 
 	afterEach(function () {
 		browser.sleep(500);

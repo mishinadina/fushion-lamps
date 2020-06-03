@@ -106,18 +106,18 @@ exports.config = {
 			},
 		}
 
-		,{
-			build: 'CES_Test',
-			name: 'Safari_OS_test',
-			browserName: 'Safari',
-			'browserstack.safari.enablePopups' : 'true',
-			'browserstack.console': 'errors',
-			'browserstack.networkLogs': 'true',
-			'browserstack.debug': 'true',
-			'browser_version': '12.1',
-			'browserstack.local': 'false',
-			'browserstack.selenium_version': '3.141.0',
-		},
+		// ,{
+		// 	build: 'CES_Test',
+		// 	name: 'Safari_OS_test',
+		// 	browserName: 'Safari',
+		// 	'browserstack.safari.enablePopups' : 'true',
+		// 	'browserstack.console': 'errors',
+		// 	'browserstack.networkLogs': 'true',
+		// 	'browserstack.debug': 'true',
+		// 	'browser_version': '12.1',
+		// 	'browserstack.local': 'false',
+		// 	'browserstack.selenium_version': '3.141.0',
+		// },
 ],
 
 

@@ -19,8 +19,8 @@ var specArray = ['Testcase/Progression/HomePage_Validation.js']
 
 exports.config = {
 	//chromeDriver: './chromedriver.exe',
-	directConnect: true,
-	seleniumAddress: 'http://localhost:4444/wd/hub',
+	//directConnect: true,
+	//seleniumAddress: 'http://localhost:4444/wd/hub',
 
 
 	specs: specArray,
@@ -45,19 +45,19 @@ exports.config = {
 
 	//restartBrowserBetweenTests: true,
 	capabilities: {
-		browserName: 'firefox',
+		browserName: 'safari',
 		//browserName: 'safari',
-		chromeOptions: {
-			//'args': ['incognito']
-			args: ['--no-sandbox', '--test-type=browser'],
-			prefs: {
-				'download': {
-					'prompt_for_download': false,
-					'directory_upgrade': true,
-					'default_directory': downloadsPath
-				}
-			}
-		},
+		// chromeOptions: {
+		// 	//'args': ['incognito']
+		// 	args: ['--no-sandbox', '--test-type=browser'],
+		// 	prefs: {
+		// 		'download': {
+		// 			'prompt_for_download': false,
+		// 			'directory_upgrade': true,
+		// 			'default_directory': downloadsPath
+		// 		}
+		// 	}
+		// },
 		//  count:1,
 		shardTestFiles: true,
 		maxInstances: 1,

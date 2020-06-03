@@ -271,36 +271,26 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
 
     var results = [
     {
-        "description": "Click Contact Us Tab|Clicking on Home Page buttons",
-        "passed": true,
+        "description": "Click Event - Counter Tab|Clicking on Home Page buttons",
+        "passed": false,
         "pending": false,
-        "os": "mac",
-        "instanceId": 63799,
+        "os": "macOS",
+        "sessionId": "9689E22F-4D05-4512-AF27-637F0B0A88A7",
+        "instanceId": 60277,
         "browser": {
-            "name": "firefox",
-            "version": "75.0"
+            "name": "Safari",
+            "version": "13.1"
         },
-        "message": "Passed.",
-        "trace": "",
+        "message": [
+            "Expected 'https://city-electric-supply-marketing.myshopify.com/' to contain 'city-electric-supply-marketing.myshopify.com/collections/counter-bundle'."
+        ],
+        "trace": [
+            "Error: Expected 'https://city-electric-supply-marketing.myshopify.com/' to contain 'city-electric-supply-marketing.myshopify.com/collections/counter-bundle'.\n    at <Jasmine>\n    at /Users/dinamcherepanova/ces-master/Resources/Utility/GUILibrary_await.js:114:22\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
+        ],
         "browserLogs": [],
-        "timestamp": 1591048054351,
-        "duration": 11542
-    },
-    {
-        "description": "Click Road Map Tab|Clicking on Home Page buttons",
-        "passed": true,
-        "pending": false,
-        "os": "mac",
-        "instanceId": 63799,
-        "browser": {
-            "name": "firefox",
-            "version": "75.0"
-        },
-        "message": "Passed.",
-        "trace": "",
-        "browserLogs": [],
-        "timestamp": 1591048065908,
-        "duration": 9833
+        "screenShotFile": "images/00d500e4-006a-002f-0062-002a002e00dd.png",
+        "timestamp": 1591134237217,
+        "duration": 21551
     }
 ];
 
