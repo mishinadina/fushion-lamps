@@ -180,6 +180,9 @@ var HomePage_Form = function () {
     await element.all(HotSellersHeaderSpan).count().then(async function (count) {
       await console.log(count)
       for (var n = 0; n < (count - 3); n++) {
+        if (z == 2) {
+          break;
+        }
         await console.log(n)
         await console.log(y)
         var HotSellersHeader = await by.xpath("//li[" + y + "]/div[@class='grid-view-item product-card pb-0 pl-3 pr-3 pt-4   ']/a")
@@ -222,7 +225,7 @@ var HomePage_Form = function () {
   }
 
 
-
+  
 }
 
 
