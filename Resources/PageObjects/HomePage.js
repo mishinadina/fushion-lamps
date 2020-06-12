@@ -2,12 +2,9 @@ var GUILibrary = require('../Utility/GUILibrary_await.js');
 var CommonFunctions = require('../Utility/CommonFunctions.js');
 
 
-
-
 var HomePage_Form = function () {
   var GUILib = new GUILibrary();
   var EC = protractor.ExpectedConditions;
-  var CF = new CommonFunctions();
   var fs = require('fs');
 
 
@@ -38,7 +35,7 @@ var HomePage_Form = function () {
   var ContactUsDD = by.xpath("//*[@id='SiteNavLabel-contact-us']//*[text() = 'Contact Us']")
   var RoadMapDD = by.xpath("//*[@id='SiteNavLabel-contact-us']//*[text() = 'Roadmap']")
   var ContactUsLink = "https://city-electric-supply-marketing.myshopify.com/pages/contact-us"
-  var RoadMapLink ="https://city-electric-supply-marketing.myshopify.com/pages/roadmap" 
+  var RoadMapLink = "https://city-electric-supply-marketing.myshopify.com/pages/roadmap"
 
   var Search = by.xpath("//*[@class ='btn--link site-header__icon site-header__search-toggle js-drawer-open-top']//*[@class = 'icon icon-search']")
   var SearchBar = by.xpath("//*[@class ='search__input search-bar__input']")
@@ -56,11 +53,28 @@ var HomePage_Form = function () {
   var ApparelBox = by.xpath('//*[@id="shopify-section-1571229997197"]/div/div/ul/li[4]')
   var ApparelLink = "https://city-electric-supply-marketing.myshopify.com/collections/apparel"
   var UniformsBox = by.xpath('//*[@id="shopify-section-1571229997197"]/div/div/ul/li[5]')
-  var VehicleSignageBox = by.xpath('//*[@id="shopify-section-1571229997197"]/div/div/ul/li[6]')  
+  var VehicleSignageBox = by.xpath('//*[@id="shopify-section-1571229997197"]/div/div/ul/li[6]')
   var CounterBox = by.xpath('//*[@id="shopify-section-1571229997197"]/div/div/ul/li[7]')
-  var CompanySignageBox = by.xpath('//*[@id="shopify-section-1571229997197"]/div/div/ul/li[8]')  
-  
+  var CompanySignageBox = by.xpath('//*[@id="shopify-section-1571229997197"]/div/div/ul/li[8]')
+
+  var CESUniforms1 = by.xpath('//*[@id="shopify-section-1571232084804"]/div/ul/li[1]/div/div[3]/div')
+  var CESUniforms2 = by.xpath('//*[@id="shopify-section-1571232084804"]/div/ul/li[2]/div/div[3]/div')
+  var CESUniforms3 = by.xpath('//*[@id="shopify-section-1571232084804"]/div/ul/li[3]/div/div[3]/div')
+  var CESUniforms4 = by.xpath('//*[@id="shopify-section-1571232084804"]/div/ul/li[4]/div/div[3]/div')
+
+  var FooterLink = by.xpath('//*[@id="shopify-section-footer"]/footer/div[2]/div/div[1]/div/small/a')
+
+  var HotSellers = by.xpath("//*[contains(@class, 'grid__item--1571231326253')]")
+  var Next = by.xpath('//*[@id="shopify-section-1571231326253"]/div/ul/button[2]')
+  var Prev = by.xpath('//*[@id="shopify-section-1571231326253"]/div/ul/button[1]')
+  var Slider = by.xpath("//*[text()='CES Uniform']")
+  var AddToCartBtn = by.xpath("//div/button[@type='submit']")
+
   var LogOut = by.id("customer_logout_link")
+  var Image = by.xpath('//*[contains(@class, "product-single__photo-wrapper js")]')
+
+  var HotSellersHeaderSpan = by.xpath('//span[@class="visually-hidden"]')
+
 
   this.clickLogOutTab = async function () {
     await GUILib.clickObject(LogOut);
@@ -99,7 +113,7 @@ var HomePage_Form = function () {
     await GUILib.clickTab(ContactUs, ContactUsDD, ContactUsLink)
   }
 
-  this.clickRoadMap= async function () {
+  this.clickRoadMap = async function () {
     await GUILib.moveToElement(Logo);
     await GUILib.clickTab(ContactUs, RoadMapDD, RoadMapLink)
   }
@@ -155,6 +169,60 @@ var HomePage_Form = function () {
     await GUILib.clickTab(null, CompanySignageBox, CompanySignageLink)
   }
 
+  this.clickHotSellers = async function () {
+    var Arr = [];
+    var Arr1 = [];
+    var y = 4
+    var z = 0;
+
+    await GUILib.waitforElement(Slider)
+    await GUILib.scrollToElement(Slider);
+    await element.all(HotSellersHeaderSpan).count().then(async function (count) {
+      await console.log(count)
+      for (var n = 0; n < (count - 3); n++) {
+        if (z == 2) {
+          break;
+        }
+        await console.log(n)
+        await console.log(y)
+        var HotSellersHeader = await by.xpath("//li[" + y + "]/div[@class='grid-view-item product-card pb-0 pl-3 pr-3 pt-4   ']/a")
+        await GUILib.scrollToElement(HotSellersHeader)
+        await element(HotSellersHeader).getText().then(async function (text) {
+          if (text == 'Cap - Baseball Red') {
+            await z++
+          }
+          await y++;
+          var Item = by.xpath("//*[@data-slick-index=" + n + "]/div/a")
+          var done = false
+          while (done == false) {
+            try {
+              await element(Item).click();
+              await browser.sleep(600)
+              var done = true
+            } catch (e) {
+              await GUILib.clickObject(Next)
+              await browser.sleep(600)
+            }
+          }
+          await element.all(Image).count().then(async function (noimage) {
+            await console.log("noimage " + noimage)
+            await browser.getCurrentUrl().then(async function (url) {
+              if (noimage == 0) {
+                if (Arr.indexOf(url) === -1) {
+                  await Arr.push(url);
+                }
+              }
+              await browser.get('https://city-electric-supply-marketing.myshopify.com')
+              await browser.wait(EC.visibilityOf(element(Logo)), 35000)
+            })
+          })
+        })
+      }
+
+      await console.log("===Products with no-image: " + Arr)
+      expect(Arr.length).toBe(0)
+    })
+  }
 }
 
 

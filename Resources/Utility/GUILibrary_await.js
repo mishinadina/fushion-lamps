@@ -289,9 +289,8 @@ var GUILibrary = function () {
 	this.scrollToElement = async function (byObject) {
 		var elmnt = element(byObject);
 		await browser.executeScript("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'end' });", elmnt).then(async function () {
-			await
-				await console.log("Scrolled to element");
-			await browser.sleep(500);
+		await console.log("Scrolled to element");
+		await browser.sleep(500);
 		})
 		await browser.wait(EC.visibilityOf(element(byObject)), 30000);
 	};

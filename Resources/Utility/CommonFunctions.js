@@ -135,8 +135,7 @@ var CommonFunctions = function () {
         })
     }
 
-    this.clickLink = async function (Link, ExtURL) {
-        
+    this.clickLink = async function (Link, ExtURL) {  
         await console.log(Link)
         await browser.wait(EC.elementToBeClickable(element(Link)), 30000);
         await GUILib.clickObject(Link, 'Link is clicked').then(async function () {

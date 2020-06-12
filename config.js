@@ -6,20 +6,14 @@ var basePath = __dirname;
 var path = require('path');
 var downloadsPath = path.resolve(__dirname, './Downloads');
 
+//var specArray = ['Testcase/Progression/HomePage_Validation.js', 'Testcase/Progression/CounterDay_Validation.js']
+//var specArray = ['Testcase/Progression/HomePage_Validation.js']
+var specArray = ['Testcase/Progression/CounterDay_Validation.js']
 
-
-//var specArray = ['Testcase/Progression/HomePage_Validation.js', 'Testcase/Progression/ShopAll_Validation.js', 'Testcase/Progression/Product_Validation.js', 'Testcase/Progression/MiniCart_Validation.js', 'Testcase/Progression/Checkout_Validation.js', 'Testcase/Progression/Checkout_Validation.js'];
-var specArray = ['Testcase/Progression/HomePage_Validation.js']
-//var specArray = ['Testcase/Progression/ShopAll_Validation.js']
-//var specArray = ['Testcase/Progression/Product_Validation.js']
-//var specArray = ['Testcase/Progression/MiniCart_Validation.js']
-//var specArray = ['Testcase/Progression/Checkout_Validation.js']
-//var specArray = ['Testcase/Progression/ViewCart_Validation.js']
-//var specArray = ['Testcase/Progression/Blog_Validation.js']
 
 exports.config = {
 	//chromeDriver: './chromedriver.exe',
-	//directConnect: true,
+	directConnect: true,
 	//seleniumAddress: 'http://localhost:4444/wd/hub',
 
 
@@ -32,7 +26,7 @@ exports.config = {
 	allScriptsTimeout: 100000,
 	getPageTimeout: 70000,
 	jasmineNodeOpts: {
-		defaultTimeoutInterval: 600000,
+		defaultTimeoutInterval: 12000000,
 		showColors: true // Use colors in the command line report.
 	},
 
@@ -45,7 +39,7 @@ exports.config = {
 
 	//restartBrowserBetweenTests: true,
 	capabilities: {
-		browserName: 'safari',
+		browserName: 'chrome',
 		//browserName: 'safari',
 		// chromeOptions: {
 		// 	//'args': ['incognito']

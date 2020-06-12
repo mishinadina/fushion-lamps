@@ -8,7 +8,9 @@ var basePath = __dirname;
 var path = require('path');
 var downloadsPath = path.resolve(__dirname, './Downloads');
 
-var specArray = ['Testcase/Progression/HomePage_Validation.js']
+var specArray = ['Testcase/Progression/HomePage_Validation.js', 'Testcase/Progression/CounterDay_Validation.js']
+//var specArray = ['Testcase/Progression/HomePage_Validation.js']
+// var specArray = ['Testcase/Progression/CounterDay_Validation.js']
 
 exports.config = {
 
@@ -20,7 +22,7 @@ exports.config = {
 
 	specs: specArray,
 
-	allScriptsTimeout: 100000,
+	allScriptsTimeout: 300000,
 	getPageTimeout: 70000,
 	jasmineNodeOpts: {
 		defaultTimeoutInterval: 12000000,
