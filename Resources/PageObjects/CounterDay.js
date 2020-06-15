@@ -96,105 +96,105 @@ var CounterDay_Form = function () {
         expect(Arr.length).toBe(0)
     }
 
-    // this.fillBundleInfoPastDate = async function () {
-    //     await GUILib.typeValue(Vendors, 'Test')
-    //     await GUILib.selectFromDropdown(StartHourOptions, '1')
-    //     await GUILib.selectFromDropdown(EndHourOptions, '1')
-    //     await GUILib.selectFromDropdown(StartMinuteOptions, '1')
-    //     await GUILib.selectFromDropdown(EndMinuteOptions, '1')
-    //     await GUILib.clickObject(Calendar)
-    //     try {
-    //         await GUILib.clickObject(DateCalendar)
-    //         await GUILib.clickObject(AddToCartBtn)
-    //         await GUILib.waitforElement(ViewCartBtn)
-    //         await GUILib.clickObject(ViewCartBtn)
-    //         boolean = false
-    //     }
-    //     catch {
-    //         boolean = true
-    //     }
-    //     expect(boolean).toBe(true)
-    // }
+    this.fillBundleInfoPastDate = async function () {
+        await GUILib.typeValue(Vendors, 'Test')
+        await GUILib.selectFromDropdown(StartHourOptions, '1')
+        await GUILib.selectFromDropdown(EndHourOptions, '1')
+        await GUILib.selectFromDropdown(StartMinuteOptions, '1')
+        await GUILib.selectFromDropdown(EndMinuteOptions, '1')
+        await GUILib.clickObject(Calendar)
+        try {
+            await GUILib.clickObject(DateCalendar)
+            await GUILib.clickObject(AddToCartBtn)
+            await GUILib.waitforElement(ViewCartBtn)
+            await GUILib.clickObject(ViewCartBtn)
+            boolean = false
+        }
+        catch (e) {
+            boolean = true
+        }
+        expect(boolean).toBe(true)
+    }
 
-    // this.fillBundleInfo = async function () {
-    //     await GUILib.typeValue(Vendors, 'Test')
-    //     await GUILib.selectFromDropdown(StartHourOptions, '1')
-    //     await GUILib.selectFromDropdown(EndHourOptions, '1')
-    //     await GUILib.selectFromDropdown(StartMinuteOptions, '1')
-    //     await GUILib.selectFromDropdown(EndMinuteOptions, '1')
-    //     await GUILib.clickObject(Calendar)
-    //     await GUILib.clickObject(NextMonth)
-    //     await GUILib.clickObject(NextMonth)
-    //     try {
-    //         await GUILib.clickObject(DateCalendar)
-    //         await GUILib.clickObject(AddToCartBtn)
-    //         await GUILib.waitforElement(ViewCartBtn)
-    //         await GUILib.clickObject(ViewCartBtn)
-    //         boolean = true
-    //     }
-    //     catch {
-    //         boolean = false
-    //     }
-    //     expect(boolean).toBe(true)
-    // }
+    this.fillBundleInfo = async function () {
+        await GUILib.typeValue(Vendors, 'Test')
+        await GUILib.selectFromDropdown(StartHourOptions, '1')
+        await GUILib.selectFromDropdown(EndHourOptions, '1')
+        await GUILib.selectFromDropdown(StartMinuteOptions, '1')
+        await GUILib.selectFromDropdown(EndMinuteOptions, '1')
+        await GUILib.clickObject(Calendar)
+        await GUILib.clickObject(NextMonth)
+        await GUILib.clickObject(NextMonth)
+        try {
+            await GUILib.clickObject(DateCalendar)
+            await GUILib.clickObject(AddToCartBtn)
+            await GUILib.waitforElement(ViewCartBtn)
+            await GUILib.clickObject(ViewCartBtn)
+            boolean = true
+        }
+        catch (e)  {
+            boolean = false
+        }
+        expect(boolean).toBe(true)
+    }
 
-    // this.checkAddtoCartBtn = async function () {
-    //     await GUILib.typeValue(Vendors, 'Test')
-    //     await GUILib.selectFromDropdown(StartHourOptions, '1')
-    //     await GUILib.selectFromDropdown(EndHourOptions, '1')
-    //     await GUILib.selectFromDropdown(StartMinuteOptions, '1')
-    //     await GUILib.selectFromDropdown(EndMinuteOptions, '1')
-    //     await GUILib.clickObject(Calendar)
-    //     await GUILib.clickObject(NextMonth)
-    //     await GUILib.clickObject(NextMonth)
-    //     await GUILib.clickObject(DateCalendar)
-    //     await GUILib.clickObject(AddToCartBtn)
-    //     await GUILib.waitforElement(ContinueShopping)
-    //     await GUILib.clickObject(ContinueShopping)
-    //     await GUILib.getText(AddToCartBtn).then(async function (text) {
-    //         await console.log(text)
-    //         expect(text).not.toContain('Adding Bundle...')
-    //     })
+    this.checkAddtoCartBtn = async function () {
+        await GUILib.typeValue(Vendors, 'Test')
+        await GUILib.selectFromDropdown(StartHourOptions, '1')
+        await GUILib.selectFromDropdown(EndHourOptions, '1')
+        await GUILib.selectFromDropdown(StartMinuteOptions, '1')
+        await GUILib.selectFromDropdown(EndMinuteOptions, '1')
+        await GUILib.clickObject(Calendar)
+        await GUILib.clickObject(NextMonth)
+        await GUILib.clickObject(NextMonth)
+        await GUILib.clickObject(DateCalendar)
+        await GUILib.clickObject(AddToCartBtn)
+        await GUILib.waitforElement(ContinueShopping)
+        await GUILib.clickObject(ContinueShopping)
+        await GUILib.getText(AddToCartBtn).then(async function (text) {
+            await console.log(text)
+            expect(text).not.toContain('Adding Bundle...')
+        })
 
 
-    //     expect(boolean).toBe(true)
-    // }
+        expect(boolean).toBe(true)
+    }
 
-    // this.clickAddToCart = async function () {
-    //     await GUILib.scrollToElement(AddToCartBtn)
-    //     await GUILib.clickObject(AddToCartBtn)
-    //     try {
-    //         await GUILib.waitforElement(ViewCartBtn)
-    //         await GUILib.clickObject(ViewCartBtn)
-    //         boolean = false
-    //     }
-    //     catch {
-    //         boolean = true
-    //     }
-    //     expect(boolean).toBe(true)
+    this.clickAddToCart = async function () {
+        await GUILib.scrollToElement(AddToCartBtn)
+        await GUILib.clickObject(AddToCartBtn)
+        try {
+            await GUILib.waitforElement(ViewCartBtn)
+            await GUILib.clickObject(ViewCartBtn)
+            boolean = false
+        }
+        catch (e)  {
+            boolean = true
+        }
+        expect(boolean).toBe(true)
 
-    // }
+    }
 
-    // this.fillNonNumericOptions = async function () {
-    //     await GUILib.typeValue(Vendors, 'Test')
-    //     await GUILib.selectFromDropdown(StartHourOptions, '0')
-    //     await GUILib.selectFromDropdown(EndHourOptions, '0')
-    //     await GUILib.selectFromDropdown(StartMinuteOptions, '0')
-    //     await GUILib.selectFromDropdown(EndMinuteOptions, '0')
-    //     await GUILib.clickObject(Calendar)
-    //     await GUILib.clickObject(NextMonth)
-    //     await GUILib.clickObject(DateCalendar)
-    //     await GUILib.clickObject(AddToCartBtn)
-    //     try {
-    //         await GUILib.waitforElement(ViewCartBtn)
-    //         await GUILib.clickObject(ViewCartBtn)
-    //         boolean = false
-    //     }
-    //     catch {
-    //         boolean = true
-    //     }
-    //     expect(boolean).toBe(true)
-    // }
+    this.fillNonNumericOptions = async function () {
+        await GUILib.typeValue(Vendors, 'Test')
+        await GUILib.selectFromDropdown(StartHourOptions, '0')
+        await GUILib.selectFromDropdown(EndHourOptions, '0')
+        await GUILib.selectFromDropdown(StartMinuteOptions, '0')
+        await GUILib.selectFromDropdown(EndMinuteOptions, '0')
+        await GUILib.clickObject(Calendar)
+        await GUILib.clickObject(NextMonth)
+        await GUILib.clickObject(DateCalendar)
+        await GUILib.clickObject(AddToCartBtn)
+        try {
+            await GUILib.waitforElement(ViewCartBtn)
+            await GUILib.clickObject(ViewCartBtn)
+            boolean = false
+        }
+        catch (e)  {
+            boolean = true
+        }
+        expect(boolean).toBe(true)
+    }
 
 
 
