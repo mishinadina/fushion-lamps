@@ -46,17 +46,17 @@ var CounterDay_Form = function () {
         await GUILib.waitforElement(QuantityName)
     }
 
-    // this.clickBBQ = async function (n) {
-    //     var BBQ = by.xpath("//*[@id='Collection']/div/div/div/ul/li[" + n + "]/div/div[4]/a")
-    //     await GUILib.clickObject(BBQ)
-    //     await GUILib.waitforElement(QuantityName)
-    // }
+    this.clickBBQ = async function (n) {
+        var BBQ = by.xpath("//*[@id='Collection']/div/div/div/ul/li[" + n + "]/div/div[4]/a")
+        await GUILib.clickObject(BBQ)
+        await GUILib.waitforElement(QuantityName)
+    }
 
-    // this.clickLunch = async function (n) {
-    //     var BBQ = by.xpath("//*[@id='Collection']/div/div/div/ul/li[" + n + "]/div/div[4]/a")
-    //     await GUILib.clickObject(BBQ)
-    //     await GUILib.waitforElement(QuantityName)
-    // }
+    this.clickLunch = async function (n) {
+        var BBQ = by.xpath("//*[@id='Collection']/div/div/div/ul/li[" + n + "]/div/div[4]/a")
+        await GUILib.clickObject(BBQ)
+        await GUILib.waitforElement(QuantityName)
+    }
 
     // this.checkProductsPage = async function () {
     //     var Arr = [];
