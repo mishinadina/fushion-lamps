@@ -1,12 +1,12 @@
-<p><b>BUILD STATUS : <font color="red">FAILURE</b></font></p>Time of build: Fri Jun 12 2020 14:50:47 GMT-0500 (Central Daylight Time)<br> <table border="1" cellpadding="5">
+<p><b>BUILD STATUS : <font color="red">FAILURE</b></font></p>Time of build: Mon Jun 15 2020 15:05:06 GMT-0500 (Central Daylight Time)<br> <table border="1" cellpadding="5">
 <tbody>
 <tr>
 <td> PASSED: </td>
-<td>3</td>
+<td>0</td>
 </tr>
 <tr>
 <td> FAILED: </td>
-<td>12</td>
+<td>1</td>
 </tr>
 <tr>
 <td> PENDING: </td>
@@ -14,4 +14,3 @@
 </tr>
 </tbody>
 </table>
-<p>SCREENSHOTS WERE DETACHED NOT TO EXCEED EMAIL LIMITS</p>

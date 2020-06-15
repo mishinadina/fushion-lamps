@@ -7,8 +7,8 @@ var path = require('path');
 var downloadsPath = path.resolve(__dirname, './Downloads');
 
 //var specArray = ['Testcase/Progression/HomePage_Validation.js', 'Testcase/Progression/CounterDay_Validation.js']
-//var specArray = ['Testcase/Progression/HomePage_Validation.js']
-var specArray = ['Testcase/Progression/CounterDay_Validation.js']
+var specArray = ['Testcase/Progression/HomePage_Validation.js']
+//var specArray = ['Testcase/Progression/CounterDay_Validation.js']
 
 
 exports.config = {
@@ -39,7 +39,7 @@ exports.config = {
 
 	//restartBrowserBetweenTests: true,
 	capabilities: {
-		browserName: 'chrome',
+		browserName: 'firefox',
 		//browserName: 'safari',
 		// chromeOptions: {
 		// 	//'args': ['incognito']
