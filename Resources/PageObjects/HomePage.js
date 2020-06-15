@@ -169,59 +169,7 @@ var HomePage_Form = function () {
     await GUILib.clickTab(null, CompanySignageBox, CompanySignageLink)
   }
 
-  // this.clickHotSellers = async function () {
-  //   var Arr = [];
-  //   var Arr1 = [];
-  //   var y = 4
-  //   var z = 0;
 
-  //   await GUILib.waitforElement(Slider)
-  //   await GUILib.scrollToElement(Slider);
-  //   await element.all(HotSellersHeaderSpan).count().then(async function (count) {
-  //     await console.log(count)
-  //     for (var n = 0; n < (count - 3); n++) {
-  //        if (z < 2) {
-  //         await console.log(n)
-  //         await console.log(y)
-  //         var HotSellersHeader = await by.xpath("//li[" + y + "]/div[@class='grid-view-item product-card pb-0 pl-3 pr-3 pt-4   ']/a")
-  //         await GUILib.scrollToElement(HotSellersHeader)
-  //         await element(HotSellersHeader).getText().then(async function (text) {
-  //           if (text == 'Cap - Baseball Red') {
-  //             await z++
-  //           }
-  //           await y++;
-  //           var Item = by.xpath("//*[@data-slick-index=" + n + "]/div/a")
-  //           var done = false
-  //           while (done == false) {
-  //             try {
-  //               await element(Item).click();
-  //               await browser.sleep(600)
-  //               var done = true
-  //             } catch (e) {
-  //               await GUILib.clickObject(Next)
-  //               await browser.sleep(600)
-  //             }
-  //           }
-  //           await element.all(Image).count().then(async function (noimage) {
-  //             await console.log("noimage " + noimage)
-  //             await browser.getCurrentUrl().then(async function (url) {
-  //               if (noimage == 0) {
-  //                 if (Arr.indexOf(url) === -1) {
-  //                   await Arr.push(url);
-  //                 }
-  //               }
-  //               await browser.get('https://city-electric-supply-marketing.myshopify.com')
-  //               await browser.wait(EC.visibilityOf(element(Logo)), 35000)
-  //             })
-  //           })
-  //         })
-  //        }
-  //     }
-
-  //     await console.log("===Products with no-image: " + Arr)
-  //     expect(Arr.length).toBe(0)
-  //   })
-  // }
 
 
 
