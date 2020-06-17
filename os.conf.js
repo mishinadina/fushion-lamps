@@ -8,7 +8,8 @@ var basePath = __dirname;
 var path = require('path');
 var downloadsPath = path.resolve(__dirname, './Downloads');
 
-var specArray = ['Testcase/Progression/HomePage_Validation.js', 'Testcase/Progression/CounterDay_Validation.js']
+var specArray = ['Testcase/Progression/HomePage_Validation.js', 'Testcase/Progression/CounterDay_Validation.js','Testcase/Progression/Store_Validation.js']
+//var specArray = ['Testcase/Progression/Store_Validation.js']
 //var specArray = ['Testcase/Progression/HomePage_Validation.js']
 // var specArray = ['Testcase/Progression/CounterDay_Validation.js']
 
@@ -268,6 +269,7 @@ exports.config = {
 	}
 
 };
+
 exports.config.multiCapabilities.forEach(function (caps) {
 	for (var i in exports.config.commonCapabilities) caps[i] = caps[i] || exports.config.commonCapabilities[i];
 });

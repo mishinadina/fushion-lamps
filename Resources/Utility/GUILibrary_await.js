@@ -180,7 +180,7 @@ var GUILibrary = function () {
 
 	this.waitforElement = async function (byObject) {
 		await browser.wait(EC.visibilityOf(element(byObject)), 30000).then(async function () {
-			console.log('Element is visible')
+			//console.log('Element is visible')
 		});
 	};
 

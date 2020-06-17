@@ -271,11 +271,11 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
 
     var results = [
     {
-        "description": "Click Hot Sellers|Clicking on Home Page buttons",
+        "description": "Click Accessories filter|Clicking on Home Page buttons",
         "passed": false,
         "pending": false,
         "os": "mac",
-        "instanceId": 1771,
+        "instanceId": 35173,
         "browser": {
             "name": "firefox",
             "version": "77.0.1"
@@ -284,12 +284,12 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
             "Expected 6 to be 0."
         ],
         "trace": [
-            "Error: Expected 6 to be 0.\n    at <Jasmine>\n    at /Users/dinamcherepanova/ces-master/Resources/PageObjects/HomePage.js:222:26\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
+            "Error: Expected 6 to be 0.\n    at <Jasmine>\n    at /Users/dinamcherepanova/ces-master/Resources/PageObjects/Store.js:108:32\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
         ],
         "browserLogs": [],
-        "screenShotFile": "images/00e200f7-00c9-007e-00f1-00f7000b00ce.png",
-        "timestamp": 1592251310889,
-        "duration": 194762
+        "screenShotFile": "images/004d00e0-00a6-0038-00ba-00ae00cd0076.png",
+        "timestamp": 1592346298477,
+        "duration": 438883
     }
 ];
 

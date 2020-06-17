@@ -82,6 +82,7 @@ var HomePage_Form = function () {
   }
 
   this.clickEventCounterTab = async function () {
+    await GUILib.moveToElement(Logo);
     await GUILib.clickTab(Event, Counter, CounterLink)
   }
 
