@@ -4,7 +4,7 @@ var Home_Page = require('../../Resources/PageObjects/HomePage.js');
 
 var EC = protractor.ExpectedConditions;
 
-describe('Clicking on Home Page buttons', function () {
+describe('Verification Counter Day Module', function () {
 
 	var GUILib = new GUILibrary();
 
