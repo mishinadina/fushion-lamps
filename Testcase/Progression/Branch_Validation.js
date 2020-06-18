@@ -70,6 +70,10 @@ describe('Verification Vehicle Branch Module', function () {
     it('Verify that "Year" field is mandatory', async function () {
 		await Branch.verifyYearMandatory();
     });  
+
+    it('Check iput type for "Year" field', async function () {
+		await Branch.checkYearFormat();
+    }); 
         
     it('Verify that all "Choose File" options are mandatory', async function () {
         await Branch.verifyChooseFile1();
@@ -78,9 +82,30 @@ describe('Verification Vehicle Branch Module', function () {
 		await Branch.verifyChooseFile4();
     });  
     
-    it('Upload document', async function () {
-        await Branch.chooseFile();
+    it('Upload document Vehicle Front', async function () {
+        await Branch.chooseFile(1);
+    });  
+    
+    it('Upload document  Left Side', async function () {
+        await Branch.chooseFile(2);
+    });  
+    
+    it('Upload document Right Side', async function () {
+        await Branch.chooseFile(3);
+    });  
+    
+    it('Upload document Vehicle Back', async function () {
+        await Branch.chooseFile(4);
+    }); 
+    
+    it('Upload one document bigger than 20 MB', async function () {
+        await Branch.chooseBigFile(1);
+    });  
+    
+    it('Upload document bigger than 20 MB for all Choose file options', async function () {
+        await Branch.chooseBigFileforAllSides(1);
 	});  
+
 
 
 	afterEach(function () {

@@ -8,10 +8,12 @@ var Branch_Form = function () {
     var CF = new CommonFunctions();
     var fs = require('fs');
     var n;
+    var option;
+    var boolean;
     var y;
 
     var path = require('path'),
-    remote = require('selenium-webdriver/remote');
+        remote = require('selenium-webdriver/remote');
 
 
     var PropertyOwned = by.xpath('//*[@id="property-owned"]')
@@ -21,7 +23,7 @@ var Branch_Form = function () {
     var OwnerEmailPhoneNumber = by.xpath('//*[@placeholder="Owner Email or phone number"]')
 
     var AddToCart = by.xpath('//*[@class="btn product-form__cart-submit"]')
-    var ViewCartBtn = by.xpath('/html/body/div[2]/div/div[2]/div[2]/a')
+    var ViewCartBtn = by.xpath('//*[@value="Check out"]')
     var MakeModel = by.xpath('//*[@id="inputMake"]')
     var Year = by.xpath('//*[@id="inputYear"]')
 
@@ -41,7 +43,6 @@ var Branch_Form = function () {
         var boolean;
         try {
             await GUILib.waitforElement(ViewCartBtn)
-            await element(ViewCartBtn).click()
             boolean = true
         }
         catch (e) {
@@ -55,10 +56,8 @@ var Branch_Form = function () {
         await GUILib.typeValue(OwnerName, 'Test')
         await GUILib.typeValue(OwnerEmailPhoneNumber, 'Test')
         await GUILib.clickObject(AddToCart)
-        var boolean;
         try {
             await GUILib.waitforElement(ViewCartBtn)
-            await element(ViewCartBtn).click()
             boolean = true
         }
         catch (e) {
@@ -95,6 +94,12 @@ var Branch_Form = function () {
         })
     }
 
+    this.checkYearFormat = async function () {
+        await GUILib.getAttribute(Year, 'type').then(async function (result) {
+            expect(result).not.toContain('text')
+        })
+    }
+
     this.verifyChooseFile1 = async function () {
         await GUILib.getAttribute(ChooseFile1, 'required').then(async function (result) {
             expect(result).toContain('true')
@@ -119,13 +124,93 @@ var Branch_Form = function () {
         })
     }
 
-    this.chooseFile = async function () {
+    this.chooseFile = async function (n) {
+        switch (n) {
+            case 1:
+                option = ChooseFile1;
+                break;
+            case 2:
+                option = ChooseFile2;
+                break;
+            case 3:
+                option = ChooseFile3;
+                break;
+            case 4:
+                option = ChooseFile4;
+                break;
+        }
         await browser.setFileDetector(new remote.FileDetector());
         var fileToUpload = '../Testdata/test.txt';
         var absolutePath = path.join(__dirname, fileToUpload);
-        await browser.findElement(ChooseFile1).sendKeys(absolutePath);
+        await browser.findElement(option).sendKeys(absolutePath);
         await console.log('Document was upload');
-        await browser.sleep(5000);
+        try {
+            await element(AddToCart).click()
+            await GUILib.waitforElement(ViewCartBtn)
+            boolean = true
+        }
+        catch (e) {
+            boolean = false
+        }
+        expect(boolean).toBe(true)
+    }
+
+    this.chooseBigFile = async function (n) {
+        switch (n) {
+            case 1:
+                option = ChooseFile1;
+                break;
+            case 2:
+                option = ChooseFile2;
+                break;
+            case 3:
+                option = ChooseFile3;
+                break;
+            case 4:
+                option = ChooseFile4;
+                break;
+        }
+        await browser.setFileDetector(new remote.FileDetector());
+        var fileToUploadBig = '../Testdata/test30MB.pdf';
+        var absolutePathBig = path.join(__dirname, fileToUploadBig);
+        await browser.findElement(ChooseFile1).sendKeys(absolutePathBig);
+        await console.log('Document was upload');
+        var fileToUpload = '../Testdata/test.txt';
+        var absolutePath = path.join(__dirname, fileToUpload);
+        await browser.findElement(ChooseFile2).sendKeys(absolutePath);
+        await console.log('Document was upload');
+        await browser.findElement(ChooseFile3).sendKeys(absolutePath);
+        await console.log('Document was upload');
+        await browser.findElement(ChooseFile4).sendKeys(absolutePath);
+        await console.log('Document was upload');
+        try {
+            await element(AddToCart).click()
+            await GUILib.waitforElement(ViewCartBtn)
+            boolean = true
+        }
+        catch (e) {
+            boolean = false
+        }
+        expect(boolean).toBe(false)
+    }
+
+    this.chooseBigFileforAllSides = async function (n) {
+        await browser.setFileDetector(new remote.FileDetector());
+        var fileToUploadBig = '../Testdata/test30MB.pdf';
+        var absolutePathBig = path.join(__dirname, fileToUploadBig);
+        await browser.findElement(ChooseFile1).sendKeys(absolutePathBig);
+        await console.log('Document was upload');
+        await browser.findElement(ChooseFile2).sendKeys(absolutePathBig);
+        await console.log('Document was upload');
+        await browser.findElement(ChooseFile3).sendKeys(absolutePathBig);
+        await console.log('Document was upload');
+        await browser.findElement(ChooseFile4).sendKeys(absolutePathBig);
+        await console.log('Document was upload');
+        await element(AddToCart).click()
+        await browser.sleep(15000);
+        await browser.getCurrentUrl().then(async function (url) {
+         expect(url).nottoContain('vehicle-signage')
+        })
     }
 
 
@@ -142,4 +227,4 @@ var Branch_Form = function () {
 
 
 
-module.exports = new Branch_Form;
+    module.exports = new Branch_Form;

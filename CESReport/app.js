@@ -271,20 +271,25 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
 
     var results = [
     {
-        "description": "Upload document|Verification Vehicle Branch Module",
-        "passed": true,
+        "description": "Upload document bigger than 20 MB for all Choose file options|Verification Vehicle Branch Module",
+        "passed": false,
         "pending": false,
         "os": "mac",
-        "instanceId": 87377,
+        "instanceId": 17409,
         "browser": {
             "name": "firefox",
             "version": "77.0.1"
         },
-        "message": "Passed.",
-        "trace": "",
+        "message": [
+            "Expected 'https://city-electric-supply-marketing.myshopify.com/cart/add' to contain 'vehicle-signage'."
+        ],
+        "trace": [
+            "Error: Expected 'https://city-electric-supply-marketing.myshopify.com/cart/add' to contain 'vehicle-signage'.\n    at <Jasmine>\n    at /Users/dinamcherepanova/ces-master/Resources/PageObjects/Branch.js:212:22\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
+        ],
         "browserLogs": [],
-        "timestamp": 1592430133516,
-        "duration": 15050
+        "screenShotFile": "images/006a00e2-0079-0092-00c9-00c100a00005.png",
+        "timestamp": 1592517335639,
+        "duration": 31378
     }
 ];
 
