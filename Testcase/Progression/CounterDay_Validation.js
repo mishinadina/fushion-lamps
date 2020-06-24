@@ -37,12 +37,17 @@ describe('Verification Counter Day Module', function () {
 		await CounterDay.fillNonNumericOptions();
     });
 
-    it('Module 1. Breakfast: Fill Bundle Info with the correct Inputes', async function () {
+    it('Module 1. Breakfast: Fill Bundle Info with the correct Inputes, add Bundle to the Cart and verify results', async function () {
         await CounterDay.clickBreakfast(1);
-		await CounterDay.fillBundleInfo();
+		await CounterDay.addBundleCartPositive();
     });
 
-    it('Module 1. Breakfast: Verify that name of the "Add to Cart" button was chenged after adding Bundle to the Cart', async function () {
+    it('Module 1. Breakfast: Delete Bundle Items from the Cart', async function () {
+        await CounterDay.clickBreakfast(1);
+		await CounterDay.deleteBundleCartPositive();
+    });
+
+    it('Module 1. Breakfast: Verify that name of the "Add to Cart" button was changed after adding Bundle to the Cart', async function () {
         await CounterDay.clickBreakfast(1);
 		await CounterDay.checkAddtoCartBtn();
     });
@@ -62,9 +67,14 @@ describe('Verification Counter Day Module', function () {
 		await CounterDay.fillNonNumericOptions();
     });
 
-    it('Module 1. BBQ: Fill Bundle Info with the correct Inputes', async function () {
-        await CounterDay.clickBBQ(1);
-		await CounterDay.fillBundleInfo();
+    it('Module 1. BBQ: Fill Bundle Info with the correct Inputes, add Bundle to the Cart and verify results', async function () {
+        await CounterDay.clickBreakfast(1);
+		await CounterDay.addBundleCartPositive();
+    });
+
+    it('Module 1. BBQ: Delete Bundle Items from the Cart', async function () {
+        await CounterDay.clickBreakfast(1);
+		await CounterDay.deleteBundleCartPositive();
     });
 
     it('Module 1. BBQ: Verify that name of the "Add to Cart" button was chenged after adding Bundle to the Cart', async function () {
@@ -87,9 +97,14 @@ describe('Verification Counter Day Module', function () {
 		await CounterDay.fillNonNumericOptions();
     });
 
-    it('Module 1. Lunch: Fill Bundle Info with the correct Inputes', async function () {
-        await CounterDay.clickLunch(1);
-		await CounterDay.fillBundleInfo();
+    it('Module 1. Lunch: Fill Bundle Info with the correct Inputes, add Bundle to the Cart and verify results', async function () {
+        await CounterDay.clickBreakfast(1);
+		await CounterDay.addBundleCartPositive();
+    });
+
+    it('Module 1. Lunch: Delete Bundle Items from the Cart', async function () {
+        await CounterDay.clickBreakfast(1);
+		await CounterDay.deleteBundleCartPositive();
     });
 
     it('Module 1. Lunch: Verify that name of the "Add to Cart" button was chenged after adding Bundle to the Cart', async function () {
@@ -114,12 +129,17 @@ describe('Verification Counter Day Module', function () {
 		await CounterDay.fillNonNumericOptions();
     });
 
-    it('Module 2. Breakfast: Fill Bundle Info with the correct Inputes', async function () {
+    it('Module 2. Breakfast: Fill Bundle Info with the correct Inputes, add Bundle to the Cart and verify results', async function () {
         await CounterDay.clickBreakfast(2);
-		await CounterDay.fillBundleInfo();
+		await CounterDay.addBundleCartPositive();
     });
 
-    it('Module 2. Breakfast: Verify that name of the "Add to Cart" button was chenged after adding Bundle to the Cart', async function () {
+    it('Module 2. Breakfast: Delete Bundle Items from the Cart', async function () {
+        await CounterDay.clickBreakfast(2);
+		await CounterDay.deleteBundleCartPositive();
+    });
+
+    it('Module 2. Breakfast: Verify that name of the "Add to Cart" button was changed after adding Bundle to the Cart', async function () {
         await CounterDay.clickBreakfast(2);
 		await CounterDay.checkAddtoCartBtn();
     });
@@ -139,9 +159,14 @@ describe('Verification Counter Day Module', function () {
 		await CounterDay.fillNonNumericOptions();
     });
 
-    it('Module 2. BBQ: Fill Bundle Info with the correct Inputes', async function () {
-        await CounterDay.clickBBQ(2);
-		await CounterDay.fillBundleInfo();
+    it('Module 2. BBQ: Fill Bundle Info with the correct Inputes, add Bundle to the Cart and verify results', async function () {
+        await CounterDay.clickBreakfast(2);
+		await CounterDay.addBundleCartPositive();
+    });
+
+    it('Module 2. BBQ: Delete Bundle Items from the Cart', async function () {
+        await CounterDay.clickBreakfast(2);
+		await CounterDay.deleteBundleCartPositive();
     });
 
     it('Module 2. BBQ: Verify that name of the "Add to Cart" button was chenged after adding Bundle to the Cart', async function () {
@@ -164,9 +189,14 @@ describe('Verification Counter Day Module', function () {
 		await CounterDay.fillNonNumericOptions();
     });
 
-    it('Module 2. Lunch: Fill Bundle Info with the correct Inputes', async function () {
-        await CounterDay.clickLunch(2);
-		await CounterDay.fillBundleInfo();
+    it('Module 2. Lunch: Fill Bundle Info with the correct Inputes, add Bundle to the Cart and verify results', async function () {
+        await CounterDay.clickBreakfast(2);
+		await CounterDay.addBundleCartPositive();
+    });
+
+    it('Module 2. Lunch: Delete Bundle Items from the Cart', async function () {
+        await CounterDay.clickBreakfast(2);
+		await CounterDay.deleteBundleCartPositive();
     });
 
     it('Module 2. Lunch: Verify that name of the "Add to Cart" button was chenged after adding Bundle to the Cart', async function () {
@@ -191,9 +221,14 @@ describe('Verification Counter Day Module', function () {
 		await CounterDay.fillNonNumericOptions();
     });
 
-    it('Module 3. Breakfast: Fill Bundle Info with the correct Inputes', async function () {
+    it('Module 3. Breakfast: Fill Bundle Info with the correct Inputes, add Bundle to the Cart and verify results', async function () {
         await CounterDay.clickBreakfast(3);
-		await CounterDay.fillBundleInfo();
+		await CounterDay.addBundleCartPositive();
+    });
+
+    it('Module 3. Breakfast: Delete Bundle Items from the Cart', async function () {
+        await CounterDay.clickBreakfast(3);
+		await CounterDay.deleteBundleCartPositive();
     });
 
     it('Module 3. Breakfast: Verify that name of the "Add to Cart" button was chenged after adding Bundle to the Cart', async function () {
@@ -216,9 +251,14 @@ describe('Verification Counter Day Module', function () {
 		await CounterDay.fillNonNumericOptions();
     });
 
-    it('Module 3. BBQ: Fill Bundle Info with the correct Inputes', async function () {
-        await CounterDay.clickBBQ(3);
-		await CounterDay.fillBundleInfo();
+    it('Module 3. BBQ: Fill Bundle Info with the correct Inputes, add Bundle to the Cart and verify results', async function () {
+        await CounterDay.clickBreakfast(3);
+		await CounterDay.addBundleCartPositive();
+    });
+
+    it('Module 3. BBQ: Delete Bundle Items from the Cart', async function () {
+        await CounterDay.clickBreakfast(3);
+		await CounterDay.deleteBundleCartPositive();
     });
 
     it('Module 3. BBQ: Verify that name of the "Add to Cart" button was chenged after adding Bundle to the Cart', async function () {
@@ -228,7 +268,7 @@ describe('Verification Counter Day Module', function () {
 
     it('Module 3. Lunch: Click on All Products from Bundle', async function () {
         await CounterDay.clickLunch(3);
-        await CounterDay.checkProductsPage(1);
+        await CounterDay.checkProductsPage();
     });
 
     it('Module 3. Lunch: Click "Add to Cart" button without filling Bundle Info', async function () {
@@ -241,9 +281,14 @@ describe('Verification Counter Day Module', function () {
 		await CounterDay.fillNonNumericOptions();
     });
 
-    it('Module 3. Lunch: Fill Bundle Info with the correct Inputes', async function () {
-        await CounterDay.clickLunch(3);
-		await CounterDay.fillBundleInfo();
+    it('Module 3. Lunch: Fill Bundle Info with the correct Inputes, add Bundle to the Cart and verify results', async function () {
+        await CounterDay.clickBreakfast(3);
+		await CounterDay.addBundleCartPositive();
+    });
+
+    it('Module 3. Lunch: Delete Bundle Items from the Cart', async function () {
+        await CounterDay.clickBreakfast(3);
+		await CounterDay.deleteBundleCartPositive();
     });
 
     it('Module 3. Lunch: Verify that name of the "Add to Cart" button was chenged after adding Bundle to the Cart', async function () {

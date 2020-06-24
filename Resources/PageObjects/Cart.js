@@ -11,15 +11,28 @@ var Cart_Form = function () {
     var y;
 
 
-    var Lunch = by.xpath("//*[@id='Collection']/div/div/div/ul/li[" + n + "]/div/div[5]/a")
-    
-    this.clickLunch = async function (n) {
-        var BBQ = by.xpath("//*[@id='Collection']/div/div/div/ul/li[" + n + "]/div/div[4]/a")
-        await GUILib.clickObject(BBQ)
-        await GUILib.waitforElement(QuantityName)
+    var QuantityName = by.xpath('//*[@id="counter-day-form"]/div[1]/div/table/tbody/tr[1]/td[4]/input')
+    var QuantityNameCart = by.xpath('//*[@class="cart__itemDetails-td  text-left"]')
+
+    this.getQuantityItemsBundle = async function () {
+        await element.all(QuantityLines).count().then(async function (lines) {
+            return lines;
+        })
     }
 
-    
+    this.getQuantityItemsBundleCart = async function () {
+        await element.all(QuantityNameCart).count().then(async function (linesCart) {
+            return linesCart;
+        })
+    }
+
+    this.compareQuantity = async function () {
+     
+    }
+
+
+
+
 
 }
 

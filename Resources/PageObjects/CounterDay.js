@@ -14,7 +14,6 @@ var CounterDay_Form = function () {
     var Lunch = by.xpath("//*[@id='Collection']/div/div/div/ul/li[" + n + "]/div/div[5]/a")
     var ProductList = by.xpath('//*[@id="ProductSection-product-template"]/div/div/div[2]')
 
-    var Quantity = by.xpath('//*[@id="counter-day-form"]/div[1]/div/table/tbody/tr[1]/td[4]/input')
     var QuantityLines = by.xpath('//*[@data-label="Quantity"]')
     var QuantityName = by.xpath('//*[@id="counter-day-form"]/div[1]/div/table/tbody/tr[1]/td[4]/input')
 
@@ -37,6 +36,11 @@ var CounterDay_Form = function () {
     var DateCalendar = by.xpath("//div[@role='calendar']//div/table/tbody/tr[1]/td[1]")
 
     var ContinueShopping = by.xpath('/html/body/div[2]/div/div[2]/div[1]/button')
+
+    var QuantityNameCart = by.xpath('//*[@class="cart__itemDetails-td  text-left"]')
+    var Cart = by.xpath("//*[@class='cart__submit btn btn--small-wide']")
+    var Delete = by.xpath("//*[@class='fas fa-times']")
+
 
     //----------------------------------------------------------------------------------------//
 
@@ -116,26 +120,76 @@ var CounterDay_Form = function () {
         expect(boolean).toBe(true)
     }
 
-    this.fillBundleInfo = async function () {
-        await GUILib.typeValue(Vendors, 'Test')
-        await GUILib.selectFromDropdown(StartHourOptions, '1')
-        await GUILib.selectFromDropdown(EndHourOptions, '1')
-        await GUILib.selectFromDropdown(StartMinuteOptions, '1')
-        await GUILib.selectFromDropdown(EndMinuteOptions, '1')
-        await GUILib.clickObject(Calendar)
-        await GUILib.clickObject(NextMonth)
-        await GUILib.clickObject(NextMonth)
-        try {
-            await GUILib.clickObject(DateCalendar)
-            await GUILib.clickObject(AddToCartBtn)
-            await GUILib.waitforElement(ViewCartBtn)
-            await GUILib.clickObject(ViewCartBtn)
-            boolean = true
-        }
-        catch (e)  {
-            boolean = false
-        }
-        expect(boolean).toBe(true)
+    this.addBundleCartPositive = async function () {
+        await element.all(QuantityLines).count().then(async function (ExpectedCount) {
+            await console.log(ExpectedCount)
+            await GUILib.typeValue(Vendors, 'Test')
+            await GUILib.selectFromDropdown(StartHourOptions, '1')
+            await GUILib.selectFromDropdown(EndHourOptions, '1')
+            await GUILib.selectFromDropdown(StartMinuteOptions, '1')
+            await GUILib.selectFromDropdown(EndMinuteOptions, '1')
+            await GUILib.clickObject(Calendar)
+            await GUILib.clickObject(NextMonth)
+            await GUILib.clickObject(NextMonth)
+            try {
+                await GUILib.clickObject(DateCalendar)
+                await GUILib.clickObject(AddToCartBtn)
+                await GUILib.waitforElement(ViewCartBtn)
+                await GUILib.clickObject(ViewCartBtn)
+                await GUILib.waitforElement(Cart);
+                await element.all(QuantityNameCart).count().then(async function (ActualCount) {
+                    await console.log(ActualCount)
+                    expect(1 + ExpectedCount).toBe(ActualCount)
+                    boolean = true
+                })
+            }
+            catch (e) {
+                boolean = false
+            }
+            expect(boolean).toBe(true)
+        })
+    }
+
+    this.deleteBundleCartPositive = async function () {
+        await element.all(QuantityLines).count().then(async function (ExpectedCount) {
+            await console.log(ExpectedCount)
+            await GUILib.typeValue(Vendors, 'Test')
+            await GUILib.selectFromDropdown(StartHourOptions, '1')
+            await GUILib.selectFromDropdown(EndHourOptions, '1')
+            await GUILib.selectFromDropdown(StartMinuteOptions, '1')
+            await GUILib.selectFromDropdown(EndMinuteOptions, '1')
+            await GUILib.clickObject(Calendar)
+            await GUILib.clickObject(NextMonth)
+            await GUILib.clickObject(NextMonth)
+            try {
+                await GUILib.clickObject(DateCalendar)
+                await GUILib.clickObject(AddToCartBtn)
+                await GUILib.waitforElement(ViewCartBtn)
+                await GUILib.clickObject(ViewCartBtn)
+                await GUILib.waitforElement(Cart);
+                await element.all(QuantityNameCart).count().then(async function (ActualCount) {
+                    await console.log(ActualCount)
+                    await element.all(Delete).count().then(async function (count) {
+                        for (var y = 0; y < count; y++) {
+                            await console.log(y)
+                            await browser.sleep(500)
+                            await element.all(Delete).then(async function (DeleteArray) {
+                                var DeleteElement = await DeleteArray[0].getWebElement();
+                                await DeleteElement.click()
+                            })
+                        }
+                    })
+                })
+                await browser.refresh()
+                await element.all(QuantityNameCart).count().then(async function (ExpectedCount) {
+                    expect (ExpectedCount).toBe(0)
+                })
+                boolean = true
+            } catch (e) {
+                boolean = false
+            }
+            expect(boolean).toBe(true)
+        })
     }
 
     this.checkAddtoCartBtn = async function () {
@@ -168,7 +222,7 @@ var CounterDay_Form = function () {
             await GUILib.clickObject(ViewCartBtn)
             boolean = false
         }
-        catch (e)  {
+        catch (e) {
             boolean = true
         }
         expect(boolean).toBe(true)
@@ -190,7 +244,7 @@ var CounterDay_Form = function () {
             await GUILib.clickObject(ViewCartBtn)
             boolean = false
         }
-        catch (e)  {
+        catch (e) {
             boolean = true
         }
         expect(boolean).toBe(true)

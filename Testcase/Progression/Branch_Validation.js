@@ -71,7 +71,7 @@ describe('Verification Vehicle Branch Module', function () {
 		await Branch.verifyYearMandatory();
     });  
 
-    it('Check iput type for "Year" field', async function () {
+    it('Check input type for "Year" field', async function () {
 		await Branch.checkYearFormat();
     }); 
         

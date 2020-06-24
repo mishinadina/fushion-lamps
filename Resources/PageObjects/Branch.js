@@ -209,7 +209,7 @@ var Branch_Form = function () {
         await element(AddToCart).click()
         await browser.sleep(15000);
         await browser.getCurrentUrl().then(async function (url) {
-         expect(url).nottoContain('vehicle-signage')
+         expect(url).not.toContain('vehicle-signage')
         })
     }
 
