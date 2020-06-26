@@ -10,6 +10,9 @@ var Branch_Form = function () {
     var n;
     var option;
     var boolean;
+    var result;
+    var resultPositive = "File was successully uploaded"
+    var resultNegative = "Error occures while uploading file"
     var y;
 
     var path = require('path'),
@@ -142,17 +145,15 @@ var Branch_Form = function () {
         await browser.setFileDetector(new remote.FileDetector());
         var fileToUpload = '../Testdata/test.txt';
         var absolutePath = path.join(__dirname, fileToUpload);
-        await browser.findElement(option).sendKeys(absolutePath);
-        await console.log('Document was upload');
         try {
-            await element(AddToCart).click()
-            await GUILib.waitforElement(ViewCartBtn)
-            boolean = true
+            await browser.findElement(option).sendKeys(absolutePath);
+            await console.log('Document was upload');
+            result = resultPositive
         }
         catch (e) {
-            boolean = false
+            result = resultNegative
         }
-        expect(boolean).toBe(true)
+         expect(result).toBe(resultPositive)
     }
 
     this.chooseBigFile = async function (n) {
@@ -177,21 +178,38 @@ var Branch_Form = function () {
         await console.log('Document was upload');
         var fileToUpload = '../Testdata/test.txt';
         var absolutePath = path.join(__dirname, fileToUpload);
+        try {
+            await browser.findElement(ChooseFile2).sendKeys(absolutePath);
+            await console.log('Document was upload');
+            await browser.findElement(ChooseFile3).sendKeys(absolutePath);
+            await console.log('Document was upload');
+            await browser.findElement(ChooseFile4).sendKeys(absolutePath);
+            await console.log('Document was upload');
+            result = resultPositive
+        }
+        catch (e) {
+            result = resultNegative
+        }
+        expect(result).toBe(resultNegative)
+    }
+
+    this.chooseFileforAllSides = async function (n) {
+        await browser.setFileDetector(new remote.FileDetector());
+        var fileToUpload = '../Testdata/test.txt';
+        var absolutePath = path.join(__dirname, fileToUpload);
+        await browser.findElement(ChooseFile1).sendKeys(absolutePath);
+        await console.log('Document was upload');
         await browser.findElement(ChooseFile2).sendKeys(absolutePath);
         await console.log('Document was upload');
         await browser.findElement(ChooseFile3).sendKeys(absolutePath);
         await console.log('Document was upload');
         await browser.findElement(ChooseFile4).sendKeys(absolutePath);
         await console.log('Document was upload');
-        try {
-            await element(AddToCart).click()
-            await GUILib.waitforElement(ViewCartBtn)
-            boolean = true
-        }
-        catch (e) {
-            boolean = false
-        }
-        expect(boolean).toBe(false)
+        await element(AddToCart).click()
+        await browser.sleep(15000);
+        await browser.getCurrentUrl().then(async function (url) {
+            expect(url).not.toContain('vehicle-signage')
+        })
     }
 
     this.chooseBigFileforAllSides = async function (n) {
@@ -207,9 +225,15 @@ var Branch_Form = function () {
         await browser.findElement(ChooseFile4).sendKeys(absolutePathBig);
         await console.log('Document was upload');
         await element(AddToCart).click()
-        await browser.sleep(15000);
+        await GUILib.waitUrlChanges();
         await browser.getCurrentUrl().then(async function (url) {
-         expect(url).not.toContain('vehicle-signage')
+            await console.log(url)
+            if (url.includes('cart')) {
+                result = resultPositive
+            } else (
+                result = resultNegative
+            )
+            expect(result).toBe(resultNegative)
         })
     }
 
@@ -227,4 +251,4 @@ var Branch_Form = function () {
 
 
 
-    module.exports = new Branch_Form;
+module.exports = new Branch_Form;

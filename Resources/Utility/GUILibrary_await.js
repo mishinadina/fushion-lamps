@@ -184,6 +184,13 @@ var GUILibrary = function () {
 		});
 	};
 
+	this.waitUrlChanges = async function () {
+		await browser.getCurrentUrl().then(async function (url) {
+			await browser.wait(EC.not(EC.urlContains(url),30000))
+		});
+	};
+
+
 	this.checkPageLoadStatus = function () {
 		return browser.executeScript("return window.document.readyState ;")
 	};

@@ -271,11 +271,11 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
 
     var results = [
     {
-        "description": "Change the name and add Business Card order to Cart|Verification Business Cards Module",
+        "description": "Click \"Log Out\" button and verify result|Verification Company Signage Module",
         "passed": true,
         "pending": false,
         "os": "mac",
-        "instanceId": 41973,
+        "instanceId": 91513,
         "browser": {
             "name": "firefox",
             "version": "77.0.1"
@@ -283,8 +283,8 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
         "message": "Passed.",
         "trace": "",
         "browserLogs": [],
-        "timestamp": 1593035256106,
-        "duration": 8157
+        "timestamp": 1593122627909,
+        "duration": 8540
     }
 ];
 

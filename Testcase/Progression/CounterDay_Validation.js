@@ -22,7 +22,7 @@ describe('Verification Counter Day Module', function () {
 
 	//-----------------------------------------25-50 Attendees--------------------------//
 
-	it('Module 1. Breakfast: Click on All Products from Bundle', async function () {
+	it('Module 1. Breakfast: Click on All Products from Bundle and verify that no Error 404 appears', async function () {
         await CounterDay.clickBreakfast(1);
         await CounterDay.checkProductsPage();
     });
@@ -52,7 +52,7 @@ describe('Verification Counter Day Module', function () {
 		await CounterDay.checkAddtoCartBtn();
     });
 
-    it('Module 1. BBQ: Click on All Products from Bundle', async function () {
+    it('Module 1. BBQ: Click on All Products from Bundle and verify that no Error 404 appears', async function () {
         await CounterDay.clickBBQ(1);
         await CounterDay.checkProductsPage();
     });
@@ -77,12 +77,12 @@ describe('Verification Counter Day Module', function () {
 		await CounterDay.deleteBundleCartPositive();
     });
 
-    it('Module 1. BBQ: Verify that name of the "Add to Cart" button was chenged after adding Bundle to the Cart', async function () {
+    it('Module 1. BBQ: Verify that name of the "Add to Cart" button was changed after adding Bundle to the Cart', async function () {
         await CounterDay.clickBBQ(1);
 		await CounterDay.checkAddtoCartBtn();
     });
 
-    it('Module 1. Lunch: Click on All Products from Bundle', async function () {
+    it('Module 1. Lunch: Click on All Products from Bundle and verify that no Error 404 appears', async function () {
         await CounterDay.clickLunch(1);
         await CounterDay.checkProductsPage();
     });
@@ -107,14 +107,14 @@ describe('Verification Counter Day Module', function () {
 		await CounterDay.deleteBundleCartPositive();
     });
 
-    it('Module 1. Lunch: Verify that name of the "Add to Cart" button was chenged after adding Bundle to the Cart', async function () {
+    it('Module 1. Lunch: Verify that name of the "Add to Cart" button was changed after adding Bundle to the Cart', async function () {
         await CounterDay.clickLunch(1);
 		await CounterDay.checkAddtoCartBtn();
     });
 
     //-----------------------------------------50-75 Attendees--------------------------//
 
-    it('Module 2. Breakfast: Click on All Products from Bundle', async function () {
+    it('Module 2. Breakfast: Click on All Products from Bundle and verify that no Error 404 appears', async function () {
         await CounterDay.clickBreakfast(2);
         await CounterDay.checkProductsPage();
     });
@@ -144,7 +144,7 @@ describe('Verification Counter Day Module', function () {
 		await CounterDay.checkAddtoCartBtn();
     });
 
-    it('Module 2. BBQ: Click on All Products from Bundle', async function () {
+    it('Module 2. BBQ: Click on All Products from Bundle and verify that no Error 404 appears', async function () {
         await CounterDay.clickBBQ(2);
         await CounterDay.checkProductsPage();
     });
@@ -169,12 +169,12 @@ describe('Verification Counter Day Module', function () {
 		await CounterDay.deleteBundleCartPositive();
     });
 
-    it('Module 2. BBQ: Verify that name of the "Add to Cart" button was chenged after adding Bundle to the Cart', async function () {
+    it('Module 2. BBQ: Verify that name of the "Add to Cart" button was changed after adding Bundle to the Cart', async function () {
         await CounterDay.clickBBQ(2);
 		await CounterDay.checkAddtoCartBtn();
     });
 
-    it('Module 2. Lunch: Click on All Products from Bundle', async function () {
+    it('Module 2. Lunch: Click on All Products from Bundle and verify that no Error 404 appears', async function () {
         await CounterDay.clickLunch(2);
         await CounterDay.checkProductsPage();
     });
@@ -199,14 +199,14 @@ describe('Verification Counter Day Module', function () {
 		await CounterDay.deleteBundleCartPositive();
     });
 
-    it('Module 2. Lunch: Verify that name of the "Add to Cart" button was chenged after adding Bundle to the Cart', async function () {
+    it('Module 2. Lunch: Verify that name of the "Add to Cart" button was changed after adding Bundle to the Cart', async function () {
         await CounterDay.clickLunch(2);
 		await CounterDay.checkAddtoCartBtn();
     });
 
     //-----------------------------------------75+ Attendees--------------------------//
 
-    it('Module 3. Breakfast: Click on All Products from Bundle', async function () {
+    it('Module 3. Breakfast: Click on All Products from Bundle and verify that no Error 404 appears', async function () {
         await CounterDay.clickBreakfast(3);
         await CounterDay.checkProductsPage();
     });
@@ -231,12 +231,12 @@ describe('Verification Counter Day Module', function () {
 		await CounterDay.deleteBundleCartPositive();
     });
 
-    it('Module 3. Breakfast: Verify that name of the "Add to Cart" button was chenged after adding Bundle to the Cart', async function () {
+    it('Module 3. Breakfast: Verify that name of the "Add to Cart" button was changed after adding Bundle to the Cart', async function () {
         await CounterDay.clickBreakfast(3);
 		await CounterDay.checkAddtoCartBtn();
     });
 
-    it('Module 3. BBQ: Click on All Products from Bundle', async function () {
+    it('Module 3. BBQ: Click on All Products from Bundle and verify that no Error 404 appears', async function () {
         await CounterDay.clickBBQ(3);
         await CounterDay.checkProductsPage();
     });
@@ -261,12 +261,12 @@ describe('Verification Counter Day Module', function () {
 		await CounterDay.deleteBundleCartPositive();
     });
 
-    it('Module 3. BBQ: Verify that name of the "Add to Cart" button was chenged after adding Bundle to the Cart', async function () {
+    it('Module 3. BBQ: Verify that name of the "Add to Cart" button was changed after adding Bundle to the Cart', async function () {
         await CounterDay.clickBBQ(3);
 		await CounterDay.checkAddtoCartBtn();
     });
 
-    it('Module 3. Lunch: Click on All Products from Bundle', async function () {
+    it('Module 3. Lunch: Click on All Products from Bundle and verify that no Error 404 appears', async function () {
         await CounterDay.clickLunch(3);
         await CounterDay.checkProductsPage();
     });
@@ -291,17 +291,11 @@ describe('Verification Counter Day Module', function () {
 		await CounterDay.deleteBundleCartPositive();
     });
 
-    it('Module 3. Lunch: Verify that name of the "Add to Cart" button was chenged after adding Bundle to the Cart', async function () {
+    it('Module 3. Lunch: Verify that name of the "Add to Cart" button was changed after adding Bundle to the Cart', async function () {
         await CounterDay.clickLunch(3);
 		await CounterDay.checkAddtoCartBtn();
     });
 
-
-
-
-
-
-    
     afterEach(function () {
 		browser.sleep(500);
 	});

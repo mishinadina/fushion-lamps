@@ -25,6 +25,9 @@ var CounterDay_Form = function () {
     var ViewCartBtn = by.xpath('/html/body/div[2]/div/div[2]/div[2]/a')
     var CartNotificationAdded = by.xpath("//*[text()='This item has been added to your cart.']")
     var boolean;
+    var result;
+    var resultPositive = 'Item was added to Cart Successfully'
+    var resultNegative = 'Unable to add Item to Cart'
 
     var Vendors = by.xpath('//*[@id="vendors"]')
     var StartHourOptions = by.xpath("//*[@id='start-hour']")
@@ -180,6 +183,7 @@ var CounterDay_Form = function () {
                         }
                     })
                 })
+                await browser.sleep(500)
                 await browser.refresh()
                 await element.all(QuantityNameCart).count().then(async function (ExpectedCount) {
                     expect (ExpectedCount).toBe(0)
@@ -215,17 +219,18 @@ var CounterDay_Form = function () {
     }
 
     this.clickAddToCart = async function () {
+       
         await GUILib.scrollToElement(AddToCartBtn)
         await GUILib.clickObject(AddToCartBtn)
         try {
             await GUILib.waitforElement(ViewCartBtn)
             await GUILib.clickObject(ViewCartBtn)
-            boolean = false
+            result = resultPositive
         }
         catch (e) {
-            boolean = true
+            result = resultNegative
         }
-        expect(boolean).toBe(true)
+        expect(result).toBe(resultNegative)
 
     }
 
@@ -242,12 +247,12 @@ var CounterDay_Form = function () {
         try {
             await GUILib.waitforElement(ViewCartBtn)
             await GUILib.clickObject(ViewCartBtn)
-            boolean = false
+            result = resultPositive
         }
         catch (e) {
-            boolean = true
+            result = resultNegative
         }
-        expect(boolean).toBe(true)
+        expect(result).toBe(resultNegative)
     }
 
 

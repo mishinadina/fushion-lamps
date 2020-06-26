@@ -122,9 +122,10 @@ var BusinessCards_Form = function () {
         await GUILib.waitforElement(FullName)
         await GUILib.scrollToElement(FullName)
         await element(FullName).clear().then(async function () {
-            await GUILib.typeValue(FullName, 'Test Name')
-            await GUILib.getText(NameCard).then(async function (text) {
-                expect(text).toBe('Test Name')
+            await GUILib.typeValue(FullName, 'Test Name').then(async function () {
+                await GUILib.getText(NameCard).then(async function (text) {
+                    expect(text).toBe('Test Name')
+                })
             })
         })
     }
@@ -155,9 +156,11 @@ var BusinessCards_Form = function () {
         await GUILib.waitforElement(StreetAddress)
         await GUILib.scrollToElement(StreetAddress)
         await element(StreetAddress).clear().then(async function () {
-            await GUILib.typeValue(StreetAddress, 'Test Address')
-            await GUILib.getText(StreetCard).then(async function (text) {
-                expect(text).toBe('Test Address')
+            await GUILib.typeValue(StreetAddress, 'Test Address').then(async function () {
+                await browser.sleep(600)
+                await GUILib.getText(StreetCard).then(async function (text) {
+                    expect(text).toBe('Test Address')
+                })
             })
         })
     }
@@ -167,9 +170,10 @@ var BusinessCards_Form = function () {
         await GUILib.waitforElement(StreetAddress)
         await GUILib.scrollToElement(StreetAddress)
         await element(StreetAddress).clear().then(async function () {
-            await GUILib.typeValue(StreetAddress, 'Test Address')
-            await GUILib.getText(StreetCard).then(async function (text) {
-                expect(text).toBe('Test Address')
+            await GUILib.typeValue(StreetAddress, 'Test Address').then(async function () {
+                await GUILib.getText(StreetCard).then(async function (text) {
+                    expect(text).toBe('Test Address')
+                })
             })
         })
     }
@@ -179,9 +183,10 @@ var BusinessCards_Form = function () {
         await GUILib.waitforElement(City)
         await GUILib.scrollToElement(City)
         await element(City).clear().then(async function () {
-            await GUILib.typeValue(City, 'Test City')
-            await GUILib.getText(CityCard).then(async function (text) {
-                expect(text).toBe('Test City')
+            await GUILib.typeValue(City, 'Test City').then(async function () {
+                await GUILib.getText(CityCard).then(async function (text) {
+                    expect(text).toBe('Test City')
+                })
             })
         })
     }
@@ -211,9 +216,10 @@ var BusinessCards_Form = function () {
         await GUILib.waitforElement(Zip)
         await GUILib.scrollToElement(Zip)
         await element(Zip).clear().then(async function () {
-            await GUILib.typeValue(Zip, '11111')
-            await GUILib.getText(ZipCard).then(async function (text) {
-                expect(text).toBe('11111')
+            await GUILib.typeValue(Zip, '11111').then(async function () {
+                await GUILib.getText(ZipCard).then(async function (text) {
+                    expect(text).toBe('11111')
+                })
             })
         })
     }
@@ -223,9 +229,10 @@ var BusinessCards_Form = function () {
         await GUILib.waitforElement(Telephone)
         await GUILib.scrollToElement(Telephone)
         await element(Telephone).clear().then(async function () {
-            await GUILib.typeValue(Telephone, '111-111-1111')
-            await GUILib.getText(TelCard).then(async function (text) {
-                expect(text).toContain('111-111-1111')
+            await GUILib.typeValue(Telephone, '111-111-1111').then(async function () {
+                await GUILib.getText(TelCard).then(async function (text) {
+                    expect(text).toContain('111-111-1111')
+                })
             })
         })
     }
@@ -235,10 +242,11 @@ var BusinessCards_Form = function () {
         await GUILib.waitforElement(TelephoneExt)
         await GUILib.scrollToElement(TelephoneExt)
         await element(TelephoneExt).clear().then(async function () {
-            await GUILib.typeValue(TelephoneExt, '111')
-            await browser.sleep(300)
-            await GUILib.getText(TelExCard).then(async function (text) {
-                expect(text).toContain('111')
+            await GUILib.typeValue(TelephoneExt, '111').then(async function () {
+                await browser.sleep(300)
+                await GUILib.getText(TelExCard).then(async function (text) {
+                    expect(text).toContain('111')
+                })
             })
         })
     }
@@ -248,10 +256,11 @@ var BusinessCards_Form = function () {
         await GUILib.waitforElement(Fax)
         await GUILib.scrollToElement(Fax)
         await element(Fax).clear().then(async function () {
-            await GUILib.typeValue(Fax, '111-111-111')
-            await browser.sleep(300)
-            await GUILib.getText(FaxCard).then(async function (text) {
-                expect(text).toContain('111-111-111')
+            await GUILib.typeValue(Fax, '111-111-111').then(async function () {
+                await browser.sleep(300)
+                await GUILib.getText(FaxCard).then(async function (text) {
+                    expect(text).toContain('111-111-111')
+                })
             })
         })
     }
@@ -261,10 +270,11 @@ var BusinessCards_Form = function () {
         await GUILib.waitforElement(Cell)
         await GUILib.scrollToElement(Cell)
         await element(Cell).clear().then(async function () {
-            await GUILib.typeValue(Cell, '222-222-222')
-            await browser.sleep(300)
-            await GUILib.getText(CellCard).then(async function (text) {
-                expect(text).toContain('222-222-222')
+            await GUILib.typeValue(Cell, '222-222-222').then(async function () {
+                await browser.sleep(300)
+                await GUILib.getText(CellCard).then(async function (text) {
+                    expect(text).toContain('222-222-222')
+                })
             })
         })
     }
@@ -274,10 +284,11 @@ var BusinessCards_Form = function () {
         await GUILib.waitforElement(Email)
         await GUILib.scrollToElement(Email)
         await element(Email).clear().then(async function () {
-            await GUILib.typeValue(Email, 'test@eightythreecreative')
-            await browser.sleep(300)
-            await GUILib.getText(EmailCard).then(async function (text) {
-                expect(text).toContain('test@eightythreecreative')
+            await GUILib.typeValue(Email, 'test@eightythreecreative').then(async function () {
+                await browser.sleep(300)
+                await GUILib.getText(EmailCard).then(async function (text) {
+                    expect(text).toContain('test@eightythreecreative')
+                })
             })
         })
     }
@@ -287,15 +298,17 @@ var BusinessCards_Form = function () {
         await GUILib.waitforElement(FullName)
         await element(FullName).clear().then(async function () {
             await element(Telephone).clear().then(async function () {
-                await GUILib.typeValue(FullName, 'Test Dina')
-                await GUILib.typeValue(Telephone, '111-111-1111')
-                await browser.sleep(300)
-                await GUILib.clickObject(AddToCart)
-                await GUILib.waitforElement(ViewCartBtn)
-                await GUILib.clickObject(ViewCartBtn)
-                await GUILib.waitforElement(Cart)
-                await GUILib.getText(CartName).then(async function (text) {
-                    expect(text).toBe('Test Dina')
+                await GUILib.typeValue(FullName, 'Test Dina').then(async function () {
+                    await GUILib.typeValue(Telephone, '111-111-1111').then(async function () {
+                        await browser.sleep(300)
+                        await GUILib.clickObject(AddToCart)
+                        await GUILib.waitforElement(ViewCartBtn)
+                        await GUILib.clickObject(ViewCartBtn)
+                        await GUILib.waitforElement(Cart)
+                        await GUILib.getText(CartName).then(async function (text) {
+                            expect(text).toBe('Test Dina')
+                        })
+                    })
                 })
             })
         })

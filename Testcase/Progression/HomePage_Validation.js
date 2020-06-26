@@ -101,18 +101,11 @@ describe('Clicking on Home Page buttons', function () {
 		await Home_Page.clickCompanySignageBox();
 	});
 
-	it('Click Hot Sellers', async function () {
+	it('Click Hot Sellers and verify that all Items have description', async function () {
 		await Home_Page.clickHotSellers();
 	});
 
 	
-
-
-	
-
-	
-
-
 	afterEach(function () {
 		browser.sleep(500);
 	});

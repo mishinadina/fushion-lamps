@@ -39,19 +39,19 @@ describe('Verification Business Cards Module', function () {
 		await BusinessCards.verifyCompanyTitle();
     });
 
-    it('Type Name and verify that new Name appears in Business Card sample', async function () {
+    it('Type Name and verify that new NAME appears in Business Card sample', async function () {
 		await BusinessCards.verifyNameInput();
     });
 
-    it('Type Street Address and verify that new Street Address appears in Business Card sample', async function () {
+    it('Type Street Address and verify that new STREET ADDRESS appears in Business Card sample', async function () {
 		await BusinessCards.verifyStreetAddress();
     });
 
-    it('Choose State from dropdown and verify that new State appears in Business Card sample', async function () {
+    it('Choose State from dropdown and verify that new STATE appears in Business Card sample', async function () {
 		await BusinessCards.verifyState();
     });
 
-    it('Choose State from dropdown and verify that new State appears in Business Card sample', async function () {
+    it('Type zipcode and verify that new ZIPCODE appears in Business Card sample', async function () {
 		await BusinessCards.verifyZipCodeNumeric();
     });
 
@@ -78,8 +78,6 @@ describe('Verification Business Cards Module', function () {
     it('Change the name and add Business Card order to Cart', async function () {
 		await BusinessCards.changeNameTelAddCart();
     });
-    
-    
     
 	afterEach(function () {
 		browser.sleep(500);

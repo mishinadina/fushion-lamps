@@ -12,9 +12,8 @@ var downloadsPath = path.resolve(__dirname, './Downloads');
 //var specArray = ['Testcase/Progression/Store_Validation.js']
 //var specArray = ['Testcase/Progression/Branch_Validation.js']
 //var specArray = ['Testcase/Progression/Cart_Validation.js']
-var specArray = ['Testcase/Progression/BusinessCard_Validation.js']
-
-
+//var specArray = ['Testcase/Progression/BusinessCard_Validation.js']
+var specArray = ['Testcase/Progression/Account_Validation.js']
 
 
 exports.config = {
