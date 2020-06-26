@@ -26,6 +26,17 @@ describe('Verification Company Signage Module', function () {
 	it('Click "Log Out" button and verify result', async function () {
 		await Account.clickLogOut();
     });
+
+    it('Click "Edit" button and verify that there is no DB elements on <Your Addresses> Webpage', async function () {
+        await Account.clickEdit();
+        await Account.checkNoDBinfo();
+    });
+
+    it('Type new value in First name field, click "Update Address" button and verify result', async function () {
+        await Account.clickEdit();
+        await Account.verifyNewName();
+    });
+
     
    
 

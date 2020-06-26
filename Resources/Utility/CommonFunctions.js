@@ -290,6 +290,21 @@ var CommonFunctions = function () {
         }
     }
 
+    this.editName = async function (EditBtn, ChangeField, UpdateBtn, ResultField) {
+        await GUILib.clickObject(EditBtn).then(async function () {
+            await GUILib.scrollToElement(ChangeField)
+            await element(ChangeField).clear().then(async function () {
+                await GUILib.typeValue(ChangeField, 'Test').then(async function () {
+                    await GUILib.clickObject(UpdateBtn).then(async function () {
+                        await GUILib.getText(ResultField).then(async function (text) {
+                            expect(text).toContain('Test')
+                        })
+                    })
+                })
+            })
+        })
+    }
+
 
 
 
