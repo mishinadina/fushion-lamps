@@ -3,7 +3,7 @@ var HomePage = require('../../Resources/PageObjects/HomePage.js');
 
 var CommonFunctions = function () {
 
-   
+
     var GUILib = new GUILibrary();
     var EC = protractor.ExpectedConditions;
     var fs = require('fs');
@@ -11,9 +11,9 @@ var CommonFunctions = function () {
     var n;
 
     var ShopAllLink = "https://fotedev.wpengine.com/shop/"
-    
+
     var BodyLink = "https://fotedev.wpengine.com/product-category/skin/body/"
-   
+
     var FaceLink = "https://fotedev.wpengine.com/product-category/skin/face/"
     var AloeLink = "https://fotedev.wpengine.com/product-category/skin/aloe/"
 
@@ -21,16 +21,16 @@ var CommonFunctions = function () {
     var AfterSun = "https://fotedev.wpengine.com/product-category/sun/after-sun/"
     var Tanning = "https://fotedev.wpengine.com/product-category/sun/tanning/"
 
-    var HealthLink = "https://fotedev.wpengine.com/product-category/health/" 
+    var HealthLink = "https://fotedev.wpengine.com/product-category/health/"
     var HouseholdLink = "https://fotedev.wpengine.com/product-category/household/"
 
     var Page = by.xpath('//*[@class="fixed-top"]');
 
-    var Product1= by.xpath('//*[@class= "col col-3 my-3"]');
+    var Product1 = by.xpath('//*[@class= "col col-3 my-3"]');
     var Product2 = by.xpath('//*[@class= "col-centered  my-3"]');
     var Product3 = by.xpath('//*[@class= "owl-item active"]');
 
-    var ProductText1= by.xpath('//*[@id="wooProducts"]//div/h6');
+    var ProductText1 = by.xpath('//*[@id="wooProducts"]//div/h6');
     var ProductText2 = by.xpath('//*[@class= "col-centered  my-3"]');
 
     this.checkLink = async function (WebAddress, byObject1, byObject2, byObject3) {
@@ -135,7 +135,7 @@ var CommonFunctions = function () {
         })
     }
 
-    this.clickLink = async function (Link, ExtURL) {  
+    this.clickLink = async function (Link, ExtURL) {
         await console.log(Link)
         await browser.wait(EC.elementToBeClickable(element(Link)), 30000);
         await GUILib.clickObject(Link, 'Link is clicked').then(async function () {
@@ -291,17 +291,32 @@ var CommonFunctions = function () {
     }
 
     this.editName = async function (EditBtn, ChangeField, UpdateBtn, ResultField) {
+        var result = ''
         await GUILib.clickObject(EditBtn).then(async function () {
+            await browser.sleep(1000)
             await GUILib.scrollToElement(ChangeField)
+            await browser.sleep(1000)
             await element(ChangeField).clear().then(async function () {
-                await GUILib.typeValue(ChangeField, 'Test').then(async function () {
-                    await GUILib.clickObject(UpdateBtn).then(async function () {
-                        await GUILib.getText(ResultField).then(async function (text) {
-                            expect(text).toContain('Test')
+                await browser.sleep(1000)
+                var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                var charactersLength = characters.length;
+                for ( var i = 0; i < 10; i++ ) {
+                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                 }
+                await console.log(result)
+                    await GUILib.typeValue(ChangeField, result).then(async function () {
+                        await browser.sleep(1000)
+                        await GUILib.clickObject(UpdateBtn).then(async function () {
+                            await browser.sleep(1000)
+                            await GUILib.waitforElement(ResultField)
+                            await GUILib.getText(ResultField).then(async function (textActual) {
+                                await browser.sleep(1000)
+                                expect(textActual).toContain(result)
+                            })
                         })
                     })
-                })
             })
+            await browser.sleep(1000)
         })
     }
 

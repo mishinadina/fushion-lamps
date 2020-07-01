@@ -106,9 +106,9 @@ describe('Verification Vehicle Branch Module', function () {
         await Branch.chooseFileforAllSides();
     }); 
 
-    it('Upload document bigger than 20 MB for all Choose file options', async function () {
-        await Branch.chooseBigFileforAllSides(1);
-	});  
+    // it('Upload document bigger than 20 MB for all Choose file options', async function () {
+    //     await Branch.chooseBigFileforAllSides(1);
+	// });  
 
 
 
