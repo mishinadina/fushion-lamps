@@ -23,11 +23,11 @@ describe('Verification Company Signage Module', function () {
 
 	//-------------------------------------------------------------------------//
 
-	it('Company Signage for Property Owned', async function () {
+	it('Company Signage for Property Owned: fill Owner`s info and click "Add to cart button"', async function () {
 		await Branch.fillPropertyOwned();
     });
     
-    it('Company Signage for Landlord Owned', async function () {
+    it('Company Signage for Landlord Owned: fill Owner`s info and click "Add to cart button"', async function () {
 		await Branch.fillLandlordOwned();
     });    
     
