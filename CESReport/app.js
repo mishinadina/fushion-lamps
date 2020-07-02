@@ -271,44 +271,20 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
 
     var results = [
     {
-        "description": "Type new value in FIRST NAME field, click \"Update Address\" button and verify result|Verification of <My Account> Module",
-        "passed": true,
-        "pending": false,
-        "os": "Mac OS X",
-        "instanceId": 88665,
-        "browser": {
-            "name": "chrome",
-            "version": "78.0.3904.70"
-        },
-        "message": "Passed.",
-        "trace": "",
-        "browserLogs": [
-            {
-                "level": "SEVERE",
-                "message": "https://city-electric-supply-marketing.myshopify.com/favicon.ico - Failed to load resource: the server responded with a status of 404 ()",
-                "timestamp": 1593719553798,
-                "type": ""
-            }
-        ],
-        "timestamp": 1593719552748,
-        "duration": 28152
-    },
-    {
-        "description": "Type new value in FIRST NAME field, click \"Update Address\" button and verify result|Verification of <My Account> Module",
+        "description": "Buy Item|Testing Use Case Scenarios",
         "passed": true,
         "pending": false,
         "os": "mac",
-        "sessionId": "b430ddd0e451a9af4bf190134f41f0d66f95a17d",
-        "instanceId": 88710,
+        "instanceId": 98285,
         "browser": {
             "name": "firefox",
-            "version": "69.0"
+            "version": "77.0.1"
         },
         "message": "Passed.",
         "trace": "",
         "browserLogs": [],
-        "timestamp": 1593719591015,
-        "duration": 32695
+        "timestamp": 1593728314593,
+        "duration": 10235
     }
 ];
 

@@ -105,6 +105,9 @@ var Account_Form = function () {
         } 
         if (n == 2) {
             await CF.editName(AddNewAddressBtn, FirstNameEditNew, AddAddress, FirstNameNew)
+            await GUILib.clickObject(LastDelete)
+            browser.switchTo().alert().accept();
+            await browser.sleep(1000)
         }
     }
 
@@ -115,7 +118,6 @@ var Account_Form = function () {
         if (n == 2) {
             await CF.editName(AddNewAddressBtn, LastNameEditNew, AddAddress, LastNameNew)
             await GUILib.clickObject(LastDelete)
-            await browser.sleep(1000)
             browser.switchTo().alert().accept();
             await browser.sleep(1000)
         }
@@ -123,23 +125,50 @@ var Account_Form = function () {
 
     this.verifyCompany = async function (n) {
         if (n == 1) {
-            await CF.editName(EditAddress, CompanyEdit, text1, UpdateAddress, Company)
+            await CF.editName(EditAddress, CompanyEdit, UpdateAddress, Company)
         } 
         if (n == 2) {
-            await CF.editName(AddNewAddressBtn, CompanyEditNew, text2, AddAddress, CompanyNew)
+            await CF.editName(AddNewAddressBtn, CompanyEditNew, AddAddress, CompanyNew)
+            await GUILib.clickObject(LastDelete)
+            browser.switchTo().alert().accept();
+            await browser.sleep(1000)
         }
     }
 
     this.verifyAddress = async function () {
-        await CF.editName(EditAddress, StreetAddressEdit, UpdateAddress, StreetAddress)
+        if (n == 1) {
+            await CF.editName(EditAddress, StreetAddressEdit, UpdateAddress, StreetAddress)
+        } 
+        if (n == 2) {
+            await CF.editName(AddNewAddressBtn, StreetAddressEditNew, AddAddress, StreetAddressNew)
+            await GUILib.clickObject(LastDelete)
+            browser.switchTo().alert().accept();
+            await browser.sleep(1000)
+        }
     }
 
     this.verifyApt = async function () {
-        await CF.editName(EditAddress, AptEdit, UpdateAddress, Apt)
+        if (n == 1) {
+            await CF.editName(EditAddress, AptEdit, UpdateAddress, Apt)
+        } 
+        if (n == 2) {
+            await CF.editName(AddNewAddressBtn, AptEditNew, AddAddress, AptNew)
+            await GUILib.clickObject(LastDelete)
+            browser.switchTo().alert().accept();
+            await browser.sleep(1000)
+        }
     }
 
     this.verifyCity = async function () {
-        await CF.editName(EditAddress, CityEdit, UpdateAddress, City)
+        if (n == 1) {
+            await CF.editName(EditAddress, CityEdit, UpdateAddress, City)
+        } 
+        if (n == 2) {
+            await CF.editName(AddNewAddressBtn, CityEditNew, AddAddress, CityNew)
+            await GUILib.clickObject(LastDelete)
+            browser.switchTo().alert().accept();
+            await browser.sleep(1000)
+        }
     }
 
     this.verifyState = async function () {
@@ -219,11 +248,29 @@ var Account_Form = function () {
     }
 
     this.verifyZip = async function () {
-        await CF.editName(EditAddress, ZipEdit, UpdateAddress, Zip)
+        if (n == 1) {
+            await CF.editName(EditAddress, ZipEdit, UpdateAddress, Zip)
+        } 
+        if (n == 2) {
+            await CF.editName(AddNewAddressBtn, ZipEditNew, AddAddress, ZipNew)
+            await GUILib.clickObject(LastDelete)
+            browser.switchTo().alert().accept();
+            await browser.sleep(1000)
+        }
     }
 
     this.verifyPhone = async function () {
         await CF.editName(EditAddress, TelEdit, UpdateAddress, Tel)
+
+        if (n == 1) {
+            await CF.editName(EditAddress, TelEdit, UpdateAddress, Tel)
+        } 
+        if (n == 2) {
+            await CF.editName(AddNewAddressBtn, TelEditNew, AddAddress, TelNew)
+            await GUILib.clickObject(LastDelete)
+            browser.switchTo().alert().accept();
+            await browser.sleep(1000)
+        }
     }
 
     this.verifyCancelBtn = async function () {

@@ -1,8 +1,8 @@
- <br><p><b>BUILD STATUS : <font color="green">SUCCESS</b></font></p> Time of build: Thu Jul 02 2020 14:53:43 GMT-0500 (Central Daylight Time)<br> <table border="1" cellpadding="5">
+<p><b>BUILD STATUS : <font color="green">SUCCESS</b></font></p>Time of build: Thu Jul 02 2020 17:18:44 GMT-0500 (Central Daylight Time)<br> <table border="1" cellpadding="5">
 <tbody>
 <tr>
 <td> PASSED: </td>
-<td>2</td>
+<td>1</td>
 </tr>
 <tr>
 <td> FAILED: </td>

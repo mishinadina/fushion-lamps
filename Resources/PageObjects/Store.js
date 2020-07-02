@@ -23,8 +23,32 @@ var Store_Form = function () {
     var FirstItem = by.xpath('//*[@id="Collection"]/div/div/div[3]/ul/li[1]/div/a')
     var Quantity = by.xpath("//*[@for='Quantity-product-template']")
 
+    var AddtoCartBtn = by.xpath("//*[@aria-label='Add to cart']")
+    var ViewCartBtn = by.xpath('//*[@class="cart-popup__cta-link btn btn--secondary-accent"]')
+    var Cart = by.xpath("//*[@class='cart__submit btn btn--small-wide']")
+
 
     //----------------------------------------------------------------------------------------//
+    this.addRandomItemToCart = async function () {
+        await GUILib.waitforElement(FirstItem)
+        await element.all(Item).count().then(async function (count) {
+            await element.all(Item).then(async function (ItemArray) {
+                var RandomNumber = await Math.floor(Math.random() * count + 5);
+                var ItemElement = await ItemArray[RandomNumber].getWebElement();
+                await ItemElement.click()
+                await GUILib.waitforElement(ItemName)
+                await GUILib.getText(ItemName).then(async function (name) {
+                    await console.log(name)
+                    await GUILib.clickObject(AddtoCartBtn)
+                    await GUILib.waitforElement(ViewCartBtn)
+                    await GUILib.clickObject(ViewCartBtn)
+                    await GUILib.waitforElement(Cart)
+                })
+            })
+        })
+       
+    }
+
     this.clickFilter = async function () {
         try {
             var Arr = [];
@@ -122,12 +146,12 @@ var Store_Form = function () {
         catch (e) {
             await console.log(e)
             if (e.code !== 'ETIMEDOUT') {
-               expect(true).toBe(false)
-              }
+                expect(true).toBe(false)
+            }
         }
     }
 }
 
 
 
-    module.exports = new Store_Form;
+module.exports = new Store_Form;

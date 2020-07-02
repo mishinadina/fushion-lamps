@@ -7,24 +7,24 @@ var EC = protractor.ExpectedConditions;
 
 describe('Verification of <My Account> Module', function () {
 
-	var GUILib = new GUILibrary();
+    var GUILib = new GUILibrary();
 
 
-	beforeAll(function () {
-	});
+    beforeAll(function () {
+    });
 
-	beforeEach(async function () {
-		await GUILib.goToURL_nonAngular(browser.params.URL);
-		await GUILib.logIn(browser.params.Username, browser.params.Password);
+    beforeEach(async function () {
+        await GUILib.goToURL_nonAngular(browser.params.URL);
+        await GUILib.logIn(browser.params.Username, browser.params.Password);
         await browser.sleep(1000);
         await Home_Page.clickAccountIcon();
-		
-	});
 
-	//-------------------------------------------------------------------------//
+    });
 
-	it('Click "Log Out" button and verify result', async function () {
-		await Account.clickLogOut();
+    //-------------------------------------------------------------------------//
+
+    it('Click "Log Out" button and verify result', async function () {
+        await Account.clickLogOut();
     });
 
     it('Click "Edit" button and verify that there is no DB elements on <Your Addresses> Webpage', async function () {
@@ -37,22 +37,12 @@ describe('Verification of <My Account> Module', function () {
         await Account.verifyNewName(1);
     });
 
-    it('Click "Add a New Address" button, type new value in FIRST NAME field, click "Add Address" button and verify result', async function () {
-        await Account.clickEdit();
-        await Account.verifyNewName(2);
-    });
-
     it('Type new value in LAST NAME field, click "Update Address" button and verify result', async function () {
         await Account.clickEdit();
         await Account.verifyLastName(1);
     });
 
-    it('Click "Add a New Address" button, type new value in LAST NAME field, click "Add Address" button and verify result', async function () {
-        await Account.clickEdit();
-        await Account.verifyLastName(2);
-    });
-
-    it('??? Type new value in EMAIL field, click "Update Address" button and verify result', async function () {
+    xit('Type new value in EMAIL field, click "Update Address" button and verify result', async function () {
         await Account.clickEdit();
         await Account.verifyEmail();
     });
@@ -62,24 +52,19 @@ describe('Verification of <My Account> Module', function () {
         await Account.verifyCompany(1);
     });
 
-    it('Click "Add a New Address" button, type new value in COMPANY field, click "Add Address" button and verify result', async function () {
-        await Account.clickEdit();
-        await Account.verifyCompany(2);
-    });
-
     it('Type new value in ADDRESS field, click "Update Address" button and verify result', async function () {
         await Account.clickEdit();
-        await Account.verifyAddress();
+        await Account.verifyAddress(1);
     });
 
     it('Type new value in APARTMENT field, click "Update Address" button and verify result', async function () {
         await Account.clickEdit();
-        await Account.verifyApt();
+        await Account.verifyApt(1);
     });
 
     it('Type new value in CITY field, click "Update Address" button and verify result', async function () {
         await Account.clickEdit();
-        await Account.verifyCity();
+        await Account.verifyCity(1);
     });
 
     it('Choose Random STATE from dropdown, click "Update Address" button and verify result', async function () {
@@ -89,7 +74,7 @@ describe('Verification of <My Account> Module', function () {
 
     it('Type new value in POSTAL/ZIP CODE field, click "Update Address" button and verify result', async function () {
         await Account.clickEdit();
-        await Account.verifyZip();
+        await Account.verifyZip(1);
     });
 
     it('Choose Random COUNTRY from dropdown, click "Update Address" button and verify result', async function () {
@@ -99,15 +84,59 @@ describe('Verification of <My Account> Module', function () {
 
     it('Type new value in PHONE field, click "Update Address" button and verify result', async function () {
         await Account.clickEdit();
-        await Account.verifyPhone();
+        await Account.verifyPhone(1);
     });
 
-     it('Open <Edit Adress> Module, click "Cancel" button and verify result', async function () {
+    /*ADD A NEW ADDRESS */
+
+    it('Click "Add a New Address" button, type new value in FIRST NAME field, click "Add Address" button and verify result', async function () {
+        await Account.clickEdit();
+        await Account.verifyNewName(2);
+    });
+    
+    it('Click "Add a New Address" button, type new value in LAST NAME field, click "Add Address" button and verify result', async function () {
+        await Account.clickEdit();
+        await Account.verifyLastName(2);
+    });
+    
+    it('Click "Add a New Address" button, type new value in COMPANY field, click "Add Address" button and verify result', async function () {
+        await Account.clickEdit();
+        await Account.verifyCompany(2);
+    });
+    
+    it('Click "Add a New Address" button, type new value in ADDRESS field, click "Add Address" button and verify result', async function () {
+        await Account.clickEdit();
+        await Account.verifyAddress(2);
+    });
+    
+    it('Click "Add a New Address" button, type new value in APARTMENT field, click "Add Address" button and verify result', async function () {
+        await Account.clickEdit();
+        await Account.verifyApt(2);
+    });
+    
+    it('Click "Add a New Address" button, type new value in APARTMENT field, click "Add Address" button and verify result', async function () {
+        await Account.clickEdit();
+        await Account.verifyCity(2);
+    });
+    
+    it('Click "Add a New Address" button, type new value in POSTAL/ZIP CODE field, click "Add Address" button and verify result', async function () {
+        await Account.clickEdit();
+        await Account.verifyZip(2);
+    });
+    
+    it('Click "Add a New Address" button, type new value in PHONE field, click "Add Address" button and verify result', async function () {
+        await Account.clickEdit();
+        await Account.verifyPhone(2);
+    });
+
+    /**/
+
+    it('Open <Edit Adress> Module, click "Cancel" button and verify result', async function () {
         await Account.clickEdit();
         await Account.verifyCancelBtn();
     });
 
-     it('Open <Edit Adress> Module, click "Return to Account Details" link and verify result', async function () {
+    it('Open <Edit Adress> Module, click "Return to Account Details" link and verify result', async function () {
         await Account.clickEdit();
         await Account.verifyReturnAccountDetailsLink();
     });
@@ -119,8 +148,8 @@ describe('Verification of <My Account> Module', function () {
 
 
 
-	afterEach(function () {
-		browser.sleep(500);
-	});
+    afterEach(function () {
+        browser.sleep(500);
+    });
 
 });
