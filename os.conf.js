@@ -8,8 +8,8 @@ var basePath = __dirname;
 var path = require('path');
 var downloadsPath = path.resolve(__dirname, './Downloads');
 
-var specArray = ['Testcase/Progression/HomePage_Validation.js', 'Testcase/Progression/CounterDay_Validation.js','Testcase/Progression/Store_Validation.js','Testcase/Progression/Branch_Validation.js','Testcase/Progression/BusinessCard_Validation.js','Testcase/Progression/Account_Validation.js']
-//var specArray = ['Testcase/Progression/HomePage_Validation.js']
+//var specArray = ['Testcase/Progression/HomePage_Validation.js', 'Testcase/Progression/CounterDay_Validation.js','Testcase/Progression/Store_Validation.js','Testcase/Progression/Branch_Validation.js','Testcase/Progression/BusinessCard_Validation.js','Testcase/Progression/Account_Validation.js']
+var specArray = ['Testcase/Progression/HomePage_Validation.js']
 //var specArray = ['Testcase/Progression/CounterDay_Validation.js']
 //var specArray = ['Testcase/Progression/Store_Validation.js']
 //var specArray = ['Testcase/Progression/Branch_Validation.js']
@@ -69,18 +69,18 @@ exports.config = {
 
 
 	multiCapabilities: [
-		{
-			project: 'CES',
-			build: 'CES_Test',
-			name: 'Chrome_OS_test',
-			browserName: 'chrome',
-			'browserstack.console': 'errors',
-			'browserstack.networkLogs': 'false',
-			'browserstack.debug': 'true',
-			'browser_version': '78.0',
-			'browserstack.local': 'false',
-			'browserstack.selenium_version': '3.5.2',
-		},
+		// {
+		// 	project: 'CES',
+		// 	build: 'CES_Test',
+		// 	name: 'Chrome_OS_test',
+		// 	browserName: 'chrome',
+		// 	'browserstack.console': 'errors',
+		// 	'browserstack.networkLogs': 'false',
+		// 	'browserstack.debug': 'true',
+		// 	'browser_version': '78.0',
+		// 	'browserstack.local': 'false',
+		// 	'browserstack.selenium_version': '3.5.2',
+		// },
 		{	project: 'CES',
 			build: 'CES_Test',
 			name: 'Firefox_OS_test',

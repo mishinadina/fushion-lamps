@@ -184,7 +184,6 @@ var HomePage_Form = function () {
           await console.log(n)
           await console.log(y)
           var HotSellersHeader = await by.xpath("//li[" + y + "]/div[@class='grid-view-item product-card pb-0 pl-3 pr-3 pt-4   ']/a")
-          await GUILib.waitforElement(HotSellersHeader)
           await GUILib.scrollToElement(HotSellersHeader)
           await element(HotSellersHeader).getText().then(async function (text) {
             if (text == 'Cap - Baseball Red') {
