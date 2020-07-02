@@ -5,7 +5,7 @@ var Account = require('../../Resources/PageObjects/Account.js');
 
 var EC = protractor.ExpectedConditions;
 
-describe('Verification Company Signage Module', function () {
+describe('Verification of <My Account> Module', function () {
 
 	var GUILib = new GUILibrary();
 

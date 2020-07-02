@@ -63,7 +63,7 @@ var Account_Form = function () {
     var UpdateAddress = by.xpath('//*[@value ="Update Address"]')
     var AddAddress = by.xpath('//*[@value ="Add Address"]')
 
-    var LogOut = by.xpath('//*[@id="customer_logout_link"]')
+    var LogOut = by.xpath('//div[@class="section-header text-center customer_account"]//*[@id="customer_logout_link"]')
     var Edit = by.xpath("//a[@href='/account/addresses']")
     var DB = by.xpath('//ul[contains(text(),"id")]')
     var EditAddress = by.xpath('//button[contains(text(),"Edit")]')
@@ -78,8 +78,9 @@ var Account_Form = function () {
     var LastDelete = by.xpath('//div[2]//li[2]//li[2]/button')
 
     this.clickLogOut = async function () {
+        await GUILib.waitforElement(LogOut)
         await GUILib.clickObject(LogOut)
-        await browser.wait(EC.not(EC.urlContains('account'), 30000))
+        
         await browser.sleep(1500);
         await browser.getCurrentUrl().then(async function (url) {
             expect(url).toContain('checkout')
@@ -100,10 +101,10 @@ var Account_Form = function () {
 
     this.verifyNewName = async function (n) {
         if (n == 1) {
-            await CF.editName(EditAddress, FirstNameEdit, text1, UpdateAddress, FirstName)
+            await CF.editName(EditAddress, FirstNameEdit, UpdateAddress, FirstName)
         } 
         if (n == 2) {
-            await CF.editName(AddNewAddressBtn, FirstNameEditNew, text2, AddAddress, FirstNameNew)
+            await CF.editName(AddNewAddressBtn, FirstNameEditNew, AddAddress, FirstNameNew)
         }
     }
 

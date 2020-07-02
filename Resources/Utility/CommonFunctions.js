@@ -293,9 +293,7 @@ var CommonFunctions = function () {
     this.editName = async function (EditBtn, ChangeField, UpdateBtn, ResultField) {
         var result = ''
         await GUILib.clickObject(EditBtn).then(async function () {
-            await browser.sleep(1000)
             await GUILib.scrollToElement(ChangeField)
-            await browser.sleep(1000)
             await element(ChangeField).clear().then(async function () {
                 await browser.sleep(1000)
                 var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -307,10 +305,8 @@ var CommonFunctions = function () {
                     await GUILib.typeValue(ChangeField, result).then(async function () {
                         await browser.sleep(1000)
                         await GUILib.clickObject(UpdateBtn).then(async function () {
-                            await browser.sleep(1000)
                             await GUILib.waitforElement(ResultField)
                             await GUILib.getText(ResultField).then(async function (textActual) {
-                                await browser.sleep(1000)
                                 expect(textActual).toContain(result)
                             })
                         })

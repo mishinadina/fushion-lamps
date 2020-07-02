@@ -6,7 +6,7 @@ var CounterDay = require('../../Resources/PageObjects/CounterDay.js');
 
 var EC = protractor.ExpectedConditions;
 
-describe('Verification Cart Module', function () {
+describe('Verification <Cart> Module', function () {
 
 	var GUILib = new GUILibrary();
 

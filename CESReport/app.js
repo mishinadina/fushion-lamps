@@ -271,26 +271,44 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
 
     var results = [
     {
-        "description": "Click Hot Sellers and verify that all Items have description|Clicking on Home Page buttons",
-        "passed": false,
+        "description": "Type new value in FIRST NAME field, click \"Update Address\" button and verify result|Verification of <My Account> Module",
+        "passed": true,
+        "pending": false,
+        "os": "Mac OS X",
+        "instanceId": 88665,
+        "browser": {
+            "name": "chrome",
+            "version": "78.0.3904.70"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [
+            {
+                "level": "SEVERE",
+                "message": "https://city-electric-supply-marketing.myshopify.com/favicon.ico - Failed to load resource: the server responded with a status of 404 ()",
+                "timestamp": 1593719553798,
+                "type": ""
+            }
+        ],
+        "timestamp": 1593719552748,
+        "duration": 28152
+    },
+    {
+        "description": "Type new value in FIRST NAME field, click \"Update Address\" button and verify result|Verification of <My Account> Module",
+        "passed": true,
         "pending": false,
         "os": "mac",
-        "sessionId": "904d955c67ba6488ba93c4c1a110671e90d4eb29",
-        "instanceId": 78268,
+        "sessionId": "b430ddd0e451a9af4bf190134f41f0d66f95a17d",
+        "instanceId": 88710,
         "browser": {
             "name": "firefox",
             "version": "69.0"
         },
-        "message": [
-            "Expected 6 to be 0."
-        ],
-        "trace": [
-            "Error: Expected 6 to be 0.\n    at <Jasmine>\n    at /Users/dinamcherepanova/ces-master/Resources/PageObjects/HomePage.js:222:26\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
-        ],
+        "message": "Passed.",
+        "trace": "",
         "browserLogs": [],
-        "screenShotFile": "images/005400c6-0075-00e9-00dc-0071009b0026.png",
-        "timestamp": 1593704964794,
-        "duration": 311981
+        "timestamp": 1593719591015,
+        "duration": 32695
     }
 ];
 

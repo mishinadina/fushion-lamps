@@ -5,7 +5,7 @@ var Store = require('../../Resources/PageObjects/Store.js');
 
 var EC = protractor.ExpectedConditions;
 
-describe('Verification of Store Module', function () {
+describe('Verification of <Store> Module', function () {
 
 	var GUILib = new GUILibrary();
 

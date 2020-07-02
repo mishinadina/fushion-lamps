@@ -5,7 +5,7 @@ var BusinessCards = require('../../Resources/PageObjects/BusinessCards.js');
 
 var EC = protractor.ExpectedConditions;
 
-describe('Verification Business Cards Module', function () {
+describe('Verification <Business Cards> Module', function () {
 
 	var GUILib = new GUILibrary();
 

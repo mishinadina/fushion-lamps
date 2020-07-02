@@ -45,7 +45,7 @@ describe('Verification Company Signage Module', function () {
 
 });
 
-describe('Verification Vehicle Branch Module', function () {
+describe('Verification <Vehicle Branch> Module', function () {
 
 	var GUILib = new GUILibrary();
 

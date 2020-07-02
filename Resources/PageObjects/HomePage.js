@@ -206,8 +206,8 @@ var HomePage_Form = function () {
               await console.log("noimage " + noimage)
               await browser.getCurrentUrl().then(async function (url) {
                 if (noimage == 0) {
-                  if (Arr.indexOf(url) === -1) {
-                    await Arr.push(url);
+                  if (Arr.indexOf(text) === -1) {
+                    await Arr.push(text);
                   }
                 }
                 await browser.get('https://city-electric-supply-marketing.myshopify.com')
