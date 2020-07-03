@@ -27,13 +27,19 @@ var Store_Form = function () {
     var ViewCartBtn = by.xpath('//*[@class="cart-popup__cta-link btn btn--secondary-accent"]')
     var Cart = by.xpath("//*[@class='cart__submit btn btn--small-wide']")
 
+    var UniformItems = by.xpath("//*[@class='grid-view-item product-card   uniform-grid   ']")
+    var Uniform = by.xpath("//*[contains(@class, 'filter-by-ul')]/li/a[contains(text(), 'Uniforms')]")
+    var Size = by.xpath("//div[contains(@class,'swatch-element size-swatch')]")
+    var Price = by.xpath("//*[contains(@class,'price-item price-item--regular')]")
+    var FirstUniformItem = by.xpath("//*[@class='grid grid--uniform grid--view-items']")
 
     //----------------------------------------------------------------------------------------//
     this.addRandomItemToCart = async function () {
         await GUILib.waitforElement(FirstItem)
+        await GUILib.clickObject(Uniform)
         await element.all(Item).count().then(async function (count) {
             await element.all(Item).then(async function (ItemArray) {
-                var RandomNumber = await Math.floor(Math.random() * count + 5);
+                var RandomNumber = await Math.floor(Math.random() * count);
                 var ItemElement = await ItemArray[RandomNumber].getWebElement();
                 await ItemElement.click()
                 await GUILib.waitforElement(ItemName)
@@ -46,8 +52,50 @@ var Store_Form = function () {
                 })
             })
         })
-       
+
     }
+
+    this.checkAllUniforms = async function () {
+        var Arr = []
+        await element.all(UniformItems).count().then(async function (count) {
+            for (var n = 0; n < count; n++) {
+                await console.log()
+                await GUILib.waitforElement(FirstUniformItem)
+                await element.all(UniformItems).then(async function (ItemArray) {
+                    await browser.sleep(1500)
+                    await console.log('====' + ItemArray.length)
+                    var ItemElement = await ItemArray[n].getWebElement();
+                    await ItemElement.click()
+                    await GUILib.waitforElement(ItemName)
+                    await GUILib.getText(ItemName).then(async function (name) {
+                        await console.log(name)
+                        await element.all(Size).count().then(async function (count) {
+                            for (var x = 0; x < count; x++) {
+                                await element.all(Size).then(async function (SizeArray) {
+                                    var SizeElement = await SizeArray[x].getWebElement();
+                                    await SizeElement.click()
+                                    await SizeElement.getAttribute('data-value').then(async function (SizeName) {
+                                        await GUILib.getText(Price).then(async function (PriceNumber) {
+                                            await console.log(PriceNumber)
+                                            if (PriceNumber == '$0.00') {
+                                                await Arr.push(name);
+                                                await Arr.push(SizeName);
+                                            }
+                                        })
+                                    })
+                                })
+                            }
+                        })
+                    })
+                })
+                await browser.get('https://city-electric-supply-marketing.myshopify.com/pages/uniforms')
+            }
+            await console.log(Arr)
+            expect(Arr.length).toBe(0)
+        })
+    }
+
+
 
     this.clickFilter = async function () {
         try {

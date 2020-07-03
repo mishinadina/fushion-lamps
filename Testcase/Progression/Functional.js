@@ -25,4 +25,9 @@ describe('Testing Use Case Scenarios', function () {
         await Store.addRandomItemToCart();
     });
 
+    it('Check Uniform', async function () {
+        await Home_Page.clickUniformsBox();
+        await Store.checkAllUniforms();
+    });
+
 })

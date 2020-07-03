@@ -1,1 +1,0 @@
-{"description":"Type new value in FIRST NAME field, click \"Update Address\" button and verify result|Verification of <My Account> Module","passed":true,"pending":false,"os":"mac","instanceId":13306,"browser":{"name":"firefox","version":"77.0.1"},"message":"Passed.","trace":"","browserLogs":[],"timestamp":1593796344864,"duration":15659}
