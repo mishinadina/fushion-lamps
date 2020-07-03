@@ -50,6 +50,7 @@ var BusinessCards_Form = function () {
 
     var CartName = by.xpath('//*[@id="shopify-section-cart-template"]/div/div[1]/form/div/div/div[1]/table/tbody/tr/td[3]/div/div/ul/li[4]/span[2]')
 
+
     this.verifyNames = async function () {
         await GUILib.clickObject(EditBusinessCards)
         await GUILib.waitforElement(SelectEmployee)
@@ -205,7 +206,7 @@ var BusinessCards_Form = function () {
             var Option = by.xpath("//*[@id='state']/option[" + (RandomNumber + 1) + "]")
             await GUILib.getText(Option).then(async function (result1) {
                 await console.log(result1)
-                await browser.sleep(500);
+                await browser.sleep(1500);
                 await GUILib.getText(StateCard).then(async function (result2) {
                     await console.log(result2)
                     var resultState1 = await result2.charAt(0)
@@ -307,19 +308,33 @@ var BusinessCards_Form = function () {
             await element(Telephone).clear().then(async function () {
                 await GUILib.typeValue(FullName, 'Test Dina').then(async function () {
                     await GUILib.typeValue(Telephone, '111-111-1111').then(async function () {
-                        await browser.sleep(500)
-                        await GUILib.clickObject(AddToCart)
-                        await GUILib.waitforElement(ViewCartBtn)
-                        await GUILib.clickObject(ViewCartBtn)
-                        await GUILib.waitforElement(Cart)
-                        await GUILib.getText(CartName).then(async function (text) {
-                            expect(text).toBe('Test Dina')
+                        await GUILib.typeValue(StreetAddress, 'Test').then(async function () {
+                            await GUILib.typeValue(City, 'Test').then(async function () {
+                                await GUILib.typeValue(Zip, '12345').then(async function () {
+                                    await element.all(StateOption).count().then(async function (count) {
+                                        await console.log(count)
+                                        var RandomNumber = await Math.floor(Math.random() * count);
+                                        await GUILib.selectFromDropdown(State, RandomNumber)
+                                        await browser.sleep(500)
+                                        await GUILib.clickObject(AddToCart)
+                                        await GUILib.waitforElement(ViewCartBtn)
+                                        await GUILib.clickObject(ViewCartBtn)
+                                        await GUILib.waitforElement(Cart)
+                                        await GUILib.getText(CartName).then(async function (text) {
+                                            expect(text).toBe('Test Dina')
+                                        })
+                                    })
+                                })
+                            })
                         })
                     })
                 })
             })
         })
     }
+
+  
+
 
 
 

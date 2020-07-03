@@ -76,11 +76,13 @@ var Account_Form = function () {
     var AddNewAddressHeader = by.xpath("//h2[text()='Add a New Address']")
 
     var LastDelete = by.xpath('//div[2]//li[2]//li[2]/button')
+    var AddressForm = by.xpath("//*[@class='address']")
+    var Delete = by.xpath("//*[@class='btn btn--secondary btn--small address-delete btn-delete']")
 
     this.clickLogOut = async function () {
         await GUILib.waitforElement(LogOut)
         await GUILib.clickObject(LogOut)
-        
+
         await browser.sleep(1500);
         await browser.getCurrentUrl().then(async function (url) {
             expect(url).toContain('checkout')
@@ -102,11 +104,11 @@ var Account_Form = function () {
     this.verifyNewName = async function (n) {
         if (n == 1) {
             await CF.editName(EditAddress, FirstNameEdit, UpdateAddress, FirstName)
-        } 
+        }
         if (n == 2) {
             await CF.editName(AddNewAddressBtn, FirstNameEditNew, AddAddress, FirstNameNew)
             await GUILib.clickObject(LastDelete)
-            browser.switchTo().alert().accept();
+            await browser.switchTo().alert().accept();
             await browser.sleep(1000)
         }
     }
@@ -114,11 +116,11 @@ var Account_Form = function () {
     this.verifyLastName = async function (n) {
         if (n == 1) {
             await CF.editName(EditAddress, LastNameEdit, UpdateAddress, LastName)
-        } 
+        }
         if (n == 2) {
             await CF.editName(AddNewAddressBtn, LastNameEditNew, AddAddress, LastNameNew)
             await GUILib.clickObject(LastDelete)
-            browser.switchTo().alert().accept();
+            await browser.switchTo().alert().accept();
             await browser.sleep(1000)
         }
     }
@@ -126,11 +128,11 @@ var Account_Form = function () {
     this.verifyCompany = async function (n) {
         if (n == 1) {
             await CF.editName(EditAddress, CompanyEdit, UpdateAddress, Company)
-        } 
+        }
         if (n == 2) {
             await CF.editName(AddNewAddressBtn, CompanyEditNew, AddAddress, CompanyNew)
             await GUILib.clickObject(LastDelete)
-            browser.switchTo().alert().accept();
+            await browser.switchTo().alert().accept();
             await browser.sleep(1000)
         }
     }
@@ -138,11 +140,11 @@ var Account_Form = function () {
     this.verifyAddress = async function () {
         if (n == 1) {
             await CF.editName(EditAddress, StreetAddressEdit, UpdateAddress, StreetAddress)
-        } 
+        }
         if (n == 2) {
             await CF.editName(AddNewAddressBtn, StreetAddressEditNew, AddAddress, StreetAddressNew)
             await GUILib.clickObject(LastDelete)
-            browser.switchTo().alert().accept();
+            await browser.switchTo().alert().accept();
             await browser.sleep(1000)
         }
     }
@@ -150,11 +152,11 @@ var Account_Form = function () {
     this.verifyApt = async function () {
         if (n == 1) {
             await CF.editName(EditAddress, AptEdit, UpdateAddress, Apt)
-        } 
+        }
         if (n == 2) {
             await CF.editName(AddNewAddressBtn, AptEditNew, AddAddress, AptNew)
             await GUILib.clickObject(LastDelete)
-            browser.switchTo().alert().accept();
+            await browser.switchTo().alert().accept();
             await browser.sleep(1000)
         }
     }
@@ -162,11 +164,11 @@ var Account_Form = function () {
     this.verifyCity = async function () {
         if (n == 1) {
             await CF.editName(EditAddress, CityEdit, UpdateAddress, City)
-        } 
+        }
         if (n == 2) {
             await CF.editName(AddNewAddressBtn, CityEditNew, AddAddress, CityNew)
             await GUILib.clickObject(LastDelete)
-            browser.switchTo().alert().accept();
+            await browser.switchTo().alert().accept();
             await browser.sleep(1000)
         }
     }
@@ -250,11 +252,11 @@ var Account_Form = function () {
     this.verifyZip = async function () {
         if (n == 1) {
             await CF.editName(EditAddress, ZipEdit, UpdateAddress, Zip)
-        } 
+        }
         if (n == 2) {
             await CF.editName(AddNewAddressBtn, ZipEditNew, AddAddress, ZipNew)
             await GUILib.clickObject(LastDelete)
-            browser.switchTo().alert().accept();
+            await browser.switchTo().alert().accept();
             await browser.sleep(1000)
         }
     }
@@ -264,11 +266,11 @@ var Account_Form = function () {
 
         if (n == 1) {
             await CF.editName(EditAddress, TelEdit, UpdateAddress, Tel)
-        } 
+        }
         if (n == 2) {
             await CF.editName(AddNewAddressBtn, TelEditNew, AddAddress, TelNew)
             await GUILib.clickObject(LastDelete)
-            browser.switchTo().alert().accept();
+            await browser.switchTo().alert().accept();
             await browser.sleep(1000)
         }
     }
@@ -304,6 +306,26 @@ var Account_Form = function () {
                     expect(result).toBe(true)
                 })
             })
+        })
+    }
+
+    this.deleteExtraForms = async function () {
+        await element.all(AddressForm).count().then(async function (count) {
+            await console.log(count)
+            while (count > 1) {
+                await element.all(Delete).count().then(async function (countDelete) {
+                    for (var n = 1; n < countDelete; n++) {
+                        await console.log("HERE!")
+                        await element.all(Delete).then(async function (AllDelete) {
+                            var DeleteElement = await AllDelete[1].getWebElement();
+                            await DeleteElement.click()
+                            await browser.switchTo().alert().accept();
+                            await browser.refresh()
+                            count = await element.all(AddressForm).count()
+                        })
+                    }
+                })
+            }
         })
     }
 }

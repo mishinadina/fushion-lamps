@@ -271,11 +271,11 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
 
     var results = [
     {
-        "description": "Buy Item|Testing Use Case Scenarios",
+        "description": "Click \"Log Out\" button and verify result|Verification of <My Account> Module",
         "passed": true,
         "pending": false,
         "os": "mac",
-        "instanceId": 98285,
+        "instanceId": 13306,
         "browser": {
             "name": "firefox",
             "version": "77.0.1"
@@ -283,8 +283,391 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
         "message": "Passed.",
         "trace": "",
         "browserLogs": [],
-        "timestamp": 1593728314593,
-        "duration": 10235
+        "timestamp": 1593796328581,
+        "duration": 8115
+    },
+    {
+        "description": "Click \"Edit\" button and verify that there is no DB elements on <Your Addresses> Webpage|Verification of <My Account> Module",
+        "passed": false,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": [
+            "Expected 1 to be 0."
+        ],
+        "trace": [
+            "Error: Expected 1 to be 0.\n    at <Jasmine>\n    at /Users/dinamcherepanova/ces-master/Resources/PageObjects/Account.js:100:27\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
+        ],
+        "browserLogs": [],
+        "screenShotFile": "images/007d00e2-0030-005b-0049-0009006b009b.png",
+        "timestamp": 1593796336708,
+        "duration": 8008
+    },
+    {
+        "description": "Type new value in FIRST NAME field, click \"Update Address\" button and verify result|Verification of <My Account> Module",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1593796344864,
+        "duration": 15659
+    },
+    {
+        "description": "Type new value in LAST NAME field, click \"Update Address\" button and verify result|Verification of <My Account> Module",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1593796360527,
+        "duration": 12628
+    },
+    {
+        "description": "Type new value in EMAIL field, click \"Update Address\" button and verify result|Verification of <My Account> Module",
+        "passed": false,
+        "pending": true,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": "Temporarily disabled with xit",
+        "browserLogs": [],
+        "screenShotFile": "images/00e400e1-0072-00f0-00ed-00ce004f006f.png",
+        "timestamp": 1593796373159,
+        "duration": 0
+    },
+    {
+        "description": "Type new value in COMPANY field, click \"Update Address\" button and verify result|Verification of <My Account> Module",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1593796373162,
+        "duration": 12705
+    },
+    {
+        "description": "Type new value in ADDRESS field, click \"Update Address\" button and verify result|Verification of <My Account> Module",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1593796385872,
+        "duration": 8078
+    },
+    {
+        "description": "Type new value in APARTMENT field, click \"Update Address\" button and verify result|Verification of <My Account> Module",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1593796393952,
+        "duration": 7153
+    },
+    {
+        "description": "Type new value in CITY field, click \"Update Address\" button and verify result|Verification of <My Account> Module",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1593796401108,
+        "duration": 8542
+    },
+    {
+        "description": "Choose Random STATE from dropdown, click \"Update Address\" button and verify result|Verification of <My Account> Module",
+        "passed": false,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": [
+            "Expected 'State: Tyumen Oblast' to contain 'Altai Krai'."
+        ],
+        "trace": [
+            "Error: Expected 'State: Tyumen Oblast' to contain 'Altai Krai'.\n    at <Jasmine>\n    at /Users/dinamcherepanova/ces-master/Resources/PageObjects/Account.js:191:49\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
+        ],
+        "browserLogs": [],
+        "screenShotFile": "images/00b70000-00b9-0036-0021-0051003100c3.png",
+        "timestamp": 1593796409653,
+        "duration": 12650
+    },
+    {
+        "description": "Type new value in POSTAL/ZIP CODE field, click \"Update Address\" button and verify result|Verification of <My Account> Module",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1593796422438,
+        "duration": 8823
+    },
+    {
+        "description": "Choose Random COUNTRY from dropdown, click \"Update Address\" button and verify result|Verification of <My Account> Module",
+        "passed": false,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": [
+            "Expected 'No such field to verify changes' to be 'Country value was changed successfully'."
+        ],
+        "trace": [
+            "Error: Expected 'No such field to verify changes' to be 'Country value was changed successfully'.\n    at <Jasmine>\n    at /Users/dinamcherepanova/ces-master/Resources/PageObjects/Account.js:245:40\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
+        ],
+        "browserLogs": [],
+        "screenShotFile": "images/00bb007d-00ec-0042-0029-00f9007000d1.png",
+        "timestamp": 1593796431264,
+        "duration": 12266
+    },
+    {
+        "description": "Type new value in PHONE field, click \"Update Address\" button and verify result|Verification of <My Account> Module",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1593796443695,
+        "duration": 14803
+    },
+    {
+        "description": "Click \"Add a New Address\" button, type new value in FIRST NAME field, click \"Add Address\" button and verify result|Verification of <My Account> Module",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1593796458502,
+        "duration": 14937
+    },
+    {
+        "description": "Click \"Add a New Address\" button, type new value in LAST NAME field, click \"Add Address\" button and verify result|Verification of <My Account> Module",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1593796473443,
+        "duration": 13681
+    },
+    {
+        "description": "Click \"Add a New Address\" button, type new value in COMPANY field, click \"Add Address\" button and verify result|Verification of <My Account> Module",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1593796487129,
+        "duration": 13695
+    },
+    {
+        "description": "Click \"Add a New Address\" button, type new value in ADDRESS field, click \"Add Address\" button and verify result|Verification of <My Account> Module",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1593796500828,
+        "duration": 7319
+    },
+    {
+        "description": "Click \"Add a New Address\" button, type new value in APARTMENT field, click \"Add Address\" button and verify result|Verification of <My Account> Module",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1593796508149,
+        "duration": 7003
+    },
+    {
+        "description": "Click \"Add a New Address\" button, type new value in APARTMENT field, click \"Add Address\" button and verify result|Verification of <My Account> Module",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1593796515155,
+        "duration": 8931
+    },
+    {
+        "description": "Click \"Add a New Address\" button, type new value in POSTAL/ZIP CODE field, click \"Add Address\" button and verify result|Verification of <My Account> Module",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1593796524089,
+        "duration": 6493
+    },
+    {
+        "description": "Click \"Add a New Address\" button, type new value in PHONE field, click \"Add Address\" button and verify result|Verification of <My Account> Module",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1593796530585,
+        "duration": 12688
+    },
+    {
+        "description": "Open <Edit Adress> Module, click \"Cancel\" button and verify result|Verification of <My Account> Module",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1593796543277,
+        "duration": 9589
+    },
+    {
+        "description": "Open <Edit Adress> Module, click \"Return to Account Details\" link and verify result|Verification of <My Account> Module",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1593796552870,
+        "duration": 8990
+    },
+    {
+        "description": "Open <Edit Adress> Module, click \"Add a New Address\" button and verify result|Verification of <My Account> Module",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13306,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1593796561863,
+        "duration": 9329
     }
 ];
 

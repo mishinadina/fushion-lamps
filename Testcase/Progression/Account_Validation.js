@@ -91,41 +91,49 @@ describe('Verification of <My Account> Module', function () {
 
     it('Click "Add a New Address" button, type new value in FIRST NAME field, click "Add Address" button and verify result', async function () {
         await Account.clickEdit();
+        await Account.deleteExtraForms();
         await Account.verifyNewName(2);
     });
     
     it('Click "Add a New Address" button, type new value in LAST NAME field, click "Add Address" button and verify result', async function () {
         await Account.clickEdit();
+        await Account.deleteExtraForms();
         await Account.verifyLastName(2);
     });
     
     it('Click "Add a New Address" button, type new value in COMPANY field, click "Add Address" button and verify result', async function () {
         await Account.clickEdit();
+        await Account.deleteExtraForms();
         await Account.verifyCompany(2);
     });
     
     it('Click "Add a New Address" button, type new value in ADDRESS field, click "Add Address" button and verify result', async function () {
         await Account.clickEdit();
+        await Account.deleteExtraForms();
         await Account.verifyAddress(2);
     });
     
     it('Click "Add a New Address" button, type new value in APARTMENT field, click "Add Address" button and verify result', async function () {
         await Account.clickEdit();
+        await Account.deleteExtraForms();
         await Account.verifyApt(2);
     });
     
     it('Click "Add a New Address" button, type new value in APARTMENT field, click "Add Address" button and verify result', async function () {
         await Account.clickEdit();
+        await Account.deleteExtraForms();
         await Account.verifyCity(2);
     });
     
     it('Click "Add a New Address" button, type new value in POSTAL/ZIP CODE field, click "Add Address" button and verify result', async function () {
         await Account.clickEdit();
+        await Account.deleteExtraForms();
         await Account.verifyZip(2);
     });
     
     it('Click "Add a New Address" button, type new value in PHONE field, click "Add Address" button and verify result', async function () {
         await Account.clickEdit();
+        await Account.deleteExtraForms();
         await Account.verifyPhone(2);
     });
 

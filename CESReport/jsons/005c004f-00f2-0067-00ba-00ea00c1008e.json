@@ -1,0 +1,1 @@
+{"description":"Open <Edit Adress> Module, click \"Return to Account Details\" link and verify result|Verification of <My Account> Module","passed":true,"pending":false,"os":"mac","instanceId":13306,"browser":{"name":"firefox","version":"77.0.1"},"message":"Passed.","trace":"","browserLogs":[],"timestamp":1593796552870,"duration":8990}
