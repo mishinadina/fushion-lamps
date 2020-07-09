@@ -75,7 +75,7 @@ describe('Verification <Business Cards> Module', function () {
 		await BusinessCards.verifyEmailInput();
     });
 
-    it('Change the name and add Business Card order to Cart', async function () {
+    it('Fill all mandatory fields and add Business Card order to Cart', async function () {
 		await BusinessCards.changeNameTelAddCart();
     });
     

@@ -17,15 +17,21 @@ describe('Verification of <Store> Module', function () {
 		await GUILib.goToURL_nonAngular(browser.params.URL);
 		await GUILib.logIn(browser.params.Username, browser.params.Password);
         await browser.sleep(1000);
-        await Home_Page.clickStoreTab();
+       
 		
 	});
 
 	//-------------------------------------------------------------------------//
 
-	it('Click on All Products in Store and verify there is no Products without image', async function () {
-		await Store.clickFilter();
-	});
+	it('Click on All Products in Store and verify there are no Products without image', async function () {
+        await Home_Page.clickStoreTab();
+        await Store.clickFilter();
+    });
+    
+    it('Click on All Uniforms and verify there are no Products without price', async function () {
+        await Home_Page.clickUniformsBox();
+        await Store.checkAllUniforms();
+    });
 
 
 	afterEach(function () {

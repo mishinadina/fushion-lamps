@@ -271,11 +271,11 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
 
     var results = [
     {
-        "description": "Check Uniform|Testing Use Case Scenarios",
+        "description": "Log as DM, add Random Product to Cart and complete order|Testing Use Case Scenarios",
         "passed": true,
         "pending": false,
         "os": "mac",
-        "instanceId": 29304,
+        "instanceId": 13767,
         "browser": {
             "name": "firefox",
             "version": "77.0.1"
@@ -283,8 +283,24 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
         "message": "Passed.",
         "trace": "",
         "browserLogs": [],
-        "timestamp": 1593814256019,
-        "duration": 106270
+        "timestamp": 1594332177417,
+        "duration": 25712
+    },
+    {
+        "description": "Log as BM and add Random Product to Cart and complete order|Testing Use Case Scenarios",
+        "passed": true,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 13767,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": "Passed.",
+        "trace": "",
+        "browserLogs": [],
+        "timestamp": 1594332203143,
+        "duration": 20643
     }
 ];
 

@@ -79,10 +79,23 @@ var Account_Form = function () {
     var AddressForm = by.xpath("//*[@class='address']")
     var Delete = by.xpath("//*[@class='btn btn--secondary btn--small address-delete btn-delete']")
 
+    var Table = by.xpath("//*[@id='dm-table_wrapper']")
+    var TableApproval = by.xpath("//*[text()='No data available in table']")
+
+
+    this.verifyTableApproval = async function () {
+        await GUILib.waitforElement(Table)
+        await element(TableApproval).isDisplayed().then(async function (result) {
+            if (result == true) {
+                expect("No data available in table").toBe("Request was approved by DM")
+            }
+            expect(result).toBe(false)
+        })
+    }
+
     this.clickLogOut = async function () {
         await GUILib.waitforElement(LogOut)
         await GUILib.clickObject(LogOut)
-
         await browser.sleep(1500);
         await browser.getCurrentUrl().then(async function (url) {
             expect(url).toContain('checkout')
@@ -328,6 +341,7 @@ var Account_Form = function () {
             }
         })
     }
+
 }
 
 

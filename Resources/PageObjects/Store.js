@@ -57,6 +57,7 @@ var Store_Form = function () {
 
     this.checkAllUniforms = async function () {
         var Arr = []
+        await GUILib.waitforElement(FirstUniformItem)
         await element.all(UniformItems).count().then(async function (count) {
             for (var n = 0; n < count; n++) {
                 await console.log()

@@ -48,7 +48,7 @@ var BusinessCards_Form = function () {
     var ViewCartBtn = by.xpath('/html/body/div[2]/div/div[2]/div[2]/a')
     var Cart = by.xpath("//*[@class='cart__submit btn btn--small-wide']")
 
-    var CartName = by.xpath('//*[@id="shopify-section-cart-template"]/div/div[1]/form/div/div/div[1]/table/tbody/tr/td[3]/div/div/ul/li[4]/span[2]')
+    var CartName = by.xpath('//*[@id="shopify-section-cart-template"]/div/div[1]/form/div/div/div[1]/table/tbody/tr/td[3]/div/div/ul//span[text()="Full Name: "]/following-sibling::span')
 
 
     this.verifyNames = async function () {
