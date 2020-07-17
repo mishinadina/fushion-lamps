@@ -271,36 +271,73 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
 
     var results = [
     {
-        "description": "Log as DM, add Random Product to Cart and complete order|Testing Use Case Scenarios",
-        "passed": true,
+        "description": "Module 1. Breakfast: Click on All Products from Bundle and verify that no Error 404  appears + and no zero price + and no zero price|Verification <Counter Day> Module",
+        "passed": false,
         "pending": false,
         "os": "mac",
-        "instanceId": 13767,
+        "instanceId": 1700,
         "browser": {
             "name": "firefox",
             "version": "77.0.1"
         },
-        "message": "Passed.",
-        "trace": "",
+        "message": [
+            "Expected 1 to be 0.",
+            "Expected 2 to be 0."
+        ],
+        "trace": [
+            "Error: Expected 1 to be 0.\n    at <Jasmine>\n    at CounterDay_Form.checkProductsPage (/Users/dinamcherepanova/ces-master/Resources/PageObjects/CounterDay.js:113:28)\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+            "Error: Expected 2 to be 0.\n    at <Jasmine>\n    at CounterDay_Form.checkProductsPage (/Users/dinamcherepanova/ces-master/Resources/PageObjects/CounterDay.js:114:33)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
+        ],
         "browserLogs": [],
-        "timestamp": 1594332177417,
-        "duration": 25712
+        "screenShotFile": "images/0060009c-0028-0046-0041-007e00550028.png",
+        "timestamp": 1594919766195,
+        "duration": 34489
     },
     {
-        "description": "Log as BM and add Random Product to Cart and complete order|Testing Use Case Scenarios",
-        "passed": true,
+        "description": "Module 2. Breakfast: Click on All Products from Bundle and verify that no Error 404  appears + and no zero price|Verification <Counter Day> Module",
+        "passed": false,
         "pending": false,
         "os": "mac",
-        "instanceId": 13767,
+        "instanceId": 1700,
         "browser": {
             "name": "firefox",
             "version": "77.0.1"
         },
-        "message": "Passed.",
-        "trace": "",
+        "message": [
+            "Expected 4 to be 0.",
+            "Expected 5 to be 0."
+        ],
+        "trace": [
+            "Error: Expected 4 to be 0.\n    at <Jasmine>\n    at CounterDay_Form.checkProductsPage (/Users/dinamcherepanova/ces-master/Resources/PageObjects/CounterDay.js:113:28)\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+            "Error: Expected 5 to be 0.\n    at <Jasmine>\n    at CounterDay_Form.checkProductsPage (/Users/dinamcherepanova/ces-master/Resources/PageObjects/CounterDay.js:114:33)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
+        ],
         "browserLogs": [],
-        "timestamp": 1594332203143,
-        "duration": 20643
+        "screenShotFile": "images/00440060-003c-00ef-00fa-00c000d10043.png",
+        "timestamp": 1594919800931,
+        "duration": 55834
+    },
+    {
+        "description": "Module 3. Breakfast: Click on All Products from Bundle and verify that no Error 404  appears + and no zero price|Verification <Counter Day> Module",
+        "passed": false,
+        "pending": false,
+        "os": "mac",
+        "instanceId": 1700,
+        "browser": {
+            "name": "firefox",
+            "version": "77.0.1"
+        },
+        "message": [
+            "Expected 6 to be 0.",
+            "Expected 6 to be 0."
+        ],
+        "trace": [
+            "Error: Expected 6 to be 0.\n    at <Jasmine>\n    at CounterDay_Form.checkProductsPage (/Users/dinamcherepanova/ces-master/Resources/PageObjects/CounterDay.js:113:28)\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+            "Error: Expected 6 to be 0.\n    at <Jasmine>\n    at CounterDay_Form.checkProductsPage (/Users/dinamcherepanova/ces-master/Resources/PageObjects/CounterDay.js:114:33)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
+        ],
+        "browserLogs": [],
+        "screenShotFile": "images/004400db-0037-000a-00c4-001300b00067.png",
+        "timestamp": 1594919857021,
+        "duration": 61991
     }
 ];
 

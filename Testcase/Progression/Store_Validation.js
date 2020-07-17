@@ -23,7 +23,7 @@ describe('Verification of <Store> Module', function () {
 
 	//-------------------------------------------------------------------------//
 
-	it('Click on All Products in Store and verify there are no Products without image', async function () {
+	it('Click on All Products in Store and verify there are no Products without image + no Products with Bundle info', async function () {
         await Home_Page.clickStoreTab();
         await Store.clickFilter();
     });

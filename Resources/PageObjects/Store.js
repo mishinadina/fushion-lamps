@@ -19,6 +19,7 @@ var Store_Form = function () {
     var Item = by.xpath("//*[contains(@class, 'grid__item grid__item--collection-template medium-up--one-third')]")
     var Logo = by.xpath("//*[@class='h2 site-header__logo']")
     var Image = by.xpath('//*[contains(@class, "product-single__photo-wrapper js")]')
+    var ProductBundleInfo = by.xpath("//h6[text()='Product Bundle Information']")
     var ItemName = by.xpath('//*[@class="product-single-page__title"]')
     var FirstItem = by.xpath('//*[@id="Collection"]/div/div/div[3]/ul/li[1]/div/a')
     var Quantity = by.xpath("//*[@for='Quantity-product-template']")
@@ -57,6 +58,7 @@ var Store_Form = function () {
 
     this.checkAllUniforms = async function () {
         var Arr = []
+
         await GUILib.waitforElement(FirstUniformItem)
         await element.all(UniformItems).count().then(async function (count) {
             for (var n = 0; n < count; n++) {
@@ -101,6 +103,7 @@ var Store_Form = function () {
     this.clickFilter = async function () {
         try {
             var Arr = [];
+            var Arr2 = []
             await element.all(Filter).count().then(async function (filter) {
                 await console.log("Number of filters:" + filter)
                 for (var n = 1; n < filter; n++) {
@@ -128,13 +131,20 @@ var Store_Form = function () {
                                                 await ItemElement.click();
                                                 await GUILib.waitforElement(ItemName)
                                                 await element.all(Image).count().then(async function (noimage) {
-                                                    await console.log("noimage " + noimage)
-                                                    await GUILib.getText(ItemName).then(async function (name) {
-                                                        if (noimage == 0) {
-                                                            if (Arr.indexOf(name) === -1) {
-                                                                await Arr.push(name);
+                                                    await element.all(ProductBundleInfo).count().then(async function (bundle) {
+                                                        await console.log("noimage " + noimage)
+                                                        await console.log("bundle " + bundle)
+                                                        await GUILib.getText(ItemName).then(async function (name) {
+                                                            if (noimage == 0) {
+                                                                if (Arr.indexOf(name) === -1) {
+                                                                    await Arr.push(name);
+                                                                }
                                                             }
-                                                        }
+                                                            if (bundle >= 1) {                                         
+                                                                    await Arr2.push(name);
+                                                                }
+                                                            
+                                                        })
                                                     })
                                                 })
                                                 await browser.get(url)
@@ -189,7 +199,9 @@ var Store_Form = function () {
                     await GUILib.waitforElement(Logo)
                 }
                 await console.log("===Products with no-image: " + Arr)
+                await console.log("===Product Bundle Informatio: " + Arr2)
                 expect(Arr.length).toBe(0)
+                expect(Arr2.length).toBe(0)
             })
         }
         catch (e) {

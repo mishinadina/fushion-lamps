@@ -36,6 +36,7 @@ var CounterDay_Form = function () {
     var EndMinuteOptions = by.xpath("//*[@id='end-minute']")
     var Calendar = by.xpath("//*[@id='date']")
     var NextMonth = by.xpath("//div[@role='calendar']//div/div[3]/i")
+    var PrevMonth = by.xpath("//div[@role='calendar']//div/div[1]/i")
     var DateCalendar = by.xpath("//div[@role='calendar']//div/table/tbody/tr[1]/td[1]")
 
     var ContinueShopping = by.xpath('/html/body/div[2]/div/div[2]/div[1]/button')
@@ -67,6 +68,7 @@ var CounterDay_Form = function () {
 
     this.checkProductsPage = async function () {
         var Arr = [];
+        var ArrPrice = [];
         await browser.getCurrentUrl().then(async function (url) {
             await element.all(QuantityLines).count().then(async function (lines) {
                 await console.log(lines)
@@ -74,54 +76,88 @@ var CounterDay_Form = function () {
                     var Quantity = by.xpath('//*[@id="counter-day-form"]/div[1]/div/table/tbody/tr[' + y + ']/td[4]/input')
                     var Product = by.xpath("//*[@id='counter-day-form']/div[1]/div/table/tbody/tr[" + y + "]/td[2]/a")
                     var ProductDescription = by.xpath('//*[@id="counter-day-form"]/div[1]/div/table/tbody/tr[' + y + ']/td[2]/a')
+                    var Price = by.xpath('//*[@id="counter-day-form"]/div[1]/div/table/tbody/tr[' + y + ']/td[3]/span')
                     await GUILib.getText(ProductDescription).then(async function (text) {
-                        await GUILib.getAttribute(Quantity, 'value').then(async function (count) {
-                            await console.log(count)
-                            if (count > 0) {
-                                await GUILib.clickObject(Product)
-                                await browser.sleep(500)
-                                let windowHandles = await browser.getAllWindowHandles();
-                                await browser.switchTo().window(windowHandles[1])
-                                await GUILib.waitforElement(Logo)
-                                await element.all(Error404).count().then(async function (Error404) {
-                                    await console.log(Error404)
-                                    if (Error404 > 0) {
-                                        await Arr.push(text);
-                                    }
-                                })
-                                await browser.close()
-                                await browser.switchTo().window(windowHandles[0])
-                                await browser.get(url)
-                                await GUILib.waitforElement(Quantity)
+                        await GUILib.getText(Price).then(async function (PriceText) {
+                            if (PriceText == "$0.00") {
+                                if (ArrPrice.indexOf(text) === -1) {
+                                await ArrPrice.push(text)
+                                }
                             }
+                            await GUILib.getAttribute(Quantity, 'value').then(async function (count) {
+                                await console.log(count)
+                                if (count > 0) {
+                                    await GUILib.clickObject(Product)
+                                    await browser.sleep(500)
+                                    let windowHandles = await browser.getAllWindowHandles();
+                                    await browser.switchTo().window(windowHandles[1])
+                                    await GUILib.waitforElement(Logo)
+                                    await element.all(Error404).count().then(async function (Error404) {
+                                        await console.log(Error404)
+                                        if (Error404 > 0) {
+                                            await Arr.push(text);
+                                        }
+                                    })
+                                    await browser.close()
+                                    await browser.switchTo().window(windowHandles[0])
+                                    await browser.get(url)
+                                    await GUILib.waitforElement(Quantity)
+                                }
+                            })
                         })
                     })
                 }
             })
         })
         await console.log(Arr)
+        await console.log("Products with zero price:" + ArrPrice)
         expect(Arr.length).toBe(0)
+        expect(ArrPrice.length).toBe(0)
     }
 
-    this.fillBundleInfoPastDate = async function () {
-        await GUILib.typeValue(Vendors, 'Test')
-        await GUILib.selectFromDropdown(StartHourOptions, '1')
-        await GUILib.selectFromDropdown(EndHourOptions, '1')
-        await GUILib.selectFromDropdown(StartMinuteOptions, '1')
-        await GUILib.selectFromDropdown(EndMinuteOptions, '1')
-        await GUILib.clickObject(Calendar)
-        try {
-            await GUILib.clickObject(DateCalendar)
-            await GUILib.clickObject(AddToCartBtn)
-            await GUILib.waitforElement(ViewCartBtn)
-            await GUILib.clickObject(ViewCartBtn)
-            boolean = false
-        }
-        catch (e) {
-            boolean = true
-        }
-        expect(boolean).toBe(true)
+    this.checkProductsPrice = async function () {
+        var ArrPrice = [];
+        await browser.getCurrentUrl().then(async function (url) {
+            await element.all(QuantityLines).count().then(async function (lines) {
+                await console.log(lines)
+                for (y = 1; y <= lines; y++) {
+                    var ProductDescription = by.xpath('//*[@id="counter-day-form"]/div[1]/div/table/tbody/tr[' + y + ']/td[2]/a')
+                    var Price = by.xpath('//*[@id="counter-day-form"]/div[1]/div/table/tbody/tr[' + y + ']/td[3]/span')
+                    await GUILib.getText(ProductDescription).then(async function (text) {
+                        await GUILib.getText(Price).then(async function (PriceText) {
+                            if (PriceText == "$0.00") {
+                                if (ArrPrice.indexOf(text) === -1) {
+                                await ArrPrice.push(text)
+                                }
+                            }                          
+                        })
+                    })
+                }
+            })
+        })
+        await console.log("Products with zero price:" + ArrPrice)
+        expect(ArrPrice.length).toBe(0)
     }
+
+    // this.fillBundleInfoPastDate = async function () {
+    //     await GUILib.typeValue(Vendors, 'Test')
+    //     await GUILib.selectFromDropdown(StartHourOptions, '1')
+    //     await GUILib.selectFromDropdown(EndHourOptions, '1')
+    //     await GUILib.selectFromDropdown(StartMinuteOptions, '1')
+    //     await GUILib.selectFromDropdown(EndMinuteOptions, '1')
+    //     await GUILib.clickObject(Calendar)
+    //     try {
+    //         await GUILib.clickObject(DateCalendar)
+    //         await GUILib.clickObject(AddToCartBtn)
+    //         await GUILib.waitforElement(ViewCartBtn)
+    //         await GUILib.clickObject(ViewCartBtn)
+    //         boolean = false
+    //     }
+    //     catch (e) {
+    //         boolean = true
+    //     }
+    //     expect(boolean).toBe(true)
+    // }
 
     this.addBundleCartPositive = async function () {
         await element.all(QuantityLines).count().then(async function (ExpectedCount) {
@@ -148,6 +184,31 @@ var CounterDay_Form = function () {
             }
             catch (e) {
                 boolean = false
+            }
+            expect(boolean).toBe(true)
+        })
+    }
+
+    this.pastDate = async function () {
+        await element.all(QuantityLines).count().then(async function (ExpectedCount) {
+            await console.log(ExpectedCount)
+            await GUILib.typeValue(Vendors, 'Test')
+            await GUILib.selectFromDropdown(StartHourOptions, '1')
+            await GUILib.selectFromDropdown(EndHourOptions, '1')
+            await GUILib.selectFromDropdown(StartMinuteOptions, '1')
+            await GUILib.selectFromDropdown(EndMinuteOptions, '1')
+            await GUILib.clickObject(Calendar)
+            await GUILib.clickObject(PrevMonth)
+            await GUILib.clickObject(PrevMonth)
+            try {
+                await GUILib.clickObject(DateCalendar)
+                await GUILib.clickObject(AddToCartBtn)
+                await GUILib.waitforElement(ViewCartBtn)
+                await GUILib.clickObject(ViewCartBtn)
+                boolean = false
+            }
+            catch (e) {
+                boolean = true
             }
             expect(boolean).toBe(true)
         })
@@ -186,7 +247,7 @@ var CounterDay_Form = function () {
                 await browser.sleep(500)
                 await browser.refresh()
                 await element.all(QuantityNameCart).count().then(async function (ExpectedCount) {
-                    expect (ExpectedCount).toBe(0)
+                    expect(ExpectedCount).toBe(0)
                 })
                 boolean = true
             } catch (e) {
@@ -219,7 +280,7 @@ var CounterDay_Form = function () {
     }
 
     this.clickAddToCart = async function () {
-       
+
         await GUILib.scrollToElement(AddToCartBtn)
         await GUILib.clickObject(AddToCartBtn)
         try {

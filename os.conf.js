@@ -15,6 +15,7 @@ var specArray = ['Testcase/Progression/HomePage_Validation.js', 'Testcase/Progre
 //var specArray = ['Testcase/Progression/Store_Validation.js']
 //var specArray = ['Testcase/Progression/Branch_Validation.js']
 //var specArray = ['Testcase/Progression/BusinessCard_Validation.js']
+//var specArray = ['Testcase/Progression/Functional.js']
 
 
 exports.config = {

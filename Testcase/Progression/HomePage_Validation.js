@@ -101,7 +101,7 @@ describe('Clicking on Home Page buttons', function () {
 		await Home_Page.clickCompanySignageBox();
 	});
 
-	it('Click Hot Sellers and verify that all Items have description', async function () {
+	it('Click on all Hot Sellers Products and verify that all Products have description and image', async function () {
 		await Home_Page.clickHotSellers();
 	});
 
