@@ -10,75 +10,121 @@ var HomePage_Form = function () {
 
 
   //----------------------------------------------------------------------------------------//
-  var Logo = by.xpath("//*[@class='h2 site-header__logo']")
+  var Logo = by.xpath('//*[@alt="Fusion Lamps"]')
+  var Search = by.xpath('//*[@id="ls_query"]')
+  var Magnefier = by.xpath('//*[@id="accountInfo"]/div[1]/form/button/i')
+  var Account = by.xpath('//*[@id="accountInfo"]/div[1]/div/ul/li[1]/a/svg')
+  var Cart = by.xpath('//*[@id="accountInfo"]/div[1]/div/ul/li[2]/a/svg')
 
-  var Event = by.xpath("//ul[@id ='SiteNav']//*[text() = 'Event']")
-  var Counter = by.xpath("//ul[@id ='SiteNav']//*[text() = 'Counter Day']")
-  var CounterLink = "city-electric-supply-marketing.myshopify.com/collections/counter-bundle"
+  var OurBrandsDD = by.xpath('//*[@id="menu-item-37"]/a')
+  var Home = by.xpath('//*[@id="menu-item-16"]/a')
+  var AboutUs = by.xpath('//*[@id="menu-item-15"]/a')
+  var AllProducts = by.xpath('//*[@id="menu-item-97"]/a')
+  var SpecSheets = by.xpath('//*[@id="menu-item-14"]/a')
+  var WhereToBuy = by.xpath('//*[@id="menu-item-17"]/a')
+  var NewArticles = by.xpath('//*[@id="menu-item-3030"]/a')
+  var ContactUs = by.xpath('//*[@id="menu-item-13"]/a')
 
-  var Branch = by.xpath("//ul[@id ='SiteNav']//*[text() = 'Branch']")
-  var CompanySignage = by.xpath("//ul[@id ='SiteNav']//*[text() = 'Company Signage']")
-  var CompanySignageLink = "city-electric-supply-marketing.myshopify.com/products/company-signage"
-  var VehicleSignage = by.xpath("//ul[@id ='SiteNav']//*[text() = 'Vehicle Signage']")
-  var VehicleSignageLink = "https://city-electric-supply-marketing.myshopify.com/products/vehicle-signage"
+  var TamCo = by.xpath('//*[@id="brandNav"]/li[1]/a/img')
+  var F4P = by.xpath('//*[@id="brandNav"]/li[2]/a/img')
+  var Tamlite = by.xpath('//*[@id="brandNav"]/li[3]/a/img')
+  var CentureInst = by.xpath('//*[@id="brandNav"]/li[4]/a/img')
+  var MCG = by.xpath('//*[@id="brandNav"]/li[5]/a/img')
+  var RPPDev = by.xpath('//*[@id="brandNav"]/li[6]/a/img')
 
-  var Employee = by.xpath("//ul[@id ='SiteNav']//*[text() = 'Employee']")
-  var BusinessCards = by.xpath("//ul[@id ='SiteNav']//*[text() = 'Business Cards']")
-  var BusinessCardsLink = "https://city-electric-supply-marketing.myshopify.com/products/business-cards"
-  var Uniforms = by.xpath("//ul[@id ='SiteNav']//*[text() = 'Uniforms']")
-  var UniformsLink = "https://city-electric-supply-marketing.myshopify.com/pages/uniforms"
+  var LedLamps = by.xpath('//*[@id="menu-item-18085"]/a')
+  var LedTubes = by.xpath('//*[@id="menu-item-18086"]/a')
+  var FluorescentTubes = by.xpath('//*[@id="menu-item-18081"]/a')
+  var CompactFluorescent = by.xpath('//*[@id="menu-item-18080"]/a')
+  var Incandescent = by.xpath('//*[@id="menu-item-18084"]/a')
+  var Halogen = by.xpath('//*[@id="menu-item-18082"]/a')
+  var HidLamps = by.xpath('//*[@id="menu-item-18083"]/a')
+  var BallastAcc = by.xpath('//*[@id="menu-item-18079"]/a')
 
-  var Store = by.xpath("//ul[@id ='SiteNav']//*[text() = 'Store']")
-  var StoreLink = "https://city-electric-supply-marketing.myshopify.com/collections/all"
+  var ViewProducts = by.xpath('//*[@id="fusionDetail"]/div/div/div[2]/div/a')
 
-  var ContactUs = by.xpath("//*[@class='site-nav--has-dropdown']/button/*[text() = 'Contact Us']")
-  var ContactUsDD = by.xpath("//*[@id='SiteNavLabel-contact-us']//*[text() = 'Contact Us']")
-  var RoadMapDD = by.xpath("//*[@id='SiteNavLabel-contact-us']//*[text() = 'Roadmap']")
-  var ContactUsLink = "https://city-electric-supply-marketing.myshopify.com/pages/contact-us"
-  var RoadMapLink = "https://city-electric-supply-marketing.myshopify.com/pages/roadmap"
+  var Banner1 = by.xpath('//*[@id="recentPosts"]/div/div[1]/div/a/img')
+  var Banner2 = by.xpath('//*[@id="recentPosts"]/div/div[2]/div/a/img')
 
-  var Search = by.xpath("//*[@class ='btn--link site-header__icon site-header__search-toggle js-drawer-open-top']//*[@class = 'icon icon-search']")
-  var SearchBar = by.xpath("//*[@class ='search__input search-bar__input']")
+  var Tel = by.xpath('//*[@id="address"]/ul/li[1]/a')
+  var Address = by.xpath('//*[@id="address"]/ul/li[2]/a')
 
-  var Account = by.xpath("//*[@class = 'site-header__icon site-header__account']")
-  var AccountLink = "https://city-electric-supply-marketing.myshopify.com/account"
+  var FooterLedLamps = by.xpath('//*[@id="menu-main-menu"]/li[1]/a')
+  var FooterLedTubes = by.xpath('//*[@id="menu-main-menu"]/li[2]/a')
+  var FooterFluorescentTubes = by.xpath('//*[@id="menu-main-menu"]/li[3]/a')
+  var FooterCompactFluorescent = by.xpath('//*[@id="menu-main-menu"]/li[4]/a')
+  var FooterIncandescent = by.xpath('//*[@id="menu-main-menu"]/li[5]/a')
+  var FooterHalogen = by.xpath('//*[@id="menu-main-menu"]/li[6]/a')
+  var FooterHidLamps = by.xpath('//*[@id="menu-main-menu"]/li[7]/a')
+  var FooterBallastAcc = by.xpath('//*[@id="menu-main-menu"]/li[8]/a')
 
-  var Cart = by.xpath("//*[@class = 'site-header__icon site-header__cart']")
-  var CartLink = "https://city-electric-supply-marketing.myshopify.com/cart"
+  var FooterHome = by.xpath('//*[@id="menu-top-menu-1"]/li[2]/a')
+  var FooterAboutUs = by.xpath('//*[@id="menu-top-menu-1"]/li[3]/a')
+  var FooterAllProducts = by.xpath('//*[@id="menu-top-menu-1"]/li[4]/a')
+  var FooterSpecSheets = by.xpath('//*[@id="menu-top-menu-1"]/li[5]/a')
+  var FooterWhereToBuy = by.xpath('//*[@id="menu-top-menu-1"]/li[6]/a')
+  var FooterNewArticles = by.xpath('//*[@id="menu-top-menu-1"]/li[7]/a')
+  var FooterContactUs = by.xpath('//*[@id="menu-top-menu-1"]/li[8]/a')
 
-  var BranchBox = by.xpath('//*[@id="shopify-section-1571229997197"]/div/div/ul/li[1]')
-  var BranchLink = "city-electric-supply-marketing.myshopify.com/collections/branch-supplies"
-  var BusinessCardsBox = by.xpath('//*[@id="shopify-section-1571229997197"]/div/div/ul/li[2]')
-  var ContactUsBox = by.xpath('//*[@id="shopify-section-1571229997197"]/div/div/ul/li[3]')
-  var ApparelBox = by.xpath('//*[@id="shopify-section-1571229997197"]/div/div/ul/li[4]')
-  var ApparelLink = "https://city-electric-supply-marketing.myshopify.com/collections/apparel"
-  var UniformsBox = by.xpath('//*[@id="shopify-section-1571229997197"]/div/div/ul/li[5]')
-  var VehicleSignageBox = by.xpath('//*[@id="shopify-section-1571229997197"]/div/div/ul/li[6]')
-  var CounterBox = by.xpath('//*[@id="shopify-section-1571229997197"]/div/div/ul/li[7]')
-  var CompanySignageBox = by.xpath('//*[@id="shopify-section-1571229997197"]/div/div/ul/li[8]')
+  var Facebook = by.xpath('//*[@id="social"]/li[1]/a/i')
+  var Instagram = by.xpath('//*[@id="social"]/li[2]/a/i')
 
-  var CESUniforms1 = by.xpath('//*[@id="shopify-section-1571232084804"]/div/ul/li[1]/div/div[3]/div')
-  var CESUniforms2 = by.xpath('//*[@id="shopify-section-1571232084804"]/div/ul/li[2]/div/div[3]/div')
-  var CESUniforms3 = by.xpath('//*[@id="shopify-section-1571232084804"]/div/ul/li[3]/div/div[3]/div')
-  var CESUniforms4 = by.xpath('//*[@id="shopify-section-1571232084804"]/div/ul/li[4]/div/div[3]/div')
+  var FooterTamcoGroupLink = by.xpath('//*[text()="TAMCO Group"]')
+  var FooterTermsConditions = by.xpath('//*[text()="Terms and Conditions"]')
+  var FooterPrivacyPolicy = by.xpath('//*[text()="Privacy Policy"]')
+  var FooterEightyThreeCreativeLink = by.xpath('//*[text()="Eighty Three Creative"]')
 
-  var FooterLink = by.xpath('//*[@id="shopify-section-footer"]/footer/div[2]/div/div[1]/div/small/a')
+  //-----------------------------------Links-----------------------------------//
 
-  var HotSellers = by.xpath("//*[contains(@class, 'grid__item--1571231326253')]")
-  var Next = by.xpath('//*[@id="shopify-section-1571231326253"]/div/ul/button[2]')
-  var Prev = by.xpath('//*[@id="shopify-section-1571231326253"]/div/ul/button[1]')
-  var Slider = by.xpath("//*[text()='CES Uniform']")
-  var AddToCartBtn = by.xpath("//div/button[@type='submit']")
+  var TamCoLink = "fusion-lamps.com"
+  var AccountLink = "fusion-lamps.com/my-account"
+  var CartLink = "fusion-lamps.com/view-quote"
+  var TamcoGroupLink = "tamcogroup.com"
+  var F4PLink = ""
+  var TamliteLink = "www.tamliteusa.com"
+  var CentureInstLink = ""
+  var MCGLink = ""
+  var RPPDevLink = ""
 
-  var LogOut = by.id("customer_logout_link")
-  var Image = by.xpath('//*[contains(@class, "product-single__photo-wrapper js")]')
+  var HomeLink = TamCoLink
+  var AboutUsLink = "fusion-lamps.com/about-us"
+  var AllProductsLink = "fusion-lamps.com/products"
+  var SpecSheetsLink = "fusion-lamps.com/spec-sheets"
+  var WhereToBuyLink = "cityelectricsupply.com/PayBill/login"
+  var NewArticlesLink = "fusion-lamps.com/resources/news-articles"
+  var ContactUsLink = "fusion-lamps.com/contact-us"
 
-  var HotSellersHeaderSpan = by.xpath('//span[@class="visually-hidden"]')
+  var LedLampsLink = "fusion-lamps.com/category/led-lamps"
+  var LedTubesLink = "fusion-lamps.com/category/led-tubes"
+  var FluorescentTubesLink = "fusion-lamps.com/category/fluorescent-tubes"
+  var CompactFluorescentLink = "fusion-lamps.com/category/compact-fluorescent"
+  var IncandescentLink = "fusion-lamps.com/category/incandescent"
+  var HalogenLink = "fusion-lamps.com/category/halogen"
+  var HidLampsLink = "fusion-lamps.com/category/hid-lamps"
+  var BallastAccLink = "fusion-lamps.com/category/ballasts-accessories"
 
+  var LedLampsLinkFooter = LedLampsLink
+  var LedTubesLinkFooter = LedTubesLink
+  var FluorescentTubesLinkFooter = FluorescentTubesLink
+  var CompactFluorescentLinkFooter = CompactFluorescentLink
+  var IncandescentLinkFooter = IncandescentLink
+  var HalogenLinkFooter = HalogenLink
+  var HidLampsLinkFooter = HidLampsLink
+  var BallastAccLinkFooter = BallastAccLink
 
-  this.clickLogOutTab = async function () {
-    await GUILib.clickObject(LogOut);
-    await GUILib.waitforElement(by.id("CustomerEmail"))
+  //-----------------------------------Functions-----------------------------------//
+
+  this.clickLogo = async function () {
+    try {
+      await GUILib.waitforElement(Logo)
+    } catch (err) {
+      await console.log('Page was not loaded')
+    }
+
+  }
+
+  this.clickLogo = async function () {
+    
   }
 
   this.clickEventCounterTab = async function () {

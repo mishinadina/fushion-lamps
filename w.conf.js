@@ -23,8 +23,7 @@ exports.config = {
 		URL: 'https://city-electric-supply-marketing.myshopify.com/',
 		Username: 'dcherepanova@eightythreecreative.com',
 		Password: 'Mazhul123!',
-		UsernameBM: 'samuel.bush@cityelectricsupply.com',
-		PasswordBM: 'ces1983'
+		
 	},
 
 	

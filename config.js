@@ -8,13 +8,13 @@ var downloadsPath = path.resolve(__dirname, './Downloads');
 
 //var specArray = ['Testcase/Progression/HomePage_Validation.js', 'Testcase/Progression/CounterDay_Validation.js','Testcase/Progression/Store_Validation.js','Testcase/Progression/Branch_Validation.js']
 //var specArray = ['Testcase/Progression/HomePage_Validation.js']
-var specArray = ['Testcase/Progression/CounterDay_Validation.js']
+//var specArray = ['Testcase/Progression/CounterDay_Validation.js']
 //var specArray = ['Testcase/Progression/Store_Validation.js']
 //var specArray = ['Testcase/Progression/Branch_Validation.js']
 //var specArray = ['Testcase/Progression/Cart_Validation.js']
 //var specArray = ['Testcase/Progression/BusinessCard_Validation.js']
 //var specArray = ['Testcase/Progression/Account_Validation.js']
-//var specArray = ['Testcase/Progression/Functional.js']
+var specArray = ['Testcase/Progression/Functional.js']
 
 
 exports.config = {

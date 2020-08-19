@@ -1,4 +1,4 @@
-<p><b>BUILD STATUS : <font color="red">FAILURE</b></font></p>Time of build: Thu Jul 16 2020 12:18:39 GMT-0500 (Central Daylight Time)<br> <table border="1" cellpadding="5">
+<p><b>BUILD STATUS : <font color="red">FAILURE</b></font></p>Time of build: Mon Jul 20 2020 15:15:36 GMT-0500 (Central Daylight Time)<br> <table border="1" cellpadding="5">
 <tbody>
 <tr>
 <td> PASSED: </td>
@@ -6,7 +6,7 @@
 </tr>
 <tr>
 <td> FAILED: </td>
-<td>3</td>
+<td>2</td>
 </tr>
 <tr>
 <td> PENDING: </td>
