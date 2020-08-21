@@ -6,15 +6,8 @@ var basePath = __dirname;
 var path = require('path');
 var downloadsPath = path.resolve(__dirname, './Downloads');
 
-//var specArray = ['Testcase/Progression/HomePage_Validation.js', 'Testcase/Progression/CounterDay_Validation.js','Testcase/Progression/Store_Validation.js','Testcase/Progression/Branch_Validation.js']
-//var specArray = ['Testcase/Progression/HomePage_Validation.js']
-//var specArray = ['Testcase/Progression/CounterDay_Validation.js']
-//var specArray = ['Testcase/Progression/Store_Validation.js']
-//var specArray = ['Testcase/Progression/Branch_Validation.js']
-//var specArray = ['Testcase/Progression/Cart_Validation.js']
-//var specArray = ['Testcase/Progression/BusinessCard_Validation.js']
-//var specArray = ['Testcase/Progression/Account_Validation.js']
-var specArray = ['Testcase/Progression/Functional.js']
+var specArray = ['Testcase/Progression/HomePage.js']
+
 
 
 exports.config = {
@@ -37,11 +30,7 @@ exports.config = {
 	},
 
 	params: {
-		URL: 'https://city-electric-supply-marketing.myshopify.com/',
-		Username: 'dcherepanova@eightythreecreative.com',
-		Password: 'Mazhul123!',
-		UsernameBM: 'samuel.bush@cityelectricsupply.com',
-		PasswordBM: 'ces1983'
+		URL: 'https://fusion-lamps.com/'
 	},
 
 
@@ -78,7 +67,7 @@ exports.config = {
 
 	beforeLaunch: async function () {
 
-		await rimraf('./CESReport', async function () {
+		await rimraf('./FusionLampsReport', async function () {
 			console.log("clearing html report directory")
 
 		})
@@ -110,7 +99,7 @@ exports.config = {
 		browser.manage().deleteAllCookies();
 
 		jasmine.getEnv().addReporter(new HtmlReporter({
-			baseDirectory: './CESReport',
+			baseDirectory: './FusionLampsReport',
 			takeScreenShotsOnlyForFailedSpecs: true,
 			screenshotsSubfolder: 'images',
 			jsonsSubfolder: 'jsons',
@@ -145,7 +134,7 @@ exports.config = {
 
 		await fs.writeFileSync('./email.txt', '');
 
-		var response = await fs.readFileSync('CESReport/combined.json', 'utf8')
+		var response = await fs.readFileSync('FusionLampsReport/combined.json', 'utf8')
 		var data = await ((response.split("\\\"").join("\"")).trim()).slice(1, -1);
 		data = await ((data.split("\\\\\"").join("\\\"")).trim());
 		//await console.log("good looking response : " + data);
@@ -209,7 +198,7 @@ exports.config = {
 		await fs.appendFileSync('./email.txt', '</table>' + '\n')
 
 		if (fail > 10) {
-			await rimraf('./CESReport/images', async function () {
+			await rimraf('./FusionLampsReport/images', async function () {
 				await fs.appendFileSync('./email.txt', '<p>SCREENSHOTS WERE DETACHED NOT TO EXCEED EMAIL LIMITS</p>');
 			})
 		}

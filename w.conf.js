@@ -8,25 +8,14 @@ var fs = require('fs');
 var basePath = __dirname;
 var path = require('path');
 
-var specArray = ['Testcase/Progression/HomePage_Validation.js', 'Testcase/Progression/CounterDay_Validation.js','Testcase/Progression/Store_Validation.js','Testcase/Progression/Branch_Validation.js','Testcase/Progression/BusinessCard_Validation.js','Testcase/Progression/Account_Validation.js','Testcase/Progression/Functional.js']
-//var specArray = ['Testcase/Progression/Account_Validation.js']
-//var specArray = ['Testcase/Progression/HomePage_Validation.js']
-//var specArray = ['Testcase/Progression/CounterDay_Validation.js']
-//var specArray = ['Testcase/Progression/Store_Validation.js']
-//var specArray = ['Testcase/Progression/Branch_Validation.js']
-//var specArray = ['Testcase/Progression/BusinessCard_Validation.js']
+var specArray = ['Testcase/Progression/HomePage.js']
 
 
 exports.config = {
 
 	params: {
-		URL: 'https://city-electric-supply-marketing.myshopify.com/',
-		Username: 'dcherepanova@eightythreecreative.com',
-		Password: 'Mazhul123!',
-		
+		URL: 'https://fusion-lamps.com/'
 	},
-
-	
 
 	// plugins: [{
 	// 	package: "protractor-browserstack-reporter"
@@ -44,11 +33,11 @@ exports.config = {
 	browserstackUser: process.env.BROWSERSTACK_USERNAME || 'dinacherepanova1',
 	browserstackKey: process.env.BROWSERSTACK_ACCESS_KEY || 'EYGN69dBPRyMe2kyXVh7',
 
-	
+
 
 	commonCapabilities: {
-		project: 'CES',
-        build: 'CES_Test',
+		project: 'Fusion Lamps',
+		build: 'Fusion_Lamps_Test',
 		'browserstack.debug': 'true',
 		name: 'Chrome_Windows_test',
 		os: 'Windows',
@@ -76,8 +65,9 @@ exports.config = {
 
 
 	multiCapabilities: [
-		{	project: 'CES',
-			build: 'CES_Test',
+		{
+			project: 'Fusion Lamps',
+			build: 'Fusion_Lamps_Test',
 			name: 'Chrome_Windows_test',
 			browserName: 'chrome',
 			'browserstack.console': 'errors',
@@ -87,8 +77,9 @@ exports.config = {
 			'browserstack.local': 'false',
 			'browserstack.selenium_version': '3.5.2',
 		},
-		{	project: 'CES',
-			build: 'CES_Test',
+		{
+			project: 'Fusion Lamps',
+			build: 'Fusion_Lamps_Test',
 			name: 'Firefox_Windows_test',
 			browserName: 'Firefox',
 			'browserstack.console': 'errors',
@@ -117,19 +108,19 @@ exports.config = {
 				},
 			},
 		}
-],
+	],
 
 
-beforeLaunch: async function () {
+	beforeLaunch: async function () {
 
-	await rimraf('./CESReport', async function () {
-		console.log("clearing html report directory")
+		await rimraf('./FusionLampsReport', async function () {
+			console.log("clearing html report directory")
 
-	})
-	await fs.writeFileSync('./email.txt', ' ' + '<br>');
-	await fs.appendFileSync('./email.txt', '<p><b>BUILD STATUS : <font color="blue">ABORTED</b></font></p>')
-	
-},
+		})
+		await fs.writeFileSync('./email.txt', ' ' + '<br>');
+		await fs.appendFileSync('./email.txt', '<p><b>BUILD STATUS : <font color="blue">ABORTED</b></font></p>')
+
+	},
 
 	onPrepare: async function () {
 		// 	console.log('on prepare');
@@ -154,7 +145,7 @@ beforeLaunch: async function () {
 		browser.manage().deleteAllCookies();
 
 		jasmine.getEnv().addReporter(new HtmlReporter({
-			baseDirectory: './CESReport',
+			baseDirectory: './FusionLampsReport',
 			takeScreenShotsOnlyForFailedSpecs: true,
 			screenshotsSubfolder: 'images',
 			jsonsSubfolder: 'jsons',
@@ -184,7 +175,7 @@ beforeLaunch: async function () {
 
 		await fs.writeFileSync('./email.txt', '');
 
-		var response = await fs.readFileSync('CESReport/combined.json', 'utf8')
+		var response = await fs.readFileSync('FusionLampsReport/combined.json', 'utf8')
 		var data = await ((response.split("\\\"").join("\"")).trim()).slice(1, -1);
 		data = await ((data.split("\\\\\"").join("\\\"")).trim());
 		//await console.log("good looking response : " + data);
@@ -247,7 +238,7 @@ beforeLaunch: async function () {
 		await fs.appendFileSync('./email.txt', '</table>' + '\n')
 
 		if (fail > 10) {
-			await rimraf('./CESReport/images', async function () {
+			await rimraf('./FusionLampsReport/images', async function () {
 				await fs.appendFileSync('./email.txt', '<p><font color="blue">SCREENSHOTS WERE DETACHED NOT TO EXCEED EMAIL LIMITS</p></font>');
 			})
 		}

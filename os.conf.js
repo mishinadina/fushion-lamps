@@ -8,24 +8,14 @@ var basePath = __dirname;
 var path = require('path');
 var downloadsPath = path.resolve(__dirname, './Downloads');
 
-var specArray = ['Testcase/Progression/HomePage_Validation.js', 'Testcase/Progression/CounterDay_Validation.js','Testcase/Progression/Store_Validation.js','Testcase/Progression/Branch_Validation.js','Testcase/Progression/BusinessCard_Validation.js','Testcase/Progression/Account_Validation.js','Testcase/Progression/Functional.js']
-//var specArray = ['Testcase/Progression/Account_Validation.js']
-//var specArray = ['Testcase/Progression/HomePage_Validation.js']
-//var specArray = ['Testcase/Progression/CounterDay_Validation.js']
-//var specArray = ['Testcase/Progression/Store_Validation.js']
-//var specArray = ['Testcase/Progression/Branch_Validation.js']
-//var specArray = ['Testcase/Progression/BusinessCard_Validation.js']
-//var specArray = ['Testcase/Progression/Functional.js']
+
+var specArray = ['Testcase/Progression/HomePage.js']
 
 
 exports.config = {
 
 	params: {
-		URL: 'https://city-electric-supply-marketing.myshopify.com/',
-		Username: 'dcherepanova@eightythreecreative.com',
-		Password: 'Mazhul123!',
-		UsernameBM: 'samuel.bush@cityelectricsupply.com',
-		PasswordBM: 'ces1983'
+		URL: 'https://fusion-lamps.com/'
 	},
 
 	specs: specArray,
@@ -43,8 +33,8 @@ exports.config = {
 
 
 	commonCapabilities: {
-		project: 'CES',
-		build: 'CES_Test',
+		project: 'Fusion Lamps',
+		build: 'Fusion_Lamps_Test',
 		'browserstack.debug': 'true',
 		name: 'Chrome_OS_test',
 		os: 'OS X',
@@ -74,8 +64,8 @@ exports.config = {
 
 	multiCapabilities: [
 		{
-			project: 'CES',
-			build: 'CES_Test',
+			project: 'Fusion Lamps',
+			build: 'Fusion_Lamps_Test',
 			name: 'Chrome_OS_test',
 			browserName: 'chrome',
 			'browserstack.console': 'errors',
@@ -85,8 +75,8 @@ exports.config = {
 			'browserstack.local': 'false',
 			'browserstack.selenium_version': '3.5.2',
 		},
-		{	project: 'CES',
-			build: 'CES_Test',
+		{	project: 'Fusion Lamps',
+			build: 'Fusion_Lamps_Test',
 			name: 'Firefox_OS_test',
 			browserName: 'Firefox',
 			'browserstack.console': 'errors',
@@ -116,24 +106,25 @@ exports.config = {
 			},
 		}
 
-		// ,{
-		// 	build: 'CES_Test',
-		// 	name: 'Safari_OS_test',
-		// 	browserName: 'Safari',
-		// 	'browserstack.safari.enablePopups' : 'true',
-		// 	'browserstack.console': 'errors',
-		// 	'browserstack.networkLogs': 'true',
-		// 	'browserstack.debug': 'true',
-		// 	'browser_version': '12.1',
-		// 	'browserstack.local': 'false',
-		// 	'browserstack.selenium_version': '3.141.0',
-		// },
+		,{
+			project: 'Fusion Lamps',
+			build: 'Fusion_Lamps_Test',
+			name: 'Safari_OS_test',
+			browserName: 'Safari',
+			'browserstack.safari.enablePopups' : 'true',
+			'browserstack.console': 'errors',
+			'browserstack.networkLogs': 'true',
+			'browserstack.debug': 'true',
+			'browser_version': '12.1',
+			'browserstack.local': 'false',
+			'browserstack.selenium_version': '3.141.0',
+		},
 ],
 
 
 	beforeLaunch: async function () {
 
-		await rimraf('./CESReport', async function () {
+		await rimraf('./FusionLampsReport', async function () {
 			console.log("clearing html report directory")
 
 		})
@@ -166,7 +157,7 @@ exports.config = {
 		browser.manage().deleteAllCookies();
 
 		jasmine.getEnv().addReporter(new HtmlReporter({
-			baseDirectory: './CESReport',
+			baseDirectory: './FusionLampsReport',
 			takeScreenShotsOnlyForFailedSpecs: true,
 			screenshotsSubfolder: 'images',
 			jsonsSubfolder: 'jsons',
@@ -195,7 +186,7 @@ exports.config = {
 
 	onComplete: async function () {
 		await fs.writeFileSync('./email.txt', ' ' + '<br>');
-		var response = await fs.readFileSync('CESReport/combined.json', 'utf8')
+		var response = await fs.readFileSync('FusionLampsReport/combined.json', 'utf8')
 		var data = await ((response.split("\\\"").join("\"")).trim()).slice(1, -1);
 		data = await ((data.split("\\\\\"").join("\\\"")).trim());
 		//await console.log("good looking response : " + data);
@@ -258,7 +249,7 @@ exports.config = {
 		await fs.appendFileSync('./email.txt', '</table>' + '\n')
 
 		if (fail > 10) {
-			await rimraf('./CESReport/images', async function () {
+			await rimraf('./FusionLampsReport/images', async function () {
 				await fs.appendFileSync('./email.txt', '<p><font color="blue">SCREENSHOTS WERE DETACHED NOT TO EXCEED EMAIL LIMITS</p></font>');
 			})
 		}

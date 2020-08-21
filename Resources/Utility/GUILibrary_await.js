@@ -27,10 +27,7 @@ var GUILibrary = function () {
 		await browser.manage().deleteAllCookies();
 		await browser.driver.manage().window().maximize();
 		await browser.executeScript("document.body.style.zoom='100%';");
-		await browser.driver.get(URL).then(async function (btnG) {
-			await browser.wait(EC.visibilityOf(element(by.id("AccessibleNav"))), 30000).then(async function () {
-				console.log('Login Page was loaded')
-			})
+		await browser.driver.get(URL).then(async function () {
 		})
 	}
 
@@ -98,9 +95,13 @@ var GUILibrary = function () {
 		if (Ob1 != null) {
 			await browser.findElement(byObject1).then(async function (result) {
 				await browser.actions({ bridge: true }).move({ duration: 500, origin: result, x: 0, y: 0 }).perform();
+				await element(byObject1).click().then(async function () {
+					console.log("Clicked on element- " + byObject1);
+				})
 			})
 		}
 		try {
+			//await GUILib.scrollToElement(byObject2)
 			await browser.wait(EC.elementToBeClickable(element(byObject2)), 15000);
 			await element(byObject2).click().then(async function () {
 				console.log("Clicked on element- " + byObject2);
@@ -114,6 +115,58 @@ var GUILibrary = function () {
 			await expect(url).toContain(ExpectedLink)
 		})
 	}
+
+	this.clickLink = async function (Link, ExtURL) {
+		await console.log(Link)
+        await browser.wait(EC.elementToBeClickable(element(Link)), 30000);
+        await element(Link).click().then(async function () {
+            await browser.sleep(2000);
+            let windowHandles = browser.getAllWindowHandles();
+            let parentHandle, childHandle;
+            await windowHandles.then(async function (handles) {
+                parentHandle = await handles[0];
+                childHandle = await handles[1];
+
+                await browser.switchTo().window(childHandle).then(async function () {
+                    await browser.wait(EC.urlContains('com'), 10000);
+                    await browser.getCurrentUrl().then(async function (url) {
+                        await console.log("Child window:- " + url);
+                        if (url.includes(ExtURL)) {
+                            await console.log('New tab is opened in the child window');
+                            await expect(url).toContain(ExtURL);
+                            await browser.close();
+                            await browser.switchTo().window(parentHandle);
+                        } else {
+                            await browser.switchTo().window(parentHandle).then(async function () {
+                                await browser.sleep(2000);
+                                await browser.getCurrentUrl().then(async function (url) {
+                                    await console.log("Parent window:- " + url);
+                                    await console.log('New tab is opened in the parent window');
+                                    await expect(url).toContain(ExtURL);
+                                    await browser.close();
+                                    await browser.switchTo().window(childHandle);
+                                })
+                            })
+                        }
+                        var allWindowHandlers = await browser.getAllWindowHandles();
+                        if (allWindowHandlers.length > 1) {
+                            console.log("There are several open windows");
+                            for (let windowHandlerIndex = 1; windowHandlerIndex < allWindowHandlers.length; windowHandlerIndex++) {
+                                console.log("Closing open window");
+                                const windowHandler = allWindowHandlers[windowHandlerIndex];
+                                await browser.switchTo().window(windowHandler);
+                                await browser.close();
+                            }
+                        }
+                        else {
+                            console.log("Only one window is opened");
+                        }
+                        await browser.switchTo().window(allWindowHandlers[0]);
+                    })
+                })
+            })
+        })
+    }
 
 
 	this.typeValue = async function (byObject, textToWrite) {

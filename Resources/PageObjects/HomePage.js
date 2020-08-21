@@ -1,20 +1,18 @@
 var GUILibrary = require('../Utility/GUILibrary_await.js');
 var CommonFunctions = require('../Utility/CommonFunctions.js');
 
-
 var HomePage_Form = function () {
   var GUILib = new GUILibrary();
+  var CF = new CommonFunctions();
   var EC = protractor.ExpectedConditions;
   var fs = require('fs');
-
-
 
   //----------------------------------------------------------------------------------------//
   var Logo = by.xpath('//*[@alt="Fusion Lamps"]')
   var Search = by.xpath('//*[@id="ls_query"]')
   var Magnefier = by.xpath('//*[@id="accountInfo"]/div[1]/form/button/i')
-  var Account = by.xpath('//*[@id="accountInfo"]/div[1]/div/ul/li[1]/a/svg')
-  var Cart = by.xpath('//*[@id="accountInfo"]/div[1]/div/ul/li[2]/a/svg')
+  var Account = by.xpath('//*[@id="accountInfo"]/div[1]/div/ul/li[1]/a')
+  var Cart = by.xpath('//*[@id="accountInfo"]/div[1]/div/ul/li[2]/a')
 
   var OurBrandsDD = by.xpath('//*[@id="menu-item-37"]/a')
   var Home = by.xpath('//*[@id="menu-item-16"]/a')
@@ -67,12 +65,16 @@ var HomePage_Form = function () {
   var FooterContactUs = by.xpath('//*[@id="menu-top-menu-1"]/li[8]/a')
 
   var Facebook = by.xpath('//*[@id="social"]/li[1]/a/i')
-  var Instagram = by.xpath('//*[@id="social"]/li[2]/a/i')
+  var Linkedin = by.xpath('//*[@id="social"]/li[2]/a/i')
 
   var FooterTamcoGroupLink = by.xpath('//*[text()="TAMCO Group"]')
   var FooterTermsConditions = by.xpath('//*[text()="Terms and Conditions"]')
   var FooterPrivacyPolicy = by.xpath('//*[text()="Privacy Policy"]')
-  var FooterEightyThreeCreativeLink = by.xpath('//*[text()="Eighty Three Creative"]')
+  var FooterEightyThreeCreative = by.xpath('//*[text()="Eighty Three Creative"]')
+
+  var FooterTermsConditionsLink = "fusion-lamps.com/terms-and-conditions"
+  var FooterPrivacyPolicyLink = "fusion-lamps.com/privacy-policy"
+  var FooterEightyThreeCreativeLink = "eightythreecreative.com"
 
   //-----------------------------------Links-----------------------------------//
 
@@ -103,171 +105,209 @@ var HomePage_Form = function () {
   var HidLampsLink = "fusion-lamps.com/category/hid-lamps"
   var BallastAccLink = "fusion-lamps.com/category/ballasts-accessories"
 
-  var LedLampsLinkFooter = LedLampsLink
-  var LedTubesLinkFooter = LedTubesLink
-  var FluorescentTubesLinkFooter = FluorescentTubesLink
-  var CompactFluorescentLinkFooter = CompactFluorescentLink
-  var IncandescentLinkFooter = IncandescentLink
-  var HalogenLinkFooter = HalogenLink
-  var HidLampsLinkFooter = HidLampsLink
-  var BallastAccLinkFooter = BallastAccLink
+  var FacebookLink = "facebook.com/FusionLamps"
+  var LinkedinLink = 'linkedin.com/company/tamco-group'
 
   //-----------------------------------Functions-----------------------------------//
 
-  this.clickLogo = async function () {
+  this.waitLogo = async function () {
     try {
       await GUILib.waitforElement(Logo)
-    } catch (err) {
-      await console.log('Page was not loaded')
+      await console.log('Page was loaded')
+    } catch (e) {
+      await console.log('Page was NOT loaded')
     }
 
   }
 
   this.clickLogo = async function () {
-    
+    await GUILib.clickTab(null, Logo, TamCoLink)
   }
 
-  this.clickEventCounterTab = async function () {
-    await GUILib.moveToElement(Logo);
-    await GUILib.clickTab(Event, Counter, CounterLink)
-  }
-
-  this.clickBranchCompanySignage = async function () {
-    await GUILib.moveToElement(Logo);
-    await GUILib.clickTab(Branch, CompanySignage, CompanySignageLink)
-  }
-
-  this.clickBranchVehicleSignage = async function () {
-    await GUILib.moveToElement(Logo);
-    await GUILib.clickTab(Branch, VehicleSignage, VehicleSignageLink)
-  }
-
-  this.clickEmployeeBusinessCards = async function () {
-    await GUILib.moveToElement(Logo);
-    await GUILib.clickTab(Employee, BusinessCards, BusinessCardsLink)
-  }
-
-  this.clickEmployeeUniforms = async function () {
-    await GUILib.moveToElement(Logo);
-    await GUILib.clickTab(Employee, Uniforms, UniformsLink)
-  }
-
-  this.clickStoreTab = async function () {
-    await GUILib.clickTab(null, Store, StoreLink)
-  }
-
-  this.clickContactUsTab = async function () {
-    await GUILib.clickTab(ContactUs, ContactUsDD, ContactUsLink)
-  }
-
-  this.clickRoadMap = async function () {
-    await GUILib.moveToElement(Logo);
-    await GUILib.clickTab(ContactUs, RoadMapDD, RoadMapLink)
-  }
-
-  this.clickSearchIcon = async function () {
-    await GUILib.clickObject(Search)
-    await element(SearchBar).isDisplayed().then(async function (result) {
-      expect(result).toBe(true)
-    })
-  }
-
-  this.clickAccountIcon = async function () {
+  this.clickAccount = async function () {
     await GUILib.clickTab(null, Account, AccountLink)
   }
 
-  this.clickCartIcon = async function () {
+  this.clickCart= async function () {
     await GUILib.clickTab(null, Cart, CartLink)
   }
 
-  this.clickBranchBox = async function () {
-    await GUILib.clickTab(null, BranchBox, BranchLink)
+  //--------------------------------------------------------------------------------//
+
+  this.clickTamCoLink = async function () {
+    await GUILib.clickObject(OurBrandsDD)
+    await GUILib.clickLink(TamCo, TamCoLink)
   }
 
-  this.clickBusinessCardsBox = async function () {
-    await GUILib.clickTab(null, BusinessCardsBox, BusinessCardsLink)
+  this.clickHome = async function () {
+    await GUILib.clickTab(null, Home, HomeLink)
   }
 
-  this.clickContactUsBox = async function () {
-    await GUILib.clickTab(null, ContactUsBox, ContactUsLink)
+  this.clickAboutUs = async function () {
+    await GUILib.clickTab(null, AboutUs, AboutUsLink)
   }
 
-  this.clickApparelBox = async function () {
-    await GUILib.clickTab(null, ApparelBox, ApparelLink)
+  this.clickAllProducts = async function () {
+    await GUILib.clickTab(null, AllProducts, AllProductsLink)
   }
 
-  this.clickUniformsBox = async function () {
-    await GUILib.clickTab(null, UniformsBox, UniformsLink)
+  this.clickSpecSheets = async function () {
+    await GUILib.clickTab(null, SpecSheets, SpecSheetsLink)
   }
 
-  this.clickVehicleSignageBox = async function () {
-    await GUILib.clickTab(null, VehicleSignageBox, VehicleSignageLink)
+  this.clickWhereToBuy = async function () {
+    await GUILib.clickLink(WhereToBuy, WhereToBuyLink)
   }
 
-  this.clickVehicleSignageBox = async function () {
-    await GUILib.clickTab(null, VehicleSignageBox, VehicleSignageLink)
+  this.clickNewArticles = async function () {
+    await GUILib.clickTab(null, NewArticles, NewArticlesLink)
   }
 
-  this.clickCounterBox = async function () {
-    await GUILib.clickTab(null, CounterBox, CounterLink)
+  this.clickContactUs = async function () {
+    await GUILib.clickTab(null, ContactUs, ContactUsLink)
   }
 
-  this.clickCompanySignageBox = async function () {
-    await GUILib.clickTab(null, CompanySignageBox, CompanySignageLink)
+  //--------------------------------------------------------------------------------//
+
+  this.clickLedLamps = async function () {
+    await GUILib.clickTab(null, LedLamps, LedLampsLink)
   }
 
-  this.clickHotSellers = async function () {
-    var Arr = [];
-    var y = 4
-    var z = 0;
-
-    await GUILib.waitforElement(Slider)
-    await GUILib.scrollToElement(Slider);
-    await element.all(HotSellersHeaderSpan).count().then(async function (count) {
-      await console.log(count)
-      for (var n = 0; n < (count - 3); n++) {
-        if (z < 2) {
-          await console.log(n)
-          await console.log(y)
-          var HotSellersHeader = await by.xpath("//li[" + y + "]/div[@class='grid-view-item product-card pb-0 pl-3 pr-3 pt-4   ']/a")
-          await GUILib.scrollToElement(HotSellersHeader)
-          await element(HotSellersHeader).getText().then(async function (text) {
-            if (text == 'Cap - Baseball Red') {
-              await z++
-            }
-            await y++;
-            var Item = by.xpath("//*[@data-slick-index=" + n + "]/div/a")
-            var done = false
-            while (done == false) {
-              try {
-                await element(Item).click();
-                await browser.sleep(600)
-                var done = true
-              } catch (e) {
-                await GUILib.clickObject(Next)
-                await browser.sleep(600)
-              }
-            }
-            await element.all(Image).count().then(async function (noimage) {
-              await console.log("noimage " + noimage)
-              await browser.getCurrentUrl().then(async function (url) {
-                if (noimage == 0) {
-                  if (Arr.indexOf(text) === -1) {
-                    await Arr.push(text);
-                  }
-                }
-                await browser.get('https://city-electric-supply-marketing.myshopify.com')
-                await browser.wait(EC.visibilityOf(element(Logo)), 35000)
-              })
-            })
-          })
-        }
-      }
-
-      await console.log("===Products with no-image: " + Arr)
-      expect(Arr.length).toBe(0)
-    })
+  this.clickLedTubes = async function () {
+    await GUILib.clickTab(null, LedTubes, LedTubesLink)
   }
+
+  this.clickFluorescentTubes = async function () {
+    await GUILib.clickTab(null, FluorescentTubes, FluorescentTubesLink)
+  }
+
+  this.clickCompactFluorescent = async function () {
+    await GUILib.clickTab(null, CompactFluorescent, CompactFluorescentLink)
+  }
+
+  this.clickIncandescent = async function () {
+    await GUILib.clickTab(null, Incandescent, IncandescentLink)
+  }
+
+  this.clickHalogen = async function () {
+    await GUILib.clickTab(null, Halogen, HalogenLink)
+  }
+
+  this.clickHidLamps = async function () {
+    await GUILib.clickTab(null, HidLamps, HidLampsLink)
+  }
+
+  this.clickBallastAcc = async function () {
+    await GUILib.clickTab(null, BallastAcc, BallastAccLink)
+  }
+
+  //--------------------------------------------------------------------------------//
+
+  this.clickTel = async function () {
+    await CF.checkPhone(Tel)
+  }
+
+  //--------------------------------------------------------------------------------//
+
+  this.clickFooterLedLamps = async function () {
+    await GUILib.clickTab(null, FooterLedLamps, LedLampsLink)
+  }
+
+  this.clickFooterLedTubes = async function () {
+    await GUILib.clickTab(null, FooterLedTubes, LedTubesLink)
+  }
+
+  this.clickFooterFluorescentTubes = async function () {
+    await GUILib.clickTab(null, FooterFluorescentTubes, FluorescentTubesLink)
+  }
+
+  this.clickFooterCompactFluorescent = async function () {
+    await GUILib.clickTab(null, FooterCompactFluorescent, CompactFluorescentLink)
+  }
+
+  this.clickFooterIncandescent = async function () {
+    await GUILib.clickTab(null, FooterIncandescent, IncandescentLink)
+  }
+
+  this.clickFooterHalogen = async function () {
+    await GUILib.clickTab(null, FooterHalogen, HalogenLink)
+  }
+
+  this.clickFooterHidLamps = async function () {
+    await GUILib.clickTab(null, FooterHidLamps, HidLampsLink)
+  }
+
+  this.clickFooterBallastAcc = async function () {
+    await GUILib.clickTab(null, FooterBallastAcc, BallastAccLink)
+  }
+
+  //--------------------------------------------------------------------------------//
+
+  this.clickFooterHome = async function () {
+    await GUILib.clickTab(null, FooterHome, HomeLink)
+  }
+
+  this.clickFooterAboutUs = async function () {
+    await GUILib.clickTab(null, FooterAboutUs, AboutUsLink)
+  }
+
+  this.clickFooterAllProducts = async function () {
+    await GUILib.clickTab(null,  FooterAllProducts, AllProductsLink)
+  }
+
+  this.clickFooterSpecSheets = async function () {
+    await GUILib.clickTab(null, FooterSpecSheets, SpecSheetsLink)
+  }
+
+  this.clickFooterWhereToBuy = async function () {
+    await GUILib.clickLink(FooterWhereToBuy, WhereToBuyLink)
+  }
+
+  this.clickFooterNewArticles = async function () {
+    await GUILib.clickTab(null,  FooterNewArticles, NewArticlesLink)
+  }
+
+  this.clickFooterContactUs = async function () {
+    await GUILib.clickTab(null,  FooterContactUs, ContactUsLink)
+  }
+
+  //--------------------------------------------------------------------------------//
+
+  this.clickFacebook = async function () {
+    await GUILib.clickLink(Facebook, FacebookLink)
+  }
+
+  this.clickLinkedin = async function () {
+    await GUILib.clickLink(Linkedin, LinkedinLink)
+  }
+
+  //--------------------------------------------------------------------------------//
+
+  this.clickFooterTamcoGroupLink = async function () {
+    await GUILib.scrollToElement(FooterTamcoGroupLink)
+    await GUILib.clickLink(FooterTamcoGroupLink, TamCoLink)
+  }
+
+  this.clickFooterTermsConditions = async function () {
+    await GUILib.scrollToElement(FooterTermsConditions)
+    await GUILib.clickTab(null, FooterTermsConditions, FooterTermsConditionsLink)
+  }
+
+  this.clickFooterPrivacyPolicy = async function () {
+    await GUILib.scrollToElement(FooterPrivacyPolicy)
+    await GUILib.clickTab(null, FooterPrivacyPolicy, FooterPrivacyPolicyLink)
+  }
+
+  this.clickFooterEightyThreeCreative = async function () {
+    await GUILib.scrollToElement(FooterEightyThreeCreative)
+    await GUILib.clickLink(FooterEightyThreeCreative, FooterEightyThreeCreativeLink)
+  }
+
+
+
+
+  
+  
 
 
 
