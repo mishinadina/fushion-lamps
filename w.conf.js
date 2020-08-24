@@ -8,7 +8,8 @@ var fs = require('fs');
 var basePath = __dirname;
 var path = require('path');
 
-var specArray = ['Testcase/Progression/HomePage.js']
+var specArray = ['Testcase/Progression/HomePage.js','Testcase/Progression/SpecSheets.js']
+//var specArray = ['Testcase/Progression/SpecSheets.js']
 
 
 exports.config = {
@@ -47,6 +48,7 @@ exports.config = {
 		'browserstack.local': 'false',
 		'browserstack.console': 'errors',
 		'browserstack.networkLogs': 'false',
+		"browserstack.idleTimeout": 400,
 		browserName: 'Chrome',
 		chromeOptions: {
 			//'args': ['incognito']

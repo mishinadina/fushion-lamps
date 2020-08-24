@@ -8,8 +8,8 @@ var basePath = __dirname;
 var path = require('path');
 var downloadsPath = path.resolve(__dirname, './Downloads');
 
-
-var specArray = ['Testcase/Progression/HomePage.js']
+var specArray = ['Testcase/Progression/HomePage.js','Testcase/Progression/SpecSheets.js']
+//var specArray = ['Testcase/Progression/SpecSheets.js']
 
 
 exports.config = {
@@ -45,6 +45,7 @@ exports.config = {
 		'browserstack.console': 'errors',
 		'browserstack.networkLogs': 'false',
 		'browserstack.use_w3c': 'true',
+		"browserstack.idleTimeout": 400,
 		browserName: 'Chrome',
 		chromeOptions: {
 			//'args': ['incognito']
@@ -63,18 +64,18 @@ exports.config = {
 
 
 	multiCapabilities: [
-		{
-			project: 'Fusion Lamps',
-			build: 'Fusion_Lamps_Test',
-			name: 'Chrome_OS_test',
-			browserName: 'chrome',
-			'browserstack.console': 'errors',
-			'browserstack.networkLogs': 'false',
-			'browserstack.debug': 'true',
-			'browser_version': '78.0',
-			'browserstack.local': 'false',
-			'browserstack.selenium_version': '3.5.2',
-		},
+		// {
+		// 	project: 'Fusion Lamps',
+		// 	build: 'Fusion_Lamps_Test',
+		// 	name: 'Chrome_OS_test',
+		// 	browserName: 'chrome',
+		// 	'browserstack.console': 'errors',
+		// 	'browserstack.networkLogs': 'false',
+		// 	'browserstack.debug': 'true',
+		// 	'browser_version': '78.0',
+		// 	'browserstack.local': 'false',
+		// 	'browserstack.selenium_version': '3.5.2',
+		// },
 		{	project: 'Fusion Lamps',
 			build: 'Fusion_Lamps_Test',
 			name: 'Firefox_OS_test',
