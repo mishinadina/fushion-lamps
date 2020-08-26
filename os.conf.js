@@ -45,7 +45,7 @@ exports.config = {
 		'browserstack.console': 'errors',
 		'browserstack.networkLogs': 'false',
 		'browserstack.use_w3c': 'true',
-		"browserstack.idleTimeout": 400,
+		"browserstack.idleTimeout": 900,
 		browserName: 'Chrome',
 		chromeOptions: {
 			//'args': ['incognito']
@@ -64,18 +64,18 @@ exports.config = {
 
 
 	multiCapabilities: [
-		// {
-		// 	project: 'Fusion Lamps',
-		// 	build: 'Fusion_Lamps_Test',
-		// 	name: 'Chrome_OS_test',
-		// 	browserName: 'chrome',
-		// 	'browserstack.console': 'errors',
-		// 	'browserstack.networkLogs': 'false',
-		// 	'browserstack.debug': 'true',
-		// 	'browser_version': '78.0',
-		// 	'browserstack.local': 'false',
-		// 	'browserstack.selenium_version': '3.5.2',
-		// },
+		{
+			project: 'Fusion Lamps',
+			build: 'Fusion_Lamps_Test',
+			name: 'Chrome_OS_test',
+			browserName: 'chrome',
+			'browserstack.console': 'errors',
+			'browserstack.networkLogs': 'false',
+			'browserstack.debug': 'true',
+			'browser_version': '78.0',
+			'browserstack.local': 'false',
+			'browserstack.selenium_version': '3.5.2',
+		},
 		{	project: 'Fusion Lamps',
 			build: 'Fusion_Lamps_Test',
 			name: 'Firefox_OS_test',
