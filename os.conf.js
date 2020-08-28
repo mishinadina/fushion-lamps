@@ -8,7 +8,7 @@ var basePath = __dirname;
 var path = require('path');
 var downloadsPath = path.resolve(__dirname, './Downloads');
 
-var specArray = ['Testcase/Progression/HomePage.js','Testcase/Progression/SpecSheets.js']
+var specArray = ['Testcase/Progression/HomePage.js','Testcase/Progression/SpecSheets.js','Testcase/Progression/AllProducts.js' ]
 //var specArray = ['Testcase/Progression/SpecSheets.js']
 
 
@@ -20,10 +20,10 @@ exports.config = {
 
 	specs: specArray,
 
-	allScriptsTimeout: 300000,
-	getPageTimeout: 70000,
+	allScriptsTimeout: 1200000000,
+	getPageTimeout: 1200000000,
 	jasmineNodeOpts: {
-		defaultTimeoutInterval: 12000000,
+		defaultTimeoutInterval: 1200000000,
 		showColors: true // Use colors in the command line report.
 	},
 
@@ -45,7 +45,7 @@ exports.config = {
 		'browserstack.console': 'errors',
 		'browserstack.networkLogs': 'false',
 		'browserstack.use_w3c': 'true',
-		"browserstack.idleTimeout": 900,
+		"browserstack.idleTimeout": 1200000000,
 		browserName: 'Chrome',
 		chromeOptions: {
 			//'args': ['incognito']

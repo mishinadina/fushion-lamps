@@ -18,8 +18,6 @@ var SpecSheets_Form = function () {
     this.clickAllSpecSheets = async function (y) {
         var Arr = [];
         var z = 1;
-        var start 
-        var end;
         await element.all(SpecSheet).count().then(async function (count) {
             if (y == 1) {
                 var start = 0
