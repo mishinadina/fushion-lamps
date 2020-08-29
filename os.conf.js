@@ -8,8 +8,8 @@ var basePath = __dirname;
 var path = require('path');
 var downloadsPath = path.resolve(__dirname, './Downloads');
 
-//var specArray = ['Testcase/Progression/HomePage.js','Testcase/Progression/SpecSheets.js','Testcase/Progression/AllProducts.js' ]
-var specArray = ['Testcase/Progression/SpecSheets.js']
+var specArray = ['Testcase/Progression/HomePage.js','Testcase/Progression/SpecSheets.js','Testcase/Progression/AllProducts.js' ]
+//var specArray = ['Testcase/Progression/SpecSheets.js']
 
 
 exports.config = {
@@ -23,7 +23,7 @@ exports.config = {
 	allScriptsTimeout: 3400000,
 	getPageTimeout: 3500000,
 	jasmineNodeOpts: {
-		defaultTimeoutInterval: 3600000,
+		defaultTimeoutInterval: 360000000,
 		showColors: true // Use colors in the command line report.
 	},
 

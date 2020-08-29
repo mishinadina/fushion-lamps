@@ -35,7 +35,7 @@ var SpecSheets_Form = function () {
                 await GUILib.waitforElement(SortByCategory)
                 await element.all(SpecSheet).then(async function (AllSpecSheet) {
                     var ItemElement = await AllSpecSheet[n].getWebElement();
-                    var SpecSheetScroll = by.xpath("//*[@id='grid']/div[" + n + "]")
+                    var SpecSheetScroll = by.xpath("//*[@id='grid']/div[" + (1+n) + "]")
                     await console.log("Scrolling to element... " + SpecSheetScroll)
                     var elmnt = element(SpecSheetScroll);
                     await browser.executeScript("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'end' });", elmnt).then(async function () {         
