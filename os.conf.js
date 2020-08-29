@@ -8,8 +8,8 @@ var basePath = __dirname;
 var path = require('path');
 var downloadsPath = path.resolve(__dirname, './Downloads');
 
-var specArray = ['Testcase/Progression/HomePage.js','Testcase/Progression/SpecSheets.js','Testcase/Progression/AllProducts.js' ]
-//var specArray = ['Testcase/Progression/SpecSheets.js']
+//var specArray = ['Testcase/Progression/HomePage.js','Testcase/Progression/SpecSheets.js','Testcase/Progression/AllProducts.js' ]
+var specArray = ['Testcase/Progression/SpecSheets.js']
 
 
 exports.config = {
@@ -20,10 +20,10 @@ exports.config = {
 
 	specs: specArray,
 
-	allScriptsTimeout: 1200000000,
-	getPageTimeout: 1200000000,
+	allScriptsTimeout: 3400000,
+	getPageTimeout: 3500000,
 	jasmineNodeOpts: {
-		defaultTimeoutInterval: 1200000000,
+		defaultTimeoutInterval: 3600000,
 		showColors: true // Use colors in the command line report.
 	},
 
@@ -37,15 +37,13 @@ exports.config = {
 		build: 'Fusion_Lamps_Test',
 		'browserstack.debug': 'true',
 		name: 'Chrome_OS_test',
-		os: 'OS X',
-		os_version: 'Mojave',
 		resolution: '1920x1080',
 		'browserstack.use_w3c': 'true',
 		'browserstack.local': 'false',
 		'browserstack.console': 'errors',
 		'browserstack.networkLogs': 'false',
 		'browserstack.use_w3c': 'true',
-		"browserstack.idleTimeout": 1200000000,
+		"browserstack.idleTimeout": 300,
 		browserName: 'Chrome',
 		chromeOptions: {
 			//'args': ['incognito']
@@ -74,6 +72,7 @@ exports.config = {
 			'browserstack.debug': 'true',
 			'browser_version': '78.0',
 			'browserstack.local': 'false',
+		 'realMobile': 'false',
 			'browserstack.selenium_version': '3.5.2',
 		},
 		{	project: 'Fusion Lamps',
@@ -83,9 +82,10 @@ exports.config = {
 			'browserstack.console': 'errors',
 			'browserstack.networkLogs': 'false',
 			'browserstack.debug': 'true',
-			'browser_version': '69.0',
+			'browser_version': '79.0',
 			'browserstack.local': 'false',
-			'browserstack.selenium_version': '3.12.0',
+		 'realMobile': 'false',
+			'browserstack.selenium_version': '3.10.0',
 			'moz:firefoxOptions': {
 				prefs: {
 					'browser.download.folderList': 2,
@@ -106,21 +106,23 @@ exports.config = {
 				},
 			},
 		}
-
-		,{
+		, {
 			project: 'Fusion Lamps',
 			build: 'Fusion_Lamps_Test',
 			name: 'Safari_OS_test',
 			browserName: 'Safari',
-			'browserstack.safari.enablePopups' : 'true',
+			os: 'OS X',
+			os_version: 'Mojave',
+			'browserstack.safari.enablePopups': 'true',
 			'browserstack.console': 'errors',
 			'browserstack.networkLogs': 'true',
 			'browserstack.debug': 'true',
 			'browser_version': '12.1',
 			'browserstack.local': 'false',
-			'browserstack.selenium_version': '3.141.0',
+			'realMobile': 'false',
+			'browserstack.selenium_version': '3.14.0',
 		},
-],
+	],
 
 
 	beforeLaunch: async function () {

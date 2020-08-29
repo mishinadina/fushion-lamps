@@ -48,7 +48,7 @@ exports.config = {
 		'browserstack.local': 'false',
 		'browserstack.console': 'errors',
 		'browserstack.networkLogs': 'false',
-		"browserstack.idleTimeout": 400,
+		"browserstack.idleTimeout": 300,
 		browserName: 'Chrome',
 		chromeOptions: {
 			//'args': ['incognito']

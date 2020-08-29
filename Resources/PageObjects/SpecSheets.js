@@ -15,7 +15,7 @@ var SpecSheets_Form = function () {
 
     //-----------------------------------Functions-----------------------------------//
 
-    this.clickAllSpecSheets = async function (y) {
+    this.   clickAllSpecSheets = async function (y) {
         var Arr = [];
         var z = 1;
         await element.all(SpecSheet).count().then(async function (count) {
@@ -35,18 +35,20 @@ var SpecSheets_Form = function () {
                 await GUILib.waitforElement(SortByCategory)
                 await element.all(SpecSheet).then(async function (AllSpecSheet) {
                     var ItemElement = await AllSpecSheet[n].getWebElement();
-                    var SpecSheetScroll = by.xpath("//*[@id='grid']/div[" + z + "]")
-                    await console.log("z" + z)
-                    await z++;
+                    var SpecSheetScroll = by.xpath("//*[@id='grid']/div[" + n + "]")
+                    await console.log("Scrolling to element... " + SpecSheetScroll)
                     var elmnt = element(SpecSheetScroll);
-                    await browser.executeScript("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'end' });", elmnt).then(async function () {
-                        await browser.wait(EC.visibilityOf(elmnt), 30000);
+                    await browser.executeScript("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'end' });", elmnt).then(async function () {         
                         await console.log("Scrolled to element");
                     })
-                    await ItemElement.click()
+                    await browser.wait(EC.visibilityOf(elmnt), 30000);
+                    await ItemElement.click().then(async function () {
+                        await console.log("ItemElement was clicked")
+                    })
                     await browser.sleep(2000);
                     let windowHandles = browser.getAllWindowHandles();
                     var allWindowHandlers = await browser.getAllWindowHandles();
+                    await console.log("allWindowHandlers.length" + allWindowHandlers.length)
                     if (allWindowHandlers.length > 1) {
                         let parentHandle, childHandle;
                         await windowHandles.then(async function (handles) {
