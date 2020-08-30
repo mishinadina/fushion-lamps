@@ -17,10 +17,12 @@ var AllProducts = function () {
 
     var LastPage = by.xpath('//*[@id="productMain"]/div/div[2]/div[3]/a[3]')
 
+
     //-----------------------------------Functions-----------------------------------//
 
 
     this.clickAllPages = async function () {
+        await GUILib.waitforElement(LastPage)
         await GUILib.getText(LastPage).then(async function (count) {
             await console.log(count) 
                 for (var n = 1; n < count; n++) {   

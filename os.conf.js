@@ -8,8 +8,9 @@ var basePath = __dirname;
 var path = require('path');
 var downloadsPath = path.resolve(__dirname, './Downloads');
 
-var specArray = ['Testcase/Progression/HomePage.js','Testcase/Progression/SpecSheets.js','Testcase/Progression/AllProducts.js' ]
+var specArray = ['Testcase/Progression/HomePage.js', 'Testcase/Progression/SpecSheets.js', 'Testcase/Progression/AllProducts.js']
 //var specArray = ['Testcase/Progression/SpecSheets.js']
+//var specArray = ['Testcase/Progression/AllProducts.js']
 
 
 exports.config = {
@@ -38,6 +39,8 @@ exports.config = {
 		'browserstack.debug': 'true',
 		name: 'Chrome_OS_test',
 		resolution: '1920x1080',
+		os: 'OS X',
+		os_version: 'Mojave',
 		'browserstack.use_w3c': 'true',
 		'browserstack.local': 'false',
 		'browserstack.console': 'errors',
@@ -72,10 +75,11 @@ exports.config = {
 			'browserstack.debug': 'true',
 			'browser_version': '78.0',
 			'browserstack.local': 'false',
-		 'realMobile': 'false',
+			'realMobile': 'false',
 			'browserstack.selenium_version': '3.5.2',
 		},
-		{	project: 'Fusion Lamps',
+		{
+			project: 'Fusion Lamps',
 			build: 'Fusion_Lamps_Test',
 			name: 'Firefox_OS_test',
 			browserName: 'Firefox',
@@ -84,7 +88,7 @@ exports.config = {
 			'browserstack.debug': 'true',
 			'browser_version': '79.0',
 			'browserstack.local': 'false',
-		 'realMobile': 'false',
+			'realMobile': 'false',
 			'browserstack.selenium_version': '3.10.0',
 			'moz:firefoxOptions': {
 				prefs: {
@@ -111,8 +115,6 @@ exports.config = {
 			build: 'Fusion_Lamps_Test',
 			name: 'Safari_OS_test',
 			browserName: 'Safari',
-			os: 'OS X',
-			os_version: 'Mojave',
 			'browserstack.safari.enablePopups': 'true',
 			'browserstack.console': 'errors',
 			'browserstack.networkLogs': 'true',
