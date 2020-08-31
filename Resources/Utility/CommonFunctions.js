@@ -111,11 +111,12 @@ var CommonFunctions = function () {
         })
     }
 
-    this.clickAllProducts = async function () {
+    this.clickAllProducts = async function (y) {
         var Arr = [];
         var Arr1 = [];
         var Arr2 = [];
         var z = 1;
+
         await element.all(Product).count().then(async function (count) {
             await console.log(count)
             for (var n = 0; n < count; n++) {

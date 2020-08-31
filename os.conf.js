@@ -86,9 +86,9 @@ exports.config = {
 			'browserstack.console': 'errors',
 			'browserstack.networkLogs': 'false',
 			'browserstack.debug': 'true',
-			'browser_version': '79.0',
+			'browser_version': 'latest',
 			'browserstack.local': 'false',
-			'realMobile': 'false',
+			'browserstack.networkLogs': 'true',
 			'browserstack.selenium_version': '3.10.0',
 			'moz:firefoxOptions': {
 				prefs: {
@@ -121,7 +121,6 @@ exports.config = {
 			'browserstack.debug': 'true',
 			'browser_version': '12.1',
 			'browserstack.local': 'false',
-			'realMobile': 'false',
 			'browserstack.selenium_version': '3.14.0',
 		},
 	],

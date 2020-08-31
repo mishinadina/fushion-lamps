@@ -21,7 +21,7 @@ var AllProducts = function () {
     //-----------------------------------Functions-----------------------------------//
 
 
-    this.clickAllPages = async function () {
+    this.clickAllPages = async function (y) {
         await GUILib.waitforElement(LastPage)
         await GUILib.getText(LastPage).then(async function (count) {
             await console.log(count) 
@@ -31,7 +31,7 @@ var AllProducts = function () {
                     await GUILib.scrollToElement(Page)
                     await GUILib.clickObject(Page)
                     await console.log("Page " + n + " is clicked")     
-                    await CF.clickAllProducts();           
+                    await CF.clickAllProducts(y);           
                 }
         })
     }

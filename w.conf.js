@@ -87,9 +87,9 @@ exports.config = {
 			'browserstack.console': 'errors',
 			'browserstack.networkLogs': 'false',
 			'browserstack.debug': 'true',
-			'browser_version': '70.0',
+			'browser_version': 'latest',
 			'browserstack.local': 'false',
-			'browserstack.selenium_version': '3.13.0',
+			'browserstack.selenium_version': '3.10.0',
 			'moz:firefoxOptions': {
 				prefs: {
 					'browser.download.folderList': 2,

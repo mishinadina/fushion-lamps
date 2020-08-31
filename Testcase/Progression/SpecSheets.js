@@ -23,9 +23,9 @@ describe('Clicking on Spec Sheets', function () {
 
 	//--------------------------------------------------------------------------------------//
 
-	it('Check All Spec Sheets - Part 1', async function () {
-		await SpecSheets.clickAllSpecSheets(1);
-	});
+	// it('Check All Spec Sheets - Part 1', async function () {
+	// 	await SpecSheets.clickAllSpecSheets(1);
+	// });
 
 	it('Check All Spec Sheets - Part 2', async function () {
 		await SpecSheets.clickAllSpecSheets(2);
