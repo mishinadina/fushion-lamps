@@ -8,7 +8,8 @@ var downloadsPath = path.resolve(__dirname, './Downloads');
 
 //var specArray = ['Testcase/Progression/HomePage.js']
 //var specArray = ['Testcase/Progression/SpecSheets.js']
-var specArray = ['Testcase/Progression/AllProducts.js']
+//var specArray = ['Testcase/Progression/AllProducts.js']
+var specArray = ['Testcase/Progression/Account.js']
 
 
 exports.config = {

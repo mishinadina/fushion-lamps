@@ -171,6 +171,15 @@ var CommonFunctions = function () {
         expect(Arr2.length).toBe(0)
     }
 
+    this.clickMyAccountTabs = async function (Locator) {
+        await element(by.xpath(Locator)).click().then(async function () {
+            LocatorHeader = Locator.replace('a', 'h1')
+            await element(by.xpath(LocatorHeader)).isDisplayed().then(async function (result) {
+                expect(result).toBe(true);
+            })
+        })
+    }
+
 
 
 

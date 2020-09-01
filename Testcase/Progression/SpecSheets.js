@@ -15,22 +15,22 @@ describe('Clicking on Spec Sheets', function () {
 
 	beforeEach(async function () {
 		await GUILib.goToURL_nonAngular(browser.params.URL);
-        await Home_Page.waitLogo();
-        await Home_Page.clickSpecSheets();
+		await Home_Page.waitLogo();
+		await Home_Page.clickSpecSheets();
 
 
 	});
 
 	//--------------------------------------------------------------------------------------//
 
-	// it('Check All Spec Sheets - Part 1', async function () {
-	// 	await SpecSheets.clickAllSpecSheets(1);
-	// });
+	it('Check All Spec Sheets - Part 1', async function () {
+		await SpecSheets.clickAllSpecSheets(1);
+	});
 
 	it('Check All Spec Sheets - Part 2', async function () {
 		await SpecSheets.clickAllSpecSheets(2);
 	});
 
 
-    
+
 })

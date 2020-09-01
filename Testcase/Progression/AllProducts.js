@@ -1,6 +1,6 @@
 var GUILibrary = require('../../Resources/Utility/GUILibrary_await.js');
 var Home_Page = require('../../Resources/PageObjects/HomePage.js');
-var Test = require('../../Resources/PageObjects/AllProducts.js');
+var AllProducts = require('../../Resources/PageObjects/AllProducts.js');
 
 
 var EC = protractor.ExpectedConditions;
@@ -24,7 +24,7 @@ describe('Clicking on All Products', function () {
 	//--------------------------------------------------------------------------------------//
 
 	it('Check All Products - Part 1', async function () {
-		await Test.clickAllPages();
+		await AllProducts.clickAllPages();
 	});
 
 

@@ -8,7 +8,7 @@ var basePath = __dirname;
 var path = require('path');
 var downloadsPath = path.resolve(__dirname, './Downloads');
 
-var specArray = ['Testcase/Progression/HomePage.js', 'Testcase/Progression/SpecSheets.js', 'Testcase/Progression/AllProducts.js']
+var specArray = ['Testcase/Progression/HomePage.js', 'Testcase/Progression/SpecSheets.js', 'Testcase/Progression/AllProducts.js', 'Testcase/Progression/Account.js']
 //var specArray = ['Testcase/Progression/SpecSheets.js']
 //var specArray = ['Testcase/Progression/AllProducts.js']
 

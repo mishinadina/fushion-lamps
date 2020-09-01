@@ -171,7 +171,8 @@ var GUILibrary = function () {
 
 	this.typeValue = async function (byObject, textToWrite) {
 		await element(byObject).click().then(async function () {
-			element(byObject).sendKeys(textToWrite);
+			await element(byObject).clear();
+			await element(byObject).sendKeys(textToWrite);
 			await console.log(textToWrite + " was typed in " + byObject)
 		})
 
@@ -240,6 +241,12 @@ var GUILibrary = function () {
 	this.waitUrlChanges = async function () {
 		await browser.getCurrentUrl().then(async function (url) {
 			await browser.wait(EC.not(EC.urlContains(url),30000))
+		});
+	};
+
+	this.waitUrl= async function () {
+		await browser.getCurrentUrl().then(async function (url) {
+			await browser.wait(EC.urlContains(url),60000)
 		});
 	};
 
