@@ -23,7 +23,7 @@ describe('Clicking on All Products', function () {
 
 	//--------------------------------------------------------------------------------------//
 
-	it('Check All Products - Part 1', async function () {
+	it('Check All Products', async function () {
 		await AllProducts.clickAllPages();
 	});
 

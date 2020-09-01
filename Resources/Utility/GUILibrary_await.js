@@ -68,18 +68,12 @@ var GUILibrary = function () {
 		});
 	};
 
-	this.clickObject = async function (byObject, desc, index) {
+	this.clickObject = async function (byObject) {
 		try {
 			await browser.wait(EC.elementToBeClickable(element(byObject)), 15000);
-			await element(byObject).click().then(function () {
-				if (desc != null) {
-					console.log("Clicked on element- " + desc);
-				}
-				else {
-					console.log("Clicked on element- " + byObject);
-				}
+			await element(byObject).click().then(async function () {
+				console.log("Clicked on element- " + byObject);
 			})
-
 		} catch (e) {
 			await console.log("Could not click on " + byObject);
 
@@ -118,55 +112,55 @@ var GUILibrary = function () {
 
 	this.clickLink = async function (Link, ExtURL) {
 		await console.log(Link)
-        await browser.wait(EC.elementToBeClickable(element(Link)), 30000);
-        await element(Link).click().then(async function () {
-            await browser.sleep(2000);
-            let windowHandles = browser.getAllWindowHandles();
-            let parentHandle, childHandle;
-            await windowHandles.then(async function (handles) {
-                parentHandle = await handles[0];
-                childHandle = await handles[1];
+		await browser.wait(EC.elementToBeClickable(element(Link)), 30000);
+		await element(Link).click().then(async function () {
+			await browser.sleep(2000);
+			let windowHandles = browser.getAllWindowHandles();
+			let parentHandle, childHandle;
+			await windowHandles.then(async function (handles) {
+				parentHandle = await handles[0];
+				childHandle = await handles[1];
 
-                await browser.switchTo().window(childHandle).then(async function () {
-                    await browser.wait(EC.urlContains('com'), 10000);
-                    await browser.getCurrentUrl().then(async function (url) {
-                        await console.log("Child window:- " + url);
-                        if (url.includes(ExtURL)) {
-                            await console.log('New tab is opened in the child window');
-                            await expect(url).toContain(ExtURL);
-                            await browser.close();
-                            await browser.switchTo().window(parentHandle);
-                        } else {
-                            await browser.switchTo().window(parentHandle).then(async function () {
-                                await browser.sleep(2000);
-                                await browser.getCurrentUrl().then(async function (url) {
-                                    await console.log("Parent window:- " + url);
-                                    await console.log('New tab is opened in the parent window');
-                                    await expect(url).toContain(ExtURL);
-                                    await browser.close();
-                                    await browser.switchTo().window(childHandle);
-                                })
-                            })
-                        }
-                        var allWindowHandlers = await browser.getAllWindowHandles();
-                        if (allWindowHandlers.length > 1) {
-                            console.log("There are several open windows");
-                            for (let windowHandlerIndex = 1; windowHandlerIndex < allWindowHandlers.length; windowHandlerIndex++) {
-                                console.log("Closing open window");
-                                const windowHandler = allWindowHandlers[windowHandlerIndex];
-                                await browser.switchTo().window(windowHandler);
-                                await browser.close();
-                            }
-                        }
-                        else {
-                            console.log("Only one window is opened");
-                        }
-                        await browser.switchTo().window(allWindowHandlers[0]);
-                    })
-                })
-            })
-        })
-    }
+				await browser.switchTo().window(childHandle).then(async function () {
+					await browser.wait(EC.urlContains('com'), 10000);
+					await browser.getCurrentUrl().then(async function (url) {
+						await console.log("Child window:- " + url);
+						if (url.includes(ExtURL)) {
+							await console.log('New tab is opened in the child window');
+							await expect(url).toContain(ExtURL);
+							await browser.close();
+							await browser.switchTo().window(parentHandle);
+						} else {
+							await browser.switchTo().window(parentHandle).then(async function () {
+								await browser.sleep(2000);
+								await browser.getCurrentUrl().then(async function (url) {
+									await console.log("Parent window:- " + url);
+									await console.log('New tab is opened in the parent window');
+									await expect(url).toContain(ExtURL);
+									await browser.close();
+									await browser.switchTo().window(childHandle);
+								})
+							})
+						}
+						var allWindowHandlers = await browser.getAllWindowHandles();
+						if (allWindowHandlers.length > 1) {
+							console.log("There are several open windows");
+							for (let windowHandlerIndex = 1; windowHandlerIndex < allWindowHandlers.length; windowHandlerIndex++) {
+								console.log("Closing open window");
+								const windowHandler = allWindowHandlers[windowHandlerIndex];
+								await browser.switchTo().window(windowHandler);
+								await browser.close();
+							}
+						}
+						else {
+							console.log("Only one window is opened");
+						}
+						await browser.switchTo().window(allWindowHandlers[0]);
+					})
+				})
+			})
+		})
+	}
 
 
 	this.typeValue = async function (byObject, textToWrite) {
@@ -238,16 +232,19 @@ var GUILibrary = function () {
 		});
 	};
 
-	this.waitUrlChanges = async function () {
+	this.clickLinkWait = async function (byObject) {
 		await browser.getCurrentUrl().then(async function (url) {
-			await browser.wait(EC.not(EC.urlContains(url),30000))
+			await console.log(url)
+			await browser.wait(EC.elementToBeClickable(element(byObject)), 15000);
+			await element(byObject).click().then(async function () {
+				console.log("Clicked on element- " + byObject);
+				await browser.wait(EC.not(EC.urlIs(url), 30000))
+			})
 		});
 	};
 
-	this.waitUrl= async function () {
-		await browser.getCurrentUrl().then(async function (url) {
-			await browser.wait(EC.urlContains(url),60000)
-		});
+	this.waitUrl = async function (link) {
+		await browser.wait(EC.urlContains(link), 60000)
 	};
 
 
@@ -275,8 +272,8 @@ var GUILibrary = function () {
 
 	/*
 	this.getForm = function(byObject){
-        return element(byObject).getText().then(function (text) {
-		    console.log(text);
+		return element(byObject).getText().then(function (text) {
+			console.log(text);
 		});
 	};
 	*/
@@ -356,8 +353,8 @@ var GUILibrary = function () {
 	this.scrollToElement = async function (byObject) {
 		var elmnt = element(byObject);
 		await browser.executeScript("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'end' });", elmnt).then(async function () {
-		await console.log("Scrolled to element");
-		await browser.sleep(500);
+			await console.log("Scrolled to element");
+			await browser.sleep(500);
 		})
 		await browser.wait(EC.visibilityOf(element(byObject)), 30000);
 	};

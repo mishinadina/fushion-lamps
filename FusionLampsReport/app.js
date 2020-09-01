@@ -271,11 +271,11 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
 
     var results = [
     {
-        "description": "Click on \"Sign Out\" tab|Account Module",
+        "description": "Saving Template to \"Your Templates\" list|Functional Scenarios",
         "passed": true,
         "pending": false,
         "os": "mac",
-        "instanceId": 13859,
+        "instanceId": 64276,
         "browser": {
             "name": "firefox",
             "version": "80.0"
@@ -283,72 +283,8 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
         "message": "Passed.",
         "trace": "",
         "browserLogs": [],
-        "timestamp": 1598912075208,
-        "duration": 4678
-    },
-    {
-        "description": "Click on \"My Account\" tab|Account Module",
-        "passed": true,
-        "pending": false,
-        "os": "mac",
-        "instanceId": 13859,
-        "browser": {
-            "name": "firefox",
-            "version": "80.0"
-        },
-        "message": "Passed.",
-        "trace": "",
-        "browserLogs": [],
-        "timestamp": 1598912079908,
-        "duration": 2192
-    },
-    {
-        "description": "Click on \"My Orders\" tab|Account Module",
-        "passed": true,
-        "pending": false,
-        "os": "mac",
-        "instanceId": 13859,
-        "browser": {
-            "name": "firefox",
-            "version": "80.0"
-        },
-        "message": "Passed.",
-        "trace": "",
-        "browserLogs": [],
-        "timestamp": 1598912082102,
-        "duration": 2316
-    },
-    {
-        "description": "Click on \"Saved Items\" tab|Account Module",
-        "passed": true,
-        "pending": false,
-        "os": "mac",
-        "instanceId": 13859,
-        "browser": {
-            "name": "firefox",
-            "version": "80.0"
-        },
-        "message": "Passed.",
-        "trace": "",
-        "browserLogs": [],
-        "timestamp": 1598912084420,
-        "duration": 2214
-    },
-    {
-        "description": "Click on \"My Templates\" tab|Account Module",
-        "passed": true,
-        "pending": false,
-        "os": "mac",
-        "instanceId": 13859,
-        "browser": {
-            "name": "firefox",
-            "version": "80.0"
-        },
-        "message": "Passed.",
-        "trace": "",
-        "browserLogs": [],
-        "timestamp": 1598912086636,
-        "duration": 2000
+        "timestamp": 1598998329144,
+        "duration": 15964
     }
 ];
 

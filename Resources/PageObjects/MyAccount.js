@@ -22,6 +22,8 @@ var MyAccount = function () {
     var SignOut = by.xpath("//a[text()='Sign Out']")
     var PleaseLogIn = by.xpath("//p[text()='Please log in to view account details']")
 
+    var SavedProducts = by.xpath("//p[text()='No Products Saved']")
+
     var MyAccount = "//a[text()='My Account']"
     var MyOrders = "//a[text()='My Orders']"
     var SavedItems = "//a[text()='Saved Items']"
@@ -100,6 +102,12 @@ var MyAccount = function () {
 
     this.clickMyTemplates = async function () {
         await CF.clickMyAccountTabs(MyTemplates);
+    }
+
+    this.expectSavedProducts = async function () {
+        await element(SavedProducts).isDisplayed().then(async function (result) {
+            expect(result).toBe(false);
+        })
     }
 
     
