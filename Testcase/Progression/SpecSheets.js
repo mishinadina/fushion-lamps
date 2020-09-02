@@ -24,11 +24,15 @@ describe('Clicking on Spec Sheets', function () {
 	//--------------------------------------------------------------------------------------//
 
 	it('Check All Spec Sheets - Part 1', async function () {
+		if (browser.browserName == 'chrome') {
 		await SpecSheets.clickAllSpecSheets(1);
+		}
 	});
 
 	it('Check All Spec Sheets - Part 2', async function () {
+		if (browser.browserName == 'chrome') {
 		await SpecSheets.clickAllSpecSheets(2);
+		}
 	});
 
 

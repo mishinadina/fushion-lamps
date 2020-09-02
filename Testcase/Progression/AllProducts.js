@@ -15,8 +15,8 @@ describe('Clicking on All Products', function () {
 
 	beforeEach(async function () {
 		await GUILib.goToURL_nonAngular(browser.params.URL);
-        await Home_Page.waitLogo();
-        await Home_Page.clickAllProducts();
+		await Home_Page.waitLogo();
+		await Home_Page.clickAllProducts();
 
 
 	});
@@ -24,11 +24,14 @@ describe('Clicking on All Products', function () {
 	//--------------------------------------------------------------------------------------//
 
 	it('Check All Products', async function () {
-		await AllProducts.clickAllPages();
+		if (browser.browserName == 'chrome') {
+			await AllProducts.clickAllPages();
+		}
 	});
 
 
 
 
-    
+
+
 })

@@ -92,7 +92,7 @@ var HomePage_Form = function () {
   var AboutUsLink = "fusion-lamps.com/about-us"
   var AllProductsLink = "fusion-lamps.com/products"
   var SpecSheetsLink = "fusion-lamps.com/spec-sheets"
-  var WhereToBuyLink = "cityelectricsupply.com/PayBill/login"
+  var WhereToBuyLink = "cityelectricsupply"
   var NewArticlesLink = "fusion-lamps.com/resources/news-articles"
   var ContactUsLink = "fusion-lamps.com/contact-us"
 
