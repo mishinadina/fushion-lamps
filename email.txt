@@ -1,1 +1,16 @@
- <br><p><b>BUILD STATUS : <font color="blue">ABORTED</b></font></p>
+<p><b>BUILD STATUS : <font color="red">FAILURE</b></font></p>Time of build: Thu Sep 03 2020 14:40:56 GMT-0500 (Central Daylight Time)<br> <table border="1" cellpadding="5">
+<tbody>
+<tr>
+<td> PASSED: </td>
+<td>1</td>
+</tr>
+<tr>
+<td> FAILED: </td>
+<td>2</td>
+</tr>
+<tr>
+<td> PENDING: </td>
+<td>0</td>
+</tr>
+</tbody>
+</table>

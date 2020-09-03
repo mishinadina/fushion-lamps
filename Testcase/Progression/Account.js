@@ -60,10 +60,6 @@ describe('Account Module', function () {
     it('Click on "My Templates" tab', async function () {
 		await Account.clickMyTemplates();
     });
-    
-    it('Click on "My Templates" tab', async function () {
-		await Account.clickMyTemplates();
-	});
 
 
 

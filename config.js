@@ -10,7 +10,8 @@ var downloadsPath = path.resolve(__dirname, './Downloads');
 //var specArray = ['Testcase/Progression/SpecSheets.js']
 //var specArray = ['Testcase/Progression/AllProducts.js']
 //var specArray = ['Testcase/Progression/Account.js']
-var specArray = ['Testcase/Progression/Functional.js']
+//var specArray = ['Testcase/Progression/Functional.js']
+var specArray = ['Testcase/Progression/Search.js']
 
 
 exports.config = {
