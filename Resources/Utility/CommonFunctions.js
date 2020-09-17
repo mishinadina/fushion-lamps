@@ -13,7 +13,8 @@ var CommonFunctions = function () {
     var SortByCategory = by.xpath("//*[@id='productMain']//h4[text()='Sort By']")
     var Image = by.xpath("//div[@id='product__image']//a[contains(href, png)]")
     var Desc = by.xpath("//div[@id='product__details']//h2")
-    var Error404 = by.xpath("//h1[text()='404 Not Found']")
+    var Error404 = by.xpath("//h1[contains(text(),'404')]")
+    var Sorry = by.xpath("//p[contains(text(), 'Sorry')]")
     var Logo = by.xpath('//*[@id="logo"]/div[2]/a/img')
 
 
@@ -74,7 +75,7 @@ var CommonFunctions = function () {
         })
     }
 
-    
+
 
 
     this.hoverImageclickBtn = async function (Image, Btn) {
@@ -93,19 +94,19 @@ var CommonFunctions = function () {
                 await browser.sleep(1000)
                 var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
                 var charactersLength = characters.length;
-                for ( var i = 0; i < 10; i++ ) {
+                for (var i = 0; i < 10; i++) {
                     result += characters.charAt(Math.floor(Math.random() * charactersLength));
-                 }
+                }
                 await console.log(result)
-                    await GUILib.typeValue(ChangeField, result).then(async function () {
-                        await browser.sleep(1000)
-                        await GUILib.clickObject(UpdateBtn).then(async function () {
-                            await GUILib.waitforElement(ResultField)
-                            await GUILib.getText(ResultField).then(async function (textActual) {
-                                expect(textActual).toContain(result)
-                            })
+                await GUILib.typeValue(ChangeField, result).then(async function () {
+                    await browser.sleep(1000)
+                    await GUILib.clickObject(UpdateBtn).then(async function () {
+                        await GUILib.waitforElement(ResultField)
+                        await GUILib.getText(ResultField).then(async function (textActual) {
+                            expect(textActual).toContain(result)
                         })
                     })
+                })
             })
             await browser.sleep(1000)
         })
@@ -125,7 +126,7 @@ var CommonFunctions = function () {
                 await element.all(Product).then(async function (AllProduct) {
                     //var ItemElement = await AllProduct[n].getWebElement();
                     var ProductScroll = by.xpath("//*[@id='grid']/div[" + z + "]/div/a")
-                    await console.log("z" + z)   
+                    await console.log("z" + z)
                     var elmnt = element(ProductScroll);
                     await browser.executeScript("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'end' });", elmnt).then(async function () {
                         await browser.wait(EC.visibilityOf(elmnt), 30000);
@@ -156,7 +157,7 @@ var CommonFunctions = function () {
                         })
                         await browser.navigate().back();
                         await browser.getCurrentUrl().then(async function (url) {
-                            await browser.wait(EC.urlContains("fusion-lamps.com/products"),30000)
+                            await browser.wait(EC.urlContains("fusion-lamps.com/products"), 30000)
                         });
                     })
                 })
@@ -176,6 +177,89 @@ var CommonFunctions = function () {
             LocatorHeader = Locator.replace('a', 'h1')
             await element(by.xpath(LocatorHeader)).isDisplayed().then(async function (result) {
                 expect(result).toBe(true);
+            })
+        })
+    }
+
+    this.check404 = async function () {
+        await element(Error404).isPresent().then(async function (result) {
+            await console.log('Is there 404 Error? ' + result);
+            await expect(result).toBe(false);
+            if (result == true) {
+                await browser.getCurrentUrl().then(async function (url) {
+                    await console.log('URL WITH 404 ERROR' + url);
+                })
+            }
+        })
+    }
+
+    this.checkSorry = async function () {
+        await element(Sorry).isPresent().then(async function (result) {
+            await console.log('Is there "Sorry, but the page you requested cannot be found." ' + result);
+            await expect(result).toBe(false);
+            if (result == true) {
+                await browser.getCurrentUrl().then(async function (url) {
+                    await console.log('URL WITH "SORRY ..." ALERT' + url);
+                })
+            }
+        })
+    }
+
+
+
+    this.clickLink404 = async function (Link, ExtURL) {
+        await console.log(Link)
+        await browser.wait(EC.elementToBeClickable(element(Link)), 30000);
+        await element(Link).click().then(async function () {
+            await browser.sleep(2000);
+            let windowHandles = browser.getAllWindowHandles();
+            let parentHandle, childHandle;
+            await windowHandles.then(async function (handles) {
+                parentHandle = await handles[0];
+                childHandle = await handles[1];
+
+                await browser.switchTo().window(childHandle).then(async function () {
+                    await browser.wait(EC.urlContains('com'), 10000);
+                    await browser.getCurrentUrl().then(async function (url) {
+                        await console.log("Child window:- " + url);
+                        if (url.includes(ExtURL)) {
+                            await console.log('New tab is opened in the child window');
+                            await element(Error404).isPresent().then(async function (result) {
+                                await console.log('Is there 404 Error? ' + result);
+                                await expect(result).toBe(false);
+                            })
+                            await browser.close();
+                            await browser.switchTo().window(parentHandle);
+                        } else {
+                            await browser.switchTo().window(parentHandle).then(async function () {
+                                await browser.sleep(2000);
+                                await browser.getCurrentUrl().then(async function (url) {
+                                    await console.log("Parent window:- " + url);
+                                    await console.log('New tab is opened in the parent window');
+                                    await element(Error404).isPresent().then(async function (result) {
+                                        await expect(result).toBe(false);
+                                    })
+                                    await browser.close();
+                                    await browser.switchTo().window(childHandle);
+                                })
+                            })
+                        }
+                        var allWindowHandlers = await browser.getAllWindowHandles();
+                        if (allWindowHandlers.length > 1) {
+                            console.log("There are several open windows");
+                            for (let windowHandlerIndex = 1; windowHandlerIndex < allWindowHandlers.length; windowHandlerIndex++) {
+                                console.log("Closing open window");
+                                const windowHandler = allWindowHandlers[windowHandlerIndex];
+                                await browser.switchTo().window(windowHandler);
+                                await browser.close();
+                            }
+                        }
+                        else {
+                            console.log("Only one window is opened");
+                        }
+                        await browser.switchTo().window(allWindowHandlers[0]);
+                    })
+                })
             })
         })
     }

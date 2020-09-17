@@ -13,6 +13,10 @@ var SpecSheets_Form = function () {
     var Link = 'wp-content'
     var Error404 = by.xpath("//h1[text()='404 Not Found']")
 
+    var FilterField = by.xpath("//input[@class='textfield filter__search js-shuffle-search']")
+    var ProductName = "LED"
+    var ProductElement = by.xpath("//h3[@class='item__title']")
+
     //-----------------------------------Functions-----------------------------------//
 
     this.clickAllSpecSheets = async function (y) {
@@ -107,6 +111,33 @@ var SpecSheets_Form = function () {
 
         await console.log("===Products with 404: " + Arr)
         expect(Arr.length).toBe(0)
+    }
+
+    this.verifyFilterSpecSheetsByName = async function () {
+        var Arr = [];
+        var Arr1 = []
+
+        await element.all(ProductElement).count().then(async function (count) {
+            await console.log(count)
+            for (var n = 1; n <= count; n++) {
+                elementText = by.xpath('//*[@id="grid"]/div[' + n + ']/div/a/h3')
+                await GUILib.getText(elementText).then(async function (text) {
+                    await Arr.push(text)
+                })
+            }
+            await GUILib.typeValue(FilterField, ProductName)
+            await browser.sleep(2000)
+            await element.all(ProductElement).count().then(async function (count1) {
+                await console.log(count1)
+                for (var n = 1; n <= count1; n++) {
+                    elementText = by.xpath('//*[@id="grid"]/div[' + n + ']/div/a/h3')
+                    await GUILib.getText(elementText).then(async function (text) {
+                        await Arr1.push(text)
+                    })
+                }
+                await expect(Arr).not.toEqual(Arr1)
+            })
+        })
     }
 
 }

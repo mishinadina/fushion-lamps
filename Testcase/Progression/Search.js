@@ -5,7 +5,7 @@ var Search = require('../../Resources/PageObjects/Search.js');
 
 var EC = protractor.ExpectedConditions;
 
-describe('Verify functionality of "Search" Module', function () {
+describe('Verify functionality of "Search" Module from Home Page', function () {
 
     var GUILib = new GUILibrary();
 
@@ -36,3 +36,4 @@ describe('Verify functionality of "Search" Module', function () {
 
 
 });
+

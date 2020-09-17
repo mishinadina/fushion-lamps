@@ -1,11 +1,11 @@
 var GUILibrary = require('../../Resources/Utility/GUILibrary_await.js');
 var Home_Page = require('../../Resources/PageObjects/HomePage.js');
-var AllProducts = require('../../Resources/PageObjects/AllProducts.js');
+var NewArticles = require('../../Resources/PageObjects/NewArticles.js');
 
 
 var EC = protractor.ExpectedConditions;
 
-describe('Clicking on All Products', function () {
+describe('New Articles Module', function () {
 
 	var GUILib = new GUILibrary();
 
@@ -15,29 +15,20 @@ describe('Clicking on All Products', function () {
 
 	beforeEach(async function () {
 		await GUILib.goToURL_nonAngular(browser.params.URL);
-		await Home_Page.waitLogo();
-		await Home_Page.clickAllProducts();
-
+        await Home_Page.waitLogo();
+        await Home_Page.clickNewArticles();
+        await GUILib.waitUrl('https://fusion-lamps.com/resources/news-articles/')
 
 	});
 
 	//--------------------------------------------------------------------------------------//
 
-	it('Check All Products', async function () {
-		if (browser.browserName == 'chrome') {
-			await AllProducts.clickAllPages();
-		}
+	it('Click on all Articles ', async function () {
+		await NewArticles.clickAllArticles();
 	});
-
-	it('Verify "Filer Products by Name" feature', async function () {
-		await AllProducts.verifyFilerProductsByName();
-	});
-
 	
 
 
 
-
-
-
+   
 })

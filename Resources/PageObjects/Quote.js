@@ -20,8 +20,11 @@ var Quote= function () {
     var SaveTemplateResults = by.xpath("//h2[text()='Your Template Has Been Created']")
     var ViewAllTemplatesBtn = by.xpath("//a[text()='View All Templates']")
     var TemplateEvidence = by.xpath("//small[text()='Use This Template for Order']")
-    
 
+    var ShopProducts = by.xpath("//a[text()='Shop Products']")
+    var ProductsUrl = 'https://fusion-lamps.com/products/'
+    var Delete = by.xpath("//a[contains(@href, 'remove')]")
+    var NoProducts = by.xpath("//p[text()='Currently no products in quote']")
 
     //-----------------------------------Functions-----------------------------------//
 
@@ -66,6 +69,20 @@ var Quote= function () {
     this.verifyYourTemplates = async function () {
         await element.all(TemplateEvidence).count().then(async function (count) {
             expect(count).toBeGreaterThan(0);
+        }) 
+    }
+
+    this.verifyShopProductsButton = async function () {
+        await GUILib.clickLinkWait(ShopProducts)
+        await browser.getCurrentUrl().then(async function (url) {
+			await expect(url).toContain(ProductsUrl)
+		})
+    }
+
+    this.verifyDeleteBtn= async function () {
+        await GUILib.clickObject(Delete)
+        await element.all(NoProducts).count().then(async function (count) {
+            expect(count).toBe(1);
         }) 
     }
 

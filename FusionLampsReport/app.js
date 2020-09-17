@@ -271,62 +271,39 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
 
     var results = [
     {
-        "description": "Verify Search by Product Name|Verify functionality of \"Search\" Module",
-        "passed": true,
-        "pending": false,
-        "os": "mac",
-        "instanceId": 29931,
-        "browser": {
-            "name": "firefox",
-            "version": "80.0"
-        },
-        "message": "Passed.",
-        "trace": "",
-        "browserLogs": [],
-        "timestamp": 1599162045879,
-        "duration": 4043
-    },
-    {
-        "description": "Verify Search by Series|Verify functionality of \"Search\" Module",
+        "description": "Click on all Articles |New Articles Module",
         "passed": false,
         "pending": false,
         "os": "mac",
-        "instanceId": 29931,
+        "instanceId": 23201,
         "browser": {
             "name": "firefox",
             "version": "80.0"
         },
         "message": [
-            "Expected 0 to be greater than 0."
+            "Expected 'https://fusion-lamps.com/' not to be 'https://fusion-lamps.com/'.",
+            "Expected 'https://fusion-lamps.com/' not to be 'https://fusion-lamps.com/'.",
+            "Expected true to be false.",
+            "Expected true to be false.",
+            "Expected 'https://fusion-lamps.com/fusion-led-u-tube/www.fusion-lamps.com' to be 'https://fusion-lamps.com/'.",
+            "Expected true to be false.",
+            "Expected true to be false.",
+            "Expected true to be false."
         ],
         "trace": [
-            "Error: Expected 0 to be greater than 0.\n    at <Jasmine>\n    at /Users/dinamcherepanova/fusion_lamps-master/Resources/PageObjects/Search.js:38:33\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
+            "Error: Expected 'https://fusion-lamps.com/' not to be 'https://fusion-lamps.com/'.\n    at <Jasmine>\n    at /Users/dinamcherepanova/fusion_lamps-master/Resources/PageObjects/NewArticles.js:134:58\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+            "Error: Expected 'https://fusion-lamps.com/' not to be 'https://fusion-lamps.com/'.\n    at <Jasmine>\n    at /Users/dinamcherepanova/fusion_lamps-master/Resources/PageObjects/NewArticles.js:134:58\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+            "Error: Expected true to be false.\n    at <Jasmine>\n    at /Users/dinamcherepanova/fusion_lamps-master/Resources/Utility/CommonFunctions.js:187:34\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+            "Error: Expected true to be false.\n    at <Jasmine>\n    at /Users/dinamcherepanova/fusion_lamps-master/Resources/Utility/CommonFunctions.js:199:34\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+            "Error: Expected 'https://fusion-lamps.com/fusion-led-u-tube/www.fusion-lamps.com' to be 'https://fusion-lamps.com/'.\n    at <Jasmine>\n    at /Users/dinamcherepanova/fusion_lamps-master/Resources/PageObjects/NewArticles.js:95:54\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+            "Error: Expected true to be false.\n    at <Jasmine>\n    at /Users/dinamcherepanova/fusion_lamps-master/Resources/Utility/CommonFunctions.js:229:54\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+            "Error: Expected true to be false.\n    at <Jasmine>\n    at /Users/dinamcherepanova/fusion_lamps-master/Resources/Utility/CommonFunctions.js:199:34\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+            "Error: Expected true to be false.\n    at <Jasmine>\n    at /Users/dinamcherepanova/fusion_lamps-master/Resources/Utility/CommonFunctions.js:199:34\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
         ],
         "browserLogs": [],
-        "screenShotFile": "images/009b0013-004f-008c-00d5-006c00830094.png",
-        "timestamp": 1599162049942,
-        "duration": 2777
-    },
-    {
-        "description": "Verify Search by Series|Verify functionality of \"Search\" Module",
-        "passed": false,
-        "pending": false,
-        "os": "mac",
-        "instanceId": 29931,
-        "browser": {
-            "name": "firefox",
-            "version": "80.0"
-        },
-        "message": [
-            "Expected 0 to be greater than 0."
-        ],
-        "trace": [
-            "Error: Expected 0 to be greater than 0.\n    at <Jasmine>\n    at /Users/dinamcherepanova/fusion_lamps-master/Resources/PageObjects/Search.js:47:33\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
-        ],
-        "browserLogs": [],
-        "screenShotFile": "images/005100e8-0018-002c-0076-00db005f006d.png",
-        "timestamp": 1599162053104,
-        "duration": 2799
+        "screenShotFile": "images/00030028-00d1-0043-0027-000700d900cc.png",
+        "timestamp": 1600119726462,
+        "duration": 102837
     }
 ];
 

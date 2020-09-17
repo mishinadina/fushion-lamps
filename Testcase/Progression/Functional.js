@@ -53,5 +53,15 @@ describe('Functional Scenarios', function () {
         await Quote.clickViewAllTemplatesBtn();
         await Quote.verifyYourTemplates();
     });
+
+	it('Verify Delete button', async function () {
+		await Home_Page.clickAccount();
+        await Account.LogInPos();
+        await Home_Page.clickAllProducts();
+        await Product.clickProduct();
+        await Product.clickAddToQuote();
+        await Product.clickViewYourQuote();
+        await Quote.verifyDeleteBtn();
+    });
       
 })
