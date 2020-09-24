@@ -29,7 +29,7 @@ describe('Verify functionality of "Search" Module from Home Page', function () {
         await Search.verifySearchBySeries();
     })
 
-    it('Verify Search by Series', async function () {
+    it('Verify Search by Description', async function () {
         await Search.verifySearchByDesc();
     })
 

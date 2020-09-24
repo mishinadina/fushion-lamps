@@ -12,7 +12,7 @@ var MyAccount = function () {
     var ForgotPassword = by.xpath("//a[text()='Forgot Password?']")
     var LogIn = by.xpath("//input[@value='Log In']")
 
-    var UserName = by.xpath('//*[@id="user_login"]')
+    var UserName = by.xpath("//li[@class='icon_user']/a[@href='https://fusion-lamps.com/my-account/']")
     var Pass = by.xpath('//*[@id="user_pass"]')
     var Email = by.xpath("//strong[text()='Email Address: ']")
     var Logo = by.xpath('//*[@id="logo"]/div[2]/a/img')

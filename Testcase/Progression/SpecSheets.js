@@ -35,7 +35,7 @@ describe('Clicking on Spec Sheets', function () {
 		}
 	});
 
-	it('Verify "Filer Spec Sheets by Name" feature', async function () {
+	it('Verify "Filter Spec Sheets by Name" feature', async function () {
 		await SpecSheets.verifyFilterSpecSheetsByName();
 	});
 

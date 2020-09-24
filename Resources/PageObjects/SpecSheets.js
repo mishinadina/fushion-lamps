@@ -14,7 +14,7 @@ var SpecSheets_Form = function () {
     var Error404 = by.xpath("//h1[text()='404 Not Found']")
 
     var FilterField = by.xpath("//input[@class='textfield filter__search js-shuffle-search']")
-    var ProductName = "LED"
+    var ProductName = "5000K"
     var ProductElement = by.xpath("//h3[@class='item__title']")
 
     //-----------------------------------Functions-----------------------------------//
@@ -25,10 +25,10 @@ var SpecSheets_Form = function () {
         await element.all(SpecSheet).count().then(async function (count) {
             if (y == 1) {
                 var start = 0
-                var end = await Math.floor(count/2);
+                var end = await Math.floor(count / 2);
             }
             if (y == 2) {
-                var start = await Math.floor(count/2);
+                var start = await Math.floor(count / 2);
                 var end = count
             }
             await console.log("start " + start)
@@ -39,10 +39,10 @@ var SpecSheets_Form = function () {
                 await GUILib.waitforElement(SortByCategory)
                 await element.all(SpecSheet).then(async function (AllSpecSheet) {
                     var ItemElement = await AllSpecSheet[n].getWebElement();
-                    var SpecSheetScroll = by.xpath("//*[@id='grid']/div[" + (1+n) + "]")
+                    var SpecSheetScroll = by.xpath("//*[@id='grid']/div[" + (1 + n) + "]")
                     await console.log("Scrolling to element... " + SpecSheetScroll)
                     var elmnt = element(SpecSheetScroll);
-                    await browser.executeScript("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'end' });", elmnt).then(async function () {         
+                    await browser.executeScript("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'end' });", elmnt).then(async function () {
                         await console.log("Scrolled to element");
                     })
                     await browser.wait(EC.visibilityOf(elmnt), 30000);
@@ -121,20 +121,27 @@ var SpecSheets_Form = function () {
             await console.log(count)
             for (var n = 1; n <= count; n++) {
                 elementText = by.xpath('//*[@id="grid"]/div[' + n + ']/div/a/h3')
-                await GUILib.getText(elementText).then(async function (text) {
-                    await Arr.push(text)
-                })
-            }
-            await GUILib.typeValue(FilterField, ProductName)
-            await browser.sleep(2000)
-            await element.all(ProductElement).count().then(async function (count1) {
-                await console.log(count1)
-                for (var n = 1; n <= count1; n++) {
-                    elementText = by.xpath('//*[@id="grid"]/div[' + n + ']/div/a/h3')
+                var result = await element(elementText).isDisplayed();
+                if (result == true) {
                     await GUILib.getText(elementText).then(async function (text) {
-                        await Arr1.push(text)
+                        await Arr.push(text)
                     })
                 }
+            }
+            await GUILib.typeValue(FilterField, ProductName)
+            await element.all(ProductElement).count().then(async function (count1) {
+
+                for (var n = 1; n <= count1; n++) {
+                    elementText = by.xpath('//*[@id="grid"]/div[' + n + ']/div/a/h3')
+                    var result = await element(elementText).isDisplayed();
+                    if (result == true) {
+                        await GUILib.getText(elementText).then(async function (text) {
+                            await Arr1.push(text)
+                        })
+                    }
+                }
+                await console.log(Arr1.length)
+
                 await expect(Arr).not.toEqual(Arr1)
             })
         })

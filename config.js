@@ -7,18 +7,18 @@ var path = require('path');
 var downloadsPath = path.resolve(__dirname, './Downloads');
 
 //var specArray = ['Testcase/Progression/HomePage.js']
-//var specArray = ['Testcase/Progression/SpecSheets.js']
+var specArray = ['Testcase/Progression/SpecSheets.js']
 //var specArray = ['Testcase/Progression/AllProducts.js']
 //var specArray = ['Testcase/Progression/Account.js']
 //var specArray = ['Testcase/Progression/Functional.js']
 //var specArray = ['Testcase/Progression/Search.js']
 //var specArray = ['Testcase/Progression/Quote.js']
-var specArray = ['Testcase/Progression/NewArticles.js']
+//var specArray = ['Testcase/Progression/NewArticles.js']
 
 
 exports.config = {
 	//chromeDriver: './chromedriver.exe',
-	directConnect: true,
+	//directConnect: true,
 	//seleniumAddress: 'http://localhost:4444/wd/hub',
 
 
@@ -42,7 +42,7 @@ exports.config = {
 
 	//restartBrowserBetweenTests: true,
 	capabilities: {
-		browserName: 'firefox',
+		browserName: 'safari',
 		//browserName: 'safari',
 		// chromeOptions: {
 		// 	//'args': ['incognito']
