@@ -110,19 +110,19 @@ exports.config = {
 				},
 			},
 		}
-		, {
-			project: 'Fusion Lamps',
-			build: 'Fusion_Lamps_Test',
-			name: 'Safari_OS_test',
-			browserName: 'Safari',
-			'browserstack.safari.enablePopups': 'true',
-			'browserstack.console': 'errors',
-			'browserstack.networkLogs': 'true',
-			'browserstack.debug': 'true',
-			'browser_version': '12.1',
-			'browserstack.local': 'false',
-			'browserstack.selenium_version': '3.14.0',
-		},
+		// , {
+		// 	project: 'Fusion Lamps',
+		// 	build: 'Fusion_Lamps_Test',
+		// 	name: 'Safari_OS_test',
+		// 	browserName: 'Safari',
+		// 	'browserstack.safari.enablePopups': 'true',
+		// 	'browserstack.console': 'errors',
+		// 	'browserstack.networkLogs': 'true',
+		// 	'browserstack.debug': 'true',
+		// 	'browser_version': '12.1',
+		// 	'browserstack.local': 'false',
+		// 	'browserstack.selenium_version': '3.14.0',
+		// },
 	],
 
 
