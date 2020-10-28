@@ -271,21 +271,38 @@ app.controller('ScreenshotReportController', ['$scope', '$http', 'TitleService',
 
     var results = [
     {
-        "description": "Verify \"Filter Spec Sheets by Name\" feature|Clicking on Spec Sheets",
-        "passed": true,
+        "description": "Click on all Articles |New Articles Module",
+        "passed": false,
         "pending": false,
-        "os": "macOS",
-        "sessionId": "08B69B8D-9BED-4014-B385-8083338A3BBC",
-        "instanceId": 75200,
+        "os": "mac",
+        "sessionId": "f2debefd-642a-8a42-8e9a-17c1fc4bd64a",
+        "instanceId": 52131,
         "browser": {
-            "name": "Safari",
-            "version": "13.1.2"
+            "name": "firefox",
+            "version": "82.0"
         },
-        "message": "Passed.",
-        "trace": "",
+        "message": [
+            "Expected 'https://fusion-lamps.com/' not to be 'https://fusion-lamps.com/'.",
+            "Expected 'https://fusion-lamps.com/' not to be 'https://fusion-lamps.com/'.",
+            "Expected true to be false.",
+            "Expected true to be false.",
+            "Expected true to be false.",
+            "Expected true to be false.",
+            "Expected true to be false."
+        ],
+        "trace": [
+            "Error: Expected 'https://fusion-lamps.com/' not to be 'https://fusion-lamps.com/'.\n    at <Jasmine>\n    at /Users/dinamcherepanova/fusion_lamps-master/Resources/PageObjects/NewArticles.js:131:58\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+            "Error: Expected 'https://fusion-lamps.com/' not to be 'https://fusion-lamps.com/'.\n    at <Jasmine>\n    at /Users/dinamcherepanova/fusion_lamps-master/Resources/PageObjects/NewArticles.js:131:58\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+            "Error: Expected true to be false.\n    at <Jasmine>\n    at /Users/dinamcherepanova/fusion_lamps-master/Resources/Utility/CommonFunctions.js:187:34\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+            "Error: Expected true to be false.\n    at <Jasmine>\n    at /Users/dinamcherepanova/fusion_lamps-master/Resources/Utility/CommonFunctions.js:199:34\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+            "Error: Expected true to be false.\n    at <Jasmine>\n    at /Users/dinamcherepanova/fusion_lamps-master/Resources/Utility/CommonFunctions.js:229:54\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+            "Error: Expected true to be false.\n    at <Jasmine>\n    at /Users/dinamcherepanova/fusion_lamps-master/Resources/Utility/CommonFunctions.js:199:34\n    at process._tickCallback (internal/process/next_tick.js:68:7)",
+            "Error: Expected true to be false.\n    at <Jasmine>\n    at /Users/dinamcherepanova/fusion_lamps-master/Resources/Utility/CommonFunctions.js:199:34\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
+        ],
         "browserLogs": [],
-        "timestamp": 1600979756056,
-        "duration": 15337
+        "screenShotFile": "images/0005004e-009e-001a-00bf-00cc00390033.png",
+        "timestamp": 1603919159856,
+        "duration": 95480
     }
 ];
 

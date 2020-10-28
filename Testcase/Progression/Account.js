@@ -41,7 +41,7 @@ describe('Account Module', function () {
     });
     
     it('Click on "Sign Out" tab', async function () {
-        await Account.LogInPos();
+    await Account.LogInPos();
 		await Account.clickSignOut();
     });
 
