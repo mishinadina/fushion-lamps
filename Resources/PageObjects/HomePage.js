@@ -23,12 +23,7 @@ var HomePage_Form = function () {
   var NewArticles = by.xpath('//*[@id="menu-item-3030"]/a')
   var ContactUs = by.xpath('//*[@id="menu-item-13"]/a')
 
-  var TamCo = by.xpath('//*[@id="brandNav"]/li[1]/a/img')
-  var F4P = by.xpath('//*[@id="brandNav"]/li[2]/a/img')
-  var Tamlite = by.xpath('//*[@id="brandNav"]/li[3]/a/img')
-  var CentureInst = by.xpath('//*[@id="brandNav"]/li[4]/a/img')
-  var MCG = by.xpath('//*[@id="brandNav"]/li[5]/a/img')
-  var RPPDev = by.xpath('//*[@id="brandNav"]/li[6]/a/img')
+ 
 
   var LedLamps = by.xpath('//*[@id="menu-item-18085"]/a')
   var LedTubes = by.xpath('//*[@id="menu-item-18086"]/a')
@@ -77,16 +72,6 @@ var HomePage_Form = function () {
   var FooterEightyThreeCreativeLink = "eightythreecreative.com"
 
   //-----------------------------------Links-----------------------------------//
-
-  var TamCoLink = "fusion-lamps.com"
-  var AccountLink = "fusion-lamps.com/my-account"
-  var CartLink = "fusion-lamps.com/view-quote"
-  var TamcoGroupLink = "tamcogroup.com"
-  var F4PLink = ""
-  var TamliteLink = "www.tamliteusa.com"
-  var CentureInstLink = ""
-  var MCGLink = ""
-  var RPPDevLink = ""
 
   var HomeLink = TamCoLink
   var AboutUsLink = "fusion-lamps.com/about-us"

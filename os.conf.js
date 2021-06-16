@@ -8,7 +8,7 @@ var basePath = __dirname;
 var path = require('path');
 var downloadsPath = path.resolve(__dirname, './Downloads');
 
-var specArray = ['Testcase/Progression/HomePage.js', 'Testcase/Progression/SpecSheets.js', 'Testcase/Progression/AllProducts.js', 'Testcase/Progression/Account.js', 'Testcase/Progression/Functional.js','Testcase/Progression/Quote.js','Testcase/Progression/Search.js','Testcase/Progression/NewArticles.js']
+var specArray = ['Testcase/Progression/HomePage.js', 'Testcase/Progression/SpecSheets.js', 'Testcase/Progression/AllProducts.js', 'Testcase/Progression/Account.js', 'Testcase/Progression/Functional.js', 'Testcase/Progression/Quote.js', 'Testcase/Progression/Search.js', 'Testcase/Progression/NewArticles.js']
 //var specArray = ['Testcase/Progression/SpecSheets.js']
 //var specArray = ['Testcase/Progression/AllProducts.js']
 
@@ -37,10 +37,7 @@ exports.config = {
 		project: 'Fusion Lamps',
 		build: 'Fusion_Lamps_Test',
 		'browserstack.debug': 'true',
-		name: 'Chrome_OS_test',
 		resolution: '1920x1080',
-		os: 'OS X',
-		os_version: 'Mojave',
 		'browserstack.use_w3c': 'true',
 		'browserstack.local': 'false',
 		'browserstack.console': 'errors',
@@ -70,6 +67,8 @@ exports.config = {
 			build: 'Fusion_Lamps_Test',
 			name: 'Chrome_OS_test',
 			browserName: 'chrome',
+			os: 'OS X',
+			os_version: 'Mojave',
 			'browserstack.console': 'errors',
 			'browserstack.networkLogs': 'false',
 			'browserstack.debug': 'true',
@@ -82,6 +81,8 @@ exports.config = {
 			project: 'Fusion Lamps',
 			build: 'Fusion_Lamps_Test',
 			name: 'Firefox_OS_test',
+			os: 'OS X',
+			os_version: 'Mojave',
 			browserName: 'Firefox',
 			'browserstack.console': 'errors',
 			'browserstack.networkLogs': 'false',
@@ -89,6 +90,53 @@ exports.config = {
 			'browser_version': 'latest',
 			'browserstack.local': 'false',
 			'browserstack.networkLogs': 'true',
+			'browserstack.selenium_version': '3.10.0',
+			'moz:firefoxOptions': {
+				prefs: {
+					'browser.download.folderList': 2,
+					'browser.download.dir': process.cwd(),
+					'services.sync.prefs.sync.browser.download.useDownloadDir': true,
+					'browser.download.useDownloadDir': true,
+					'browser.download.manager.alertOnEXEOpen': false,
+					'browser.download.manager.closeWhenDone': true,
+					'browser.download.manager.focusWhenStarting': false,
+					'browser.download.manager.showWhenStarting': false,
+					'browser.helperApps.alwaysAsk.force': false,
+					'browser.download.manager.showAlertOnComplete': false,
+					'browser.download.manager.useWindow': false,
+					'browser.helperApps.neverAsk.saveToDisk': 'application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+					'browser.helperApps.neverAsk.openFile': 'application/pdf	,application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+					'pdfjs.disabled': true,
+					'network.protocol-handler.external.tel': false,
+				},
+			},
+		},
+		{
+			project: 'Fusion Lamps',
+			build: 'Fusion_Lamps_Test',
+			name: 'Chrome_Windows_test',
+			browserName: 'chrome',
+			os: 'Windows',
+			os_version: '10',
+			'browserstack.console': 'errors',
+			'browserstack.networkLogs': 'false',
+			'browserstack.debug': 'true',
+			'browser_version': '78.0',
+			'browserstack.local': 'false',
+			'browserstack.selenium_version': '3.5.2',
+		},
+		{
+			project: 'Fusion Lamps',
+			build: 'Fusion_Lamps_Test',
+			name: 'Firefox_Windows_test',
+			browserName: 'Firefox',
+			os: 'Windows',
+			os_version: '10',
+			'browserstack.console': 'errors',
+			'browserstack.networkLogs': 'false',
+			'browserstack.debug': 'true',
+			'browser_version': 'latest',
+			'browserstack.local': 'false',
 			'browserstack.selenium_version': '3.10.0',
 			'moz:firefoxOptions': {
 				prefs: {
@@ -132,10 +180,6 @@ exports.config = {
 			console.log("clearing html report directory")
 
 		})
-
-		await fs.writeFileSync('./email.txt', ' ' + '<br>');
-		await fs.appendFileSync('./email.txt', '<p><b>BUILD STATUS : <font color="blue">ABORTED</b></font></p>');
-
 	},
 
 	onPrepare: async function () {
@@ -189,7 +233,6 @@ exports.config = {
 	},
 
 	onComplete: async function () {
-		await fs.writeFileSync('./email.txt', ' ' + '<br>');
 		var response = await fs.readFileSync('FusionLampsReport/combined.json', 'utf8')
 		var data = await ((response.split("\\\"").join("\"")).trim()).slice(1, -1);
 		data = await ((data.split("\\\\\"").join("\\\"")).trim());
@@ -212,56 +255,12 @@ exports.config = {
 			}
 		});
 
-		let Total = await (pass + fail + pending)
-		let PassStatistic = await ((pass * 100) / Total)
-		let PassStatisticFinal = await Math.round(PassStatistic);
-
-		await console.log(pass, fail, pending)
-		if (PassStatisticFinal < 80) {
-			build = "FAILURE";
-			await fs.appendFileSync('./email.txt', '<p><b>BUILD STATUS : <font color="red">' + build + '</b></font></p>')
-		} if (PassStatisticFinal == 100) {
-			build = "SUCCESS";
-			await fs.appendFileSync('./email.txt', '<p><b>BUILD STATUS : <font color="green">' + build + '</b></font></p>')
-		} if (PassStatisticFinal >= 80 && PassStatisticFinal < 100) {
-			build = "MOSTLY SUCCESSFUL";
-			await console.log(PassStatisticFinal)
-			await fs.appendFileSync('./email.txt', '<p><b>BUILD STATUS : <font color="orange">' + build + '</b></font></p>')
-			await fs.appendFileSync('./email.txt', '<p><b>BUILD IS SUCCESSFUL FOR :' + ' ' + PassStatisticFinal + '%' + '</b></font></p>')
-		}
-
 		var d = await Date(Date.now());
 		a = d.toString()
-		await fs.appendFileSync('./email.txt', ' ');
-		await fs.appendFileSync('./email.txt', 'Time of build: ' + a + '<br>');
-		await fs.appendFileSync('./email.txt', ' ');
-		await fs.appendFileSync('./email.txt', '<table border="1" cellpadding="5">' + '\n')
-		await fs.appendFileSync('./email.txt', '<tbody>' + '\n')
-		await fs.appendFileSync('./email.txt', '<tr>' + '\n')
-		await fs.appendFileSync('./email.txt', '<td> PASSED: </td>' + '\n')
-		await fs.appendFileSync('./email.txt', '<td>' + pass + '</td>' + '\n')
-		await fs.appendFileSync('./email.txt', '</tr>' + '\n')
-		await fs.appendFileSync('./email.txt', '<tr>' + '\n')
-		await fs.appendFileSync('./email.txt', '<td> FAILED: </td>' + '\n')
-		await fs.appendFileSync('./email.txt', '<td>' + fail + '</td>' + '\n')
-		await fs.appendFileSync('./email.txt', '</tr>' + '\n')
-		await fs.appendFileSync('./email.txt', '<tr>' + '\n')
-		await fs.appendFileSync('./email.txt', '<td> PENDING: </td>' + '\n')
-		await fs.appendFileSync('./email.txt', '<td>' + pending + '</td>' + '\n')
-		await fs.appendFileSync('./email.txt', '</tr>' + '\n')
-		await fs.appendFileSync('./email.txt', '</tbody>' + '\n')
-		await fs.appendFileSync('./email.txt', '</table>' + '\n')
-
-		if (fail > 10) {
-			await rimraf('./FusionLampsReport/images', async function () {
-				await fs.appendFileSync('./email.txt', '<p><font color="blue">SCREENSHOTS WERE DETACHED NOT TO EXCEED EMAIL LIMITS</p></font>');
-			})
-		}
-
 		await fs.writeFileSync('./jenkins.txt', '');
-		await fs.appendFileSync('./jenkins.txt', 'PASSED: ' + pass + '\n')
-		await fs.appendFileSync('./jenkins.txt', 'FAILED: ' + fail + '\n')
-		await fs.appendFileSync('./jenkins.txt', 'PENDING: ' + pending + '\n')
+		await fs.appendFileSync('./jenkins.txt', ':white_check_mark: ' + 'PASSED: ' + pass + '\n')
+		await fs.appendFileSync('./jenkins.txt', ':rotating_light: ' + 'FAILED: ' + fail + '\n')
+		await fs.appendFileSync('./jenkins.txt', ':clock1130: ' + 'PENDING: ' + pending + '\n')
 
 
 	},

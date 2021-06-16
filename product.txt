@@ -1,1 +1,0 @@
-by.xpath('//*[@class= "col col-3 my-3"]');

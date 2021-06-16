@@ -43,8 +43,7 @@ exports.config = {
 		build: 'Fusion_Lamps_Test',
 		'browserstack.debug': 'true',
 		name: 'Chrome_Windows_test',
-		os: 'Windows',
-		os_version: '10',
+		
 		resolution: '1920x1080',
 		'browserstack.use_w3c': 'true',
 		'browserstack.local': 'false',
