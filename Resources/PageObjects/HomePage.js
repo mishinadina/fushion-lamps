@@ -73,6 +73,13 @@ var HomePage_Form = function () {
 
   //-----------------------------------Links-----------------------------------//
 
+  var TamCoLink = "fusion-lamps.com"
+  var AccountLink = "fusion-lamps.com/my-account"
+  var CartLink = "fusion-lamps.com/view-quote"
+
+
+  var TamCo = by.xpath('//*[@id="brandNav"]/li[1]/a/img')
+
   var HomeLink = TamCoLink
   var AboutUsLink = "fusion-lamps.com/about-us"
   var AllProductsLink = "fusion-lamps.com/products"
