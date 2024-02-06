@@ -1,0 +1,35 @@
+name: Run WebDriverIO Tests
+
+on:
+  schedule:
+    - cron: '0 5 * * 1' 
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'  # Adjust as per your requirements
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Start services and run tests
+      run: ./node_modules/.bin/protractor w.conf.js
+        # Depending on your setup, you may need to start these services manually.
+        # Example:
+        # chromedriver --url-base=/wd/hub &  # This is just a placeholder, adapt as necessary
+
+    - name: Upload reports
+      if: always()  # This ensures that reports are uploaded even if tests fail
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-reports
+        path: ./FusionLampsReport/report.html
